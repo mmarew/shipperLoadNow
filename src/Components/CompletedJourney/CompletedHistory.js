@@ -1,11 +1,16 @@
-import {ScrollView, TouchableOpacity, View} from 'react-native';
+import { ScrollView, TouchableOpacity, View } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-import {requestUsingGetMethode} from '../../utils/handleRequestToServer/handleRequestToServer';
-import {useEffect, useState} from 'react';
+import { requestUsingGetMethode } from '../../utils/handleRequestToServer/handleRequestToServer';
+import { useEffect, useState } from 'react';
 import PickupAndDestinationDisplayer from '../PickUpAndDestination/PickupAndDestinationDisplayer';
-import {Checkbox, Text, TextInput} from 'react-native-paper';
-import {convertToYMDHMSFormat} from '../../utils/TimeDateHandler/TimeDateHandler';
+import {
+  ActivityIndicator,
+  Checkbox,
+  Text,
+  TextInput,
+} from 'react-native-paper';
+import { convertToYMDHMSFormat } from '../../utils/TimeDateHandler/TimeDateHandler';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 
 const HistoryScreen = () => {
@@ -39,6 +44,8 @@ const HistoryScreen = () => {
     } catch (error) {
       setIsLoading(false);
       console.log('@getCompletedJourney error', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -64,41 +71,52 @@ const HistoryScreen = () => {
         description: journey?.passenger?.originPlace,
         shippingDate: journey?.passenger?.shippingDate,
       };
-      dataList?.push({origin, destination});
+      dataList?.push({ origin, destination });
     });
     setJourneyPoints(dataList);
   }, [listOfJourney]);
 
   const handleDatePickerVisibility = range => {
     if (range === 'fromDate') {
-      setDateRange(prev => ({...prev, showFromDate: true, showToDate: false}));
+      setDateRange(prev => ({
+        ...prev,
+        showFromDate: true,
+        showToDate: false,
+      }));
     } else {
-      setDateRange(prev => ({...prev, showFromDate: false, showToDate: true}));
+      setDateRange(prev => ({
+        ...prev,
+        showFromDate: false,
+        showToDate: true,
+      }));
     }
   };
+  if (isLoading) return <ActivityIndicator />;
 
   return (
     <ScrollView>
-      <View style={{padding: 15}}>
+      <View style={{ padding: 15 }}>
         <View
           style={{
             flexDirection: 'row',
             alignItems: 'center',
             marginVertical: 10,
-          }}>
+          }}
+        >
           <View
             style={{
               flexDirection: 'row',
               alignItems: 'center',
               marginRight: 20,
-            }}>
+            }}
+          >
             <Checkbox
               status={fetchDataByRange === 'latsTen' ? 'checked' : 'unchecked'}
               onPress={() => setfetchDataByRange('latsTen')}
             />
             <Text>last ten days data</Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Checkbox
               status={
                 fetchDataByRange === 'dateRange' ? 'checked' : 'unchecked'
@@ -110,7 +128,7 @@ const HistoryScreen = () => {
         </View>
 
         {fetchDataByRange === 'dateRange' && (
-          <View style={{gap: 20}}>
+          <View style={{ gap: 20 }}>
             {dateRange?.showFromDate && (
               <DateTimePicker
                 onChange={(_, date) => {
@@ -153,7 +171,8 @@ const HistoryScreen = () => {
             )}
 
             <TouchableOpacity
-              onPress={() => handleDatePickerVisibility('fromDate')}>
+              onPress={() => handleDatePickerVisibility('fromDate')}
+            >
               <TextInput
                 value={convertToYMDHMSFormat(dateRange.fromDate)}
                 editable={false}
@@ -161,7 +180,8 @@ const HistoryScreen = () => {
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => handleDatePickerVisibility('toDate')}>
+              onPress={() => handleDatePickerVisibility('toDate')}
+            >
               <TextInput
                 value={convertToYMDHMSFormat(dateRange.toDate)}
                 editable={false}
@@ -170,7 +190,8 @@ const HistoryScreen = () => {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={getCompletedJourney}
-              style={[GlobalStyles.button]}>
+              style={[GlobalStyles.button]}
+            >
               <Text style={[GlobalStyles.buttonText]}>Select</Text>
             </TouchableOpacity>
           </View>

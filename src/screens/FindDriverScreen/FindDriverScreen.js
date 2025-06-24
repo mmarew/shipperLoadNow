@@ -170,7 +170,8 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
             style={{
               paddingHorizontal: 20,
               ...GlobalStyles.bodyBasicBgColor,
-              paddingTop: 30,
+              paddingBottom: 30,
+              paddingTop: passengerStatus ? 30 : 0,
               borderTopStartRadius: 30,
               borderTopEndRadius: 30,
             }}
@@ -208,7 +209,7 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
             {!passengerStatus && (
               <TouchableOpacity
                 onPress={createNewPassengerRequest}
-                style={GlobalStyles.button}
+                style={{ ...GlobalStyles.button, marginBottom: 50 }}
               >
                 <Text style={GlobalStyles.buttonText}>confirm selection</Text>
               </TouchableOpacity>

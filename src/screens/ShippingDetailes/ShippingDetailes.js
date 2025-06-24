@@ -1,24 +1,18 @@
-import React, {useEffect, useState} from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  KeyboardAvoidingView,
-  Platform,
-} from 'react-native';
-import {TextInput} from 'react-native-paper';
+import React, { useEffect, useState } from 'react';
+import { View, TouchableOpacity, ScrollView } from 'react-native';
+import { Text, TextInput } from 'react-native-paper';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './ShippingDetailes.style';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
-import {updateShipableItem} from '../../Redux/slices/PassengerSlice';
+import { updateShipableItem } from '../../Redux/slices/PassengerSlice';
 import BackArrow from '../../Components/BackArrow/BackArrow';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-export default function ShippingDetailes({navigation, setShowComponent}) {
+export default function ShippingDetailes({ navigation, setShowComponent }) {
   const dispatch = useDispatch();
-  const {shippableItem} = useSelector(state => state.passengerSlices);
+  const { shippableItem } = useSelector(state => state.passengerSlices);
   const [showDatePicker, setShowDatePicker] = useState({
     shippingDate: false,
     deliveryDate: false,
@@ -108,9 +102,11 @@ export default function ShippingDetailes({navigation, setShowComponent}) {
   };
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      style={{flex: 1}}>
+    <KeyboardAwareScrollView
+      extraScrollHeight={150}
+      enableOnAndroid={true}
+      contentContainerStyle={styles.scrollContainer}
+    >
       <ScrollView keyboardShouldPersistTaps="handled">
         <View style={styles.container}>
           <View style={styles.headerWrapper}>
@@ -138,7 +134,7 @@ export default function ShippingDetailes({navigation, setShowComponent}) {
               />
             </TouchableOpacity>
             {errors.shippingDate && (
-              <Text style={{color: 'red'}}>{errors.shippingDate}</Text>
+              <Text style={{ color: 'red' }}>{errors.shippingDate}</Text>
             )}
 
             {/* Destination Date */}
@@ -157,7 +153,7 @@ export default function ShippingDetailes({navigation, setShowComponent}) {
               />
             </TouchableOpacity>
             {errors.deliveryDate && (
-              <Text style={{color: 'red'}}>{errors.deliveryDate}</Text>
+              <Text style={{ color: 'red' }}>{errors.deliveryDate}</Text>
             )}
 
             {/* DateTime Pickers */}
@@ -173,7 +169,7 @@ export default function ShippingDetailes({navigation, setShowComponent}) {
                 onChange={(event, date) => {
                   if (date) {
                     dispatch(
-                      updateShipableItem({shippingDate: date.toISOString()}),
+                      updateShipableItem({ shippingDate: date.toISOString() }),
                     ); // Ensure proper state update
                     setShowDatePicker({
                       shippingDate: false,
@@ -200,9 +196,9 @@ export default function ShippingDetailes({navigation, setShowComponent}) {
                   });
                   if (date) {
                     dispatch(
-                      updateShipableItem({deliveryDate: date.toISOString()}),
+                      updateShipableItem({ deliveryDate: date.toISOString() }),
                     );
-                    setErrors(prev => ({...prev, deliveryDate: ''}));
+                    setErrors(prev => ({ ...prev, deliveryDate: '' }));
                   }
                 }}
               />
@@ -214,12 +210,12 @@ export default function ShippingDetailes({navigation, setShowComponent}) {
               style={styles.inputStyles}
               value={shippableItem?.shippableItemName || ''}
               onChangeText={text =>
-                dispatch(updateShipableItem({shippableItemName: text.trim()}))
+                dispatch(updateShipableItem({ shippableItemName: text.trim() }))
               }
               label="Item Name *"
             />
             {errors.itemName && (
-              <Text style={{color: 'red'}}>{errors?.itemName}</Text>
+              <Text style={{ color: 'red' }}>{errors?.itemName}</Text>
             )}
             {/* qty */}
             <TextInput
@@ -228,7 +224,8 @@ export default function ShippingDetailes({navigation, setShowComponent}) {
               keyboardType="numeric"
               value={shippableItem?.shippableItemQtyInQuintal?.toString() ?? ''}
               onChangeText={text => {
-                if (text === '' || isNaN(text)) {
+                console.log('@text text', text);
+                if (isNaN(text)) {
                   setErrors(prev => ({
                     ...prev,
                     quantity: 'Valid quantity is required.',
@@ -240,13 +237,13 @@ export default function ShippingDetailes({navigation, setShowComponent}) {
                         text === '' ? '' : Number(text),
                     }),
                   );
-                  setErrors(prev => ({...prev, quantity: ''}));
+                  setErrors(prev => ({ ...prev, quantity: '' }));
                 }
               }}
               label="Quantity in Quintal *"
             />
             {errors.quantity && (
-              <Text style={{color: 'red'}}>{errors.quantity}</Text>
+              <Text style={{ color: 'red' }}>{errors.quantity}</Text>
             )}
             {/* Shipping Cost */}
             <TextInput
@@ -259,13 +256,13 @@ export default function ShippingDetailes({navigation, setShowComponent}) {
                     shippingCost: text === '' ? '' : Number(text),
                   }),
                 );
-                setErrors(prev => ({...prev, shippingCost: ''}));
+                setErrors(prev => ({ ...prev, shippingCost: '' }));
               }}
               keyboardType="numeric"
               label="Shipping Cost in ETB *"
             />
             {errors.shippingCost && (
-              <Text style={{color: 'red'}}>{errors.shippingCost}</Text>
+              <Text style={{ color: 'red' }}>{errors.shippingCost}</Text>
             )}
 
             {/* Submit Button */}
@@ -279,7 +276,8 @@ export default function ShippingDetailes({navigation, setShowComponent}) {
                     // handleSubmit();
                     setShowComponent('List Of Vehicles');
                   }}
-                  style={GlobalStyles.button}>
+                  style={GlobalStyles.button}
+                >
                   <Text style={GlobalStyles.buttonText}>
                     {'Select Vehicle Types'}
                   </Text>
@@ -288,6 +286,6 @@ export default function ShippingDetailes({navigation, setShowComponent}) {
           </View>
         </View>
       </ScrollView>
-    </KeyboardAvoidingView>
+    </KeyboardAwareScrollView>
   );
 }
