@@ -19,3 +19,18 @@ buildscript {
 }
 
 apply plugin: "com.facebook.react.rootproject"
+
+// ✅ Add this block below (still inside android/build.gradle)
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    configurations.all {
+        resolutionStrategy {
+            // 👇 This is the important part to fix the FusedLocationProviderClient issue
+            force 'com.google.android.gms:play-services-location:21.3.0'
+        }
+    }
+}
