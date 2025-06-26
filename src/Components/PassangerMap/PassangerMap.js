@@ -14,7 +14,10 @@ import {
 } from '../Constants/constant.utils';
 import { osrmUrl } from '../Constants/constant.url';
 import { requestUsingGetMethode } from '../../utils/handleRequestToServer/handleRequestToServer';
-import { updateJourneyRoutePoints } from '../../Redux/slices/PassengerSlice';
+import {
+  setRegion,
+  updateJourneyRoutePoints,
+} from '../../Redux/slices/PassengerSlice';
 import store from '../../Redux/Store/Store';
 
 const PassangerMap = ({ mapHeight, navigation }) => {
@@ -28,13 +31,9 @@ const PassangerMap = ({ mapHeight, navigation }) => {
     driver,
     journey,
     journeyRoutePoints,
+    region,
   } = passengerSlices;
-  const [region, setRegion] = useState({
-    latitude: 9.0082186,
-    longitude: 38.8679954,
-    latitudeDelta: LATITUDE_DELTA,
-    longitudeDelta: LONGITUDE_DELTA,
-  });
+
   const [isMapReady, setIsMapReady] = useState(false);
   const driverInfo = driver?.[0]?.driver;
 

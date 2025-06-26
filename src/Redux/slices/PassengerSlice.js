@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { defaultRegion } from '../../Components/Constants/constant.utils';
 
 const name = 'webSocket';
 
 const initialState = {
+  region: defaultRegion,
   listofJourneyStatus: undefined,
   shippableItem: {
     shippableItemName: undefined,
@@ -66,6 +68,7 @@ const reducers = {
     'isWSConnected',
     'isHTTPConnected',
   ]),
+  setRegion: createSimpleSetter('region'),
   updateListofJourneyStatus: createSimpleSetter('listofJourneyStatus'),
   addPassengersToken: createSimpleSetter('passengersToken'),
   updateJourneyRoutePoints: createSimpleSetter('journeyRoutePoints'),
@@ -140,6 +143,7 @@ export const {
   setFare,
   updateConnectionStatus,
   updateJourneyRoutePoints,
+  setRegion,
 } = webSocketSlice.actions;
 
 export default webSocketSlice.reducer;

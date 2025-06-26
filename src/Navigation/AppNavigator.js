@@ -938,7 +938,8 @@ const AppNavigator = () => {
       <Drawer.Screen
         name="Home"
         component={HomeScreen}
-        options={{ drawerLabel: 'Home', title: 'Home' }}
+        options={{ drawerLabel: 'Home', title: 'Home', unmountOnBlur: false }}
+        //  options={{ unmountOnBlur: false }}
       />
       <Drawer.Screen
         name="Trip History"
@@ -1003,6 +1004,7 @@ const AppNavigator = () => {
       >
         {passengersToken ? (
           <Drawer.Navigator
+            drawerType="slide"
             initialRouteName={initialRoute}
             drawerContent={props => (
               <CustomDrawerContent
