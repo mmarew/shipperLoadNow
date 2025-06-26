@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import {Text} from 'react-native-paper';
+import React, { useEffect } from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Text } from 'react-native-paper';
 import RNRestart from 'react-native-restart';
 
-const Reload = () => {
+const Reload = ({ navigation }) => {
   const reloadApp = () => {
     RNRestart?.restart();
   };

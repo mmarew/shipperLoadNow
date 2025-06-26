@@ -20,7 +20,7 @@ const Journey = ({ navigation, setShowComponent }) => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <PassangerMap mapHeight={0.6} />
+        <PassangerMap mapHeight={0.6} navigation={navigation} />
         <View style={{ padding: 20 }}>
           {(passengerStatus == listofJourneyStatus?.acceptedByDriver ||
             passengerStatus == listofJourneyStatus?.acceptedByPassenger ||

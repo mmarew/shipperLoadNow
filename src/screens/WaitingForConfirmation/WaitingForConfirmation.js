@@ -1,12 +1,12 @@
-import {TouchableOpacity, View} from 'react-native';
-import React, {useState} from 'react';
-import {useSelector} from 'react-redux';
-import {ActivityIndicator, Text} from 'react-native-paper';
+import { TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { ActivityIndicator, Text } from 'react-native-paper';
 import styles from './WaitingForConfirmation.style';
-import {ScrollView} from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native-gesture-handler';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import DiverCard from '../../Components/DriverInfo/DiverCard';
-import {requestUsingPutMethod} from '../../utils/handleRequestToServer/handleRequestToServer';
+import { requestUsingPutMethod } from '../../utils/handleRequestToServer/handleRequestToServer';
 import API_URLS from '../../Configs/URLConfigs';
 import HandleResponses from '../../utils/handleServerResponses/HandleResponses';
 
@@ -22,7 +22,7 @@ const WaitingForConfirmation = () => {
       decision => decision?.driverRequestId == driverRequestId,
     );
   };
-  const acceptDriverRequest = async ({driverInfo, driverDecision}) => {
+  const acceptDriverRequest = async ({ driverInfo, driverDecision }) => {
     try {
       const driverRequestUniqueId = driverInfo?.driver?.driverRequestUniqueId;
       const journeyDecisionUniqueId = driverDecision?.journeyDecisionUniqueId;
@@ -56,7 +56,14 @@ const WaitingForConfirmation = () => {
             );
             const shippingCostByDriver = driverDecision?.shippingCostByDriver;
             return (
-              <View key={index} style={{backgroundColor: 'white', padding: 10}}>
+              <View
+                key={index}
+                style={{
+                  backgroundColor: 'white',
+                  paddingHorizontal: 10,
+                  borderRadius: 20,
+                }}
+              >
                 <DiverCard driverInfo={driver} />
                 {shippingCostByDriver && (
                   <Text style={styles.shipingCost}>
@@ -71,7 +78,13 @@ const WaitingForConfirmation = () => {
                   <ActivityIndicator />
                 ) : (
                   <View
-                    style={{display: 'flex', flexDirection: 'row', gap: 10}}>
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      gap: 10,
+                      padding: 20,
+                    }}
+                  >
                     <TouchableOpacity
                       onPress={() =>
                         acceptDriverRequest({
@@ -79,8 +92,9 @@ const WaitingForConfirmation = () => {
                           driverDecision,
                         })
                       }
-                      style={{...GlobalStyles.button}}>
-                      <Text style={{...GlobalStyles.buttonText}}>Accept</Text>
+                      style={{ ...GlobalStyles.button }}
+                    >
+                      <Text style={{ ...GlobalStyles.buttonText }}>Accept</Text>
                     </TouchableOpacity>
                   </View>
                 )}

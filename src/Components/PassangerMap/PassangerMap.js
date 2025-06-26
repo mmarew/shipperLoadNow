@@ -4,7 +4,7 @@ import MapView, { Marker } from 'react-native-maps';
 import { useSelector } from 'react-redux';
 import polyline from '@mapbox/polyline';
 
-import styles, { customMapStyle } from './PassangersMap.style';
+import styles from './PassangersMap.style';
 import RenderOSMDirections from '../../screens/FindDriverScreen/RenderOSMDirections';
 import {
   height,
@@ -16,9 +16,8 @@ import { osrmUrl } from '../Constants/constant.url';
 import { requestUsingGetMethode } from '../../utils/handleRequestToServer/handleRequestToServer';
 import { updateJourneyRoutePoints } from '../../Redux/slices/PassengerSlice';
 import store from '../../Redux/Store/Store';
-import { Text } from 'react-native-paper';
 
-const PassangerMap = ({ mapHeight }) => {
+const PassangerMap = ({ mapHeight, navigation }) => {
   const passengerSlices = useSelector(state => state?.passengerSlices);
   const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
   const {
@@ -166,21 +165,37 @@ const PassangerMap = ({ mapHeight }) => {
       });
     }
   }, [currentLocation, lastJourneyRoutePoints]);
-  // return (
-  //   <View style={{ flex: 1 }}>
-  //     <MapView provider={null}></MapView>
-  //   </View>
-  // );
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('drawerClose', () => {
+      if (mapRef.current) {
+        mapRef.current.animateToRegion(region, 500); // or use fitToCoordinates
+      }
+    });
+
+    return unsubscribe;
+  }, [region]);
+
+  useEffect(() => {
+    console.log('@origin', origin);
+  }, [origin]);
+  const safeMapHeight = Math.max(height * (mapHeight || 0.5), 300);
+  console.log('@safeMapHeight', safeMapHeight);
   return (
     <View style={{ flex: 1 }}>
       <MapView
+        key={origin?.latitude + origin?.longitude}
         mapType={mapType}
         // customMapStyle={customMapStyle}
         style={[
           styles.map,
           {
-            height: height * (mapHeight || 0.5),
+            height: safeMapHeight, // Math.max(height * (mapHeight || 0.5), 300), // height * (mapHeight || 0.5),
             marginBottom: -30,
+            height: safeMapHeight,
+            borderWidth: 2,
+            borderColor: 'red',
+            backgroundColor: 'rgba(255, 0, 0, 0.2)', // translucent red
           },
         ]}
         region={region}
@@ -263,5 +278,4 @@ const PassangerMap = ({ mapHeight }) => {
     </View>
   );
 };
-
-export default PassangerMap;
+export default React.memo(PassangerMap);

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -7,18 +7,18 @@ import {
   StatusBar,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {Switch} from 'react-native-switch';
+import { Switch } from 'react-native-switch';
 import ProfileScreen from '../ProfileScreen/ProfileScreen';
 import styles from './Settings.css';
 import TripHistory from '../../Components/TripHistory/TripHistory';
-import {navigate} from '../../services/navigationService';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import { navigate } from '../../services/navigationService';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import HeaderBar from '../../Components/HeaderBar/HeaderBar';
-const SettingsScreen = () => {
+const SettingsScreen = ({ navigation }) => {
   const [visibleDetail, setVisibleDetail] = useState(null);
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <HeaderBar />
+    <SafeAreaView style={{ flex: 1 }}>
+      <HeaderBar navigation={navigation} />
       <StatusBar barStyle="dark-content" backgroundColor="white" />
       <ScrollView style={styles.container}>
         {console.log('visibleDetail', visibleDetail)}
@@ -50,7 +50,8 @@ const SettingsScreen = () => {
               onPress={async () => {
                 navigate('Logout');
               }}
-              style={styles.logoutButton}>
+              style={styles.logoutButton}
+            >
               <Text style={styles.logoutButtonText}>Logout</Text>
             </TouchableOpacity>
             {/* <TouchableOpacity style={styles.deleteButton}>
@@ -76,13 +77,14 @@ const SettingsScreen = () => {
   );
 };
 
-const SettingsItem = ({title, icon, navigateTo, setVisibleDetail}) => (
+const SettingsItem = ({ title, icon, navigateTo, setVisibleDetail }) => (
   <TouchableOpacity
     onPress={() => {
       setVisibleDetail(navigateTo);
       console.log('pressed');
     }}
-    style={styles.settingsItem}>
+    style={styles.settingsItem}
+  >
     <View style={styles.settingsItemLeft}>
       <Icon name={icon} size={20} color="gray" />
       <Text style={styles.settingsItemText}>{title}</Text>
@@ -91,7 +93,7 @@ const SettingsItem = ({title, icon, navigateTo, setVisibleDetail}) => (
   </TouchableOpacity>
 );
 
-const SettingsToggle = ({title, icon, value, onValueChange}) => (
+const SettingsToggle = ({ title, icon, value, onValueChange }) => (
   <View style={styles.settingsItem}>
     <View style={styles.settingsItemLeft}>
       <Icon name={icon} size={20} color="gray" />

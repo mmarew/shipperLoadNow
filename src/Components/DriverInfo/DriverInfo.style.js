@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   headingText: {
@@ -31,14 +31,13 @@ const styles = StyleSheet.create({
 
   cardContainer: {
     marginVertical: 15,
-    padding: 10,
     backgroundColor: '#ffffff',
 
     justifyContent: 'center',
     borderRadius: 20,
   },
-  cardProfileContainer: {flexDirection: 'row', alignItems: 'center'},
-  shipingCost: {paddingLeft: 10},
+  cardProfileContainer: { flexDirection: 'row', alignItems: 'center' },
+  shipingCost: { paddingLeft: 10 },
   avatar: {
     width: 50,
     height: 50,

@@ -8,7 +8,7 @@ import {
   RESULTS,
 } from 'react-native-permissions';
 import {
-  addCurrentLocation,
+  updateCurrentLocation,
   addOriginLocation,
 } from '../../Redux/slices/PassengerSlice';
 import { showErrorToast } from '../../utils/ToastDisplayer/toastDisplayer';
@@ -90,7 +90,7 @@ const CheckLocationServices = () => {
   };
 
   const setLocations = ({ latitude, longitude, description }) => {
-    dispatch(addCurrentLocation({ latitude, longitude, description }));
+    dispatch(updateCurrentLocation({ latitude, longitude, description }));
 
     // Only update origin location if it hasn't been set yet
     if (
@@ -101,38 +101,6 @@ const CheckLocationServices = () => {
       dispatch(addOriginLocation({ latitude, longitude, description }));
     }
   };
-
-  // const getPlaceDetails = async (latitude, longitude) => {
-  //   try {
-  //     if (!latitude || !longitude) return;
-  //     // const url = `${osrmUrl}/reverse?lat=${latitude}&lon=${longitude}&format=json`;
-
-  //     const nominatimUrl = 'https://nominatim.openstreetmap.org/reverse';
-  //     const url = `${nominatimUrl}?lat=${latitude}&lon=${longitude}&format=json`;
-  //     console.log('@getPlaceDetails url is ', url);
-  //     const response = await axios.get(url, {
-  //       headers: {
-  //         'Accept-Language': 'en', // Force English output
-  //       },
-  //     });
-
-  //     const data = response?.data;
-  //     const address = data?.address;
-  //     const description =
-  //       address?.county + ', ' + address?.state + ', ' + address?.country;
-  //     // const address = response?.data?.display_name || 'Unknown location';
-  //     const currentLocation = {
-  //       latitude,
-  //       longitude,
-  //       description,
-  //       // description: address,
-  //     };
-
-  //     setLocations(currentLocation);
-  //   } catch (error) {
-  //     console.error('Error fetching OSM place details:', errorHandler(error));
-  //   }
-  // };
   const getPlaceDetails = async (latitude, longitude) => {
     try {
       if (!latitude || !longitude) return;

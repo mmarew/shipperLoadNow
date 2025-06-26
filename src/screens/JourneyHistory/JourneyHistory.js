@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -6,14 +6,14 @@ import {
   StatusBar,
   ScrollView,
 } from 'react-native';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import styles from './JourneyHistory.style';
 import CurrentScreen from '../../Components/CompletedJourney/CompletedCurrent';
 import HistoryScreen from '../../Components/CompletedJourney/CompletedHistory';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import HeaderBar from '../../Components/HeaderBar/HeaderBar';
 
-const JourneyCompleted = () => {
+const JourneyCompleted = ({ navigation }) => {
   const passengerSlices = useSelector(state => state.passengerSlices);
   const passengerStatus = passengerSlices?.passengerStatus;
   const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
@@ -26,7 +26,7 @@ const JourneyCompleted = () => {
 
   return (
     <SafeAreaView>
-      <HeaderBar />
+      <HeaderBar navigation={navigation} />
       <StatusBar barStyle="dark-content" backgroundColor="white" />
       <ScrollView>
         <View style={styles.container}>
@@ -55,12 +55,14 @@ const JourneyCompleted = () => {
 };
 
 // Custom Tab Button Component
-const TabButton = ({title, activeTab, setActiveTab}) => (
+const TabButton = ({ title, activeTab, setActiveTab }) => (
   <TouchableOpacity
     style={[styles.tabButton, activeTab === title ? styles.activeTab : {}]}
-    onPress={() => setActiveTab(title)}>
+    onPress={() => setActiveTab(title)}
+  >
     <Text
-      style={[styles.tabText, activeTab === title ? styles.activeText : {}]}>
+      style={[styles.tabText, activeTab === title ? styles.activeText : {}]}
+    >
       {title}
     </Text>
   </TouchableOpacity>

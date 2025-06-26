@@ -34,7 +34,7 @@ const HomeScreen = ({ navigation }) => {
     if (showComponent == 'Pick up and destination') {
       return (
         <SafeAreaView style={{ flex: 1 }}>
-          <HeaderBar />
+          <HeaderBar navigation={navigation} />
           <StatusBar barStyle="dark-content" backgroundColor="white" />
           <PickUpAndDestinationInputs setShowComponent={setShowComponent} />
         </SafeAreaView>
@@ -42,7 +42,7 @@ const HomeScreen = ({ navigation }) => {
     } else if (showComponent === 'Shipping Detailes') {
       return (
         <SafeAreaView style={{ flex: 1 }}>
-          <HeaderBar />
+          <HeaderBar navigation={navigation} />
           <StatusBar barStyle="dark-content" backgroundColor="white" />
           <ShippingDetailes setShowComponent={setShowComponent} />
         </SafeAreaView>
@@ -50,7 +50,7 @@ const HomeScreen = ({ navigation }) => {
     } else if (showComponent === 'List Of Vehicles') {
       return (
         <SafeAreaView style={{ flex: 1 }}>
-          <HeaderBar />
+          <HeaderBar navigation={navigation} />
           <StatusBar barStyle="dark-content" backgroundColor="white" />
           <SelectListOfVechels
             navigation={navigation}
@@ -68,54 +68,49 @@ const HomeScreen = ({ navigation }) => {
     } else {
       return (
         <SafeAreaView style={{ flex: 1 }}>
-          <HeaderBar />
+          <HeaderBar navigation={navigation} />
           <StatusBar barStyle="dark-content" backgroundColor="white" />
-          <View>
-            <ScrollView>
-              <PassangerMap mapHeight={0.63} />
 
-              {/* Bottom Container */}
-              <View
+          <PassangerMap navigation={navigation} mapHeight={0.63} />
+
+          {/* Bottom Container */}
+          <View
+            style={{
+              ...styles.bottomContainer,
+              ...GlobalStyles.bodyBasicBgColor,
+            }}
+          >
+            <View
+              style={{
+                flex: 1,
+                alignItems: 'center',
+                paddingBottom: 20,
+                paddingTop: 10,
+              }}
+            >
+              <StrightLine width={100} />
+            </View>
+
+            {passengerStatus == null && (
+              <Text
                 style={{
-                  ...styles.bottomContainer,
-                  ...GlobalStyles.bodyBasicBgColor,
+                  ...GlobalStyles.title,
+                  // marginBottom: 20,
+                  paddingLeft: 15,
                 }}
               >
-                <View
-                  style={{
-                    flex: 1,
-                    alignItems: 'center',
-                    paddingBottom: 20,
-                    paddingTop: 10,
-                  }}
-                >
-                  <StrightLine width={100} />
-                </View>
-
-                {passengerStatus == null && (
-                  <Text
-                    style={{
-                      ...GlobalStyles.title,
-                      // marginBottom: 20,
-                      paddingLeft: 15,
-                    }}
-                  >
-                    Where would you like to travel?
-                  </Text>
-                )}
-                <TouchableOpacity
-                  onPress={() => setShowComponent('Pick up and destination')}
-                >
-                  <PickupAndDestinationDisplayer
-                    disableInnerTouchables={true}
-                    navigation={navigation}
-                    listOfJourneyPoints={[
-                      { origin: originLocation, destination },
-                    ]}
-                  />
-                </TouchableOpacity>
-              </View>
-            </ScrollView>
+                Where would you like to travel?
+              </Text>
+            )}
+            <TouchableOpacity
+              onPress={() => setShowComponent('Pick up and destination')}
+            >
+              <PickupAndDestinationDisplayer
+                disableInnerTouchables={true}
+                navigation={navigation}
+                listOfJourneyPoints={[{ origin: originLocation, destination }]}
+              />
+            </TouchableOpacity>
           </View>
         </SafeAreaView>
       );
@@ -127,7 +122,7 @@ const HomeScreen = ({ navigation }) => {
     if (showComponent == 'cancel request') {
       return (
         <SafeAreaView style={{ flex: 1 }}>
-          <HeaderBar />
+          <HeaderBar navigation={navigation} />
           <StatusBar barStyle="dark-content" backgroundColor="white" />
           <CancelRequestModal
             setShowComponent={setShowComponent}
@@ -138,7 +133,7 @@ const HomeScreen = ({ navigation }) => {
     }
     return (
       <SafeAreaView style={{ flex: 1 }}>
-        <HeaderBar />
+        <HeaderBar navigation={navigation} />
         <StatusBar barStyle="dark-content" backgroundColor="white" />
         <FindDriverScreen
           setShowComponent={setShowComponent}
@@ -149,7 +144,7 @@ const HomeScreen = ({ navigation }) => {
   } else if (passengerStatus == listofJourneyStatus?.acceptedByDriver) {
     return (
       <SafeAreaView style={{ flex: 1 }}>
-        <HeaderBar />
+        <HeaderBar navigation={navigation} />
         <StatusBar barStyle="dark-content" backgroundColor="white" />
         <WaitingForConfirmation />
       </SafeAreaView>
@@ -161,7 +156,7 @@ const HomeScreen = ({ navigation }) => {
     if (showComponent == 'cancel request') {
       return (
         <SafeAreaView style={{ flex: 1 }}>
-          <HeaderBar />
+          <HeaderBar navigation={navigation} />
           <StatusBar barStyle="dark-content" backgroundColor="white" />
           <CancelRequestModal
             setShowComponent={setShowComponent}
@@ -172,7 +167,7 @@ const HomeScreen = ({ navigation }) => {
     }
     return (
       <SafeAreaView style={{ flex: 1 }}>
-        <HeaderBar />
+        <HeaderBar navigation={navigation} />
         <StatusBar barStyle="dark-content" backgroundColor="white" />
 
         <Journey setShowComponent={setShowComponent} navigation={navigation} />

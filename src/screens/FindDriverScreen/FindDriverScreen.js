@@ -161,7 +161,7 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
             />
           </View>
         )}
-        {passengerStatus && <PassangerMap />}
+        {passengerStatus && <PassangerMap navigation={navigation} />}
 
         {passengerStatus === null ||
         passengerStatus === 1 ||

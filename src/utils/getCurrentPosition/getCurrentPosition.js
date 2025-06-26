@@ -21,7 +21,7 @@ const getCurrentPosition = async () => {
         const response = await Geocoder.from(latitude, longitude);
         const address = response?.results[0]?.formatted_address;
         dispatch(
-          addCurrentLocation({ latitude, longitude, description: address }),
+          updateCurrentLocation({ latitude, longitude, description: address }),
         );
       } catch (error) {
         errorHandler(error);
