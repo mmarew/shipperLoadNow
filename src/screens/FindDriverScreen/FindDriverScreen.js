@@ -142,7 +142,7 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
   if (isLoading)
     return (
       <View>
-        <Text style={{ ...GlobalStyles.title, padding: 20 }}>
+        <Text style={{ ...GlobalStyles.title, padding: 20, paddingTop: 100 }}>
           Creating your request ....
         </Text>
         <ActivityIndicator size={'large'} />
