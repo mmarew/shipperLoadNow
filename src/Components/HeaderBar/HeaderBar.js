@@ -1,23 +1,18 @@
-import { SafeAreaView, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import HeaderIcon from '../../assets/icons/HeaderIcon.svg';
 import styles from './HeaderBar.style';
-import { updateCurrentLocation } from '../../Redux/slices/PassengerSlice';
-import store from '../../Redux/Store/Store';
-const HeaderBar = ({ navigation }) => {
+const HeaderBar = ({ toggleSidebar }) => {
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <TouchableOpacity
-        style={styles.header}
-        onPress={() => {
-          // store.dispatch(updateCurrentLocation(null));
-          navigation.openDrawer();
-        }}
-        accessibilityLabel="Open drawer menu"
-        accessibilityRole="button"
-      >
-        <HeaderIcon />
-      </TouchableOpacity>
-    </SafeAreaView>
+    <TouchableOpacity
+      style={styles.header}
+      onPress={() => {
+        toggleSidebar();
+      }}
+      accessibilityLabel="Open drawer menu"
+      accessibilityRole="button"
+    >
+      <HeaderIcon width={150} height={150} left={13} top={12} />
+    </TouchableOpacity>
   );
 };
 

@@ -34,7 +34,7 @@ const HomeScreen = ({ navigation }) => {
     if (showComponent == 'Pick up and destination') {
       return (
         <SafeAreaView style={{ flex: 1 }}>
-          <HeaderBar navigation={navigation} />
+          {/* <HeaderBar navigation={navigation} /> */}
           <StatusBar barStyle="dark-content" backgroundColor="white" />
           <PickUpAndDestinationInputs setShowComponent={setShowComponent} />
         </SafeAreaView>
@@ -42,7 +42,7 @@ const HomeScreen = ({ navigation }) => {
     } else if (showComponent === 'Shipping Detailes') {
       return (
         <SafeAreaView style={{ flex: 1 }}>
-          <HeaderBar navigation={navigation} />
+          {/* <HeaderBar navigation={navigation} /> */}
           <StatusBar barStyle="dark-content" backgroundColor="white" />
           <ShippingDetailes setShowComponent={setShowComponent} />
         </SafeAreaView>
@@ -50,7 +50,7 @@ const HomeScreen = ({ navigation }) => {
     } else if (showComponent === 'List Of Vehicles') {
       return (
         <SafeAreaView style={{ flex: 1 }}>
-          <HeaderBar navigation={navigation} />
+          {/* <HeaderBar navigation={navigation} /> */}
           <StatusBar barStyle="dark-content" backgroundColor="white" />
           <SelectListOfVechels
             navigation={navigation}
@@ -68,7 +68,7 @@ const HomeScreen = ({ navigation }) => {
     } else {
       return (
         <SafeAreaView style={{ flex: 1 }}>
-          <HeaderBar navigation={navigation} />
+          {/* <HeaderBar navigation={navigation} /> */}
           <StatusBar barStyle="dark-content" backgroundColor="white" />
 
           <PassangerMap navigation={navigation} mapHeight={0.63} />
@@ -122,7 +122,7 @@ const HomeScreen = ({ navigation }) => {
     if (showComponent == 'cancel request') {
       return (
         <SafeAreaView style={{ flex: 1 }}>
-          <HeaderBar navigation={navigation} />
+          {/* <HeaderBar navigation={navigation} /> */}
           <StatusBar barStyle="dark-content" backgroundColor="white" />
           <CancelRequestModal
             setShowComponent={setShowComponent}
@@ -133,7 +133,7 @@ const HomeScreen = ({ navigation }) => {
     }
     return (
       <SafeAreaView style={{ flex: 1 }}>
-        <HeaderBar navigation={navigation} />
+        {/* <HeaderBar navigation={navigation} /> */}
         <StatusBar barStyle="dark-content" backgroundColor="white" />
         <FindDriverScreen
           setShowComponent={setShowComponent}
@@ -144,7 +144,7 @@ const HomeScreen = ({ navigation }) => {
   } else if (passengerStatus == listofJourneyStatus?.acceptedByDriver) {
     return (
       <SafeAreaView style={{ flex: 1 }}>
-        <HeaderBar navigation={navigation} />
+        {/* <HeaderBar navigation={navigation} /> */}
         <StatusBar barStyle="dark-content" backgroundColor="white" />
         <WaitingForConfirmation />
       </SafeAreaView>
@@ -156,7 +156,7 @@ const HomeScreen = ({ navigation }) => {
     if (showComponent == 'cancel request') {
       return (
         <SafeAreaView style={{ flex: 1 }}>
-          <HeaderBar navigation={navigation} />
+          {/* <HeaderBar navigation={navigation} /> */}
           <StatusBar barStyle="dark-content" backgroundColor="white" />
           <CancelRequestModal
             setShowComponent={setShowComponent}
@@ -167,7 +167,7 @@ const HomeScreen = ({ navigation }) => {
     }
     return (
       <SafeAreaView style={{ flex: 1 }}>
-        <HeaderBar navigation={navigation} />
+        {/* <HeaderBar navigation={navigation} /> */}
         <StatusBar barStyle="dark-content" backgroundColor="white" />
 
         <Journey setShowComponent={setShowComponent} navigation={navigation} />

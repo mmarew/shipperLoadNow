@@ -18,7 +18,7 @@ const SettingsScreen = ({ navigation }) => {
   const [visibleDetail, setVisibleDetail] = useState(null);
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <HeaderBar navigation={navigation} />
+      {/* <HeaderBar navigation={navigation} /> */}
       <StatusBar barStyle="dark-content" backgroundColor="white" />
       <ScrollView style={styles.container}>
         {console.log('visibleDetail', visibleDetail)}

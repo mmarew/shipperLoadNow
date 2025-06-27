@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#F9F9F9',
     padding: 20,
     position: 'relative',
-    marginTop: 90,
   },
 
   // LABEL

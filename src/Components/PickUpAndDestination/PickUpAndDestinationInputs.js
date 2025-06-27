@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -10,7 +10,7 @@ import {
   Platform,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   addDestinationLocation,
   addOriginLocation,
@@ -22,10 +22,10 @@ import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import RecentSearches from '../RecentSearches/RecentSearches';
 import BackArrow from '../BackArrow/BackArrow';
 
-const PickUpAndDestinationInputs = ({navigation, setShowComponent}) => {
+const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
   const dispatch = useDispatch();
   const passengerSlices = useSelector(state => state.passengerSlices);
-  const {originLocation, destination, passengerStatus} = passengerSlices;
+  const { originLocation, destination, passengerStatus } = passengerSlices;
   const [activeInput, setActiveInput] = useState(null);
 
   const [originInput, setOriginInput] = useState(
@@ -102,17 +102,18 @@ const PickUpAndDestinationInputs = ({navigation, setShowComponent}) => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{flex: 1}}>
+      style={{ flex: 1, top: 90 }}
+    >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
           {/* Scrollable Content */}
           <FlatList
-            data={[{key: 'content'}]} // Dummy data
+            data={[{ key: 'content' }]} // Dummy data
             renderItem={() => (
-              <View style={{flex: 1}}>
+              <View style={{ flex: 1 }}>
                 {passengerStatus === null ? (
                   <View style={styles.container}>
-                    <View style={{flex: 1, height: 220}}>
+                    <View style={{ flex: 1, height: 220 }}>
                       {/* Header */}
                       <BackArrow
                         setShowComponent={setShowComponent}
@@ -135,7 +136,8 @@ const PickUpAndDestinationInputs = ({navigation, setShowComponent}) => {
                       {originInput !== '' && (
                         <TouchableOpacity
                           style={styles.clearIcon}
-                          onPress={handleClearOrigin}>
+                          onPress={handleClearOrigin}
+                        >
                           <Ionicons
                             name="close-circle"
                             size={20}
@@ -156,7 +158,8 @@ const PickUpAndDestinationInputs = ({navigation, setShowComponent}) => {
 
                       {/* DESTINATION INPUT */}
                       <View
-                        style={{...styles.locationCard, top: 160, zIndex: 9}}>
+                        style={{ ...styles.locationCard, top: 160, zIndex: 9 }}
+                      >
                         <Text style={styles.label}>To</Text>
                         <View style={styles.cardInputRow}>
                           <Ionicons
@@ -171,7 +174,8 @@ const PickUpAndDestinationInputs = ({navigation, setShowComponent}) => {
                       {destinationInput !== '' && (
                         <TouchableOpacity
                           onPress={handleClearDestination}
-                          style={{...styles.clearIcon, top: 180}}>
+                          style={{ ...styles.clearIcon, top: 180 }}
+                        >
                           <Ionicons
                             name="close-circle"
                             size={20}
@@ -188,7 +192,8 @@ const PickUpAndDestinationInputs = ({navigation, setShowComponent}) => {
                           top: 140,
                           flex: 1,
                           width: '100%',
-                        }}>
+                        }}
+                      >
                         <OSMAutocomplete
                           onSelect={handleDestinationSelect}
                           placeholder="Enter destination"
@@ -208,7 +213,7 @@ const PickUpAndDestinationInputs = ({navigation, setShowComponent}) => {
                 )}
               </View>
             )}
-            contentContainerStyle={{paddingBottom: 140}} // Space for button
+            contentContainerStyle={{ paddingBottom: 140 }} // Space for button
             keyboardShouldPersistTaps="handled"
           />
 
@@ -220,7 +225,8 @@ const PickUpAndDestinationInputs = ({navigation, setShowComponent}) => {
                 bottom: 5,
                 left: 20,
                 right: 20,
-              }}>
+              }}
+            >
               <TouchableOpacity
                 onPress={() => {
                   setShowComponent('Shipping Detailes');
@@ -232,8 +238,9 @@ const PickUpAndDestinationInputs = ({navigation, setShowComponent}) => {
                   height: 50,
                   justifyContent: 'center',
                   alignItems: 'center',
-                }}>
-                <Text style={{...GlobalStyles.buttonText}}>Next</Text>
+                }}
+              >
+                <Text style={{ ...GlobalStyles.buttonText }}>Next</Text>
               </TouchableOpacity>
             </View>
           )}

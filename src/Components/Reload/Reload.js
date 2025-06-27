@@ -12,9 +12,9 @@ const Reload = ({ navigation }) => {
   }, []);
 
   return (
-    <View>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <TouchableOpacity>
-        <Text>Reload</Text>
+        <Text>Reloading ...... </Text>
       </TouchableOpacity>
     </View>
   );

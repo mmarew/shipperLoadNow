@@ -26,7 +26,7 @@ const JourneyCompleted = ({ navigation }) => {
 
   return (
     <SafeAreaView>
-      <HeaderBar navigation={navigation} />
+      {/* <HeaderBar navigation={navigation} /> */}
       <StatusBar barStyle="dark-content" backgroundColor="white" />
       <ScrollView>
         <View style={styles.container}>

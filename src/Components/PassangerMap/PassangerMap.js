@@ -166,16 +166,6 @@ const PassangerMap = ({ mapHeight, navigation }) => {
   }, [currentLocation, lastJourneyRoutePoints]);
 
   useEffect(() => {
-    const unsubscribe = navigation.addListener('drawerClose', () => {
-      if (mapRef.current) {
-        mapRef.current.animateToRegion(region, 500); // or use fitToCoordinates
-      }
-    });
-
-    return unsubscribe;
-  }, [region]);
-
-  useEffect(() => {
     console.log('@origin', origin);
   }, [origin]);
   const safeMapHeight = Math.max(height * (mapHeight || 0.5), 300);
@@ -183,6 +173,9 @@ const PassangerMap = ({ mapHeight, navigation }) => {
   return (
     <View style={{ flex: 1 }}>
       <MapView
+        animateToRegion
+        scrollEnabled={false}
+        pointerEvents="none"
         key={origin?.latitude + origin?.longitude}
         mapType={mapType}
         // customMapStyle={customMapStyle}

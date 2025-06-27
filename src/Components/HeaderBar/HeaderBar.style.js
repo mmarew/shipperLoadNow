@@ -1,11 +1,19 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   header: {
     position: 'absolute',
-    // top: 50,
-    // left: 20, // Ensures it's not flush left
-    zIndex: 12,
+    zIndex: 2,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    top: 50,
+    left: 20, // optional positioning
+    backgroundColor: 'blue',
+    // ❌ Remove padding
+    // ✅ Add centering
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   headerTitle: {
     color: '#fff',

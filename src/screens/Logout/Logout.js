@@ -17,7 +17,7 @@ const Logout = ({ navigation }) => {
 
   return (
     <SafeAreaView>
-      <HeaderBar navigation={navigation} />
+      {/* <HeaderBar navigation={navigation} /> */}
       <StatusBar barStyle="dark-content" backgroundColor="white" />
       <View style={{ marginTop: 100, padding: 20 }}>
         <TouchableOpacity

@@ -605,6 +605,7 @@ import API_URL_AXIOS from '../services/AxiosServices';
 // Styles
 import { styles, navigationStyles } from './AppNavigator.css';
 import decodeJWT from '../utils/JWTDecoder/JWTDecoder';
+import CustomScreenManager from '../screens/Auth/CustomScreenManager/CustomScreenManager';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -1003,30 +1004,31 @@ const AppNavigator = () => {
         }}
       >
         {passengersToken ? (
-          <Drawer.Navigator
-            drawerType="slide"
-            initialRouteName={initialRoute}
-            drawerContent={props => (
-              <CustomDrawerContent
-                {...props}
-                savedProfileImage={savedProfileImage}
-              />
-            )}
-            screenOptions={{
-              headerShown: false,
-              drawerStyle: styles.drawerStyle,
-              drawerActiveBackgroundColor:
-                navigationStyles.drawerActive.backgroundColor,
-              drawerActiveTintColor: navigationStyles.drawerActive.tintColor,
-              drawerInactiveTintColor:
-                navigationStyles.drawerInactive.tintColor,
-              headerStyle: navigationStyles.header.style,
-              headerTintColor: navigationStyles.header.tintColor,
-              headerTitleStyle: navigationStyles.header.titleStyle,
-            }}
-          >
-            {renderDrawerScreens()}
-          </Drawer.Navigator>
+          // <Drawer.Navigator
+          //   drawerType="slide"
+          //   initialRouteName={initialRoute}
+          //   drawerContent={props => (
+          //     <CustomDrawerContent
+          //       {...props}
+          //       savedProfileImage={savedProfileImage}
+          //     />
+          //   )}
+          //   screenOptions={{
+          //     headerShown: false,
+          //     drawerStyle: styles.drawerStyle,
+          //     drawerActiveBackgroundColor:
+          //       navigationStyles.drawerActive.backgroundColor,
+          //     drawerActiveTintColor: navigationStyles.drawerActive.tintColor,
+          //     drawerInactiveTintColor:
+          //       navigationStyles.drawerInactive.tintColor,
+          //     headerStyle: navigationStyles.header.style,
+          //     headerTintColor: navigationStyles.header.tintColor,
+          //     headerTitleStyle: navigationStyles.header.titleStyle,
+          //   }}
+          // >
+          //   {renderDrawerScreens()}
+          // </Drawer.Navigator>
+          <CustomScreenManager savedProfileImage={savedProfileImage} />
         ) : (
           <Stack.Navigator
             initialRouteName={initialRoute}
