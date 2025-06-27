@@ -5,8 +5,8 @@ export function setTopLevelNavigator(navigatorRef) {
 }
 export function navigate(name, params) {
   if (navigator) {
-    navigator.dispatch(
-      CommonActions.navigate({
+    navigator?.dispatch(
+      CommonActions?.navigate({
         name,
         params,
       }),

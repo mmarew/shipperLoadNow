@@ -41,24 +41,18 @@ const CustomSidebar = ({ isOpen, onClose, children }) => {
   );
 };
 
-const sidebarItems = [
-  { label: 'Home', screen: 'Home' },
-  { label: 'Trip History', screen: 'Trip History' },
-  { label: 'Settings', screen: 'Settings' },
-  { label: 'Reload', screen: 'Reload' },
-];
-
 const CustomsSideBarList = ({
   savedProfileImage,
   toggleSidebar,
   sidebarOpen,
   setSelectedScreen,
+  selectedScreen,
+  sidebarItems,
 }) => {
   const passengersToken = useSelector(
     state => state?.passengerSlices?.passengersToken,
   );
   const decodedProfileData = decodeJWT(passengersToken)?.data;
-  const [activeScreen, setActiveScreen] = useState(sidebarItems?.[0].screen);
   return (
     <CustomSidebar isOpen={sidebarOpen} onClose={toggleSidebar}>
       <View style={styles.drawerHeader}>
@@ -92,16 +86,15 @@ const CustomsSideBarList = ({
           style={{
             ...sidebarItemStyles.tabContainer,
             backgroundColor:
-              activeScreen == item.screen ? '#E0F2FE' : '#ffffff',
+              selectedScreen == item.screen ? '#E0F2FE' : '#ffffff',
           }}
           onPress={() => {
             setSelectedScreen(item.screen);
             toggleSidebar();
-            setActiveScreen(item.screen);
           }}
         >
           <Text
-            style={{ color: activeScreen == item.screen ? 'black' : 'black' }}
+            style={{ color: selectedScreen == item.screen ? 'black' : 'black' }}
           >
             {item.label}
           </Text>

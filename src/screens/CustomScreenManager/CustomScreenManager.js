@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
-import HomeScreen from '../../Home/HomeScreen';
-import HeaderBar from '../../../Components/HeaderBar/HeaderBar';
-import { CustomsSideBarList } from '../../../Components/CustomSidebar/CustomSidebar';
+import HomeScreen from '../Home/HomeScreen';
+import HeaderBar from '../../Components/HeaderBar/HeaderBar';
+import { CustomsSideBarList } from '../../Components/CustomSidebar/CustomSidebar';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import TripHistory from '../../../screens/JourneyHistory/JourneyHistory';
-import SettingsScreen from '../../Settings/SettingsScreen';
-import Reload from '../../../Components/Reload/Reload';
+import TripHistory from '../JourneyHistory/JourneyHistory';
+import SettingsScreen from '../Settings/SettingsScreen';
+import Reload from '../../Components/Reload/Reload';
 
 export default function CustomScreenManager({ savedProfileImage }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedScreen, setSelectedScreen] = useState('Home');
   const toggleSidebar = () => {
-    console.log('@sidebarOpen', sidebarOpen);
     setSidebarOpen(!sidebarOpen);
   };
-  console.log('@selectedScreen', selectedScreen);
+  const sidebarItems = [
+    { label: 'Home', screen: 'Home' },
+    { label: 'Trip History', screen: 'Trip History' },
+    { label: 'Settings', screen: 'Settings' },
+    { label: 'Reload', screen: 'Reload' },
+  ];
   return (
     <>
       <SafeAreaView
@@ -39,6 +43,8 @@ export default function CustomScreenManager({ savedProfileImage }) {
         {/* Reload */}
       </SafeAreaView>
       <CustomsSideBarList
+        sidebarItems={sidebarItems}
+        selectedScreen={selectedScreen}
         savedProfileImage={savedProfileImage}
         setSelectedScreen={setSelectedScreen}
         // navigation={navigation}

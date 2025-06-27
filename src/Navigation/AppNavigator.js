@@ -569,9 +569,7 @@ import { setTopLevelNavigator } from '../services/navigationService';
 import { requestUsingGetMethode } from '../utils/handleRequestToServer/handleRequestToServer';
 import errorHandler from '../utils/errorHandler/errorHandler';
 import HandleResponses from '../utils/handleServerResponses/HandleResponses';
-import findScreenByPassengerStatus, {
-  navigateToScreen,
-} from '../utils/ScreenManager/ScreenList';
+import findScreenByPassengerStatus from '../utils/ScreenManager/ScreenList';
 import API_URLS from '../Configs/URLConfigs';
 import {
   disconnectSocket,
@@ -594,7 +592,7 @@ import {
 
 // Styles
 import { styles, navigationStyles } from './AppNavigator.css';
-import CustomScreenManager from '../screens/Auth/CustomScreenManager/CustomScreenManager';
+import CustomScreenManager from '../screens/CustomScreenManager/CustomScreenManager';
 
 const Stack = createStackNavigator();
 
@@ -708,10 +706,8 @@ const AppNavigator = () => {
   const setupSocket = async () => {
     try {
       await initSocket();
-      console.log('@initSocket completed');
 
       listenToEvent('messages', newMessage => {
-        console.log('@listenToEvent newMessage', newMessage);
         if (isJSON(newMessage)) {
           const parsedMessage = JSON.parse(newMessage);
 
@@ -762,10 +758,6 @@ const AppNavigator = () => {
       store.dispatch(addSelectedVechelesType(selectedVehicles));
     }
   }, [passenger, listOfVehiclesType]);
-
-  useEffect(() => {
-    if (passengerStatus !== undefined) navigateToScreen({ passengerStatus });
-  }, [passengerStatus]);
 
   useEffect(() => {
     let callToBackendViaInterval = null;
