@@ -48,7 +48,7 @@ const SettingsScreen = ({ navigation }) => {
             {/* Logout and Delete Account */}
             <TouchableOpacity
               onPress={async () => {
-                navigate('Logout');
+                // navigate('Logout');
               }}
               style={styles.logoutButton}
             >

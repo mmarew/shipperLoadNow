@@ -1,7 +1,7 @@
-import {TouchableOpacity, View} from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './PickupAndDestinationDisplayer.style';
-import {Text} from 'react-native-paper';
+import { Text } from 'react-native-paper';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 
 const PickupAndDestinationDisplayer = ({
@@ -11,23 +11,20 @@ const PickupAndDestinationDisplayer = ({
   listOfJourneyPoints = [],
   disableInnerTouchables = false, // Add this prop
 }) => {
-  const navigateToChoosePlaces = ({focus}) => {
+  const navigateToChoosePlaces = ({ focus }) => {
     if (!showComponent) return;
     if (typeof setShowComponent === 'function') setShowComponent(showComponent);
-    // navigation?.navigate(navigateTo, {
-    //   focus,
-    // });
   };
   return (
-    <View style={{...styles.container}}>
+    <View style={{ ...styles.container }}>
       {/* Radio Buttons */}
       {listOfJourneyPoints.map((points, index) => {
-        const {origin, destination} = points;
+        const { origin, destination } = points;
         // console.log('@points', points);
         return (
-          <View key={index} style={{marginTop: 20}}>
+          <View key={index} style={{ marginTop: 20 }}>
             {origin?.shippingDate && (
-              <Text style={{margin: 20, marginBottom: 10}}>
+              <Text style={{ margin: 20, marginBottom: 10 }}>
                 {formatDate(origin.shippingDate)}
               </Text>
             )}
@@ -37,7 +34,8 @@ const PickupAndDestinationDisplayer = ({
                   style={{
                     ...styles.pickAndDestination,
                     ...styles.pickUp,
-                  }}>
+                  }}
+                >
                   <Ionicons
                     name="radio-button-on-outline"
                     size={10}
@@ -53,13 +51,15 @@ const PickupAndDestinationDisplayer = ({
 
                 <View
                   onPress={() =>
-                    navigateToChoosePlaces({focus: 'focus on destination'})
-                  }>
+                    navigateToChoosePlaces({ focus: 'focus on destination' })
+                  }
+                >
                   <View
                     style={{
                       ...styles.pickAndDestination,
                       ...styles.destination,
-                    }}>
+                    }}
+                  >
                     <Ionicons
                       name="radio-button-on-outline"
                       size={10}
@@ -81,11 +81,13 @@ const PickupAndDestinationDisplayer = ({
               <>
                 <TouchableOpacity
                   onPress={() =>
-                    navigateToChoosePlaces({focus: 'focus on pick up'})
-                  }>
+                    navigateToChoosePlaces({ focus: 'focus on pick up' })
+                  }
+                >
                   {/* Pick and Destination */}
                   <View
-                    style={{...styles.pickAndDestination, ...styles.pickUp}}>
+                    style={{ ...styles.pickAndDestination, ...styles.pickUp }}
+                  >
                     <Ionicons
                       name="radio-button-on-outline"
                       size={10}
@@ -104,13 +106,15 @@ const PickupAndDestinationDisplayer = ({
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() =>
-                    navigateToChoosePlaces({focus: 'focus on destination'})
-                  }>
+                    navigateToChoosePlaces({ focus: 'focus on destination' })
+                  }
+                >
                   <View
                     style={{
                       ...styles.pickAndDestination,
                       ...styles.destination,
-                    }}>
+                    }}
+                  >
                     <Ionicons
                       name="radio-button-on-outline"
                       size={10}

@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import {Linking, Text, TouchableOpacity, View} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Linking, Text, TouchableOpacity, View } from 'react-native';
 import styles from './DriverInfo.style';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import store from '../../Redux/Store/Store';
-import {setModalVisible} from '../../Redux/slices/PassengerSlice';
+import { setModalVisible } from '../../Redux/slices/PassengerSlice';
 import getDistanceAndETA from '../../utils/GetDistanceAndETA/getDistanceAndETA';
 import DiverCard from './DiverCard';
-const DriverInfo = ({navigation}) => {
+const DriverInfo = ({ navigation }) => {
   const passengerSlices = useSelector(state => state.passengerSlices);
   const passengerStatus = passengerSlices?.passengerStatus;
   const passenger = passengerSlices?.passenger;
@@ -66,7 +66,6 @@ const DriverInfo = ({navigation}) => {
 
   const cancelCurrentRequest = () => {
     store.dispatch(setModalVisible(false));
-    navigation.navigate('cancel request');
   };
   const handleCall = () => {
     if (driver.phoneNumber) {
@@ -80,7 +79,7 @@ const DriverInfo = ({navigation}) => {
     <View style={styles.driverInfoContainer}>
       {/*   Driver heading to location text */}
       {!driverInfo ? (
-        <Text style={{...styles.headingText, ...GlobalStyles.errorText}}>
+        <Text style={{ ...styles.headingText, ...GlobalStyles.errorText }}>
           No driver found
         </Text>
       ) : (
@@ -117,8 +116,9 @@ const DriverInfo = ({navigation}) => {
 
           {passengerStatus == 3 && (
             <TouchableOpacity
-              style={{...GlobalStyles.button, backgroundColor: '#EF4444'}}
-              onPress={cancelCurrentRequest}>
+              style={{ ...GlobalStyles.button, backgroundColor: '#EF4444' }}
+              onPress={cancelCurrentRequest}
+            >
               <Text style={GlobalStyles.buttonText}>Cancel request</Text>
             </TouchableOpacity>
           )}

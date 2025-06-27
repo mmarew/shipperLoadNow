@@ -1,15 +1,14 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {Text, View, TouchableOpacity, ActivityIndicator} from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { Text, View, TouchableOpacity, ActivityIndicator } from 'react-native';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles.js';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import styles from './CancelRequest.styles.js';
-const CancelRequest = ({navigation, setShowComponent}) => {
+const CancelRequest = ({ navigation, setShowComponent }) => {
   const passengerSlices = useSelector(state => state?.passengerSlices);
   const passengerStatus = passengerSlices?.passengerStatus;
   const numberOfRequests = useRef(0);
   const cancelCurrentRequest = () => {
     setShowComponent('cancel request');
-    // navigation.navigate('cancel request');
   };
   const [cancilationMessage, setCancilationMessage] = useState(null);
   useEffect(() => {
@@ -38,7 +37,8 @@ const CancelRequest = ({navigation, setShowComponent}) => {
           backgroundColor: '#EF4444',
           width: '100%',
         }}
-        onPress={cancelCurrentRequest}>
+        onPress={cancelCurrentRequest}
+      >
         <Text style={GlobalStyles.buttonText}>Cancel request</Text>
       </TouchableOpacity>
     </View>

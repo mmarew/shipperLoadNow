@@ -546,28 +546,19 @@
 // });
 
 // export default AppNavigator;
+
 import React, { useCallback, useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-} from '@react-navigation/drawer';
-import { ActivityIndicator, View, Image, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text } from 'react-native-paper';
 
 // Screens
 import RegisterPassenger from '../screens/RegisterPassenger/RegisterPassenger';
-import HomeScreen from '../screens/Home/HomeScreen';
 import DriversPinVerification from '../screens/Auth/PassangerPinVerification/PassangerOTPVerification';
-import Logout from '../screens/Logout/Logout';
 import ErrorPage from '../screens/ErrorPage/ErrorPage';
-import TripHistory from '../screens/JourneyHistory/JourneyHistory';
-import SettingsScreen from '../screens/Settings/SettingsScreen';
-import Reload from '../Components/Reload/Reload';
 import TermsAndServicesScreen from '../screens/TermsAndServicesScreen/TermsAndServicesScreen';
 
 // Components
@@ -587,7 +578,7 @@ import {
   initSocket,
   listenToEvent,
 } from '../utils/Socket/socketService';
-import { isJSON, trimText } from '../utils/Formatter/Formatter';
+import { isJSON } from '../utils/Formatter/Formatter';
 import verifyPassengerStatus from '../utils/VerifyPassengerStatus/VerifyPassengerStatus';
 
 // Redux
@@ -600,76 +591,12 @@ import {
   updateConnectionStatus,
   updateListofJourneyStatus,
 } from '../Redux/slices/PassengerSlice';
-import API_URL_AXIOS from '../services/AxiosServices';
 
 // Styles
 import { styles, navigationStyles } from './AppNavigator.css';
-import decodeJWT from '../utils/JWTDecoder/JWTDecoder';
 import CustomScreenManager from '../screens/Auth/CustomScreenManager/CustomScreenManager';
 
 const Stack = createStackNavigator();
-const Drawer = createDrawerNavigator();
-
-const CustomDrawerContent = props => {
-  const passengerSlices = useSelector(state => state?.passengerSlices);
-  const passengersToken = passengerSlices?.passengersToken;
-  const { savedProfileImage, ...rest } = props;
-  // console.log('@passengersToken', passengersToken);
-
-  const decodedProfileData = decodeJWT(passengersToken).data;
-
-  console.log('@decodedProfileData', decodedProfileData);
-
-  return (
-    <DrawerContentScrollView
-      {...rest}
-      contentContainerStyle={styles.drawerContainer}
-    >
-      <View style={styles.drawerHeader}>
-        <View style={{ alignItems: 'flex-end', marginBottom: -40 }}>
-          <TouchableOpacity
-            style={styles.closeButton}
-            onPress={() => props.navigation.closeDrawer()}
-          >
-            <Text style={styles.closeButtonText}>✕</Text>
-          </TouchableOpacity>
-        </View>
-
-        {savedProfileImage?.attachedDocumentName && (
-          <View
-            style={{
-              alignItems: 'center',
-              justifyContent: 'flex-start',
-              flexDirection: 'row',
-            }}
-          >
-            <Image
-              source={{
-                uri: `${API_URL_AXIOS}/uploads/${savedProfileImage.attachedDocumentName}`,
-              }}
-              style={styles.profileImage}
-            />
-            <View style={styles.profileInfoContainer}>
-              {decodedProfileData?.fullName && (
-                <Text style={styles.profileName}>
-                  {trimText({ text: decodedProfileData?.fullName, size: 18 })}
-                </Text>
-              )}
-              <Text style={styles.profileRole}>Passenger</Text>
-            </View>
-          </View>
-        )}
-      </View>
-
-      <DrawerItemList
-        {...rest}
-        activeTintColor="#6200ee"
-        inactiveTintColor="#333"
-        labelStyle={styles.drawerLabel}
-      />
-    </DrawerContentScrollView>
-  );
-};
 
 const AppNavigator = () => {
   const dispatch = useDispatch();
@@ -934,37 +861,6 @@ const AppNavigator = () => {
     );
   }
 
-  const renderDrawerScreens = () => (
-    <>
-      <Drawer.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{ drawerLabel: 'Home', title: 'Home', unmountOnBlur: false }}
-        //  options={{ unmountOnBlur: false }}
-      />
-      <Drawer.Screen
-        name="Trip History"
-        component={TripHistory}
-        options={{ drawerLabel: 'Trip History', title: 'Your Trips' }}
-      />
-      <Drawer.Screen
-        name="Settings"
-        component={SettingsScreen}
-        options={{ drawerLabel: 'Settings', title: 'Settings' }}
-      />
-      <Drawer.Screen
-        name="Reload"
-        component={Reload}
-        options={{ drawerLabel: 'Reload', title: 'Reload App' }}
-      />
-      <Drawer.Screen
-        name="Logout"
-        component={Logout}
-        options={{ drawerLabel: 'Logout', title: 'Logout' }}
-      />
-    </>
-  );
-
   const renderStackScreens = () => (
     <>
       <Stack.Screen
@@ -1004,30 +900,6 @@ const AppNavigator = () => {
         }}
       >
         {passengersToken ? (
-          // <Drawer.Navigator
-          //   drawerType="slide"
-          //   initialRouteName={initialRoute}
-          //   drawerContent={props => (
-          //     <CustomDrawerContent
-          //       {...props}
-          //       savedProfileImage={savedProfileImage}
-          //     />
-          //   )}
-          //   screenOptions={{
-          //     headerShown: false,
-          //     drawerStyle: styles.drawerStyle,
-          //     drawerActiveBackgroundColor:
-          //       navigationStyles.drawerActive.backgroundColor,
-          //     drawerActiveTintColor: navigationStyles.drawerActive.tintColor,
-          //     drawerInactiveTintColor:
-          //       navigationStyles.drawerInactive.tintColor,
-          //     headerStyle: navigationStyles.header.style,
-          //     headerTintColor: navigationStyles.header.tintColor,
-          //     headerTitleStyle: navigationStyles.header.titleStyle,
-          //   }}
-          // >
-          //   {renderDrawerScreens()}
-          // </Drawer.Navigator>
           <CustomScreenManager savedProfileImage={savedProfileImage} />
         ) : (
           <Stack.Navigator

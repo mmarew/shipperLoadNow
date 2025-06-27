@@ -230,7 +230,6 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
               <TouchableOpacity
                 onPress={() => {
                   setShowComponent('Shipping Detailes');
-                  // navigation.navigate('Shipping Detailes');
                   console.log('@click on button');
                 }}
                 style={{

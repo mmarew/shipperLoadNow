@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
-import {useSelector} from 'react-redux';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { useSelector } from 'react-redux';
 
-import {navigate} from '../../services/navigationService';
+import { navigate } from '../../services/navigationService';
 
 import styles from './PaymentSummary.style';
 
@@ -57,9 +57,9 @@ const PaymentSummary = () => {
       <TouchableOpacity
         onPress={() => {
           // HandleResponses({passenger: null, driver: null, status: null});
-          navigate('Reload');
         }}
-        style={styles.doneButton}>
+        style={styles.doneButton}
+      >
         <Text style={styles.cancelButtonText}>Done </Text>
       </TouchableOpacity>
     </View>
