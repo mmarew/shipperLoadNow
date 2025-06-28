@@ -650,6 +650,7 @@ const AppNavigator = () => {
 
   const testToken = async () => {
     const token = await AsyncStorage.getItem('passengersToken');
+    console.log('@testToken token', token);
     if (!token) {
       dispatch(addPassengersToken(null));
       setInitialRoute('Register');

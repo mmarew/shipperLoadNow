@@ -1,5 +1,5 @@
 // components/CustomSidebar.js
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import {
   View,
   TouchableOpacity,
@@ -103,25 +103,10 @@ const CustomsSideBarList = ({
     </CustomSidebar>
   );
 };
-/* #b0b99d  */
-
-/* #e5e8df  */
-
-// width: 100px;
-// height: 100px;
-
-// /* sky/100 */
-// background: #E0F2FE;
-
-// /* Inside auto layout */
-// flex: none;
-// order: 1;
-// flex-grow: 0;
 
 const sidebarItemStyles = StyleSheet.create({
   tabContainer: {
     paddingVertical: 15,
-    // backgroundColor: isActiveScreen 'blue',
     paddingLeft: 10,
   },
 });

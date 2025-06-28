@@ -5,58 +5,90 @@ import {
   TouchableOpacity,
   ScrollView,
   StatusBar,
+  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Switch } from 'react-native-switch';
 import ProfileScreen from '../ProfileScreen/ProfileScreen';
 import styles from './Settings.css';
 import TripHistory from '../../Components/TripHistory/TripHistory';
-import { navigate } from '../../services/navigationService';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import HeaderBar from '../../Components/HeaderBar/HeaderBar';
-const SettingsScreen = ({ navigation }) => {
+import { useDispatch } from 'react-redux';
+import {
+  addPassengerStatus,
+  addPassengersToken,
+} from '../../Redux/slices/PassengerSlice';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const SettingsScreen = () => {
   const [visibleDetail, setVisibleDetail] = useState(null);
+
+  const dispatch = useDispatch();
+
+  const clearAsyncStorage = async () => {
+    try {
+      await AsyncStorage.removeItem('passengersToken');
+      dispatch(addPassengersToken(null));
+      // You might also want to reset other related state
+      dispatch(addPassengerStatus(undefined));
+
+      // Optional: Clear all storage if needed
+      // await AsyncStorage.clear();
+
+      // Navigate to the initial screen after clearing
+    } catch (error) {
+      console.error('Failed to clear AsyncStorage:', error);
+      // Handle error appropriately
+    }
+  };
+  const handleLogout = () => {
+    Alert.alert(
+      'Logout',
+      'Are you sure you want to logout?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'Logout',
+          style: 'destructive',
+          onPress: async () => {
+            try {
+              clearAsyncStorage(); // Optionally navigate to login or splash screen
+              // navigation.replace('Login');
+            } catch (e) {
+              // handle error if needed
+            }
+          },
+        },
+      ],
+      { cancelable: true },
+    );
+  };
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      {/* <HeaderBar navigation={navigation} /> */}
       <StatusBar barStyle="dark-content" backgroundColor="white" />
       <ScrollView style={styles.container}>
         {console.log('visibleDetail', visibleDetail)}
         {visibleDetail == null ? (
           <View>
-            {/* Account Section */}
-
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Account</Text>
-
               <SettingsItem
                 title="My Profile"
                 icon="person-outline"
                 navigateTo="profile"
                 setVisibleDetail={setVisibleDetail}
               />
-
-              {/* <SettingsItem
-              setVisibleDetail={setVisibleDetail}
-              title="Trip History"
-              icon="time-outline"
-              navigateTo={'Trip History'}
-            /> */}
-              {/* <SettingsItem title="Favorite Locations" icon="location-outline" /> */}
             </View>
 
-            {/* Logout and Delete Account */}
             <TouchableOpacity
-              onPress={async () => {
-                // navigate('Logout');
-              }}
+              onPress={handleLogout}
               style={styles.logoutButton}
             >
               <Text style={styles.logoutButtonText}>Logout</Text>
             </TouchableOpacity>
-            {/* <TouchableOpacity style={styles.deleteButton}>
-            <Text style={styles.deleteButtonText}>Delete Account</Text>
-          </TouchableOpacity> */}
 
             {/* Footer */}
             <Text style={styles.footerText}>
@@ -91,26 +123,6 @@ const SettingsItem = ({ title, icon, navigateTo, setVisibleDetail }) => (
     </View>
     <Icon name="chevron-forward-outline" size={20} color="gray" />
   </TouchableOpacity>
-);
-
-const SettingsToggle = ({ title, icon, value, onValueChange }) => (
-  <View style={styles.settingsItem}>
-    <View style={styles.settingsItemLeft}>
-      <Icon name={icon} size={20} color="gray" />
-      <Text style={styles.settingsItemText}>{title}</Text>
-    </View>
-    <Switch
-      value={value}
-      onValueChange={onValueChange}
-      activeText={''}
-      inActiveText={''}
-      circleSize={20}
-      barHeight={20}
-      backgroundActive={'#4cd964'}
-      backgroundInactive={'#ccc'}
-      circleBorderWidth={0}
-    />
-  </View>
 );
 
 export default SettingsScreen;
