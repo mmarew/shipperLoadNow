@@ -73,8 +73,8 @@ const HandleResponses = response => {
       if (driver) store.dispatch(addDriver(driver));
       if (listOfCancilationReasons)
         store.dispatch(addListOfCancilationReasons(listOfCancilationReasons));
-      if (listOfVehiclesType)
-        store.dispatch(addListOfVehiclesType(listOfVehiclesType));
+      // if (listOfVehiclesType)
+      //   store.dispatch(addListOfVehiclesType(listOfVehiclesType));
       if (selectedVehicleType)
         store.dispatch(addSelectedVechelesType(selectedVehicleType?.[0]));
 
