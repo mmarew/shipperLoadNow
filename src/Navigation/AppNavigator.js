@@ -738,7 +738,7 @@ const AppNavigator = () => {
   const getVehicleTypes = async () => {
     try {
       const vecheleTypeAndTarrif = await requestUsingGetMethode({
-        url: API_URLS.GET_VEHICLES_TARRIF_RATES,
+        url: API_URLS.GET_VEHICLE_TYPES,
       });
       store.dispatch(addListOfVehiclesType(vecheleTypeAndTarrif.data));
     } catch (error) {

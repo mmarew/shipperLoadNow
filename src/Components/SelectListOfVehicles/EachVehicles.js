@@ -1,15 +1,15 @@
-import React, {useEffect, useState} from 'react';
-import {TouchableOpacity, View, Image, Text} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { TouchableOpacity, View, Image, Text } from 'react-native';
 import API_URL_AXIOS from '../../services/AxiosServices';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   calculateEstimatedMoney,
   formatETB,
 } from '../../utils/Calculate/Calculate';
-import {SvgUri} from 'react-native-svg';
+import { SvgUri } from 'react-native-svg';
 import styles from './EachVehicles.css';
-import {showErrorToast} from '../../utils/ToastDisplayer/toastDisplayer';
-import {findScreenDescription} from '../../utils/ScreenManager/ScreenList';
+import { showErrorToast } from '../../utils/ToastDisplayer/toastDisplayer';
+import { findScreenDescription } from '../../utils/ScreenManager/ScreenList';
 const EachVehicles = ({
   setShowComponent,
   originLocation,
@@ -33,9 +33,10 @@ const EachVehicles = ({
   }, [item, originLocation, destination]);
 
   const selectVehicles = () => {
-    setShowComponent('List Of Vehicles');
+    if (setShowComponent && typeof setShowComponent === 'function')
+      setShowComponent('List Of Vehicles');
     // if (navigation) return navigation.navigate('List Of Vehicles');
-    const newSelectedVehicle = {...item}; // create a new object to ensure different reference
+    const newSelectedVehicle = { ...item }; // create a new object to ensure different reference
     setSelectedVehicle(newSelectedVehicle);
   };
 
@@ -58,7 +59,8 @@ const EachVehicles = ({
         selectedVehicle?.vehicleTypeName === item?.vehicleTypeName
           ? styles.selectedVehicle
           : null,
-      ]}>
+      ]}
+    >
       {/* const iconName=item?.vehicleTypeIconName */}
       {!item?.vehicleTypeIconName?.endsWith('.svg') ? (
         <Image
