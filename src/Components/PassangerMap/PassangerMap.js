@@ -173,10 +173,6 @@ const PassangerMap = ({ mapHeight, navigation }) => {
   return (
     <View style={{ flex: 1 }}>
       <MapView
-        animateToRegion
-        scrollEnabled={false}
-        pointerEvents="none"
-        key={origin?.latitude + origin?.longitude}
         mapType={mapType}
         // customMapStyle={customMapStyle}
         style={[
@@ -185,9 +181,6 @@ const PassangerMap = ({ mapHeight, navigation }) => {
             height: safeMapHeight, // Math.max(height * (mapHeight || 0.5), 300), // height * (mapHeight || 0.5),
             marginBottom: -30,
             height: safeMapHeight,
-            borderWidth: 2,
-            borderColor: 'red',
-            backgroundColor: 'rgba(255, 0, 0, 0.2)', // translucent red
           },
         ]}
         region={region}
