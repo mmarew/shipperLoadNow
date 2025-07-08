@@ -1,11 +1,11 @@
-import {Appearance, StyleSheet} from 'react-native';
+import { Appearance, StyleSheet } from 'react-native';
 const lightTimeColors = {
     backgroundColor: '#F4F4F5',
     whiteColor: '#FFFFFF',
     whiteBGColor: '#fff',
     termsColor: '#4F4F4F',
     brandColor: '#075985',
-    whiteColor: '#fff',
+
     errorColor: '#FF3B30',
     lablesColor: '#27272A',
     borderColor: '#D4D4D8',
@@ -14,6 +14,7 @@ const lightTimeColors = {
     shadowColor: '#000',
     veryLightGray: '#f0f0f0',
     mediumGray: '#71717A',
+    informationColor: '#4F4F4F',
   },
   darkTimeColors = {
     inputBackgroundColor: '#3D3D3D',
