@@ -1,4 +1,5 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const styles = StyleSheet.create({
   // HEADER
@@ -11,7 +12,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#000',
+    color: ColorStyles.textColor,
   },
 });
 export default styles;

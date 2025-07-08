@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -15,6 +15,7 @@ import {
 } from '../Constants/constant.url';
 import errorHandler from '../../utils/errorHandler/errorHandler';
 import axios from 'axios';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const OSMAutocomplete = ({
   onSelect,
@@ -181,7 +182,7 @@ const OSMAutocomplete = ({
 
         Geolocation.getCurrentPosition(
           async position => {
-            const {latitude, longitude} = position.coords;
+            const { latitude, longitude } = position.coords;
 
             try {
               const reverseResponse = await axios.get(NOMINATIM_REVERSE_URL, {
@@ -205,7 +206,7 @@ const OSMAutocomplete = ({
                 name: address,
                 latitude,
                 longitude,
-                full: {latitude, longitude, address: reverseData},
+                full: { latitude, longitude, address: reverseData },
               });
             } catch (reverseError) {
               console.error(
@@ -217,7 +218,7 @@ const OSMAutocomplete = ({
                 name: 'Current Location',
                 latitude,
                 longitude,
-                full: {latitude, longitude},
+                full: { latitude, longitude },
               });
             } finally {
               setCurrentLocationLoading(false);
@@ -228,7 +229,7 @@ const OSMAutocomplete = ({
             alert('Unable to fetch your current location.');
             setCurrentLocationLoading(false);
           },
-          {enableHighAccuracy: true, timeout: 10000, maximumAge: 1000},
+          { enableHighAccuracy: true, timeout: 10000, maximumAge: 1000 },
         );
       } catch (error) {
         console.error('Geolocation error:', error);
@@ -253,7 +254,7 @@ const OSMAutocomplete = ({
   useEffect(() => {
     if (showCurrentLocationOption && results.length > 0) {
       setDisplayResults([
-        {isCurrentLocation: true, name: '📍 Use My Current Location'},
+        { isCurrentLocation: true, name: '📍 Use My Current Location' },
         ...results,
       ]);
     } else {
@@ -266,7 +267,7 @@ const OSMAutocomplete = ({
     setValue(value);
   };
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <Autocomplete
         onFocus={onFocus}
         data={displayResults}
@@ -276,10 +277,11 @@ const OSMAutocomplete = ({
         listContainerStyle={styles.listContainerStyle}
         listStyle={styles.listStyle}
         inputContainerStyle={styles.inputContainerStyle}
+        style={{ backgroundColor: ColorStyles.inputBackgroundColor }}
         flatListProps={{
           keyExtractor: (_, index) => index.toString(),
           keyboardShouldPersistTaps: 'handled',
-          renderItem: ({item}) => (
+          renderItem: ({ item }) => (
             <TouchableOpacity
               onPress={() => {
                 handleSelect(item);
@@ -288,14 +290,18 @@ const OSMAutocomplete = ({
               }}
               style={[
                 styles.item,
-                item.isCurrentLocation && {backgroundColor: '#e0f7fa'},
+                item.isCurrentLocation && { backgroundColor: '#e0f7fa' },
               ]}
-              disabled={currentLocationLoading && item.isCurrentLocation}>
+              disabled={currentLocationLoading && item.isCurrentLocation}
+            >
               {item.isCurrentLocation ? (
                 currentLocationLoading ? (
-                  <ActivityIndicator size="small" color="#333" />
+                  <ActivityIndicator
+                    size="small"
+                    color={ColorStyles.brandColor}
+                  />
                 ) : (
-                  <Text style={{fontWeight: 'bold'}}>{item?.name}</Text>
+                  <Text style={{ fontWeight: 'bold' }}>{item?.name}</Text>
                 )
               ) : (
                 <Text>{item?.name}</Text>
@@ -306,8 +312,8 @@ const OSMAutocomplete = ({
       />
 
       {loading && (
-        <View style={{marginTop: 20}}>
-          <ActivityIndicator size="small" color="#333" />
+        <View style={{ marginTop: 20, position: 'absolute' }}>
+          <ActivityIndicator size="small" color={ColorStyles.brandColor} />
         </View>
       )}
     </View>

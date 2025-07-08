@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, StatusBar } from 'react';
 import HomeScreen from '../Home/HomeScreen';
 import HeaderBar from '../../Components/HeaderBar/HeaderBar';
 import { CustomsSideBarList } from '../../Components/CustomSidebar/CustomSidebar';
@@ -6,7 +6,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import TripHistory from '../JourneyHistory/JourneyHistory';
 import SettingsScreen from '../Settings/SettingsScreen';
 import Reload from '../../Components/Reload/Reload';
-
+import { barStyles } from '../../GlobalStyles/Color.styles';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 export default function CustomScreenManager({ savedProfileImage }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedScreen, setSelectedScreen] = useState('Home');
@@ -26,6 +27,7 @@ export default function CustomScreenManager({ savedProfileImage }) {
           flex: 1,
           height: '100%',
           position: 'relative',
+          backgroundColor: ColorStyles.backgroundColor,
         }}
       >
         <HeaderBar toggleSidebar={toggleSidebar} />

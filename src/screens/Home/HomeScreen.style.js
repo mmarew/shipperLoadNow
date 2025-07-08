@@ -1,4 +1,5 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,6 +14,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     // paddingBottom: 40,
+    backgroundColor: ColorStyles.backgroundColor,
   },
   infoContainer: {
     flex: 0.3, // 30% of the container height

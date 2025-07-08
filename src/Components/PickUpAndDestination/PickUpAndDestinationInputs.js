@@ -21,6 +21,7 @@ import ButtonNavigateToScreens from '../Buttons/ButtonNavigateToScreens/ButtonNa
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import RecentSearches from '../RecentSearches/RecentSearches';
 import BackArrow from '../BackArrow/BackArrow';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
   const dispatch = useDispatch();
@@ -102,7 +103,7 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{ flex: 1, top: 90 }}
+      style={{ flex: 1, top: 90, backgroundColor: ColorStyles.backgroundColor }}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={{ flex: 1 }}>

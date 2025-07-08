@@ -1,5 +1,6 @@
-import {StyleSheet} from 'react-native';
-import {height} from '../Constants/constant.utils';
+import { StyleSheet } from 'react-native';
+import { height } from '../Constants/constant.utils';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const styles = StyleSheet.create({
   listContainerStyle: {
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#ccc',
     borderBottomWidth: 1,
   },
-  listStyle: {border: 'none'},
+  listStyle: { border: 'none' },
   inputContainerStyle: {
     borderTopWidth: 0,
     borderLeftWidth: 0,
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     paddingLeft: 40,
     paddingTop: 40,
     paddingBottom: 10,
-    backgroundColor: 'white',
+    backgroundColor: ColorStyles.inputBackgroundColor,
     width: '100%',
   },
 });

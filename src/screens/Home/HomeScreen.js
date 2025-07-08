@@ -21,6 +21,7 @@ import Journey from '../Journey/Journey';
 import StrightLine from '../../assets/icons/StrightLine.svg';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import HeaderBar from '../../Components/HeaderBar/HeaderBar';
+import ColorStyles, { barStyles } from '../../GlobalStyles/Color.styles';
 const HomeScreen = ({ navigation }) => {
   const passengerSlices = useSelector(state => state?.passengerSlices);
   const passengerStatus = passengerSlices?.passengerStatus;
@@ -28,30 +29,20 @@ const HomeScreen = ({ navigation }) => {
   const [showComponent, setShowComponent] = useState();
   const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
   console.log('@HomeScreen passengerStatus', passengerStatus);
-  // return <Text>it is home </Text>;
   // if passenger dosent have any request
   if (passengerStatus === null) {
     if (showComponent == 'Pick up and destination') {
-      return (
-        <SafeAreaView style={{ flex: 1 }}>
-          {/* <HeaderBar navigation={navigation} /> */}
-          <StatusBar barStyle="dark-content" backgroundColor="white" />
-          <PickUpAndDestinationInputs setShowComponent={setShowComponent} />
-        </SafeAreaView>
-      );
+      return <PickUpAndDestinationInputs setShowComponent={setShowComponent} />;
     } else if (showComponent === 'Shipping Detailes') {
-      return (
-        <SafeAreaView style={{ flex: 1 }}>
-          {/* <HeaderBar navigation={navigation} /> */}
-          <StatusBar barStyle="dark-content" backgroundColor="white" />
-          <ShippingDetailes setShowComponent={setShowComponent} />
-        </SafeAreaView>
-      );
+      return <ShippingDetailes setShowComponent={setShowComponent} />;
     } else if (showComponent === 'List Of Vehicles') {
       return (
         <SafeAreaView style={{ flex: 1 }}>
           {/* <HeaderBar navigation={navigation} /> */}
-          <StatusBar barStyle="dark-content" backgroundColor="white" />
+          <StatusBar
+            barStyle={barStyles}
+            backgroundColor={ColorStyles.backgroundColor}
+          />
           <SelectListOfVechels
             navigation={navigation}
             setShowComponent={setShowComponent}
@@ -67,17 +58,27 @@ const HomeScreen = ({ navigation }) => {
       );
     } else {
       return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView
+          style={{
+            flex: 1,
+            backgroundColor: ColorStyles.backgroundColor,
+          }}
+        >
           {/* <HeaderBar navigation={navigation} /> */}
-          <StatusBar barStyle="dark-content" backgroundColor="white" />
+          <StatusBar
+            barStyle={barStyles}
+            backgroundColor={ColorStyles.backgroundColor}
+          />
 
-          <PassangerMap navigation={navigation} mapHeight={0.63} />
+          <PassangerMap navigation={navigation} mapHeight={0.8} />
 
           {/* Bottom Container */}
           <View
             style={{
-              ...styles.bottomContainer,
-              ...GlobalStyles.bodyBasicBgColor,
+              backgroundColor: ColorStyles.backgroundColor,
+              borderTopEndRadius: 25,
+              borderTopLeftRadius: 25,
+              paddingTop: 20,
             }}
           >
             <View
@@ -123,7 +124,10 @@ const HomeScreen = ({ navigation }) => {
       return (
         <SafeAreaView style={{ flex: 1 }}>
           {/* <HeaderBar navigation={navigation} /> */}
-          <StatusBar barStyle="dark-content" backgroundColor="white" />
+          <StatusBar
+            barStyle={barStyles}
+            backgroundColor={ColorStyles.backgroundColor}
+          />
           <CancelRequestModal
             setShowComponent={setShowComponent}
             navigation={navigation}
@@ -134,7 +138,10 @@ const HomeScreen = ({ navigation }) => {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         {/* <HeaderBar navigation={navigation} /> */}
-        <StatusBar barStyle="dark-content" backgroundColor="white" />
+        <StatusBar
+          barStyle={barStyles}
+          backgroundColor={ColorStyles.backgroundColor}
+        />
         <FindDriverScreen
           setShowComponent={setShowComponent}
           navigation={navigation}
@@ -145,7 +152,10 @@ const HomeScreen = ({ navigation }) => {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         {/* <HeaderBar navigation={navigation} /> */}
-        <StatusBar barStyle="dark-content" backgroundColor="white" />
+        <StatusBar
+          barStyle={barStyles}
+          backgroundColor={ColorStyles.backgroundColor}
+        />
         <WaitingForConfirmation />
       </SafeAreaView>
     );
@@ -157,7 +167,10 @@ const HomeScreen = ({ navigation }) => {
       return (
         <SafeAreaView style={{ flex: 1 }}>
           {/* <HeaderBar navigation={navigation} /> */}
-          <StatusBar barStyle="dark-content" backgroundColor="white" />
+          <StatusBar
+            barStyle={barStyles}
+            backgroundColor={ColorStyles.backgroundColor}
+          />
           <CancelRequestModal
             setShowComponent={setShowComponent}
             navigation={navigation}
@@ -168,7 +181,10 @@ const HomeScreen = ({ navigation }) => {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         {/* <HeaderBar navigation={navigation} /> */}
-        <StatusBar barStyle="dark-content" backgroundColor="white" />
+        <StatusBar
+          barStyle={barStyles}
+          backgroundColor={ColorStyles.backgroundColor}
+        />
 
         <Journey setShowComponent={setShowComponent} navigation={navigation} />
       </SafeAreaView>

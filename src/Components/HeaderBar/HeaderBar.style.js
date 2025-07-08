@@ -1,25 +1,32 @@
 import { StyleSheet } from 'react-native';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const styles = StyleSheet.create({
-  header: {
+  headerContainer: {
     position: 'absolute',
-    zIndex: 2,
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    top: 50,
-    left: 20, // optional positioning
-    backgroundColor: 'blue',
-    // ❌ Remove padding
-    // ✅ Add centering
+    top: 90, // Adjust as needed for your layout
+    left: 20,
+    zIndex: 10,
+    borderRadius: 22,
+  },
+  headerButton: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: ColorStyles.brandColor,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  headerTitle: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginLeft: 15,
+  hamburger: {
+    width: 24,
+    height: 18,
+    justifyContent: 'space-between',
+  },
+  hamburgerLine: {
+    height: 2,
+    width: '100%',
+    backgroundColor: 'white',
+    borderRadius: 2,
   },
 });
 

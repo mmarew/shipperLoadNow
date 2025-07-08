@@ -3,6 +3,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './PickupAndDestinationDisplayer.style';
 import { Text } from 'react-native-paper';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const PickupAndDestinationDisplayer = ({
   setShowComponent,
@@ -42,7 +43,7 @@ const PickupAndDestinationDisplayer = ({
                     color="dodgerblue"
                   />
                   <View>
-                    <Text>From</Text>
+                    <Text style={{ color: ColorStyles.whiteColor }}>From</Text>
                     <Text style={styles.textPickupAndDestination}>
                       {origin?.description ? origin?.description : 'Set Pickup'}
                     </Text>
@@ -67,7 +68,7 @@ const PickupAndDestinationDisplayer = ({
                     />
 
                     <View>
-                      <Text>To </Text>
+                      <Text style={{ color: ColorStyles.whiteColor }}>To </Text>
                       <Text style={styles.textPickupAndDestination}>
                         {destination?.description
                           ? destination?.description

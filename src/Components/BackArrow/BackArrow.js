@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
 import styles from './BackArrow.style';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const BackArrow = ({ description, setShowComponent, showComponent }) => {
   return (
@@ -14,7 +15,11 @@ const BackArrow = ({ description, setShowComponent, showComponent }) => {
             setShowComponent(showComponent);
         }}
       >
-        <Ionicons name="arrow-back-outline" size={24} color="black" />
+        <Ionicons
+          name="arrow-back-outline"
+          size={24}
+          color={ColorStyles.whiteColor}
+        />
         <Text style={styles.headerTitle}>{description}</Text>
       </TouchableOpacity>
     </View>

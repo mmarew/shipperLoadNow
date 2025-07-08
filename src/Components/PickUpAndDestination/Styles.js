@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F9F9F9',
+    backgroundColor: ColorStyles.backgroundColor,
     padding: 20,
     position: 'relative',
   },
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     marginBottom: 5,
-    color: '#444',
+    color: ColorStyles.textColor,
     marginLeft: 45,
   },
 

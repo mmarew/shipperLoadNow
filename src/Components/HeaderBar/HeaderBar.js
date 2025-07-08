@@ -1,18 +1,23 @@
-import { TouchableOpacity } from 'react-native';
-import HeaderIcon from '../../assets/icons/HeaderIcon.svg';
+import { TouchableOpacity, View } from 'react-native';
 import styles from './HeaderBar.style';
+
 const HeaderBar = ({ toggleSidebar }) => {
   return (
-    <TouchableOpacity
-      style={styles.header}
-      onPress={() => {
-        toggleSidebar();
-      }}
-      accessibilityLabel="Open drawer menu"
-      accessibilityRole="button"
-    >
-      <HeaderIcon width={150} height={150} left={13} top={12} />
-    </TouchableOpacity>
+    <View style={styles.headerContainer}>
+      <TouchableOpacity
+        style={styles.headerButton}
+        onPress={toggleSidebar}
+        activeOpacity={0.7}
+        accessibilityLabel="Open drawer menu"
+        accessibilityRole="button"
+      >
+        <View style={styles.hamburger}>
+          <View style={styles.hamburgerLine} />
+          <View style={styles.hamburgerLine} />
+          <View style={styles.hamburgerLine} />
+        </View>
+      </TouchableOpacity>
+    </View>
   );
 };
 
