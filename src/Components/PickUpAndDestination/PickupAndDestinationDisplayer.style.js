@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   pickUp: {
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-    borderBottomWidth: 4,
+    borderBottomWidth: 1,
     borderBottomColor: ColorStyles.borderColor,
     backgroundColor: ColorStyles.whiteBGColor,
   },

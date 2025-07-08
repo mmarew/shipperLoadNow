@@ -78,7 +78,7 @@ const HomeScreen = ({ navigation }) => {
               backgroundColor: ColorStyles.backgroundColor,
               borderTopEndRadius: 25,
               borderTopLeftRadius: 25,
-              paddingTop: 20,
+              padding: 20,
             }}
           >
             <View

@@ -3,11 +3,12 @@ import {
   Text,
   TextInput,
   View,
-  ScrollView,
   ActivityIndicator,
   TouchableOpacity,
   StatusBar,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+
 import GlobalStyles from '../../../GlobalStyles/GlobalStyles';
 import { useDispatch, useSelector } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -23,8 +24,10 @@ import styles from './PassangerOTPVerification.css';
 import RNRestart from 'react-native-restart';
 import ColorStyles, { barStyles } from '../../../GlobalStyles/Color.styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import BackArrow from '../../../Components/BackArrow/BackArrow';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const PassangerOTPVerification = ({}) => {
+const PassangerOTPVerification = ({ navigation }) => {
   const dispatch = useDispatch();
   const newPassenger = useSelector(
     state => state.passengerSlices.registrablePassenger,
@@ -138,19 +141,38 @@ const PassangerOTPVerification = ({}) => {
   };
 
   return (
-    <SafeAreaView
-      style={{ flex: 1, backgroundColor: ColorStyles.backgroundColor }}
-    >
+    <SafeAreaView>
       <StatusBar
         barStyle={barStyles}
         backgroundColor={ColorStyles.backgroundColor}
       />
-      <ScrollView contentContainerStyle={GlobalStyles.container}>
+      <KeyboardAwareScrollView extraScrollHeight={150} enableOnAndroid={true}>
+        <View style={{ position: 'absolute', top: 50, flexDirection: 'row' }}>
+          <TouchableOpacity
+            style={{
+              flexDirection: 'row',
+              gap: 10,
+              alignItems: 'center',
+              marginLeft: 10,
+            }}
+            onPress={() => {
+              navigation.navigate('Register');
+            }}
+          >
+            <Ionicons
+              name="arrow-back-outline"
+              size={24}
+              color={ColorStyles.whiteColor}
+            />
+            <Text style={{ color: ColorStyles.whiteColor }}>
+              {'Back to Register '}
+            </Text>
+          </TouchableOpacity>
+        </View>
         <TopView
           title="Verify OTP"
           description="Check your phone to verify your OTP"
         />
-
         <View style={styles.bottomSection}>
           <Text style={styles.infoText}>
             Code has been sent to{' '}
@@ -210,7 +232,7 @@ const PassangerOTPVerification = ({}) => {
             </View>
           )}
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   );
 };

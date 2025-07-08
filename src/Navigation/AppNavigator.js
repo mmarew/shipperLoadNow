@@ -871,7 +871,10 @@ const AppNavigator = () => {
       <Stack.Screen
         name="OTP"
         component={DriversPinVerification}
-        options={{ title: 'Verification' }}
+        options={{
+          title: 'Verification',
+          headerShown: false,
+        }}
       />
       <Stack.Screen
         name="Terms And Services"
@@ -898,10 +901,10 @@ const AppNavigator = () => {
         ) : (
           <Stack.Navigator
             initialRouteName={initialRoute}
-            // screenOptions={{
-            //   ...navigationStyles.header,
-            //   cardStyle: { backgroundColor: '#fff' },
-            // }}
+            screenOptions={{
+              ...navigationStyles.header,
+              cardStyle: { backgroundColor: '#fff' },
+            }}
           >
             {renderStackScreens()}
           </Stack.Navigator>

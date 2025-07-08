@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   selectedVehicle: {
     borderWidth: 2,
     borderColor: ColorStyles.borderColor,
-    backgroundColor: ColorStyles.whiteBGColor,
+    backgroundColor: ColorStyles.lightSkyBlue,
   },
   vehicleImage: {
     width: 60,

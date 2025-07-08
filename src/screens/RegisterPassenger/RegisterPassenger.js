@@ -19,6 +19,7 @@ import { handlePhoneChange } from '../../utils/Formatter/Formatter';
 import ColorStyles, { barStyles } from '../../GlobalStyles/Color.styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Reload from '../../Components/Reload/Reload';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const RegisterPassenger = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -115,7 +116,9 @@ const RegisterPassenger = ({ navigation }) => {
         barStyle={barStyles}
         backgroundColor={ColorStyles.backgroundColor}
       />
-      <ScrollView
+      <KeyboardAwareScrollView
+        extraScrollHeight={150}
+        enableOnAndroid={true}
         style={GlobalStyles.container}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
@@ -231,7 +234,7 @@ const RegisterPassenger = ({ navigation }) => {
             </TouchableOpacity>
           )}
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   );
 };

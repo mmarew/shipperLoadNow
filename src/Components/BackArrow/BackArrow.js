@@ -18,7 +18,7 @@ const BackArrow = ({ description, setShowComponent, showComponent }) => {
         <Ionicons
           name="arrow-back-outline"
           size={24}
-          color={ColorStyles.whiteColor}
+          color={ColorStyles.textColor}
         />
         <Text style={styles.headerTitle}>{description}</Text>
       </TouchableOpacity>
