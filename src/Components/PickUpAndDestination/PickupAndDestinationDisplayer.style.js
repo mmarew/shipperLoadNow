@@ -18,8 +18,11 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderBottomWidth: 4,
     borderBottomColor: ColorStyles.borderColor,
+    backgroundColor: ColorStyles.whiteBGColor,
   },
   destination: {
+    backgroundColor: ColorStyles.whiteBGColor,
+
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },

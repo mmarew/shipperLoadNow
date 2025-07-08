@@ -9,7 +9,7 @@ import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import { updateShipableItem } from '../../Redux/slices/PassengerSlice';
 import BackArrow from '../../Components/BackArrow/BackArrow';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-
+import ColorStyles from '../../GlobalStyles/Color.styles';
 export default function ShippingDetailes({ navigation, setShowComponent }) {
   const dispatch = useDispatch();
   const { shippableItem } = useSelector(state => state.passengerSlices);
@@ -24,6 +24,14 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
     shippingCost: '',
     shippingDate: '',
     deliveryDate: '',
+  });
+
+  const [inputsFocus, setInputsFocus] = useState({
+    itemName: false,
+    quantity: false,
+    shippingCost: false,
+    shippingDate: false,
+    deliveryDate: false,
   });
 
   useEffect(() => {
@@ -121,9 +129,35 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
             {/* Shipping Date */}
             <TouchableOpacity onPress={() => handleShowDatePickers('shipping')}>
               <TextInput
+                outlineStyle={[
+                  GlobalStyles.inputsOutlineStyle,
+                  inputsFocus.shippingDate
+                    ? { borderColor: ColorStyles.brandColor }
+                    : {},
+                ]}
+                activeOutlineColor={ColorStyles.brandColor}
+                label={
+                  <Text
+                    style={[
+                      GlobalStyles.inputLable,
+                      inputsFocus.shippingDate
+                        ? { color: ColorStyles.brandColor }
+                        : {},
+                    ]}
+                  >
+                    Shipping Date
+                  </Text>
+                }
+                onBlur={() =>
+                  setInputsFocus(prev => ({ shippingDate: false, ...prev }))
+                }
+                onFocus={() =>
+                  setInputsFocus(prev => ({ shippingDate: true, ...prev }))
+                }
+                contentStyle={GlobalStyles.inputContentstyle}
                 mode="outlined"
                 style={styles.inputStyles}
-                label="Select Shipping Date *"
+                // label="Select Shipping Date *"
                 value={
                   shippableItem?.shippingDate
                     ? new Date(shippableItem.shippingDate).toDateString()
@@ -140,9 +174,35 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
             {/* Destination Date */}
             <TouchableOpacity onPress={() => handleShowDatePickers('delivery')}>
               <TextInput
+                outlineStyle={[
+                  GlobalStyles.inputsOutlineStyle,
+                  inputsFocus.deliveryDate
+                    ? { borderColor: ColorStyles.brandColor }
+                    : {},
+                ]}
+                activeOutlineColor={ColorStyles.brandColor}
+                label={
+                  <Text
+                    style={[
+                      GlobalStyles.inputLable,
+                      inputsFocus.deliveryDate
+                        ? { color: ColorStyles.brandColor }
+                        : {},
+                    ]}
+                  >
+                    Delivery Date
+                  </Text>
+                }
+                onBlur={() =>
+                  setInputsFocus(prev => ({ deliveryDate: false, ...prev }))
+                }
+                onFocus={() =>
+                  setInputsFocus(prev => ({ deliveryDate: true, ...prev }))
+                }
+                contentStyle={GlobalStyles.inputContentstyle}
                 mode="outlined"
                 style={styles.inputStyles}
-                label="Select Delivery Date *"
+                // label="Select Delivery Date *"
                 value={
                   shippableItem?.deliveryDate
                     ? new Date(shippableItem.deliveryDate).toDateString()
@@ -206,19 +266,71 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
 
             {/* Item Name */}
             <TextInput
+              outlineStyle={[
+                GlobalStyles.inputsOutlineStyle,
+                inputsFocus.itemName
+                  ? { borderColor: ColorStyles.brandColor }
+                  : {},
+              ]}
+              activeOutlineColor={ColorStyles.brandColor}
+              label={
+                <Text
+                  style={[
+                    GlobalStyles.inputLable,
+                    inputsFocus.itemName
+                      ? { color: ColorStyles.brandColor }
+                      : {},
+                  ]}
+                >
+                  Items Name *
+                </Text>
+              }
+              onBlur={() =>
+                setInputsFocus(prev => ({ itemName: false, ...prev }))
+              }
+              onFocus={() =>
+                setInputsFocus(prev => ({ itemName: true, ...prev }))
+              }
+              contentStyle={GlobalStyles.inputContentstyle}
               mode="outlined"
               style={styles.inputStyles}
               value={shippableItem?.shippableItemName || ''}
               onChangeText={text =>
                 dispatch(updateShipableItem({ shippableItemName: text.trim() }))
               }
-              label="Item Name *"
+              // label="Item Name *"
             />
             {errors.itemName && (
               <Text style={{ color: 'red' }}>{errors?.itemName}</Text>
             )}
             {/* qty */}
             <TextInput
+              outlineStyle={[
+                GlobalStyles.inputsOutlineStyle,
+                inputsFocus.quantity
+                  ? { borderColor: ColorStyles.brandColor }
+                  : {},
+              ]}
+              activeOutlineColor={ColorStyles.brandColor}
+              label={
+                <Text
+                  style={[
+                    GlobalStyles.inputLable,
+                    inputsFocus.quantity
+                      ? { color: ColorStyles.brandColor }
+                      : {},
+                  ]}
+                >
+                  Quantity
+                </Text>
+              }
+              onBlur={() =>
+                setInputsFocus(prev => ({ quantity: false, ...prev }))
+              }
+              onFocus={() =>
+                setInputsFocus(prev => ({ quantity: true, ...prev }))
+              }
+              contentStyle={GlobalStyles.inputContentstyle}
               mode="outlined"
               style={styles.inputStyles}
               keyboardType="numeric"
@@ -240,13 +352,39 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
                   setErrors(prev => ({ ...prev, quantity: '' }));
                 }
               }}
-              label="Quantity in Quintal *"
+              // label="Quantity in Quintal *"
             />
             {errors.quantity && (
               <Text style={{ color: 'red' }}>{errors.quantity}</Text>
             )}
             {/* Shipping Cost */}
             <TextInput
+              outlineStyle={[
+                GlobalStyles.inputsOutlineStyle,
+                inputsFocus.shippingCost
+                  ? { borderColor: ColorStyles.brandColor }
+                  : {},
+              ]}
+              activeOutlineColor={ColorStyles.brandColor}
+              label={
+                <Text
+                  style={[
+                    GlobalStyles.inputLable,
+                    inputsFocus.shippingCost
+                      ? { color: ColorStyles.brandColor }
+                      : {},
+                  ]}
+                >
+                  Shipping Cost
+                </Text>
+              }
+              onBlur={() =>
+                setInputsFocus(prev => ({ shippingCost: false, ...prev }))
+              }
+              onFocus={() =>
+                setInputsFocus(prev => ({ shippingCost: true, ...prev }))
+              }
+              contentStyle={GlobalStyles.inputContentstyle}
               mode="outlined"
               style={styles.inputStyles}
               value={shippableItem?.shippingCost?.toString() ?? ''}
@@ -259,7 +397,7 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
                 setErrors(prev => ({ ...prev, shippingCost: '' }));
               }}
               keyboardType="numeric"
-              label="Shipping Cost in ETB *"
+              // label="Shipping Cost in ETB *"
             />
             {errors.shippingCost && (
               <Text style={{ color: 'red' }}>{errors.shippingCost}</Text>

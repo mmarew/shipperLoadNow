@@ -96,7 +96,9 @@ const PickupAndDestinationDisplayer = ({
                     />
 
                     <View>
-                      <Text>From</Text>
+                      <Text style={{ color: ColorStyles.whiteColor }}>
+                        From
+                      </Text>
                       <Text style={styles.textPickupAndDestination}>
                         {origin?.description
                           ? origin?.description
@@ -123,7 +125,7 @@ const PickupAndDestinationDisplayer = ({
                     />
 
                     <View>
-                      <Text>To </Text>
+                      <Text style={{ color: ColorStyles.whiteColor }}>To </Text>
                       <Text style={styles.textPickupAndDestination}>
                         {destination?.description
                           ? destination?.description

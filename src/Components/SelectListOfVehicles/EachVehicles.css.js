@@ -1,24 +1,25 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const styles = StyleSheet.create({
   vehicleItem: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#fff',
+    backgroundColor: ColorStyles.whiteBGColor,
     borderRadius: 10,
     padding: 15,
     marginVertical: 5,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 3,
     elevation: 2,
   },
   selectedVehicle: {
     borderWidth: 2,
-    borderColor: '#132e47',
-    backgroundColor: '#E0F2FE',
+    borderColor: ColorStyles.borderColor,
+    backgroundColor: ColorStyles.whiteBGColor,
   },
   vehicleImage: {
     width: 60,
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
   vehicleTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#333',
+    color: ColorStyles.textColor,
   },
   vehicleInfo: {
     flex: 1,
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
   },
   vehicleDescription: {
     fontSize: 14,
-    color: '#666',
+    color: ColorStyles.textColor,
   },
   vehiclePrice: {
     fontSize: 16,

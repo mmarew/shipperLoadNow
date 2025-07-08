@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   ScrollView,
-  StatusBar,
   Text,
   TouchableOpacity,
   View,
@@ -26,8 +25,7 @@ import CancelRequest from '../../Components/CancelRequest/CancelRequest';
 import { ProgressBar } from 'react-native-paper';
 import ShowShippableItems from '../../Components/ShowShippableItems/ShowShippableItems';
 import BackArrow from '../../Components/BackArrow/BackArrow';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import HeaderBar from '../../Components/HeaderBar/HeaderBar';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 /**
  * FindDriverScreen component handles the process of finding a driver for a passenger.
  * It manages the state and interactions related to the driver's search and request process.
@@ -169,7 +167,7 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
           <View
             style={{
               paddingHorizontal: 20,
-              ...GlobalStyles.bodyBasicBgColor,
+              backgroundColor: ColorStyles.backgroundColor,
               paddingBottom: 30,
               paddingTop: passengerStatus ? 30 : 0,
               borderTopStartRadius: 30,

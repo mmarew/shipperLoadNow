@@ -23,7 +23,7 @@ const lightTimeColors = {
     whiteBGColor: '#181818', //black color
     termsColor: '#f9f9f9',
     brandColor: '#075985',
-    whiteColor: '#fff',
+    whiteColor: '#FFFFFF',
     errorColor: '#FF3B30',
     lablesColor: '#f9f9f9',
     borderColor: '#D4D4D8',
@@ -32,7 +32,7 @@ const lightTimeColors = {
     shadowColor: '#000',
     veryLightGray: '#f0f0f0',
     // white gray color
-    mediumGray: '#fff',
+    mediumGray: '#FFFFFF',
   };
 // get if system is dark mode or light mode or null
 const isDarkMode = () => {

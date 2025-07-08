@@ -1,13 +1,15 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import ColorStyles from '../../GlobalStyles/Color.styles';
+import fontFamily from '../../GlobalStyles/FontFamily';
 
 const styles = StyleSheet.create({
   modalOverlay: {
     flex: 1,
     justifyContent: 'flex-end',
-    backgroundColor: '#fff',
+    // backgroundColor: '#fff',
   },
   modalContainer: {
-    backgroundColor: '#f4f4f5',
+    backgroundColor: ColorStyles.backgroundColor,
     padding: 20,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -25,11 +27,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 20,
+    color: ColorStyles.textColor,
+    fontFamily: fontFamily.manropeRegular,
   },
   reasonButton: {
     width: '100%',
     padding: 15,
-    backgroundColor: '#ffffff',
+    backgroundColor: ColorStyles.whiteBGColor,
     borderRadius: 10,
     marginVertical: 5,
     alignItems: 'center',
@@ -39,13 +43,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
     gap: 10,
+    backgroundColor: ColorStyles.whiteBGColor,
   },
   selectedReasonContainer: {
-    backgroundColor: '#d3d3d3',
+    borderColor: ColorStyles.borderColor,
+    borderWidth: 2,
   },
   reasonText: {
     fontSize: 16,
-    color: '#333',
+    color: ColorStyles.textColor,
   },
 });
 export default styles;

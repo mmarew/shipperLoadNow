@@ -1,11 +1,12 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: ColorStyles.whiteBGColor,
     marginTop: 10,
     padding: 10,
   },
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   openButton: {
-    backgroundColor: '#2196F3',
+    backgroundColor: ColorStyles.borderColor,
     borderRadius: 20,
     padding: 10,
     elevation: 2,

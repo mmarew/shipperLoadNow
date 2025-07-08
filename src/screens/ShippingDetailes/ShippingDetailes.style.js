@@ -1,13 +1,18 @@
 import { StyleSheet } from 'react-native';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const styles = StyleSheet.create({
   container: { margin: 10, padding: 10, marginTop: 90 },
-  inputStyles: { backgroundColor: 'white', height: 80 },
+  inputStyles: {
+    backgroundColor: ColorStyles.inputBackgroundColor,
+    height: 80,
+    color: ColorStyles.textColor,
+  },
   headerWrapper: { paddingTop: 30 },
   formWrapper: {
     padding: 10,
     gap: 10,
-    backgroundColor: 'white',
+    backgroundColor: ColorStyles.whiteBGColor,
     paddingVertical: 20,
     marginBottom: 20,
   },

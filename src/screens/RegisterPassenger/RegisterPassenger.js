@@ -148,6 +148,12 @@ const RegisterPassenger = ({ navigation }) => {
                   code
                 </Text>
               }
+              onBlur={() =>
+                setInputsFocus({ codeFocus: false, phoneFocus: false })
+              }
+              onFocus={() =>
+                setInputsFocus({ codeFocus: true, phoneFocus: false })
+              }
               mode="outlined"
               // label={<Text style={styles.label}>Code</Text>}
               value={phoneCode}
@@ -156,12 +162,6 @@ const RegisterPassenger = ({ navigation }) => {
               error={!!errors.phoneCode}
               style={styles.textInputStyle}
               contentStyle={GlobalStyles.inputContentstyle}
-              onBlur={() =>
-                setInputsFocus({ codeFocus: false, phoneFocus: false })
-              }
-              onFocus={() =>
-                setInputsFocus({ codeFocus: true, phoneFocus: false })
-              }
             />
             {/* Phone Number Input */}
             <TextInput
