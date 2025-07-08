@@ -9,6 +9,7 @@ import DiverCard from '../../Components/DriverInfo/DiverCard';
 import { requestUsingPutMethod } from '../../utils/handleRequestToServer/handleRequestToServer';
 import API_URLS from '../../Configs/URLConfigs';
 import HandleResponses from '../../utils/handleServerResponses/HandleResponses';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const WaitingForConfirmation = () => {
   const passengerSlices = useSelector(state => state?.passengerSlices);
@@ -59,7 +60,7 @@ const WaitingForConfirmation = () => {
               <View
                 key={index}
                 style={{
-                  backgroundColor: 'white',
+                  backgroundColor: ColorStyles.whiteBGColor,
                   paddingHorizontal: 10,
                   borderRadius: 20,
                 }}

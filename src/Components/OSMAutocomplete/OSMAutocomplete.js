@@ -363,10 +363,10 @@ const OSMAutocomplete = ({
           },
         });
 
-        const address = reverseResponse.data.display_name || 'Current Location';
-        setValue(address);
+        const name = reverseResponse.data.display_name || 'Current Location';
+        setValue(name);
         onSelect({
-          name: address,
+          name,
           latitude,
           longitude,
           full: { latitude, longitude, address: reverseResponse.data },

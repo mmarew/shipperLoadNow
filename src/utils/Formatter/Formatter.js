@@ -49,7 +49,7 @@ const createDateFormatter = (isoString, defaultLocale = 'en-US') => {
  * @param {boolean} [addEllipsis=true] - Whether to add '...' when text is trimmed
  * @returns {string} The trimmed text
  */
-function trimText({text, size, addEllipsis = true}) {
+function trimText({ text, size, addEllipsis = true }) {
   // Validate inputs
   if (typeof text !== 'string') {
     throw new TypeError('First argument must be a string');
@@ -77,4 +77,4 @@ function trimText({text, size, addEllipsis = true}) {
   return trimmed;
 }
 
-export {handlePhoneChange, isJSON, createDateFormatter, trimText};
+export { handlePhoneChange, isJSON, createDateFormatter, trimText };

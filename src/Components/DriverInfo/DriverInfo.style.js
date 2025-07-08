@@ -1,29 +1,32 @@
 import { StyleSheet } from 'react-native';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const styles = StyleSheet.create({
   headingText: {
     paddingTop: 10,
     paddingBottom: 15,
+    color: ColorStyles.textColor,
   },
   timeDisplayer: {
     fontStyle: 'normal',
     fontWeight: '400',
     fontSize: 12,
     lineHeight: 18,
-    color: '#71717A',
+    color: ColorStyles.textColor,
   },
   arrivalText: {
-    color: '#6b7280',
+    color: ColorStyles.textColor,
     marginTop: 5,
   },
   vehicleInfoText: {
     marginVertical: 10,
+    color: ColorStyles.textColor,
   },
   journeyInfoWrapper: {
-    borderColor: '#F4F4F5',
+    borderColor: ColorStyles.borderColor,
     borderBottomWidth: 2,
     paddingLeft: 30,
-    backgroundColor: 'white',
+    backgroundColor: ColorStyles.whiteBGColor,
     borderRadius: 20,
     paddingVertical: 20,
     marginTop: -2,
@@ -31,7 +34,7 @@ const styles = StyleSheet.create({
 
   cardContainer: {
     marginVertical: 15,
-    backgroundColor: '#ffffff',
+    backgroundColor: ColorStyles.whiteBGColor,
 
     justifyContent: 'center',
     borderRadius: 20,
@@ -50,6 +53,10 @@ const styles = StyleSheet.create({
   },
   driverName: {
     fontSize: 20,
+    color: ColorStyles.textColor,
+  },
+  memberSince: {
+    color: ColorStyles.textColor,
   },
   deliveryInfo: {
     fontSize: 12,
@@ -73,6 +80,7 @@ const styles = StyleSheet.create({
   driverInfoContainer: {
     width: '100%',
     paddingTop: 10,
+    backgroundColor: ColorStyles.backgroundColor,
   },
 });
 export default styles;

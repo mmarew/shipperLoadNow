@@ -179,7 +179,9 @@ const HomeScreen = ({ navigation }) => {
       );
     }
     return (
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView
+        style={{ flex: 1, backgroundColor: ColorStyles.backgroundColor }}
+      >
         {/* <HeaderBar navigation={navigation} /> */}
         <StatusBar
           barStyle={barStyles}

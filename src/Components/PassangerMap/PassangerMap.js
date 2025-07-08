@@ -179,7 +179,7 @@ const PassangerMap = ({ mapHeight, navigation }) => {
           styles.map,
           {
             height: safeMapHeight, // Math.max(height * (mapHeight || 0.5), 300), // height * (mapHeight || 0.5),
-            marginBottom: -300,
+            marginBottom: -30,
             height: safeMapHeight,
           },
         ]}

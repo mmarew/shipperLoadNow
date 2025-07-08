@@ -1,10 +1,11 @@
-import {View, Text, TouchableOpacity} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from 'react';
 import styles from './RecentSearches.styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {getRecentCompletedJourney} from '../PickUpAndDestination/recentData';
-
-const RecentSearches = ({onRecentSelect}) => {
+import { getRecentCompletedJourney } from '../PickUpAndDestination/recentData';
+import { trimText } from '../../utils/Formatter/Formatter';
+import ColorStyles from '../../GlobalStyles/Color.styles';
+const RecentSearches = ({ onRecentSelect }) => {
   const [recentData, setRecentData] = useState([]);
   const fetchRecentData = async () => {
     const fetchedRecentData = await getRecentCompletedJourney();
@@ -49,15 +50,18 @@ const RecentSearches = ({onRecentSelect}) => {
         <TouchableOpacity
           key={index}
           style={styles.recentSearchItem}
-          onPress={() => onRecentSelect(item)}>
+          onPress={() => onRecentSelect(item)}
+        >
           <Ionicons
             name="location-sharp"
             size={20}
-            color="#3498db"
+            color={ColorStyles.brandColor}
             style={styles.iconLeft}
           />
           {/* <Ionicons name="location-outline" size={20} color="#3498db" /> */}
-          <Text style={styles.recentSearchText}>{item.name}</Text>
+          <Text style={styles.recentSearchText}>
+            {trimText({ text: item.name, size: 50 })}
+          </Text>
         </TouchableOpacity>
       ))}
     </View>

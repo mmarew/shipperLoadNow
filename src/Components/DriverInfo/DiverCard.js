@@ -1,11 +1,11 @@
-import {View, Text, Linking, Image, TouchableOpacity} from 'react-native';
+import { View, Text, Linking, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import styles from './DriverInfo.style';
 import API_URL_AXIOS from '../../services/AxiosServices';
 import Ionicons from 'react-native-vector-icons/Ionicons'; // For the call icon
-import {createDateFormatter} from '../../utils/Formatter/Formatter';
+import { createDateFormatter } from '../../utils/Formatter/Formatter';
 
-const DiverCard = ({driverInfo}) => {
+const DiverCard = ({ driverInfo }) => {
   //   const passengerSlices = useSelector(state => state.passengerSlices);
   //   const driverInfo = passengerSlices?.driver;
   const driver = driverInfo?.driver;
@@ -29,7 +29,10 @@ const DiverCard = ({driverInfo}) => {
         />
         <View style={styles.driverInfo}>
           <Text style={styles.driverName}>{driver?.fullName}</Text>
-          <Text> Member since {createDateFormatter()(createdAt)}</Text>
+          <Text style={styles.memberSince}>
+            {' '}
+            Member since {createDateFormatter()(createdAt)}
+          </Text>
         </View>
 
         {/* Call button */}

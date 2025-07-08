@@ -1,9 +1,11 @@
 import { StyleSheet } from 'react-native';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const styles = StyleSheet.create({
   container: {
     position: 'relative',
-    height: '100%',
+    flex: 1,
+    backgroundColor: ColorStyles.backgroundColor,
   },
   bottomContainer: {
     position: 'absolute',
