@@ -1,10 +1,11 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import ColorStyles from '../../../GlobalStyles/Color.styles';
 
 const styles = StyleSheet.create({
-  bottomSection: {paddingHorizontal: 20},
+  bottomSection: { paddingHorizontal: 20 },
   infoText: {
     fontSize: 14,
-    color: '#333',
+    color: ColorStyles.textColor,
     marginBottom: 20,
   },
   otpContainer: {
@@ -16,15 +17,16 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: ColorStyles.borderColor,
     borderRadius: 8,
     textAlign: 'center',
     fontSize: 20,
-    backgroundColor: '#FFF',
+    backgroundColor: ColorStyles.whiteBGColor,
+    color: ColorStyles.textColor,
   },
   resendText: {
     fontSize: 14,
-    color: '#333',
+    color: ColorStyles.textColor,
     marginBottom: 20,
     display: 'flex',
     flexDirection: 'row',

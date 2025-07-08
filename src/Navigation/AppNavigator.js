@@ -593,6 +593,7 @@ import {
 // Styles
 import { styles, navigationStyles } from './AppNavigator.css';
 import CustomScreenManager from '../screens/CustomScreenManager/CustomScreenManager';
+import ColorStyles from '../GlobalStyles/Color.styles';
 
 const Stack = createStackNavigator();
 
@@ -888,7 +889,7 @@ const AppNavigator = () => {
         ref={navigatorRef => setTopLevelNavigator(navigatorRef)}
         theme={{
           colors: {
-            background: '#f5f5f5',
+            background: ColorStyles.backgroundColor,
           },
         }}
       >
@@ -897,10 +898,10 @@ const AppNavigator = () => {
         ) : (
           <Stack.Navigator
             initialRouteName={initialRoute}
-            screenOptions={{
-              ...navigationStyles.header,
-              cardStyle: { backgroundColor: '#fff' },
-            }}
+            // screenOptions={{
+            //   ...navigationStyles.header,
+            //   cardStyle: { backgroundColor: '#fff' },
+            // }}
           >
             {renderStackScreens()}
           </Stack.Navigator>

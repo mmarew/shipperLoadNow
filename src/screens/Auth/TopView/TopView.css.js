@@ -1,4 +1,5 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import { height } from '../../../Components/Constants/constant.utils';
 
 const styles = StyleSheet.create({
   topSection: {
@@ -8,23 +9,24 @@ const styles = StyleSheet.create({
     backgroundColor: '#0A2540',
     paddingTop: 50,
     paddingHorizontal: 20,
-    minHeight: 300,
     position: 'relative',
-    zIndex: -1,
+    height: height * 0.48,
+    zIndex: -3,
   },
   Elipse24: {
     position: 'absolute',
     top: 0,
     left: 0,
+    zIndex: -1,
   },
   Elipse25: {
     position: 'absolute',
     top: 0,
     left: 0,
-    zIndex: -1,
-    height: 30,
+    zIndex: -2,
+    // height: 30,
   },
-  textsWrapper: {position: 'absolute', bottom: 20, left: 20},
+  textsWrapper: { position: 'absolute', bottom: 20, left: 20 },
   backButton: {
     color: '#FFF',
     fontSize: 24,

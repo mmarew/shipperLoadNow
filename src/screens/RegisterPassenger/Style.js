@@ -1,11 +1,17 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import ColorStyles from '../../GlobalStyles/Color.styles';
+import { height } from '../../Components/Constants/constant.utils';
+import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 
 const styles = StyleSheet.create({
   bottomSection: {
     paddingHorizontal: 20,
     paddingBottom: 40,
     gap: 20,
+    backgroundColor: ColorStyles.backgroundColor,
+    flex: 1,
   },
+  textInputStyle: { ...GlobalStyles.inputStyles },
 
   termsContainer: {
     flexDirection: 'row',
@@ -16,7 +22,7 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     borderRadius: 4,
-    borderColor: '#ccc',
+    borderColor: ColorStyles.borderColor,
     borderWidth: 1,
     marginRight: 10,
   },
@@ -24,16 +30,16 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   checkboxChecked: {
-    backgroundColor: '#075985',
+    backgroundColor: ColorStyles.brandColor,
   },
   termsText: {
     flex: 1,
     fontSize: 14,
-    color: '#333',
+    color: ColorStyles.textColor,
     lineHeight: 23,
   },
   termsLink: {
-    color: '#075985',
+    color: ColorStyles.brandColor,
     textDecorationLine: 'underline',
   },
   signInContainer: {

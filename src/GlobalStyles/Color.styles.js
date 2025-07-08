@@ -15,6 +15,7 @@ const lightTimeColors = {
     veryLightGray: '#f0f0f0',
     mediumGray: '#71717A',
     informationColor: '#4F4F4F',
+    inputBackgroundColor: '#fff',
   },
   darkTimeColors = {
     inputBackgroundColor: '#3D3D3D',

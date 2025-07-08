@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Text,
   TextInput,
@@ -6,27 +6,30 @@ import {
   ScrollView,
   ActivityIndicator,
   TouchableOpacity,
+  StatusBar,
 } from 'react-native';
 import GlobalStyles from '../../../GlobalStyles/GlobalStyles';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {showSuccessToast} from '../../../utils/ToastDisplayer/toastDisplayer';
+import { showSuccessToast } from '../../../utils/ToastDisplayer/toastDisplayer';
 import TopView from '../TopView/TopView';
 import errorHandler from '../../../utils/errorHandler/errorHandler';
 import {
   requestUsingGetMethode,
   requestUsingPostMethod,
 } from '../../../utils/handleRequestToServer/handleRequestToServer';
-import {addPassengersToken} from '../../../Redux/slices/PassengerSlice';
+import { addPassengersToken } from '../../../Redux/slices/PassengerSlice';
 import styles from './PassangerOTPVerification.css';
 import RNRestart from 'react-native-restart';
+import ColorStyles, { barStyles } from '../../../GlobalStyles/Color.styles';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const PassangerOTPVerification = ({}) => {
   const dispatch = useDispatch();
   const newPassenger = useSelector(
     state => state.passengerSlices.registrablePassenger,
   );
-  const {userData} = newPassenger;
+  const { userData } = newPassenger;
   const phoneNumber = userData?.phoneNumber;
 
   const [otp, setOtp] = useState(new Array(6).fill(''));
@@ -135,69 +138,80 @@ const PassangerOTPVerification = ({}) => {
   };
 
   return (
-    <ScrollView contentContainerStyle={GlobalStyles.container}>
-      <TopView
-        title="Verify OTP"
-        description="Check your phone to verify your OTP"
+    <SafeAreaView
+      style={{ flex: 1, backgroundColor: ColorStyles.backgroundColor }}
+    >
+      <StatusBar
+        barStyle={barStyles}
+        backgroundColor={ColorStyles.backgroundColor}
       />
+      <ScrollView contentContainerStyle={GlobalStyles.container}>
+        <TopView
+          title="Verify OTP"
+          description="Check your phone to verify your OTP"
+        />
 
-      <View style={styles.bottomSection}>
-        <Text style={styles.infoText}>
-          Code has been sent to
-          <Text style={GlobalStyles.textLink}>+251********</Text>
-        </Text>
+        <View style={styles.bottomSection}>
+          <Text style={styles.infoText}>
+            Code has been sent to{' '}
+            <Text style={GlobalStyles.textLink}>+251********</Text>
+          </Text>
 
-        {/* OTP Input Boxes */}
+          {/* OTP Input Boxes */}
 
-        <View style={styles.otpContainer}>
-          {otp.map((value, index) => (
-            <TextInput
-              key={index}
-              style={styles.otpInput}
-              keyboardType="number-pad"
-              maxLength={1}
-              value={value}
-              ref={ref => (inputRefs.current[index] = ref)} // Assign each TextInput a ref
-              onChangeText={val => handleOtpChange(val, index)}
-              onKeyPress={({nativeEvent}) => {
-                if (
-                  nativeEvent.key === 'Backspace' ||
-                  nativeEvent.key === 'Delete'
-                ) {
-                  const newOtp = [...otp];
-                  newOtp[index] = ''; // Clear the current input
-                  setOtp(newOtp);
+          <View style={styles.otpContainer}>
+            {otp.map((value, index) => (
+              <TextInput
+                key={index}
+                style={styles.otpInput}
+                keyboardType="number-pad"
+                maxLength={1}
+                value={value}
+                ref={ref => (inputRefs.current[index] = ref)} // Assign each TextInput a ref
+                onChangeText={val => handleOtpChange(val, index)}
+                onKeyPress={({ nativeEvent }) => {
+                  if (
+                    nativeEvent.key === 'Backspace' ||
+                    nativeEvent.key === 'Delete'
+                  ) {
+                    const newOtp = [...otp];
+                    newOtp[index] = ''; // Clear the current input
+                    setOtp(newOtp);
 
-                  if (index > 0 && !value) {
-                    inputRefs.current[index - 1].focus(); // Move to the previous input on backspace/delete if empty
+                    if (index > 0 && !value) {
+                      inputRefs.current[index - 1].focus(); // Move to the previous input on backspace/delete if empty
+                    }
                   }
-                }
-              }}
-            />
-          ))}
-        </View>
+                }}
+              />
+            ))}
+          </View>
 
-        {isLoading ? (
-          <ActivityIndicator size="large" color="#075985" />
-        ) : (
-          <View>
-            <View style={styles.resendText}>
-              <TouchableOpacity>
-                <Text>Don’t get the code?</Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={resendOTP}>
-                <Text style={GlobalStyles.textLink}>Resend Code</Text>
+          {isLoading ? (
+            <ActivityIndicator size="large" color="#075985" />
+          ) : (
+            <View>
+              <View style={styles.resendText}>
+                <TouchableOpacity>
+                  <Text style={{ color: ColorStyles.textColor }}>
+                    Don’t get the code?
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={resendOTP}>
+                  <Text style={GlobalStyles.textLink}>Resend Code</Text>
+                </TouchableOpacity>
+              </View>
+              <TouchableOpacity
+                style={GlobalStyles.button}
+                onPress={handleVerification}
+              >
+                <Text style={GlobalStyles.buttonText}>Verify OTP</Text>
               </TouchableOpacity>
             </View>
-            <TouchableOpacity
-              style={GlobalStyles.button}
-              onPress={handleVerification}>
-              <Text style={GlobalStyles.buttonText}>Verify OTP</Text>
-            </TouchableOpacity>
-          </View>
-        )}
-      </View>
-    </ScrollView>
+          )}
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

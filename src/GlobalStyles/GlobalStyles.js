@@ -1,8 +1,10 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import ColorStyles from './Color.styles';
+import fontFamily from './FontFamily';
 
 const GlobalStyles = StyleSheet.create({
   container: {
-    backgroundColor: '#F9F9F9',
+    backgroundColor: ColorStyles.backgroundColor,
     overflow: 'scroll',
     paddingBottom: 90,
     flex: 1,
@@ -10,11 +12,11 @@ const GlobalStyles = StyleSheet.create({
   // Input fields styling
   input: {
     height: 50,
-    borderColor: '#ccc',
+    borderColor: ColorStyles.borderColor,
     borderWidth: 1,
     borderRadius: 8,
     paddingHorizontal: 15,
-    backgroundColor: '#FFF',
+    backgroundColor: ColorStyles.inputBackgroundColor,
     fontSize: 16,
     marginBottom: 15,
   },
@@ -23,13 +25,13 @@ const GlobalStyles = StyleSheet.create({
   label: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#333',
+    color: ColorStyles.lablesColor,
     marginBottom: 5,
   },
 
   // Button styling
   button: {
-    backgroundColor: '#075985',
+    backgroundColor: ColorStyles.brandColor,
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
@@ -40,7 +42,7 @@ const GlobalStyles = StyleSheet.create({
   },
 
   buttonText: {
-    color: '#FFF',
+    color: ColorStyles.whiteColor,
     fontSize: 18,
     fontWeight: '600',
   },
@@ -55,14 +57,14 @@ const GlobalStyles = StyleSheet.create({
   checkboxBox: {
     width: 20,
     height: 20,
-    borderColor: '#ccc',
+    borderColor: ColorStyles.borderColor,
     borderWidth: 1,
     marginRight: 10,
     paddingRight: 5,
-    backgroundColor: 'transparent', // Default background color
+    backgroundColor: ColorStyles.whiteBGColor, // Default background color
   },
   checkboxChecked: {
-    backgroundColor: '#075985',
+    backgroundColor: ColorStyles.backgroundColor,
   },
 
   // Error Text styling
@@ -72,7 +74,7 @@ const GlobalStyles = StyleSheet.create({
     marginTop: 5,
   },
   textLink: {
-    color: '#075985',
+    color: ColorStyles.brandColor,
     fontWeight: 'bold',
     cursor: 'pointer',
   },
@@ -80,16 +82,40 @@ const GlobalStyles = StyleSheet.create({
   title: {
     fontFamily: 'Manrope',
     fontStyle: 'normal',
-    color: '#27272A',
+    color: ColorStyles.titleColor,
     fontWeight: 'bold',
     fontSize: 14,
     lineHeight: 19,
   },
   bodyBasicBgColor: {
-    backgroundColor: '#F4F4F5',
+    backgroundColor: ColorStyles.backgroundColor,
   },
 
-  bodyWhiteBackgroundColor: {backgroundColor: '#ffffff'},
+  bodyWhiteBackgroundColor: { backgroundColor: ColorStyles.whiteBGColor },
+
+  inputContentstyle: {
+    fontFamily: fontFamily.manropeRegular,
+    color: ColorStyles.textColor,
+  },
+  errorText: {
+    color: ColorStyles.errorColor,
+    fontFamily: fontFamily.manropeRegular,
+  },
+  inputLable: {
+    color: ColorStyles.textColor,
+    fontFamily: fontFamily.manropeRegular,
+    fontSize: 16,
+  },
+  inputsOutlineStyle: {
+    borderWidth: 2,
+    borderColor: ColorStyles.borderColor,
+    borderStyle: 'solid',
+  },
+  inputStyles: {
+    fontFamily: fontFamily.manropeRegular,
+    color: ColorStyles.textColor,
+    backgroundColor: ColorStyles.whiteBGColor,
+  },
 });
 
 export default GlobalStyles;
