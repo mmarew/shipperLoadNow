@@ -1,9 +1,10 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: ColorStyles.backgroundColor,
     marginTop: 100,
   },
   header: {
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   section: {
-    backgroundColor: 'white',
+    backgroundColor: ColorStyles.whiteBGColor,
     marginVertical: 8,
     paddingVertical: 8,
     paddingHorizontal: 16,
@@ -43,28 +44,29 @@ const styles = StyleSheet.create({
   settingsItemText: {
     fontSize: 16,
     marginLeft: 12,
+    color: ColorStyles.textColor,
   },
   logoutButton: {
-    backgroundColor: '#075985',
+    backgroundColor: ColorStyles.brandColor,
     borderRadius: 8,
     paddingVertical: 14,
     marginTop: 16,
     marginHorizontal: 16,
   },
   logoutButtonText: {
-    color: 'white',
+    color: ColorStyles.whiteColor,
     fontSize: 16,
     textAlign: 'center',
   },
   deleteButton: {
-    backgroundColor: '#EF4444',
+    backgroundColor: ColorStyles.errorColor,
     borderRadius: 8,
     paddingVertical: 14,
     marginTop: 8,
     marginHorizontal: 16,
   },
   deleteButtonText: {
-    color: 'white',
+    color: ColorStyles.errorColor,
     fontSize: 16,
     textAlign: 'center',
   },

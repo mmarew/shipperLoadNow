@@ -13,6 +13,7 @@ import { useSelector } from 'react-redux';
 import decodeJWT from '../../utils/JWTDecoder/JWTDecoder';
 import { trimText } from '../../utils/Formatter/Formatter';
 import styles from './CustomSidebar.style';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const CustomSidebar = ({ isOpen, onClose, children }) => {
   const translateX = useRef(new Animated.Value(-500)).current;
@@ -55,51 +56,63 @@ const CustomsSideBarList = ({
   const decodedProfileData = decodeJWT(passengersToken)?.data;
   return (
     <CustomSidebar isOpen={sidebarOpen} onClose={toggleSidebar}>
-      <View style={styles.drawerHeader}>
-        <View style={{ alignItems: 'flex-end', marginBottom: -40 }}>
-          <TouchableOpacity style={styles.closeButton} onPress={toggleSidebar}>
-            <Text style={styles.closeButtonText}>✕</Text>
-          </TouchableOpacity>
-        </View>
-        {savedProfileImage?.attachedDocumentName && (
-          <View style={{ alignItems: 'center', flexDirection: 'row' }}>
-            <Image
-              source={{
-                uri: `${API_URL_AXIOS}/uploads/${savedProfileImage.attachedDocumentName}`,
-              }}
-              style={styles.profileImage}
-            />
-            <View style={styles.profileInfoContainer}>
-              {decodedProfileData?.fullName && (
-                <Text style={styles.profileName}>
-                  {trimText({ text: decodedProfileData.fullName, size: 18 })}
-                </Text>
-              )}
-              <Text style={styles.profileRole}>Passenger</Text>
-            </View>
+      <View style={styles.drawerContainer}>
+        <View style={styles.drawerHeader}>
+          <View style={{ alignItems: 'flex-end', marginBottom: -40 }}>
+            <TouchableOpacity
+              style={styles.closeButton}
+              onPress={toggleSidebar}
+            >
+              <Text style={styles.closeButtonText}>✕</Text>
+            </TouchableOpacity>
           </View>
-        )}
-      </View>
-      {sidebarItems.map(item => (
-        <TouchableOpacity
-          key={item.screen}
-          style={{
-            ...sidebarItemStyles.tabContainer,
-            backgroundColor:
-              selectedScreen == item.screen ? '#E0F2FE' : '#ffffff',
-          }}
-          onPress={() => {
-            setSelectedScreen(item.screen);
-            toggleSidebar();
-          }}
-        >
-          <Text
-            style={{ color: selectedScreen == item.screen ? 'black' : 'black' }}
+          {savedProfileImage?.attachedDocumentName && (
+            <View style={{ alignItems: 'center', flexDirection: 'row' }}>
+              <Image
+                source={{
+                  uri: `${API_URL_AXIOS}/uploads/${savedProfileImage.attachedDocumentName}`,
+                }}
+                style={styles.profileImage}
+              />
+              <View style={styles.profileInfoContainer}>
+                {decodedProfileData?.fullName && (
+                  <Text style={styles.profileName}>
+                    {trimText({ text: decodedProfileData.fullName, size: 18 })}
+                  </Text>
+                )}
+                <Text style={styles.profileRole}>Passenger</Text>
+              </View>
+            </View>
+          )}
+        </View>
+        {sidebarItems.map(item => (
+          <TouchableOpacity
+            key={item.screen}
+            style={{
+              ...sidebarItemStyles.tabContainer,
+              backgroundColor:
+                selectedScreen == item.screen
+                  ? '#E0F2FE'
+                  : ColorStyles.backgroundColor,
+            }}
+            onPress={() => {
+              setSelectedScreen(item.screen);
+              toggleSidebar();
+            }}
           >
-            {item.label}
-          </Text>
-        </TouchableOpacity>
-      ))}
+            <Text
+              style={{
+                color:
+                  selectedScreen == item.screen
+                    ? ColorStyles.brandColor
+                    : ColorStyles.textColor,
+              }}
+            >
+              {item.label}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
     </CustomSidebar>
   );
 };

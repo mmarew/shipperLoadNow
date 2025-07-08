@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { width } from '../Constants/constant.utils';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const styles = StyleSheet.create({
   sidebar: {
@@ -8,7 +9,7 @@ const styles = StyleSheet.create({
     left: 0,
     width: width * 0.9,
     height: '100%',
-    backgroundColor: 'white',
+    backgroundColor: ColorStyles.backgroundColor,
     zIndex: 100,
     elevation: 5,
     padding: 20,
@@ -21,6 +22,10 @@ const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: 'rgba(0,0,0,0.3)',
     zIndex: 99,
+  },
+  drawerContainer: {
+    flex: 1,
+    backgroundColor: ColorStyles.backgroundColor,
   },
   header: {
     flexDirection: 'row',
@@ -36,7 +41,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: ColorStyles.backgroundColor,
   },
   loadingContent: {
     alignItems: 'center',
@@ -44,7 +49,7 @@ const styles = StyleSheet.create({
   loadingText: {
     marginTop: 16,
     fontSize: 16,
-    color: '#333',
+    color: ColorStyles.textColor,
   },
   drawerContainer: {
     flex: 1,
@@ -52,12 +57,12 @@ const styles = StyleSheet.create({
   },
   drawerStyle: {
     width: '90%',
-    backgroundColor: '#fff',
+    backgroundColor: ColorStyles.backgroundColor,
     paddingHorizontal: 10,
   },
   drawerHeader: {
     borderBottomWidth: 0.5,
-    borderBottomColor: 'black',
+    borderBottomColor: ColorStyles.borderColor,
     borderStyle: 'solid',
     paddingBottom: 20,
     marginHorizontal: 10,
@@ -67,7 +72,7 @@ const styles = StyleSheet.create({
   drawerHeaderText: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#fff',
+    color: ColorStyles.whiteColor,
   },
   drawerLabel: {
     marginLeft: -15,
@@ -80,7 +85,8 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   closeButtonText: { fontSize: 20, fontWeight: 'bold', color: 'red' },
-  profileName: { fontWeight: 'bold' },
+  profileName: { fontWeight: 'bold', color: ColorStyles.textColor },
+  profileRole: { color: ColorStyles.textColor },
 });
 
 export default styles;

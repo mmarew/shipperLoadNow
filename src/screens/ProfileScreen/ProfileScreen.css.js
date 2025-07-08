@@ -1,9 +1,10 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: ColorStyles.backgroundColor,
     alignItems: 'center',
   },
   header: {
@@ -11,12 +12,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 16,
     width: '100%',
-    backgroundColor: '#f9f9f9',
+    backgroundColor: ColorStyles.backgroundColor,
   },
   headerText: {
     fontSize: 18,
     fontWeight: 'bold',
     marginLeft: 8,
+    color: ColorStyles.textColor,
   },
   profileContainer: {
     alignItems: 'center',

@@ -12,6 +12,7 @@ import {
 } from 'react-native-paper';
 import { convertToYMDHMSFormat } from '../../utils/TimeDateHandler/TimeDateHandler';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const HistoryScreen = () => {
   const [listOfJourney, setlistOfJourney] = useState([]);
@@ -114,7 +115,9 @@ const HistoryScreen = () => {
               status={fetchDataByRange === 'latsTen' ? 'checked' : 'unchecked'}
               onPress={() => setfetchDataByRange('latsTen')}
             />
-            <Text>last ten days data</Text>
+            <Text style={{ color: ColorStyles.textColor }}>
+              last ten days data
+            </Text>
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Checkbox
@@ -123,7 +126,9 @@ const HistoryScreen = () => {
               }
               onPress={() => setfetchDataByRange('dateRange')}
             />
-            <Text>by date range data</Text>
+            <Text style={{ color: ColorStyles.errorColor }}>
+              by date range data
+            </Text>
           </View>
         </View>
 

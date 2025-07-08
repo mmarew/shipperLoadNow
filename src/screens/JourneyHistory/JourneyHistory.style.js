@@ -1,9 +1,14 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 // Styles
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: '#f5f5f5', marginTop: 90},
-  screenContainer: {flex: 1},
+  container: {
+    flex: 1,
+    backgroundColor: ColorStyles.backgroundColor,
+    marginTop: 90,
+  },
+  screenContainer: { flex: 1, backgroundColor: ColorStyles.backgroundColor },
   // Tab Bar Styles
   tabBar: {
     flexDirection: 'row',
@@ -17,14 +22,14 @@ const styles = StyleSheet.create({
   },
   tabText: {
     fontSize: 16,
-    color: '#aaa',
+    color: ColorStyles.textColor,
   },
   activeTab: {
     borderBottomWidth: 2,
-    borderBottomColor: 'tomato',
+    borderBottomColor: ColorStyles.borderColor,
   },
   activeText: {
-    color: 'tomato',
+    color: ColorStyles.brandColor,
     fontWeight: 'bold',
   },
 });

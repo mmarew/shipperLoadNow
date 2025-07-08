@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { navigate } from '../../services/navigationService';
 
 import styles from './PaymentSummary.style';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const PaymentSummary = () => {
   const passengerSlices = useSelector(state => state.passengerSlices);
@@ -19,7 +20,9 @@ const PaymentSummary = () => {
   if (!fare)
     return (
       <View style={styles.container}>
-        <Text style={{}}>No payment data found </Text>
+        <Text style={{ color: ColorStyles.errorColor }}>
+          No payment data found{' '}
+        </Text>
       </View>
     );
 

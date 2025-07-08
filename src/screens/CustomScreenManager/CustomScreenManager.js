@@ -6,7 +6,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import TripHistory from '../JourneyHistory/JourneyHistory';
 import SettingsScreen from '../Settings/SettingsScreen';
 import Reload from '../../Components/Reload/Reload';
-import { barStyles } from '../../GlobalStyles/Color.styles';
 import ColorStyles from '../../GlobalStyles/Color.styles';
 export default function CustomScreenManager({ savedProfileImage }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);

@@ -18,6 +18,7 @@ import {
   addPassengersToken,
 } from '../../Redux/slices/PassengerSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import ColorStyles, { barStyles } from '../../GlobalStyles/Color.styles';
 
 const SettingsScreen = () => {
   const [visibleDetail, setVisibleDetail] = useState(null);
@@ -68,7 +69,10 @@ const SettingsScreen = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <StatusBar barStyle="dark-content" backgroundColor="white" />
+      <StatusBar
+        barStyle={barStyles}
+        backgroundColor={ColorStyles.backgroundColor}
+      />
       <ScrollView style={styles.container}>
         {console.log('visibleDetail', visibleDetail)}
         {visibleDetail == null ? (

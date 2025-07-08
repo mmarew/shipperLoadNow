@@ -1,9 +1,10 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const styles = StyleSheet.create({
   container: {
     padding: 15,
-    backgroundColor: '#f9fafb',
+    backgroundColor: ColorStyles.backgroundColor,
     borderRadius: 10,
     margin: 10,
     shadowColor: '#000',
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    color: '#6b7280',
+    color: ColorStyles.textColor,
     marginBottom: 5,
   },
   value: {
@@ -32,12 +33,12 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   priceContainer: {
-    backgroundColor: '#ffffff',
+    backgroundColor: ColorStyles.whiteBGColor,
     padding: 10,
     borderRadius: 8,
     marginBottom: 20,
     borderWidth: 1,
-    borderColor: '#e5e7eb',
+    borderColor: ColorStyles.borderColor,
   },
   priceRow: {
     flexDirection: 'row',
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   doneButton: {
-    backgroundColor: '#091755',
+    backgroundColor: ColorStyles.brandColor,
     padding: 15,
     borderRadius: 10,
     alignItems: 'center',

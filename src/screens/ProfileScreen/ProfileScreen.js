@@ -1,8 +1,7 @@
-import React, {useEffect, useState, useCallback} from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,
   Text,
-  TextInput,
   TouchableOpacity,
   Image,
   Alert,
@@ -16,18 +15,19 @@ import {
   RESULTS,
   PERMISSIONS,
 } from 'react-native-permissions';
-
+import { TextInput } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
-import {launchImageLibrary} from 'react-native-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 import styles from './ProfileScreen.css';
 import API_URL_AXIOS from '../../services/AxiosServices';
-import {requestUsingGetMethode} from '../../utils/handleRequestToServer/handleRequestToServer';
+import { requestUsingGetMethode } from '../../utils/handleRequestToServer/handleRequestToServer';
 import errorHandler from '../../utils/errorHandler/errorHandler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import decodeJWT from '../../utils/JWTDecoder/JWTDecoder';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
-const ProfileScreen = ({setVisibleDetail}) => {
+const ProfileScreen = ({ setVisibleDetail }) => {
   const [userDetails, setUserDetails] = useState({
     fullName: null,
     email: null,
@@ -44,7 +44,7 @@ const ProfileScreen = ({setVisibleDetail}) => {
     try {
       const token = await AsyncStorage.getItem('passengersToken');
       if (token) {
-        const {data} = decodeJWT(token);
+        const { data } = decodeJWT(token);
         console.log('@initializeUserData data', data);
         setUserDetails({
           fullName: data.fullName,
@@ -126,8 +126,8 @@ const ProfileScreen = ({setVisibleDetail}) => {
           'Permission Blocked',
           'You have blocked storage permission. Please enable it in settings.',
           [
-            {text: 'Cancel', style: 'cancel'},
-            {text: 'Open Settings', onPress: () => openSettings()},
+            { text: 'Cancel', style: 'cancel' },
+            { text: 'Open Settings', onPress: () => openSettings() },
           ],
         );
         return false;
@@ -135,7 +135,7 @@ const ProfileScreen = ({setVisibleDetail}) => {
         Alert.alert(
           'Permission Required',
           'Storage permission is required to select files or images.',
-          [{text: 'OK'}],
+          [{ text: 'OK' }],
         );
         return false;
       }
@@ -148,7 +148,7 @@ const ProfileScreen = ({setVisibleDetail}) => {
   const handleSelectImage = async () => {
     const hasPermission = await requestStoragePermission();
     if (hasPermission) {
-      launchImageLibrary({mediaType: 'photo'}, response => {
+      launchImageLibrary({ mediaType: 'photo' }, response => {
         if (response.assets?.length) {
           setProfileImage(response.assets[0]);
         } else if (response.errorMessage) {
@@ -188,7 +188,7 @@ const ProfileScreen = ({setVisibleDetail}) => {
     try {
       setIsLoading(true);
       const token = await AsyncStorage.getItem('passengersToken');
-      const {data} = await axios.put(
+      const { data } = await axios.put(
         `${API_URL_AXIOS}/api/user/updateUser/self`,
         formData,
         {
@@ -225,7 +225,11 @@ const ProfileScreen = ({setVisibleDetail}) => {
       {setVisibleDetail && (
         <View style={styles.header}>
           <TouchableOpacity onPress={() => setVisibleDetail(null)}>
-            <Icon name="arrow-back-outline" size={24} color="black" />
+            <Icon
+              name="arrow-back-outline"
+              size={24}
+              color={ColorStyles.textColor}
+            />
           </TouchableOpacity>
           <Text style={styles.headerText}>My Profile</Text>
         </View>
@@ -237,7 +241,7 @@ const ProfileScreen = ({setVisibleDetail}) => {
           <Image
             source={
               profileImage
-                ? {uri: profileImage.uri}
+                ? { uri: profileImage.uri }
                 : savedProfileImage
                 ? {
                     uri: `${API_URL_AXIOS}/uploads/${savedProfileImage.attachedDocumentName}`,
@@ -248,7 +252,8 @@ const ProfileScreen = ({setVisibleDetail}) => {
           />
           <TouchableOpacity
             style={styles.cameraIconContainer}
-            onPress={handleSelectImage}>
+            onPress={handleSelectImage}
+          >
             <Icon name="camera" size={20} color="black" />
           </TouchableOpacity>
         </View>
@@ -301,7 +306,8 @@ const ProfileScreen = ({setVisibleDetail}) => {
       {/* Update Profile Button */}
       <TouchableOpacity
         style={styles.updateButton}
-        onPress={handleUpdateProfile}>
+        onPress={handleUpdateProfile}
+      >
         <Text style={styles.updateButtonText}>Update Profile </Text>
       </TouchableOpacity>
     </View>

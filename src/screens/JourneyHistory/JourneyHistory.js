@@ -12,7 +12,8 @@ import CurrentScreen from '../../Components/CompletedJourney/CompletedCurrent';
 import HistoryScreen from '../../Components/CompletedJourney/CompletedHistory';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import HeaderBar from '../../Components/HeaderBar/HeaderBar';
-
+import { barStyles } from '../../GlobalStyles/Color.styles';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 const JourneyCompleted = ({ navigation }) => {
   const passengerSlices = useSelector(state => state.passengerSlices);
   const passengerStatus = passengerSlices?.passengerStatus;
@@ -27,7 +28,10 @@ const JourneyCompleted = ({ navigation }) => {
   return (
     <SafeAreaView>
       {/* <HeaderBar navigation={navigation} /> */}
-      <StatusBar barStyle="dark-content" backgroundColor="white" />
+      <StatusBar
+        barStyle={barStyles}
+        backgroundColor={ColorStyles.backgroundColor}
+      />
       <ScrollView>
         <View style={styles.container}>
           {/* Render Active Screen */}

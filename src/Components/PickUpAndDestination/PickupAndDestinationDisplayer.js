@@ -25,7 +25,13 @@ const PickupAndDestinationDisplayer = ({
         return (
           <View key={index} style={{ marginTop: 20 }}>
             {origin?.shippingDate && (
-              <Text style={{ margin: 20, marginBottom: 10 }}>
+              <Text
+                style={{
+                  margin: 20,
+                  marginBottom: 10,
+                  color: ColorStyles.textColor,
+                }}
+              >
                 {formatDate(origin.shippingDate)}
               </Text>
             )}
