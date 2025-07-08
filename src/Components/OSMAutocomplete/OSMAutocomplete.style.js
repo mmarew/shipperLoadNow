@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { height } from '../Constants/constant.utils';
 import ColorStyles from '../../GlobalStyles/Color.styles';
+import fontFamily from '../../GlobalStyles/FontFamily';
 
 const styles = StyleSheet.create({
   listContainerStyle: {
@@ -39,6 +40,29 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     backgroundColor: ColorStyles.inputBackgroundColor,
     width: '100%',
+  },
+  inputStyle: {
+    backgroundColor: ColorStyles.inputBackgroundColor,
+    color: ColorStyles.textColor,
+  },
+  errorText: {
+    color: ColorStyles.errorColor,
+    fontFamily: fontFamily.manropeRegular,
+    fontSize: 12,
+    position: 'absolute',
+    zIndex: 100,
+    top: 70,
+    left: 40,
+  },
+  loadingIndicator: {
+    position: 'absolute',
+    top: 20,
+    // left: 0,
+    right: 50,
+    // bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 100,
   },
 });
 export default styles;
