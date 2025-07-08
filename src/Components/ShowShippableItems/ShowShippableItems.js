@@ -1,7 +1,7 @@
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
-import {useSelector} from 'react-redux';
-import {convertToYMDHMSFormat} from '../../utils/TimeDateHandler/TimeDateHandler';
+import { useSelector } from 'react-redux';
+import { convertToYMDHMSFormat } from '../../utils/TimeDateHandler/TimeDateHandler';
 import styles from './ShowShippableItems.style';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 
@@ -14,8 +14,7 @@ const ShowShippableItems = () => {
   const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
 
   return (
-    <View
-      style={{...styles.container, ...GlobalStyles.bodyWhiteBackgroundColor}}>
+    <View style={{ ...styles.container }}>
       <View style={styles.row}>
         <Text style={styles.label}>Item Name : </Text>
         <Text style={styles.value}>

@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import ColorStyles from '../../GlobalStyles/Color.styles';
 import fontFamily from '../../GlobalStyles/FontFamily';
 
@@ -8,7 +7,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     gap: 10,
     paddingVertical: 20,
-    marginVertical: 10,
+    marginTop: 15,
+    backgroundColor: ColorStyles.whiteBGColor,
     borderRadius: 20,
   },
   row: {

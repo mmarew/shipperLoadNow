@@ -8,6 +8,7 @@ import styles from './IncomingDriver.style';
 import { Text } from 'react-native-paper';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import ShowShippableItems from '../../Components/ShowShippableItems/ShowShippableItems';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 const Journey = ({ navigation, setShowComponent }) => {
   const passengerSlices = useSelector(state => state?.passengerSlices);
   const { destination, originLocation } = passengerSlices;
@@ -21,7 +22,13 @@ const Journey = ({ navigation, setShowComponent }) => {
     <ScrollView>
       <View style={styles.container}>
         <PassangerMap mapHeight={0.7} navigation={navigation} />
-        <View style={{ padding: 20 }}>
+        <View
+          style={{
+            paddingHorizontal: 20,
+            backgroundColor: ColorStyles.backgroundColor,
+            borderRadius: 20,
+          }}
+        >
           {(passengerStatus == listofJourneyStatus?.acceptedByDriver ||
             passengerStatus == listofJourneyStatus?.acceptedByPassenger ||
             passengerStatus == listofJourneyStatus?.journeyStarted) && (
@@ -31,13 +38,13 @@ const Journey = ({ navigation, setShowComponent }) => {
               <ShowShippableItems />
             </>
           )}
-          <View style={{ marginTop: -18 }}>
-            <PickupAndDestinationDisplayer
-              navigateTo="Pick up and destination"
-              navigation={navigation}
-              listOfJourneyPoints={[{ origin: originLocation, destination }]}
-            />
-          </View>
+
+          <PickupAndDestinationDisplayer
+            navigateTo="Pick up and destination"
+            navigation={navigation}
+            listOfJourneyPoints={[{ origin: originLocation, destination }]}
+          />
+
           {passengerStatus < listofJourneyStatus?.acceptedByPassenger && (
             <TouchableOpacity
               onPress={handleCancelRequest}
