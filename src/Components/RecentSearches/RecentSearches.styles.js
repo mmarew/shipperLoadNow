@@ -1,4 +1,5 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const styles = StyleSheet.create({
   recentSearchesContainer: {
@@ -9,7 +10,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     marginBottom: 10,
-    color: '#333',
+    color: ColorStyles.textColor,
   },
 
   recentSearchItem: {
@@ -19,16 +20,16 @@ const styles = StyleSheet.create({
     gap: 5,
     paddingLeft: 13,
     height: 63,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: ColorStyles.whiteBGColor,
     borderBottomWidth: 1,
-    borderBottomColor: '#E4E4E7',
+    borderBottomColor: ColorStyles.borderColor,
     alignSelf: 'stretch',
   },
 
   recentSearchText: {
     fontSize: 15,
     marginLeft: 15,
-    color: '#333',
+    color: ColorStyles.textColor,
   },
 });
 export default styles;

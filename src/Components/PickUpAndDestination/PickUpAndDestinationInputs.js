@@ -175,7 +175,7 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
                       {destinationInput !== '' && (
                         <TouchableOpacity
                           onPress={handleClearDestination}
-                          style={{ ...styles.clearIcon, top: 180 }}
+                          style={{ ...styles.clearIcon, top: 160 }}
                         >
                           <Ionicons
                             name="close-circle"

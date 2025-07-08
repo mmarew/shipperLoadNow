@@ -31,50 +31,8 @@ const OSMAutocomplete = ({
   const [loading, setLoading] = useState(false);
   const [currentLocationLoading, setCurrentLocationLoading] = useState(false);
   const [selected, setSelected] = useState(false);
+  const [errors, setErrors] = useState(false);
   //
-  useEffect(() => {
-    if (!updateResults) setResults([]);
-  }, [, updateResults]);
-
-  // useEffect(() => {
-  //   if (updateResults == false) {
-  //     setResults([]);
-  //     return;
-  //   }
-  //   setSelected(false);
-
-  //   const trimmed = value?.trim();
-  //   if (!trimmed || trimmed.length < 3) {
-  //     setResults([]);
-  //     return;
-  //   }
-
-  //   const delay = setTimeout(async () => {
-  //     setLoading(true);
-  //     try {
-  //       const response = await fetch(
-  //         `${NOMINATIM_SEARCH_URL}?q=${encodeURIComponent(
-  //           trimmed,
-  //         )}&format=json&addressdetails=10&limit=15&accept-language=en,am`,
-  //       );
-  //       const data = await response.json();
-  //       const parsed = data.map(item => ({
-  //         name: item.display_name,
-  //         latitude: Number(item.lat),
-  //         longitude: Number(item.lon),
-  //         full: item,
-  //       }));
-  //       setResults(parsed);
-  //     } catch (error) {
-  //       console.error('Nominatim fetch error:', errorHandler(error));
-  //       setResults([]);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   }, 500);
-
-  //   return () => clearTimeout(delay);
-  // }, [value]);
 
   useEffect(() => {
     if (!updateResults) {
@@ -86,11 +44,13 @@ const OSMAutocomplete = ({
     const trimmed = value?.trim();
     if (!trimmed || trimmed.length < 3) {
       setResults([]);
+      setErrors('type at least 3 characters to search');
       return;
     }
 
     const delay = setTimeout(async () => {
       setLoading(true);
+      setErrors(null);
       try {
         const response = await axios.get(NOMINATIM_SEARCH_URL, {
           params: {
@@ -105,6 +65,7 @@ const OSMAutocomplete = ({
             'User-Agent': 'YourAppName/1.0 (mmarew1p@gmail.com)', // Required!
           },
         });
+
         const parsed = response.data.map(item => ({
           name: item.display_name,
           latitude: Number(item.lat),
@@ -112,7 +73,13 @@ const OSMAutocomplete = ({
           full: item,
         }));
         setResults(parsed);
+        if (parsed.length === 0) {
+          console.log('No results found');
+          // You can also display a message to the user here
+          setErrors('No results found');
+        }
       } catch (error) {
+        setErrors(errorHandler(error));
         console.error(
           'Nominatim error:',
           error.response?.data || error.message,
@@ -137,48 +104,6 @@ const OSMAutocomplete = ({
 
       try {
         setCurrentLocationLoading(true);
-
-        // Geolocation.getCurrentPosition(
-        //   async position => {
-        //     const {latitude, longitude} = position.coords;
-
-        //     try {
-        //       const reverseResponse = await fetch(
-        //         `${NOMINATIM_REVERSE_URL}?lat=${latitude}&lon=${longitude}&format=json&accept-language=en,am&countrycodes=et,dj`,
-        //       );
-        //       const reverseData = await reverseResponse.json();
-        //       const address = reverseData.display_name || 'Current Location';
-
-        //       setValue(address);
-        //       onSelect({
-        //         name: address,
-        //         latitude,
-        //         longitude,
-        //         full: {latitude, longitude, address: reverseData},
-        //       });
-        //     } catch (reverseError) {
-        //       console.error(
-        //         'Reverse geocoding error:',
-        //         errorHandler(reverseError),
-        //       );
-        //       setValue('Current Location');
-        //       onSelect({
-        //         name: 'Current Location',
-        //         latitude,
-        //         longitude,
-        //         full: {latitude, longitude},
-        //       });
-        //     } finally {
-        //       setCurrentLocationLoading(false);
-        //     }
-        //   },
-        //   error => {
-        //     console.error('Error getting location:', error);
-        //     alert('Unable to fetch your current location.');
-        //     setCurrentLocationLoading(false);
-        //   },
-        //   {enableHighAccuracy: true, timeout: 10000, maximumAge: 1000},
-        // );
 
         Geolocation.getCurrentPosition(
           async position => {
@@ -277,7 +202,10 @@ const OSMAutocomplete = ({
         listContainerStyle={styles.listContainerStyle}
         listStyle={styles.listStyle}
         inputContainerStyle={styles.inputContainerStyle}
-        style={{ backgroundColor: ColorStyles.inputBackgroundColor }}
+        style={{
+          backgroundColor: ColorStyles.inputBackgroundColor,
+          color: ColorStyles.textColor,
+        }}
         flatListProps={{
           keyExtractor: (_, index) => index.toString(),
           keyboardShouldPersistTaps: 'handled',
@@ -310,10 +238,26 @@ const OSMAutocomplete = ({
           ),
         }}
       />
-
+      {errors && (
+        <Text
+          style={{
+            color: 'red',
+            position: 'absolute',
+            top: 70,
+            zIndex: 100,
+            paddingLeft: 40,
+          }}
+        >
+          {errors}
+        </Text>
+      )}
       {loading && (
-        <View style={{ marginTop: 20, position: 'absolute' }}>
-          <ActivityIndicator size="small" color={ColorStyles.brandColor} />
+        <View style={{ marginTop: 20, position: 'absolute', right: 40 }}>
+          <ActivityIndicator
+            size="small"
+            color={ColorStyles.textColor}
+            style={{ transform: [{ scale: 2.0 }] }} // Scale up the spinner
+          />
         </View>
       )}
     </View>

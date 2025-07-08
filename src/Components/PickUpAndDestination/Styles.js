@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   clearIcon: {
     position: 'absolute',
     right: 15,
-    top: 100,
+    top: 80,
     zIndex: 10,
   },
 
