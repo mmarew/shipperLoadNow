@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  ScrollView,
   ActivityIndicator,
   TouchableOpacity,
   View,
@@ -28,7 +27,11 @@ const RegisterPassenger = ({ navigation }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [phoneCode, setPhoneCode] = useState('+251');
   const [termsAccepted, setTermsAccepted] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    phoneCode: null,
+    phoneNumber: null,
+    termsAccepted: null,
+  });
   const [isLoading, setIsLoading] = useState(false);
 
   const [refreshing, setRefreshing] = useState(false);
@@ -68,6 +71,10 @@ const RegisterPassenger = ({ navigation }) => {
     if (!validateForm()) return;
 
     if (!termsAccepted) {
+      setErrors(prev => ({
+        ...prev,
+        termsAccepted: 'Terms and conditions not accepted',
+      }));
       errorHandler(
         new Error('You need to accept the terms and conditions to proceed.'),
       );
@@ -135,7 +142,7 @@ const RegisterPassenger = ({ navigation }) => {
               outlineStyle={[
                 GlobalStyles.inputsOutlineStyle,
                 inputsFocus.codeFocus
-                  ? { borderColor: ColorStyles.brandColor }
+                  ? { borderColor: ColorStyles.focused }
                   : {},
               ]}
               activeOutlineColor={ColorStyles.brandColor}
@@ -143,9 +150,7 @@ const RegisterPassenger = ({ navigation }) => {
                 <Text
                   style={[
                     GlobalStyles.inputLable,
-                    inputsFocus.codeFocus
-                      ? { color: ColorStyles.brandColor }
-                      : {},
+                    inputsFocus.codeFocus ? { color: ColorStyles.focused } : {},
                   ]}
                 >
                   code
@@ -158,7 +163,6 @@ const RegisterPassenger = ({ navigation }) => {
                 setInputsFocus({ codeFocus: true, phoneFocus: false })
               }
               mode="outlined"
-              // label={<Text style={styles.label}>Code</Text>}
               value={phoneCode}
               onChangeText={setPhoneCode}
               keyboardType="phone-pad"
@@ -178,18 +182,28 @@ const RegisterPassenger = ({ navigation }) => {
               outlineStyle={[
                 GlobalStyles.inputsOutlineStyle,
                 inputsFocus.phoneFocus
-                  ? { borderColor: ColorStyles.brandColor }
+                  ? { borderColor: ColorStyles.focused }
                   : {},
               ]}
-              activeOutlineColor={ColorStyles.brandColor}
+              activeOutlineColor={ColorStyles.focused}
               style={{ ...styles.textInputStyle, flex: 0.99 }}
               mode="outlined"
-              label="Phone Number"
+              label={
+                <Text
+                  style={[
+                    GlobalStyles.inputLable,
+                    inputsFocus.phoneFocus
+                      ? { color: ColorStyles.focused }
+                      : {},
+                  ]}
+                >
+                  Phone Number *
+                </Text>
+              }
               value={phoneNumber}
               onChangeText={newText =>
                 handlePhoneChange(newText, setPhoneNumber, phoneNumber)
               }
-              // onChangeText={setPhoneNumber}
               keyboardType="phone-pad"
               error={!!errors.phoneNumber}
             />
@@ -204,6 +218,7 @@ const RegisterPassenger = ({ navigation }) => {
           {/* Terms Checkbox */}
           <View style={GlobalStyles.checkboxContainer}>
             <Checkbox
+              color={ColorStyles.focused}
               status={termsAccepted ? 'checked' : 'unchecked'}
               onPress={() => setTermsAccepted(!termsAccepted)}
               value={termsAccepted}
@@ -219,6 +234,9 @@ const RegisterPassenger = ({ navigation }) => {
               </Text>
             </Text>
           </View>
+          {errors.termsAccepted && (
+            <Text style={GlobalStyles.errorText}>{errors.termsAccepted}</Text>
+          )}
 
           {/* Register Button */}
           {isLoading ? (

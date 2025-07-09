@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
   },
   termsText: {
     flex: 1,
-    fontSize: 14,
-    color: ColorStyles.textColor,
+    fontSize: 16,
+    color: ColorStyles.informationColor,
     lineHeight: 23,
   },
   termsLink: {

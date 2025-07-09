@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   vehiclePrice: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#007aff',
+    color: ColorStyles.textColor,
   },
 });
 export default styles;

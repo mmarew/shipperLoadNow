@@ -28,6 +28,9 @@ const GlobalStyles = StyleSheet.create({
     color: ColorStyles.lablesColor,
     marginBottom: 5,
   },
+  focusedInputLabel: {
+    color: ColorStyles.focused,
+  },
 
   // Button styling
   button: {
@@ -58,7 +61,7 @@ const GlobalStyles = StyleSheet.create({
     width: 20,
     height: 20,
     borderColor: ColorStyles.borderColor,
-    borderWidth: 1,
+    borderWidth: 11,
     marginRight: 10,
     paddingRight: 5,
     backgroundColor: ColorStyles.whiteBGColor, // Default background color
@@ -93,13 +96,15 @@ const GlobalStyles = StyleSheet.create({
   inputContentstyle: {
     fontFamily: fontFamily.manropeRegular,
     color: ColorStyles.textColor,
+    fontSize: 16,
   },
   errorText: {
     color: ColorStyles.errorColor,
     fontFamily: fontFamily.manropeRegular,
+    fontSize: 16,
   },
   inputLable: {
-    color: ColorStyles.textColor,
+    color: ColorStyles.lablesColor,
     fontFamily: fontFamily.manropeRegular,
     fontSize: 16,
   },
