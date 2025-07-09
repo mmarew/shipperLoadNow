@@ -903,7 +903,7 @@ const AppNavigator = () => {
             initialRouteName={initialRoute}
             screenOptions={{
               ...navigationStyles.header,
-              cardStyle: { backgroundColor: '#fff' },
+              cardStyle: { backgroundColor: ColorStyles.backgroundColor },
             }}
           >
             {renderStackScreens()}

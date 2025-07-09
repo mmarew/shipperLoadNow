@@ -80,6 +80,8 @@ const GlobalStyles = StyleSheet.create({
     color: ColorStyles.brandColor,
     fontWeight: 'bold',
     cursor: 'pointer',
+    fontFamily: fontFamily.manropeRegular,
+    fontSize: 16,
   },
 
   title: {
@@ -97,6 +99,7 @@ const GlobalStyles = StyleSheet.create({
     fontFamily: fontFamily.manropeRegular,
     color: ColorStyles.textColor,
     fontSize: 16,
+    fontWeight: 'bold',
   },
   errorText: {
     color: ColorStyles.errorColor,

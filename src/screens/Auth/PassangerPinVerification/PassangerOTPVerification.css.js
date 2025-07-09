@@ -1,24 +1,30 @@
 import { StyleSheet } from 'react-native';
 import ColorStyles from '../../../GlobalStyles/Color.styles';
+import fontFamily from '../../../GlobalStyles/FontFamily';
 
 const styles = StyleSheet.create({
-  bottomSection: { paddingHorizontal: 20 },
+  bottomSection: {
+    paddingHorizontal: 20,
+  },
   infoText: {
-    fontSize: 14,
+    fontSize: 16,
     color: ColorStyles.textColor,
     marginBottom: 20,
+    textAlign: 'center',
+    fontFamily: fontFamily.manropeRegular,
   },
   otpContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 20,
+    gap: 10,
   },
   otpInput: {
-    width: 50,
+    flex: 1,
+    width: 30,
     height: 50,
     borderWidth: 1,
     borderColor: ColorStyles.borderColor,
-    borderRadius: 8,
     textAlign: 'center',
     fontSize: 20,
     backgroundColor: ColorStyles.whiteBGColor,

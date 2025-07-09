@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
   Text,
-  TextInput,
   View,
   ActivityIndicator,
   TouchableOpacity,
@@ -24,14 +23,15 @@ import styles from './PassangerOTPVerification.css';
 import RNRestart from 'react-native-restart';
 import ColorStyles, { barStyles } from '../../../GlobalStyles/Color.styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import BackArrow from '../../../Components/BackArrow/BackArrow';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import { TextInput } from 'react-native-paper';
 const PassangerOTPVerification = ({ navigation }) => {
   const dispatch = useDispatch();
   const newPassenger = useSelector(
     state => state.passengerSlices.registrablePassenger,
   );
+  const [otpFocus, setOtpFocus] = useState(new Array(6).fill(false));
+  console.log('@otpFocus', otpFocus);
   const { userData } = newPassenger;
   const phoneNumber = userData?.phoneNumber;
 
@@ -141,12 +141,16 @@ const PassangerOTPVerification = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ backgroundColor: ColorStyles.backgroundColor }}>
       <StatusBar
         barStyle={barStyles}
         backgroundColor={ColorStyles.backgroundColor}
       />
-      <KeyboardAwareScrollView extraScrollHeight={150} enableOnAndroid={true}>
+      <KeyboardAwareScrollView
+        style={{ backgroundColor: ColorStyles.backgroundColor }}
+        extraScrollHeight={150}
+        enableOnAndroid={true}
+      >
         <View style={{ position: 'absolute', top: 50, flexDirection: 'row' }}>
           <TouchableOpacity
             style={{
@@ -185,11 +189,34 @@ const PassangerOTPVerification = ({ navigation }) => {
             {otp.map((value, index) => (
               <TextInput
                 key={index}
-                style={styles.otpInput}
-                keyboardType="number-pad"
-                maxLength={1}
+                mode="outlined"
                 value={value}
-                ref={ref => (inputRefs.current[index] = ref)} // Assign each TextInput a ref
+                maxLength={1}
+                keyboardType="number-pad"
+                ref={ref => (inputRefs.current[index] = ref)}
+                contentStyle={GlobalStyles.inputContentstyle}
+                style={[
+                  styles.otpInput,
+                  otp[index] !== '' && {
+                    backgroundColor: ColorStyles.brandColor,
+                    color: ColorStyles.whiteColor,
+                  },
+                ]}
+                outlineStyle={[
+                  GlobalStyles.inputsOutlineStyle,
+                  otpFocus[index] ? { borderColor: ColorStyles.focused } : {},
+                ]}
+                activeOutlineColor={ColorStyles.focused}
+                onFocus={() => {
+                  const updatedFocus = new Array(6).fill(false); //[...otpFocus];
+                  updatedFocus[index] = true;
+                  setOtpFocus(updatedFocus);
+                }}
+                onBlur={() => {
+                  const updatedFocus = [...otpFocus];
+                  updatedFocus[index] = false;
+                  setOtpFocus(updatedFocus);
+                }}
                 onChangeText={val => handleOtpChange(val, index)}
                 onKeyPress={({ nativeEvent }) => {
                   if (
@@ -197,11 +224,11 @@ const PassangerOTPVerification = ({ navigation }) => {
                     nativeEvent.key === 'Delete'
                   ) {
                     const newOtp = [...otp];
-                    newOtp[index] = ''; // Clear the current input
+                    newOtp[index] = '';
                     setOtp(newOtp);
 
                     if (index > 0 && !value) {
-                      inputRefs.current[index - 1].focus(); // Move to the previous input on backspace/delete if empty
+                      inputRefs.current[index - 1].focus();
                     }
                   }
                 }}
