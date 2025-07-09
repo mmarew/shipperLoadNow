@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   container: { margin: 10, padding: 10, marginTop: 90 },
   inputStyles: {
     backgroundColor: ColorStyles.inputBackgroundColor,
-    height: 80,
+    height: 60,
     color: ColorStyles.textColor,
   },
   headerWrapper: { paddingTop: 30 },

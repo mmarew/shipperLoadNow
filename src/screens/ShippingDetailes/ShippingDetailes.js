@@ -132,7 +132,7 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
                 outlineStyle={[
                   GlobalStyles.inputsOutlineStyle,
                   inputsFocus.shippingDate
-                    ? { borderColor: ColorStyles.brandColor }
+                    ? { borderColor: ColorStyles.focused }
                     : {},
                 ]}
                 activeOutlineColor={ColorStyles.brandColor}
@@ -141,7 +141,7 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
                     style={[
                       GlobalStyles.inputLable,
                       inputsFocus.shippingDate
-                        ? { color: ColorStyles.brandColor }
+                        ? { color: ColorStyles.focused }
                         : {},
                     ]}
                   >
@@ -149,10 +149,10 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
                   </Text>
                 }
                 onBlur={() =>
-                  setInputsFocus(prev => ({ shippingDate: false, ...prev }))
+                  setInputsFocus(prev => ({ ...prev, shippingDate: false }))
                 }
                 onFocus={() =>
-                  setInputsFocus(prev => ({ shippingDate: true, ...prev }))
+                  setInputsFocus(prev => ({ ...prev, shippingDate: true }))
                 }
                 contentStyle={GlobalStyles.inputContentstyle}
                 mode="outlined"
@@ -177,7 +177,7 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
                 outlineStyle={[
                   GlobalStyles.inputsOutlineStyle,
                   inputsFocus.deliveryDate
-                    ? { borderColor: ColorStyles.brandColor }
+                    ? { borderColor: ColorStyles.focused }
                     : {},
                 ]}
                 activeOutlineColor={ColorStyles.brandColor}
@@ -186,7 +186,7 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
                     style={[
                       GlobalStyles.inputLable,
                       inputsFocus.deliveryDate
-                        ? { color: ColorStyles.brandColor }
+                        ? { color: ColorStyles.focused }
                         : {},
                     ]}
                   >
@@ -194,10 +194,10 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
                   </Text>
                 }
                 onBlur={() =>
-                  setInputsFocus(prev => ({ deliveryDate: false, ...prev }))
+                  setInputsFocus(prev => ({ ...prev, deliveryDate: false }))
                 }
                 onFocus={() =>
-                  setInputsFocus(prev => ({ deliveryDate: true, ...prev }))
+                  setInputsFocus(prev => ({ ...prev, deliveryDate: true }))
                 }
                 contentStyle={GlobalStyles.inputContentstyle}
                 mode="outlined"
@@ -269,7 +269,7 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
               outlineStyle={[
                 GlobalStyles.inputsOutlineStyle,
                 inputsFocus.itemName
-                  ? { borderColor: ColorStyles.brandColor }
+                  ? { borderColor: ColorStyles.focused }
                   : {},
               ]}
               activeOutlineColor={ColorStyles.brandColor}
@@ -277,20 +277,19 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
                 <Text
                   style={[
                     GlobalStyles.inputLable,
-                    inputsFocus.itemName
-                      ? { color: ColorStyles.brandColor }
-                      : {},
+                    inputsFocus.itemName ? { color: ColorStyles.focused } : {},
                   ]}
                 >
                   Items Name *
                 </Text>
               }
               onBlur={() =>
-                setInputsFocus(prev => ({ itemName: false, ...prev }))
+                setInputsFocus(prev => ({ ...prev, itemName: false }))
               }
-              onFocus={() =>
-                setInputsFocus(prev => ({ itemName: true, ...prev }))
-              }
+              onFocus={() => {
+                console.log('@inputsFocus', inputsFocus);
+                setInputsFocus(prev => ({ ...prev, itemName: true }));
+              }}
               contentStyle={GlobalStyles.inputContentstyle}
               mode="outlined"
               style={styles.inputStyles}
@@ -308,27 +307,25 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
               outlineStyle={[
                 GlobalStyles.inputsOutlineStyle,
                 inputsFocus.quantity
-                  ? { borderColor: ColorStyles.brandColor }
+                  ? { borderColor: ColorStyles.focused }
                   : {},
               ]}
-              activeOutlineColor={ColorStyles.brandColor}
+              activeOutlineColor={ColorStyles.focused}
               label={
                 <Text
                   style={[
                     GlobalStyles.inputLable,
-                    inputsFocus.quantity
-                      ? { color: ColorStyles.brandColor }
-                      : {},
+                    inputsFocus.quantity ? { color: ColorStyles.focused } : {},
                   ]}
                 >
                   Quantity
                 </Text>
               }
               onBlur={() =>
-                setInputsFocus(prev => ({ quantity: false, ...prev }))
+                setInputsFocus(prev => ({ ...prev, quantity: false }))
               }
               onFocus={() =>
-                setInputsFocus(prev => ({ quantity: true, ...prev }))
+                setInputsFocus(prev => ({ ...prev, quantity: true }))
               }
               contentStyle={GlobalStyles.inputContentstyle}
               mode="outlined"
@@ -362,16 +359,16 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
               outlineStyle={[
                 GlobalStyles.inputsOutlineStyle,
                 inputsFocus.shippingCost
-                  ? { borderColor: ColorStyles.brandColor }
+                  ? { borderColor: ColorStyles.focused }
                   : {},
               ]}
-              activeOutlineColor={ColorStyles.brandColor}
+              activeOutlineColor={ColorStyles.focused}
               label={
                 <Text
                   style={[
                     GlobalStyles.inputLable,
                     inputsFocus.shippingCost
-                      ? { color: ColorStyles.brandColor }
+                      ? { color: ColorStyles.focused }
                       : {},
                   ]}
                 >
@@ -379,10 +376,10 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
                 </Text>
               }
               onBlur={() =>
-                setInputsFocus(prev => ({ shippingCost: false, ...prev }))
+                setInputsFocus(prev => ({ ...prev, shippingCost: false }))
               }
               onFocus={() =>
-                setInputsFocus(prev => ({ shippingCost: true, ...prev }))
+                setInputsFocus(prev => ({ ...prev, shippingCost: true }))
               }
               contentStyle={GlobalStyles.inputContentstyle}
               mode="outlined"
@@ -397,7 +394,6 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
                 setErrors(prev => ({ ...prev, shippingCost: '' }));
               }}
               keyboardType="numeric"
-              // label="Shipping Cost in ETB *"
             />
             {errors.shippingCost && (
               <Text style={{ color: 'red' }}>{errors.shippingCost}</Text>
@@ -411,7 +407,6 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
               shippableItem?.deliveryDate && (
                 <TouchableOpacity
                   onPress={() => {
-                    // handleSubmit();
                     setShowComponent('List Of Vehicles');
                   }}
                   style={GlobalStyles.button}

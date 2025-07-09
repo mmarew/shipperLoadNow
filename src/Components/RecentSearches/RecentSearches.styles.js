@@ -30,6 +30,8 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginLeft: 15,
     color: ColorStyles.textColor,
+    flexWrap: 'wrap',
+    width: '90%',
   },
 });
 export default styles;

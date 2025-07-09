@@ -490,11 +490,11 @@ const OSMAutocomplete = ({
         listStyle={styles.listStyle}
         inputContainerStyle={[
           styles.inputContainerStyle,
-          focusOnInput && { backgroundColor: ColorStyles.focused },
+          focusOnInput && { backgroundColor: ColorStyles.autocompleteFocused },
         ]}
         style={[
           styles.inputStyle,
-          focusOnInput && { backgroundColor: ColorStyles.focused },
+          focusOnInput && { backgroundColor: ColorStyles.autocompleteFocused },
         ]}
         flatListProps={{
           keyExtractor: (item, index) =>
