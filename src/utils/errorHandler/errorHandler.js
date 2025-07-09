@@ -1,8 +1,8 @@
 // utils/errorHandler.js
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {ErrorToast} from 'react-native-toast-message';
-import {addPassengersToken} from '../../Redux/slices/PassengerSlice';
+import { addPassengersToken } from '../../Redux/slices/PassengerSlice';
 import store from '../../Redux/Store/Store';
+import { showErrorToast } from '../ToastDisplayer/toastDisplayer';
 
 const errorHandler = error => {
   let errorMessage = 'An unknown error occurred';
@@ -20,7 +20,7 @@ const errorHandler = error => {
   // Handle API response errors
   if (error.response) {
     console.log('error.response.data', error.response.data);
-    const {status, data} = error.response;
+    const { status, data } = error.response;
     const responseError = data.error;
     console.log('@responseError', responseError);
     if (status === 400) {
@@ -102,12 +102,12 @@ const errorHandler = error => {
 
   // Don't show messages included in nonToastMessages and those that start with 'Network'
   if (
-    !nonToastMessages?.includes(errorMessage) &&
+    !nonToastMessages?.includes(errorMessage) ||
     !errorMessage?.toLocaleLowerCase()?.startsWith('network')
   ) {
-    ErrorToast('error', 'error', errorMessage);
+    showErrorToast({ text1: 'error', text2: errorMessage });
   }
-
+  console.log('@errorMessage', errorMessage);
   return errorMessage;
 };
 

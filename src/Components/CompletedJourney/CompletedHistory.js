@@ -126,7 +126,7 @@ const HistoryScreen = () => {
               }
               onPress={() => setfetchDataByRange('dateRange')}
             />
-            <Text style={{ color: ColorStyles.errorColor }}>
+            <Text style={{ color: ColorStyles.textColor }}>
               by date range data
             </Text>
           </View>

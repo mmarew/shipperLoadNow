@@ -21,15 +21,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   tabText: {
-    fontSize: 16,
-    color: ColorStyles.textColor,
+    fontSize: 20,
+    color: ColorStyles.whiteColor,
   },
   activeTab: {
     borderBottomWidth: 2,
     borderBottomColor: ColorStyles.borderColor,
   },
   activeText: {
-    color: ColorStyles.brandColor,
+    color: ColorStyles.whiteColor,
     fontWeight: 'bold',
   },
 });

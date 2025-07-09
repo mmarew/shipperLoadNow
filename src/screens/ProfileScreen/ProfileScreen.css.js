@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     height: 120,
     borderRadius: 60,
     overflow: 'hidden',
-    backgroundColor: '#e1e1e1',
+    backgroundColor: ColorStyles.mediumGray,
   },
   profileImage: {
     width: '100%',
@@ -41,14 +41,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 13,
     right: 20,
-    backgroundColor: '#ffffff',
+    backgroundColor: ColorStyles.whiteBGColor,
     borderRadius: 15,
     padding: 5,
   },
   updateText: {
     marginTop: 12,
     fontSize: 16,
-    color: '#8e8e93',
+    color: ColorStyles.textColor,
   },
   inputContainer: {
     width: '90%',
@@ -56,15 +56,12 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    color: '#8e8e93',
+    color: ColorStyles.lablesColor,
     marginBottom: 5,
   },
   input: {
-    backgroundColor: '#ffffff',
-    padding: 10,
-    borderRadius: 8,
-    borderColor: '#ddd',
-    borderWidth: 1,
+    backgroundColor: ColorStyles.inputBackgroundColor,
+
     marginBottom: 15,
   },
   updateButton: {
@@ -77,7 +74,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   updateButtonText: {
-    color: '#ffffff',
+    color: ColorStyles.whiteColor,
     fontSize: 16,
     fontWeight: 'bold',
   },

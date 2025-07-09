@@ -26,6 +26,8 @@ import errorHandler from '../../utils/errorHandler/errorHandler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import decodeJWT from '../../utils/JWTDecoder/JWTDecoder';
 import ColorStyles from '../../GlobalStyles/Color.styles';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 
 const ProfileScreen = ({ setVisibleDetail }) => {
   const [userDetails, setUserDetails] = useState({
@@ -56,6 +58,11 @@ const ProfileScreen = ({ setVisibleDetail }) => {
       console.error('Error initializing user data:', errorHandler(error));
     }
   }, []);
+  const [inputsFocus, setInputsFocus] = useState({
+    fullName: false,
+    email: false,
+    phoneNumber: false,
+  });
 
   // Fetch profile image
   const fetchProfileImage = useCallback(async () => {
@@ -198,6 +205,7 @@ const ProfileScreen = ({ setVisibleDetail }) => {
           },
         },
       );
+      console.log('@handleUpdateProfile data', data);
 
       if (data.message === 'success') {
         await AsyncStorage.setItem('passengersToken', data.token);
@@ -220,97 +228,172 @@ const ProfileScreen = ({ setVisibleDetail }) => {
   if (isLoading) return <ActivityIndicator size="large" />;
 
   return (
-    <View style={styles.container}>
-      {/* Header */}
-      {setVisibleDetail && (
-        <View style={styles.header}>
-          <TouchableOpacity onPress={() => setVisibleDetail(null)}>
-            <Icon
-              name="arrow-back-outline"
-              size={24}
-              color={ColorStyles.textColor}
+    <KeyboardAwareScrollView
+      style={{ backgroundColor: ColorStyles.backgroundColor }}
+      extraScrollHeight={150}
+      enableOnAndroid={true}
+    >
+      <View style={styles.container}>
+        {/* Header */}
+        {setVisibleDetail && (
+          <View style={styles.header}>
+            <TouchableOpacity onPress={() => setVisibleDetail(null)}>
+              <Icon
+                name="arrow-back-outline"
+                size={24}
+                color={ColorStyles.textColor}
+              />
+            </TouchableOpacity>
+            <Text style={styles.headerText}>My Profile</Text>
+          </View>
+        )}
+
+        {/* Profile Picture */}
+        <View style={styles.profileContainer}>
+          <View style={styles.imageWrapper}>
+            <Image
+              source={
+                profileImage
+                  ? { uri: profileImage.uri }
+                  : savedProfileImage
+                  ? {
+                      uri: `${API_URL_AXIOS}/uploads/${savedProfileImage.attachedDocumentName}`,
+                    }
+                  : require('../../assets/icons/userIcon.png')
+              }
+              style={styles.profileImage}
             />
-          </TouchableOpacity>
-          <Text style={styles.headerText}>My Profile</Text>
+            <TouchableOpacity
+              style={styles.cameraIconContainer}
+              onPress={handleSelectImage}
+            >
+              <Icon name="camera" size={20} color="black" />
+            </TouchableOpacity>
+          </View>
+          <Text style={styles.updateText}>Update your photo</Text>
         </View>
-      )}
 
-      {/* Profile Picture */}
-      <View style={styles.profileContainer}>
-        <View style={styles.imageWrapper}>
-          <Image
-            source={
-              profileImage
-                ? { uri: profileImage.uri }
-                : savedProfileImage
-                ? {
-                    uri: `${API_URL_AXIOS}/uploads/${savedProfileImage.attachedDocumentName}`,
-                  }
-                : require('../../assets/icons/userIcon.png')
-            }
-            style={styles.profileImage}
-          />
-          <TouchableOpacity
-            style={styles.cameraIconContainer}
-            onPress={handleSelectImage}
-          >
-            <Icon name="camera" size={20} color="black" />
-          </TouchableOpacity>
+        {/* Form Inputs */}
+        <View style={styles.inputContainer}>
+          <View>
+            <TextInput
+              outlineStyle={[
+                GlobalStyles.inputsOutlineStyle,
+                inputsFocus.fullName
+                  ? { borderColor: ColorStyles.focused }
+                  : {},
+              ]}
+              activeOutlineColor={ColorStyles.brandColor}
+              label={
+                <Text
+                  style={[
+                    GlobalStyles.inputLable,
+                    inputsFocus.fullName ? { color: ColorStyles.focused } : {},
+                  ]}
+                >
+                  code
+                </Text>
+              }
+              onBlur={() =>
+                setInputsFocus(prev => ({ ...prev, fullName: false }))
+              }
+              onFocus={() =>
+                setInputsFocus(prev => ({ ...prev, fullName: true }))
+              }
+              contentStyle={GlobalStyles.inputContentstyle}
+              mode="outlined"
+              style={styles.input}
+              value={userDetails?.fullName}
+              onChangeText={value =>
+                setUserDetails(prev => ({
+                  ...prev,
+                  fullName: value,
+                }))
+              }
+            />
+          </View>
+          <View>
+            <TextInput
+              outlineStyle={[
+                GlobalStyles.inputsOutlineStyle,
+                inputsFocus.phoneNumber
+                  ? { borderColor: ColorStyles.focused }
+                  : {},
+              ]}
+              activeOutlineColor={ColorStyles.brandColor}
+              label={
+                <Text
+                  style={[
+                    GlobalStyles.inputLable,
+                    inputsFocus.phoneNumber
+                      ? { color: ColorStyles.focused }
+                      : {},
+                  ]}
+                >
+                  Phone Number
+                </Text>
+              }
+              onBlur={() =>
+                setInputsFocus(prev => ({ ...prev, phoneNumber: false }))
+              }
+              onFocus={() =>
+                setInputsFocus(prev => ({ ...prev, phoneNumber: true }))
+              }
+              contentStyle={GlobalStyles.inputContentstyle}
+              mode="outlined"
+              style={styles.input}
+              value={userDetails?.phoneNumber}
+              onChangeText={value =>
+                setUserDetails(prev => ({
+                  ...prev,
+                  phoneNumber: value,
+                }))
+              }
+            />
+          </View>
+          <View>
+            <TextInput
+              outlineStyle={[
+                GlobalStyles.inputsOutlineStyle,
+                inputsFocus.email ? { borderColor: ColorStyles.focused } : {},
+              ]}
+              activeOutlineColor={ColorStyles.brandColor}
+              label={
+                <Text
+                  style={[
+                    GlobalStyles.inputLable,
+                    inputsFocus.email ? { color: ColorStyles.focused } : {},
+                  ]}
+                >
+                  Phone Number
+                </Text>
+              }
+              onBlur={() => setInputsFocus(prev => ({ ...prev, email: false }))}
+              onFocus={() => setInputsFocus(prev => ({ ...prev, email: true }))}
+              contentStyle={GlobalStyles.inputContentstyle}
+              // label={<Text style={styles.label}>Email</Text>}
+              mode="outlined"
+              style={styles.input}
+              value={userDetails?.email}
+              onChangeText={value =>
+                setUserDetails(prev => ({
+                  ...prev,
+                  email: value,
+                }))
+              }
+            />
+          </View>
         </View>
-        <Text style={styles.updateText}>Update your photo</Text>
+
+        {/* Update Profile Button */}
+        <TouchableOpacity
+          style={styles.updateButton}
+          onPress={handleUpdateProfile}
+        >
+          <Text style={styles.updateButtonText}>Update Profile </Text>
+        </TouchableOpacity>
       </View>
-
-      {/* Form Inputs */}
-      <View style={styles.inputContainer}>
-        <View>
-          <Text style={styles.label}>Full Name</Text>
-          <TextInput
-            style={styles.input}
-            value={userDetails?.fullName}
-            onChangeText={value =>
-              setUserDetails(prev => ({
-                ...prev,
-                fullName: value,
-              }))
-            }
-          />
-        </View>
-        <View>
-          <Text style={styles.label}>Phone Number</Text>
-          <TextInput
-            style={styles.input}
-            value={userDetails?.phoneNumber}
-            onChangeText={value =>
-              setUserDetails(prev => ({
-                ...prev,
-                phoneNumber: value,
-              }))
-            }
-          />
-        </View>
-        <View>
-          <Text style={styles.label}>Email</Text>
-          <TextInput
-            style={styles.input}
-            value={userDetails?.email}
-            onChangeText={value =>
-              setUserDetails(prev => ({
-                ...prev,
-                email: value,
-              }))
-            }
-          />
-        </View>
-      </View>
-
-      {/* Update Profile Button */}
-      <TouchableOpacity
-        style={styles.updateButton}
-        onPress={handleUpdateProfile}
-      >
-        <Text style={styles.updateButtonText}>Update Profile </Text>
-      </TouchableOpacity>
-    </View>
+    </KeyboardAwareScrollView>
   );
 };
 
