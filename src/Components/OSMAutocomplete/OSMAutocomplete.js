@@ -312,6 +312,7 @@ const OSMAutocomplete = ({
     search: false,
     currentLocation: false,
   });
+  const [focusOnInput, setFocusOnInput] = useState(false);
   const [selected, setSelected] = useState(false);
   const [errors, setErrors] = useState(null);
 
@@ -476,15 +477,25 @@ const OSMAutocomplete = ({
   return (
     <View style={{ flex: 1 }}>
       <Autocomplete
-        onFocus={onFocus}
+        onFocus={() => {
+          setFocusOnInput(true);
+          onFocus();
+        }}
+        onBlur={() => setFocusOnInput(false)}
         data={displayResults}
         value={value}
         onChangeText={handleChangeTexts}
         placeholder={placeholder}
         listContainerStyle={styles.listContainerStyle}
         listStyle={styles.listStyle}
-        inputContainerStyle={styles.inputContainerStyle}
-        style={styles.inputStyle}
+        inputContainerStyle={[
+          styles.inputContainerStyle,
+          focusOnInput && { backgroundColor: ColorStyles.focused },
+        ]}
+        style={[
+          styles.inputStyle,
+          focusOnInput && { backgroundColor: ColorStyles.focused },
+        ]}
         flatListProps={{
           keyExtractor: (item, index) =>
             `${item.isCurrentLocation ? 'current' : item.name}-${index}`,

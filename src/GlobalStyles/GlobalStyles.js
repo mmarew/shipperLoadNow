@@ -100,6 +100,8 @@ const GlobalStyles = StyleSheet.create({
     color: ColorStyles.textColor,
     fontSize: 16,
     fontWeight: 'bold',
+    padding: 0,
+    margin: 0,
   },
   errorText: {
     color: ColorStyles.errorColor,
@@ -115,6 +117,8 @@ const GlobalStyles = StyleSheet.create({
     borderWidth: 2,
     borderColor: ColorStyles.borderColor,
     borderStyle: 'solid',
+    padding: 0,
+    margin: 0,
   },
   inputStyles: {
     fontFamily: fontFamily.manropeRegular,

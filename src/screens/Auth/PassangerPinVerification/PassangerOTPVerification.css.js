@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   },
   otpInput: {
     flex: 1,
-    width: 30,
+    width: 50,
     height: 50,
     borderWidth: 1,
     borderColor: ColorStyles.borderColor,
@@ -29,6 +29,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     backgroundColor: ColorStyles.whiteBGColor,
     color: ColorStyles.textColor,
+    padding: 0,
+    margin: 0,
   },
   resendText: {
     fontSize: 14,

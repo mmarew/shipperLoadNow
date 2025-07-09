@@ -7,7 +7,8 @@ import {
   StatusBar,
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-
+import SmsRetriever from 'react-native-sms-retriever';
+import { Alert } from 'react-native';
 import GlobalStyles from '../../../GlobalStyles/GlobalStyles';
 import { useDispatch, useSelector } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -122,18 +123,44 @@ const PassangerOTPVerification = ({ navigation }) => {
     startListeningForSms();
   }, []);
 
+  // const startListeningForSms = async () => {
+  //   try {
+  //     await SmsRetriever.startSmsRetriever();
+  //     const message = await SmsRetriever.startSmsRetriever(); // Waits for an SMS
+  //     console.log('Received SMS:', message);
+
+  //     // Extract OTP (Assuming OTP is 4-6 digits)
+  //     const extractedOtp = message.match(/\b\d{4,6}\b/)?.[0];
+
+  //     if (extractedOtp) {
+  //       setOtp(extractedOtp);
+  //       Alert.alert('OTP Received', `Your OTP is ${extractedOtp}`);
+  //     }
+  //   } catch (error) {
+  //     console.log('Error reading SMS:', error);
+  //   }
+  // };
+
   const startListeningForSms = async () => {
     try {
-      await SmsRetriever.startSmsRetriever();
-      const message = await SmsRetriever.startSmsRetriever(); // Waits for an SMS
-      console.log('Received SMS:', message);
+      const registered = await SmsRetriever.startSmsRetriever();
 
-      // Extract OTP (Assuming OTP is 4-6 digits)
-      const extractedOtp = message.match(/\b\d{4,6}\b/)?.[0];
+      if (registered) {
+        SmsRetriever.addSmsListener(event => {
+          const message = event.message;
+          console.log('Received SMS:', message);
 
-      if (extractedOtp) {
-        setOtp(extractedOtp);
-        Alert.alert('OTP Received', `Your OTP is ${extractedOtp}`);
+          // Extract OTP (4 to 6 digit code)
+          const extractedOtp = message.match(/\b\d{4,6}\b/)?.[0];
+
+          if (extractedOtp) {
+            setOtp(extractedOtp.split('')); // convert to array if needed
+            Alert.alert('OTP Received', `Your OTP is ${extractedOtp}`);
+          }
+
+          // Always remove the listener after getting the SMS
+          SmsRetriever.removeSmsListener();
+        });
       }
     } catch (error) {
       console.log('Error reading SMS:', error);
@@ -194,7 +221,12 @@ const PassangerOTPVerification = ({ navigation }) => {
                 maxLength={1}
                 keyboardType="number-pad"
                 ref={ref => (inputRefs.current[index] = ref)}
-                contentStyle={GlobalStyles.inputContentstyle}
+                contentStyle={{
+                  ...GlobalStyles.inputContentstyle,
+                  color: otp[index]
+                    ? ColorStyles.whiteColor
+                    : ColorStyles.textColor,
+                }}
                 style={[
                   styles.otpInput,
                   otp[index] !== '' && {
@@ -208,7 +240,7 @@ const PassangerOTPVerification = ({ navigation }) => {
                 ]}
                 activeOutlineColor={ColorStyles.focused}
                 onFocus={() => {
-                  const updatedFocus = new Array(6).fill(false); //[...otpFocus];
+                  const updatedFocus = new Array(6).fill(false);
                   updatedFocus[index] = true;
                   setOtpFocus(updatedFocus);
                 }}
