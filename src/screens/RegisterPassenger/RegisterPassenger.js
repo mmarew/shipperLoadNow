@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   ActivityIndicator,
   TouchableOpacity,
   View,
   StatusBar,
+  Animated,
   RefreshControl,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
@@ -19,9 +20,12 @@ import ColorStyles, { barStyles } from '../../GlobalStyles/Color.styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Reload from '../../Components/Reload/Reload';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { triggerShake } from '../../utils/Animations/ShakeAnim';
+import ErrorText from '../../Components/ErrorText/ErrorText';
 
 const RegisterPassenger = ({ navigation }) => {
   const dispatch = useDispatch();
+  const shakeAnim = useRef(new Animated.Value(0)).current;
 
   // State Management
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -62,6 +66,8 @@ const RegisterPassenger = ({ navigation }) => {
     const phoneNumberError = validatePhoneNumber(
       phoneNumber.replace(/\D/g, ''),
     );
+    triggerShake(shakeAnim);
+
     setErrors({ phoneCode: phoneCodeError, phoneNumber: phoneNumberError });
     return !phoneCodeError && !phoneNumberError;
   };
@@ -78,10 +84,7 @@ const RegisterPassenger = ({ navigation }) => {
       errorHandler(
         new Error('You need to accept the terms and conditions to proceed.'),
       );
-      // showErrorToast({
-      //   text1: 'Terms and Conditions',
-      //   text2: 'You need to accept the terms and conditions to proceed.',
-      // });
+
       return;
     }
 
@@ -201,18 +204,19 @@ const RegisterPassenger = ({ navigation }) => {
                 </Text>
               }
               value={phoneNumber}
-              onChangeText={newText =>
-                handlePhoneChange(newText, setPhoneNumber, phoneNumber)
-              }
+              onChangeText={newText => {
+                setErrors(prev => ({ ...prev, phoneNumber: null }));
+                handlePhoneChange(newText, setPhoneNumber, phoneNumber);
+              }}
               keyboardType="phone-pad"
               error={!!errors.phoneNumber}
             />
           </View>
           {errors.phoneCode && (
-            <Text style={GlobalStyles.errorText}>{errors.phoneCode}</Text>
+            <ErrorText error={errors.phoneCode} shakeAnim={shakeAnim} />
           )}
           {errors.phoneNumber && (
-            <Text style={GlobalStyles.errorText}>{errors.phoneNumber}</Text>
+            <ErrorText error={errors.phoneNumber} shakeAnim={shakeAnim} />
           )}
 
           {/* Terms Checkbox */}
@@ -235,7 +239,9 @@ const RegisterPassenger = ({ navigation }) => {
             </Text>
           </View>
           {errors.termsAccepted && (
-            <Text style={GlobalStyles.errorText}>{errors.termsAccepted}</Text>
+            <ErrorText error={errors.termsAccepted} shakeAnim={shakeAnim} />
+
+            // <Text style={GlobalStyles.errorText}>{errors.termsAccepted}</Text>
           )}
 
           {/* Register Button */}
