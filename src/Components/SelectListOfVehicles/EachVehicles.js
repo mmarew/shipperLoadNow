@@ -2,10 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { TouchableOpacity, View, Image, Text } from 'react-native';
 import API_URL_AXIOS from '../../services/AxiosServices';
 import { useSelector } from 'react-redux';
-import {
-  calculateEstimatedMoney,
-  formatETB,
-} from '../../utils/Calculate/Calculate';
+import { calculateEstimatedMoney } from '../../utils/Calculate/Calculate';
 import { SvgUri } from 'react-native-svg';
 import styles from './EachVehicles.css';
 import { showErrorToast } from '../../utils/ToastDisplayer/toastDisplayer';
@@ -17,7 +14,6 @@ const EachVehicles = ({
   item,
   selectedVehicle,
   setSelectedVehicle,
-  navigation,
 }) => {
   const [estimatedMoney, setEstimatedMoney] = useState(0);
   useEffect(() => {
@@ -62,18 +58,18 @@ const EachVehicles = ({
       ]}
     >
       {/* const iconName=item?.vehicleTypeIconName */}
-      {!item?.vehicleTypeIconName?.endsWith('.svg') ? (
+      {item?.vehicleTypeIconName?.endsWith('.svg') ? (
+        <SvgUri
+          uri={`${API_URL_AXIOS}/uploads/${item?.vehicleTypeIconName}`}
+          width={50} // Set desired width
+          height={50} // Set desired height
+        />
+      ) : (
         <Image
           source={{
             uri: `${API_URL_AXIOS}/uploads/${item?.vehicleTypeIconName}`,
           }}
           style={styles.vehicleImage}
-        />
-      ) : (
-        <SvgUri
-          uri={`${API_URL_AXIOS}/uploads/${item?.vehicleTypeIconName}`}
-          width={50} // Set desired width
-          height={50} // Set desired height
         />
       )}
       <View style={styles.vehicleInfo}>

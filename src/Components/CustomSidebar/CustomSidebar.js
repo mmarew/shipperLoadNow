@@ -1,5 +1,5 @@
 // components/CustomSidebar.js
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import {
   View,
   TouchableOpacity,
@@ -54,6 +54,19 @@ const CustomsSideBarList = ({
     state => state?.passengerSlices?.passengersToken,
   );
   const decodedProfileData = decodeJWT(passengersToken)?.data;
+
+  const [imageError, setImageError] = useState(false);
+
+  // Determine the image source
+  const getImageSource = () => {
+    if (!savedProfileImage?.attachedDocumentName || imageError) {
+      return require('../../assets/icons/userIcon.png'); // Fallback to local asset
+    } else {
+      return {
+        uri: `${API_URL_AXIOS}/uploads/${savedProfileImage.attachedDocumentName}`,
+      };
+    }
+  };
   return (
     <CustomSidebar isOpen={sidebarOpen} onClose={toggleSidebar}>
       <View style={styles.drawerContainer}>
@@ -66,24 +79,21 @@ const CustomsSideBarList = ({
               <Text style={styles.closeButtonText}>✕</Text>
             </TouchableOpacity>
           </View>
-          {savedProfileImage?.attachedDocumentName && (
-            <View style={{ alignItems: 'center', flexDirection: 'row' }}>
-              <Image
-                source={{
-                  uri: `${API_URL_AXIOS}/uploads/${savedProfileImage.attachedDocumentName}`,
-                }}
-                style={styles.profileImage}
-              />
-              <View style={styles.profileInfoContainer}>
-                {decodedProfileData?.fullName && (
-                  <Text style={styles.profileName}>
-                    {trimText({ text: decodedProfileData.fullName, size: 18 })}
-                  </Text>
-                )}
-                <Text style={styles.profileRole}>Passenger</Text>
-              </View>
+          <View style={{ alignItems: 'center', flexDirection: 'row' }}>
+            <Image
+              source={getImageSource()}
+              onError={() => setImageError(true)} // Trigger if image fails to load
+              style={styles.profileImage}
+            />
+            <View style={styles.profileInfoContainer}>
+              {decodedProfileData?.fullName && (
+                <Text style={styles.profileName}>
+                  {trimText({ text: decodedProfileData.fullName, size: 18 })}
+                </Text>
+              )}
+              <Text style={styles.profileRole}>Passenger</Text>
             </View>
-          )}
+          </View>
         </View>
         {sidebarItems.map(item => (
           <TouchableOpacity

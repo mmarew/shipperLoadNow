@@ -10,11 +10,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 15,
     marginVertical: 5,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
-    elevation: 2,
   },
   selectedVehicle: {
     borderWidth: 2,
@@ -24,7 +19,7 @@ const styles = StyleSheet.create({
   vehicleImage: {
     width: 60,
     height: 60,
-    // resizeMode: 'contain',
+    resizeMode: 'contain',
   },
   vehicleTitle: {
     fontSize: 18,

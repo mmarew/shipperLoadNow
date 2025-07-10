@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
-import {
-  ScrollView,
-  StatusBar,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { StatusBar, Text, TouchableOpacity, View } from 'react-native';
 import PassangerMap from '../../Components/PassangerMap/PassangerMap';
 import PickupAndDestinationDisplayer from '../../Components/PickUpAndDestination/PickupAndDestinationDisplayer';
-import styles from './HomeScreen.style';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import { useSelector } from 'react-redux';
 import PickUpAndDestinationInputs from '../../Components/PickUpAndDestination/PickUpAndDestinationInputs';
@@ -20,7 +13,6 @@ import WaitingForConfirmation from '../WaitingForConfirmation/WaitingForConfirma
 import Journey from '../Journey/Journey';
 import StrightLine from '../../assets/icons/StrightLine.svg';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import HeaderBar from '../../Components/HeaderBar/HeaderBar';
 import ColorStyles, { barStyles } from '../../GlobalStyles/Color.styles';
 const HomeScreen = ({ navigation }) => {
   const passengerSlices = useSelector(state => state?.passengerSlices);
@@ -97,7 +89,7 @@ const HomeScreen = ({ navigation }) => {
                 style={{
                   ...GlobalStyles.title,
                   // marginBottom: 20,
-                  paddingLeft: 15,
+                  padding: 15,
                 }}
               >
                 Where would you like to travel?

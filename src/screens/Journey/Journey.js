@@ -25,8 +25,9 @@ const Journey = ({ navigation, setShowComponent }) => {
         <View
           style={{
             paddingHorizontal: 20,
-            backgroundColor: ColorStyles.backgroundColor,
+            backgroundColor: ColorStyles.whiteBGColor,
             borderRadius: 20,
+            gap: 10,
           }}
         >
           {(passengerStatus == listofJourneyStatus?.acceptedByDriver ||
@@ -34,21 +35,30 @@ const Journey = ({ navigation, setShowComponent }) => {
             passengerStatus == listofJourneyStatus?.journeyStarted) && (
             <>
               <DriverInfo navigation={navigation} />
-
-              <ShowShippableItems />
+              <View
+                style={{ borderWidth: 1, borderColor: ColorStyles.borderColor }}
+              >
+                <ShowShippableItems />
+              </View>
             </>
           )}
+          <View
+            style={{ borderWidth: 1, borderColor: ColorStyles.borderColor }}
+          >
+            <PickupAndDestinationDisplayer
+              navigateTo="Pick up and destination"
+              navigation={navigation}
+              listOfJourneyPoints={[{ origin: originLocation, destination }]}
+            />
+          </View>
 
-          <PickupAndDestinationDisplayer
-            navigateTo="Pick up and destination"
-            navigation={navigation}
-            listOfJourneyPoints={[{ origin: originLocation, destination }]}
-          />
-
-          {passengerStatus < listofJourneyStatus?.acceptedByPassenger && (
+          {passengerStatus <= listofJourneyStatus?.acceptedByPassenger && (
             <TouchableOpacity
               onPress={handleCancelRequest}
-              style={{ ...GlobalStyles.button, backgroundColor: 'red' }}
+              style={{
+                ...GlobalStyles.button,
+                backgroundColor: ColorStyles.errorColor,
+              }}
             >
               <Text style={{ ...GlobalStyles.buttonText }}>Cancel Request</Text>
             </TouchableOpacity>

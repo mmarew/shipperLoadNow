@@ -4,6 +4,7 @@ import styles from './DriverInfo.style';
 import API_URL_AXIOS from '../../services/AxiosServices';
 import Ionicons from 'react-native-vector-icons/Ionicons'; // For the call icon
 import { createDateFormatter } from '../../utils/Formatter/Formatter';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const DiverCard = ({ driverInfo }) => {
   //   const passengerSlices = useSelector(state => state.passengerSlices);
@@ -37,7 +38,11 @@ const DiverCard = ({ driverInfo }) => {
 
         {/* Call button */}
         <TouchableOpacity onPress={handleCall} style={styles.callButton}>
-          <Ionicons name="call-outline" size={24} color="#0ea5e9" />
+          <Ionicons
+            name="call-outline"
+            size={27}
+            color={ColorStyles.brandColor}
+          />
         </TouchableOpacity>
       </View>
     </View>

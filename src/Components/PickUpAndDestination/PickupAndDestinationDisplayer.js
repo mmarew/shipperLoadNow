@@ -2,7 +2,6 @@ import { TouchableOpacity, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './PickupAndDestinationDisplayer.style';
 import { Text } from 'react-native-paper';
-import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import ColorStyles from '../../GlobalStyles/Color.styles';
 
 const PickupAndDestinationDisplayer = ({
@@ -23,7 +22,7 @@ const PickupAndDestinationDisplayer = ({
         const { origin, destination } = points;
         // console.log('@points', points);
         return (
-          <View key={index} style={{ marginTop: 20 }}>
+          <View key={index}>
             {origin?.shippingDate && (
               <Text
                 style={{
@@ -49,7 +48,7 @@ const PickupAndDestinationDisplayer = ({
                     color="dodgerblue"
                   />
                   <View>
-                    <Text style={{ color: ColorStyles.whiteColor }}>From</Text>
+                    <Text style={{ color: ColorStyles.textColor }}>From</Text>
                     <Text style={styles.textPickupAndDestination}>
                       {origin?.description ? origin?.description : 'Set Pickup'}
                     </Text>
@@ -74,7 +73,7 @@ const PickupAndDestinationDisplayer = ({
                     />
 
                     <View>
-                      <Text style={{ color: ColorStyles.whiteColor }}>To </Text>
+                      <Text style={{ color: ColorStyles.textColor }}>To </Text>
                       <Text style={styles.textPickupAndDestination}>
                         {destination?.description
                           ? destination?.description
@@ -102,9 +101,7 @@ const PickupAndDestinationDisplayer = ({
                     />
 
                     <View>
-                      <Text style={{ color: ColorStyles.whiteColor }}>
-                        From
-                      </Text>
+                      <Text style={{ color: ColorStyles.textColor }}>From</Text>
                       <Text style={styles.textPickupAndDestination}>
                         {origin?.description
                           ? origin?.description
@@ -131,7 +128,7 @@ const PickupAndDestinationDisplayer = ({
                     />
 
                     <View>
-                      <Text style={{ color: ColorStyles.whiteColor }}>To </Text>
+                      <Text style={{ color: ColorStyles.textColor }}>To </Text>
                       <Text style={styles.textPickupAndDestination}>
                         {destination?.description
                           ? destination?.description

@@ -7,8 +7,11 @@ import store from '../../Redux/Store/Store';
 import { setModalVisible } from '../../Redux/slices/PassengerSlice';
 import getDistanceAndETA from '../../utils/GetDistanceAndETA/getDistanceAndETA';
 import DiverCard from './DiverCard';
+import ColorStyles from '../../GlobalStyles/Color.styles';
 const DriverInfo = ({ navigation }) => {
   const passengerSlices = useSelector(state => state.passengerSlices);
+  const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
+  console.log('@DriverInfo listofJourneyStatus', listofJourneyStatus);
   const passengerStatus = passengerSlices?.passengerStatus;
   const passenger = passengerSlices?.passenger;
   const driverInfo = passengerSlices?.driver?.[0];
@@ -84,9 +87,8 @@ const DriverInfo = ({ navigation }) => {
         </Text>
       ) : (
         <>
-          <DiverCard driverInfo={driverInfo} />
           <View style={styles.journeyInfoWrapper}>
-            {passengerStatus == 4 ? (
+            {passengerStatus == listofJourneyStatus.acceptedByPassenger ? (
               <>
                 <Text style={styles.headingText}>
                   Driver is heading to your location....
@@ -113,10 +115,13 @@ const DriverInfo = ({ navigation }) => {
             </Text>
           </View>
           {/* Driver card */}
-
-          {passengerStatus == 3 && (
+          <DiverCard driverInfo={driverInfo} />
+          {passengerStatus == listofJourneyStatus.acceptedByDriver && (
             <TouchableOpacity
-              style={{ ...GlobalStyles.button, backgroundColor: '#EF4444' }}
+              style={{
+                ...GlobalStyles.button,
+                backgroundColor: ColorStyles.red,
+              }}
               onPress={cancelCurrentRequest}
             >
               <Text style={GlobalStyles.buttonText}>Cancel request</Text>

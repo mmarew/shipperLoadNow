@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
   modalOverlay: {
     flex: 1,
     justifyContent: 'flex-end',
-    // backgroundColor: '#fff',
   },
   modalContainer: {
     backgroundColor: ColorStyles.backgroundColor,
@@ -47,7 +46,7 @@ const styles = StyleSheet.create({
   },
   selectedReasonContainer: {
     borderColor: ColorStyles.borderColor,
-    borderWidth: 2,
+    // borderWidth: 2,
   },
   reasonText: {
     fontSize: 16,

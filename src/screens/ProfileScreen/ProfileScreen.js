@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,
-  Text,
   TouchableOpacity,
   Image,
   Alert,
@@ -15,7 +14,7 @@ import {
   RESULTS,
   PERMISSIONS,
 } from 'react-native-permissions';
-import { TextInput } from 'react-native-paper';
+import { Text, TextInput } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
 import { launchImageLibrary } from 'react-native-image-picker';
@@ -168,31 +167,32 @@ const ProfileScreen = ({ setVisibleDetail }) => {
   // Update profile
   const handleUpdateProfile = async () => {
     // return;
-    const formData = new FormData();
-    formData.append('fullName', userDetails.fullName);
-    formData.append('email', userDetails.email);
-    formData.append('phoneNumber', userDetails.phoneNumber);
-
-    if (savedProfileImage?.attachedDocumentUniqueId) {
-      formData.append(
-        'attachedDocumentUniqueId',
-        savedProfileImage.attachedDocumentUniqueId,
-      );
-    }
-
-    if (profileImage) {
-      formData.append(profilePhotoRequirement?.uploadedDocumentName, {
-        uri: profileImage.uri,
-        type: profileImage.type,
-        name: profileImage.fileName || 'profile.jpg',
-      });
-      formData.append(
-        profilePhotoRequirement.uploadedDocumentTypeId,
-        profilePhotoRequirement.documentTypeId,
-      );
-    }
-
     try {
+      const formData = new FormData();
+      formData.append('fullName', userDetails.fullName);
+      formData.append('email', userDetails.email);
+      formData.append('phoneNumber', userDetails.phoneNumber);
+
+      if (savedProfileImage?.attachedDocumentUniqueId) {
+        formData.append(
+          'attachedDocumentUniqueId',
+          savedProfileImage.attachedDocumentUniqueId,
+        );
+      }
+      console.log('@handleUpdateProfile profileImage', profileImage);
+      if (profileImage) {
+        formData.append(profilePhotoRequirement?.uploadedDocumentName, {
+          uri: profileImage.uri,
+          type: profileImage.type,
+          name: profileImage.fileName || 'profile.jpg',
+        });
+        formData.append(
+          profilePhotoRequirement.uploadedDocumentTypeId,
+          profilePhotoRequirement.documentTypeId,
+        );
+      }
+      console.log('@handleUpdateProfile formData', formData);
+
       setIsLoading(true);
       const token = await AsyncStorage.getItem('passengersToken');
       const { data } = await axios.put(
@@ -291,7 +291,7 @@ const ProfileScreen = ({ setVisibleDetail }) => {
                     inputsFocus.fullName ? { color: ColorStyles.focused } : {},
                   ]}
                 >
-                  code
+                  Full Name
                 </Text>
               }
               onBlur={() =>
@@ -365,13 +365,12 @@ const ProfileScreen = ({ setVisibleDetail }) => {
                     inputsFocus.email ? { color: ColorStyles.focused } : {},
                   ]}
                 >
-                  Phone Number
+                  Email
                 </Text>
               }
               onBlur={() => setInputsFocus(prev => ({ ...prev, email: false }))}
               onFocus={() => setInputsFocus(prev => ({ ...prev, email: true }))}
               contentStyle={GlobalStyles.inputContentstyle}
-              // label={<Text style={styles.label}>Email</Text>}
               mode="outlined"
               style={styles.input}
               value={userDetails?.email}

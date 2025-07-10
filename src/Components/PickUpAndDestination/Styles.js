@@ -55,8 +55,6 @@ const styles = StyleSheet.create({
   // AUTOCOMPLETE
   autocompleteWrapper: {
     flex: 1,
-    marginLeft: 5,
-    // zIndex: 9,
   },
 
   // CLEAR ICON

@@ -1,11 +1,16 @@
 import { StyleSheet } from 'react-native';
 import ColorStyles from '../../GlobalStyles/Color.styles';
+import fontFamily from '../../GlobalStyles/FontFamily';
 
 const styles = StyleSheet.create({
   headingText: {
-    paddingTop: 10,
-    paddingBottom: 15,
+    // paddingTop: 10,
+    // paddingBottom: 15,
     color: ColorStyles.textColor,
+    fontFamily: fontFamily.manropeRegular,
+    fontSize: 18,
+    textAlign: 'center',
+    justifyContent: 'center',
   },
   timeDisplayer: {
     fontStyle: 'normal',
@@ -13,31 +18,37 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 18,
     color: ColorStyles.textColor,
+    fontFamily: fontFamily.manropeRegular,
+    textAlign: 'center',
+    justifyContent: 'center',
   },
   arrivalText: {
     color: ColorStyles.textColor,
-    marginTop: 5,
+    fontFamily: fontFamily.manropeRegular,
+    fontSize: 12,
+    textAlign: 'center',
+    justifyContent: 'center',
   },
   vehicleInfoText: {
-    marginVertical: 10,
+    // marginVertical: 10,
     color: ColorStyles.textColor,
+    fontFamily: fontFamily.manropeRegular,
+    fontSize: 16,
+    textAlign: 'center',
+    justifyContent: 'center',
   },
   journeyInfoWrapper: {
-    borderColor: ColorStyles.borderColor,
-    borderBottomWidth: 2,
     paddingLeft: 30,
-    backgroundColor: ColorStyles.whiteBGColor,
     borderRadius: 20,
-    paddingVertical: 20,
-    marginTop: -2,
+    paddingTop: 20,
+    justifyContent: 'center',
+    borderBottomWidth: 1,
+    borderColor: ColorStyles.borderColor,
+    paddingBottom: 20,
   },
 
   cardContainer: {
-    marginVertical: 15,
-    backgroundColor: ColorStyles.whiteBGColor,
-
     justifyContent: 'center',
-    borderRadius: 20,
   },
   cardProfileContainer: { flexDirection: 'row', alignItems: 'center' },
   shipingCost: { paddingLeft: 10 },
@@ -60,7 +71,7 @@ const styles = StyleSheet.create({
   },
   deliveryInfo: {
     fontSize: 12,
-    color: '#6b7280',
+    color: ColorStyles.informationColor,
   },
   ratingContainer: {
     flexDirection: 'row',
@@ -70,17 +81,17 @@ const styles = StyleSheet.create({
   ratingText: {
     marginLeft: 5,
     fontSize: 12,
-    color: '#4b5563',
+    color: ColorStyles.textColor,
   },
   callButton: {
-    backgroundColor: '#f0f9ff',
+    backgroundColor: ColorStyles.backgroundColor,
     padding: 8,
     borderRadius: 25,
   },
   driverInfoContainer: {
     width: '100%',
     paddingTop: 10,
-    backgroundColor: ColorStyles.backgroundColor,
+    backgroundColor: ColorStyles.whiteBGColor,
   },
 });
 export default styles;

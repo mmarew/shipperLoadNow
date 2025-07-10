@@ -172,6 +172,7 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
               paddingTop: passengerStatus ? 30 : 0,
               borderTopStartRadius: 30,
               borderTopEndRadius: 30,
+              gap: 10,
             }}
           >
             <Text style={GlobalStyles.title}>
@@ -199,7 +200,18 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
               navigateTo={'Pick up and destination'}
               listOfJourneyPoints={[{ origin: originLocation, destination }]}
             />
-            <ShowShippableItems />
+            <View
+              style={{
+                backgroundColor: ColorStyles.whiteBGColor,
+                marginTop: 5,
+                borderRadius: 10,
+                padding: 10,
+                borderWidth: 1,
+                borderColor: ColorStyles.borderColor,
+              }}
+            >
+              <ShowShippableItems />
+            </View>
             <CancelRequest
               navigation={navigation}
               setShowComponent={setShowComponent}

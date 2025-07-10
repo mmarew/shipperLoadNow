@@ -5,13 +5,13 @@ const styles = StyleSheet.create({
   container: {
     position: 'relative',
     flex: 1,
-    backgroundColor: ColorStyles.backgroundColor,
+    backgroundColor: ColorStyles.whiteBGColor,
   },
   bottomContainer: {
     position: 'absolute',
     bottom: 0,
     width: '100%',
-    backgroundColor: ColorStyles.backgroundColor,
+    // backgroundColor: ColorStyles.backgroundColor,
     // paddingTop: 20,
   },
 });

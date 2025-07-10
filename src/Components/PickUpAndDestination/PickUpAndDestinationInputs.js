@@ -191,7 +191,6 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
                           zIndex: 8,
                           position: 'absolute',
                           top: 140,
-                          flex: 1,
                           width: '100%',
                         }}
                       >
@@ -201,6 +200,10 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
                           value={destinationInput}
                           setValue={setDestinationInput}
                           onFocus={() => setActiveInput('destination')} // ✅ Set active input
+                          borderStyles={{
+                            borderBottomEndRadius: 20,
+                            borderBottomStartRadius: 10,
+                          }}
                         />
                       </View>
                     </View>

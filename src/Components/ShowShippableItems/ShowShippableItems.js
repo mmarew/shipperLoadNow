@@ -3,7 +3,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { convertToYMDHMSFormat } from '../../utils/TimeDateHandler/TimeDateHandler';
 import styles from './ShowShippableItems.style';
-import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 
 const ShowShippableItems = () => {
   const passengerSlices = useSelector(state => state.passengerSlices);

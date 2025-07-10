@@ -6,17 +6,14 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
     gap: 10,
-    paddingVertical: 20,
+    paddingVertical: 10,
     marginTop: 15,
-    backgroundColor: ColorStyles.whiteBGColor,
-    borderRadius: 20,
   },
   row: {
     flexDirection: 'row',
   },
   label: {
     fontSize: 16,
-    fontWeight: 'bold',
     color: ColorStyles.textColor,
     fontFamily: fontFamily.manropeRegular,
   },
