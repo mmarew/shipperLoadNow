@@ -26,6 +26,7 @@ import { ProgressBar } from 'react-native-paper';
 import ShowShippableItems from '../../Components/ShowShippableItems/ShowShippableItems';
 import BackArrow from '../../Components/BackArrow/BackArrow';
 import ColorStyles from '../../GlobalStyles/Color.styles';
+import styles from './FindDriverScreen.style';
 /**
  * FindDriverScreen component handles the process of finding a driver for a passenger.
  * It manages the state and interactions related to the driver's search and request process.
@@ -95,7 +96,7 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
     }
     const data = { vehicle: { vehicleTypeUniqueId }, ...uniqueIds };
 
-    if (passengerStatus != 2) return;
+    if (passengerStatus != listofJourneyStatus.requested) return;
 
     try {
       // Construct the API endpoint and token
@@ -136,6 +137,7 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
         handleNoAnswerFromDriver();
       }, 100000);
   }, [, passengerStatus]);
+  const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
 
   if (isLoading)
     return (
@@ -162,23 +164,16 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
         {passengerStatus && <PassangerMap navigation={navigation} />}
 
         {passengerStatus === null ||
-        passengerStatus === 1 ||
-        passengerStatus === 2 ? (
+        passengerStatus === listofJourneyStatus.waiting ||
+        passengerStatus === listofJourneyStatus.requested ? (
           <View
-            style={{
-              paddingHorizontal: 20,
-              backgroundColor: ColorStyles.backgroundColor,
-              paddingBottom: 30,
-              paddingTop: passengerStatus ? 30 : 0,
-              borderTopStartRadius: 30,
-              borderTopEndRadius: 30,
-              gap: 10,
-            }}
+            style={[styles.container, { paddingTop: passengerStatus ? 30 : 0 }]}
           >
             <Text style={GlobalStyles.title}>
               {findScreenDescription(passengerStatus)}
             </Text>
-            {(passengerStatus === 1 || passengerStatus === 2) && (
+            {(passengerStatus === listofJourneyStatus.waiting ||
+              passengerStatus === listofJourneyStatus.requested) && (
               <View style={{ margin: 10 }}>
                 <ProgressBar indeterminate color={'blue'} />
               </View>
@@ -200,16 +195,7 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
               navigateTo={'Pick up and destination'}
               listOfJourneyPoints={[{ origin: originLocation, destination }]}
             />
-            <View
-              style={{
-                backgroundColor: ColorStyles.whiteBGColor,
-                marginTop: 5,
-                borderRadius: 10,
-                padding: 10,
-                borderWidth: 1,
-                borderColor: ColorStyles.borderColor,
-              }}
-            >
+            <View style={styles.shippableItemContainer}>
               <ShowShippableItems />
             </View>
             <CancelRequest

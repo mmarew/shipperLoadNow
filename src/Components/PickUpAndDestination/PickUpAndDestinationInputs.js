@@ -73,12 +73,6 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
     dispatch(addDestinationLocation(null));
   };
   const handleRecentSelect = location => {
-    console.log(
-      '@location ==========> ',
-      location,
-      '\nactiveInput ======>',
-      activeInput,
-    );
     if (activeInput === 'origin') {
       setOriginInput(location.name);
       dispatch(

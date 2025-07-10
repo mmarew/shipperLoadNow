@@ -116,7 +116,7 @@ const HistoryScreen = () => {
               onPress={() => setfetchDataByRange('latsTen')}
             />
             <Text style={{ color: ColorStyles.textColor }}>
-              last ten days data
+              last ten record data
             </Text>
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
