@@ -16,15 +16,22 @@ const styles = StyleSheet.create({
     // paddingBottom: 40,
     backgroundColor: ColorStyles.backgroundColor,
   },
+
   infoContainer: {
     flex: 0.3, // 30% of the container height
-    backgroundColor: 'white',
+    backgroundColor: ColorStyles.whiteBGColor,
     padding: 25,
     flexDirection: 'column',
   },
 
   buttonContainer: {
     marginTop: 50,
+  },
+  strightLineWrapper: {
+    flex: 1,
+    alignItems: 'center',
+    paddingBottom: 20,
+    paddingTop: 10,
   },
 });
 

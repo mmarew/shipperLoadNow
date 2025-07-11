@@ -9,7 +9,7 @@ const ShowShippableItems = () => {
   const passenger = passengerSlices?.passenger;
   const shippableItem = passengerSlices?.shippableItem;
   const decision = passengerSlices?.decision?.[0];
-  const journeyStatusId = decision?.journeyStatusId;
+  const journeyStatusId = passenger?.journeyStatusId;
   const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
 
   return (

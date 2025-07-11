@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { StatusBar, Text, TouchableOpacity, View } from 'react-native';
+import {
+  RefreshControl,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import PassangerMap from '../../Components/PassangerMap/PassangerMap';
 import PickupAndDestinationDisplayer from '../../Components/PickUpAndDestination/PickupAndDestinationDisplayer';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
@@ -14,6 +20,9 @@ import Journey from '../Journey/Journey';
 import StrightLine from '../../assets/icons/StrightLine.svg';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ColorStyles, { barStyles } from '../../GlobalStyles/Color.styles';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import Reload from '../../Components/Reload/Reload';
+import styles from './HomeScreen.style';
 const HomeScreen = ({ navigation }) => {
   const passengerSlices = useSelector(state => state?.passengerSlices);
   const passengerStatus = passengerSlices?.passengerStatus;
@@ -21,6 +30,11 @@ const HomeScreen = ({ navigation }) => {
   const [showComponent, setShowComponent] = useState();
   const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
   console.log('@HomeScreen passengerStatus', passengerStatus);
+  const [refreshing, setRefreshing] = useState(false);
+  const onRefresh = () => setRefreshing(true);
+
+  if (refreshing) return <Reload waitConfirmation={false} />;
+
   // if passenger dosent have any request
   if (passengerStatus === null) {
     if (showComponent == 'Pick up and destination') {
@@ -65,22 +79,8 @@ const HomeScreen = ({ navigation }) => {
           <PassangerMap navigation={navigation} mapHeight={0.8} />
 
           {/* Bottom Container */}
-          <View
-            style={{
-              backgroundColor: ColorStyles.backgroundColor,
-              borderTopEndRadius: 25,
-              borderTopLeftRadius: 25,
-              padding: 20,
-            }}
-          >
-            <View
-              style={{
-                flex: 1,
-                alignItems: 'center',
-                paddingBottom: 20,
-                paddingTop: 10,
-              }}
-            >
+          <View style={styles.bottomContainer}>
+            <View style={styles.strightLineWrapper}>
               <StrightLine width={100} />
             </View>
 
@@ -130,14 +130,23 @@ const HomeScreen = ({ navigation }) => {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         {/* <HeaderBar navigation={navigation} /> */}
-        <StatusBar
-          barStyle={barStyles}
-          backgroundColor={ColorStyles.backgroundColor}
-        />
-        <FindDriverScreen
-          setShowComponent={setShowComponent}
-          navigation={navigation}
-        />
+        <KeyboardAwareScrollView
+          extraScrollHeight={150}
+          enableOnAndroid={true}
+          style={GlobalStyles.container}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+        >
+          <StatusBar
+            barStyle={barStyles}
+            backgroundColor={ColorStyles.backgroundColor}
+          />
+          <FindDriverScreen
+            setShowComponent={setShowComponent}
+            navigation={navigation}
+          />
+        </KeyboardAwareScrollView>
       </SafeAreaView>
     );
   } else if (passengerStatus == listofJourneyStatus?.acceptedByDriver) {
@@ -148,7 +157,16 @@ const HomeScreen = ({ navigation }) => {
           barStyle={barStyles}
           backgroundColor={ColorStyles.backgroundColor}
         />
-        <WaitingForConfirmation />
+        <KeyboardAwareScrollView
+          extraScrollHeight={150}
+          enableOnAndroid={true}
+          style={GlobalStyles.container}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+        >
+          <WaitingForConfirmation />
+        </KeyboardAwareScrollView>
       </SafeAreaView>
     );
   } else if (
@@ -175,12 +193,24 @@ const HomeScreen = ({ navigation }) => {
         style={{ flex: 1, backgroundColor: ColorStyles.backgroundColor }}
       >
         {/* <HeaderBar navigation={navigation} /> */}
-        <StatusBar
-          barStyle={barStyles}
-          backgroundColor={ColorStyles.backgroundColor}
-        />
+        <KeyboardAwareScrollView
+          extraScrollHeight={150}
+          enableOnAndroid={true}
+          style={GlobalStyles.container}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+        >
+          <StatusBar
+            barStyle={barStyles}
+            backgroundColor={ColorStyles.backgroundColor}
+          />
 
-        <Journey setShowComponent={setShowComponent} navigation={navigation} />
+          <Journey
+            setShowComponent={setShowComponent}
+            navigation={navigation}
+          />
+        </KeyboardAwareScrollView>
       </SafeAreaView>
     );
   }
