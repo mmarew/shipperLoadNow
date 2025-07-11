@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   value: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: ColorStyles.textColor,
   },
   priceContainer: {
     backgroundColor: ColorStyles.whiteBGColor,

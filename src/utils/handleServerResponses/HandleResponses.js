@@ -10,6 +10,7 @@ import {
   addPassengerStatus,
   addSelectedVechelesType,
   setFare,
+  setSelectedScreen,
 } from '../../Redux/slices/PassengerSlice';
 import store from '../../Redux/Store/Store';
 import errorHandler from '../errorHandler/errorHandler';
@@ -109,6 +110,7 @@ const HandleResponses = response => {
       store.dispatch(addDecision(decisions));
       store.dispatch(addJourney(journey));
       store.dispatch(addDestinationLocation(null));
+      store.dispatch(setSelectedScreen('Trip History'));
     }
     // console.log('passenger', passenger);
     store.dispatch(addPassengerStatus(journeyStatusId));

@@ -2,19 +2,18 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
 
-import { navigate } from '../../services/navigationService';
-
 import styles from './PaymentSummary.style';
 import ColorStyles from '../../GlobalStyles/Color.styles';
+import store from '../../Redux/Store/Store';
+import { setSelectedScreen } from '../../Redux/slices/PassengerSlice';
+import verifyPassengerStatus from '../../utils/VerifyPassengerStatus/VerifyPassengerStatus';
 
 const PaymentSummary = () => {
   const passengerSlices = useSelector(state => state.passengerSlices);
   const driver = passengerSlices?.driver;
   const vehicleOfDriver = driver?.vehicle;
   const decision = passengerSlices?.decision;
-  console.log('@PaymentSummary decisions', decision);
   const tax = 0;
-  console.log('@fare', fare);
   const fare = decision?.shippingCostByDriver;
 
   if (!fare)
@@ -58,7 +57,9 @@ const PaymentSummary = () => {
 
       {/* Cancel Request Button */}
       <TouchableOpacity
-        onPress={() => {
+        onPress={async () => {
+          await verifyPassengerStatus();
+          store.dispatch(setSelectedScreen('Home'));
           // HandleResponses({passenger: null, driver: null, status: null});
         }}
         style={styles.doneButton}

@@ -348,7 +348,6 @@ const HomeScreen = ({ navigation }) => {
     }
     return (
       <SafeAreaView style={{ flex: 1 }}>
-        {/* <HeaderBar navigation={navigation} /> */}
         <KeyboardAwareScrollView
           extraScrollHeight={150}
           enableOnAndroid={true}
