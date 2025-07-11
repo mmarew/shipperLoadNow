@@ -14,6 +14,8 @@ import decodeJWT from '../../utils/JWTDecoder/JWTDecoder';
 import { trimText } from '../../utils/Formatter/Formatter';
 import styles from './CustomSidebar.style';
 import ColorStyles from '../../GlobalStyles/Color.styles';
+import { setSelectedScreen } from '../../Redux/slices/PassengerSlice';
+import store from '../../Redux/Store/Store';
 
 const CustomSidebar = ({ isOpen, onClose, children }) => {
   const translateX = useRef(new Animated.Value(-500)).current;
@@ -46,7 +48,6 @@ const CustomsSideBarList = ({
   savedProfileImage,
   toggleSidebar,
   sidebarOpen,
-  setSelectedScreen,
   selectedScreen,
   sidebarItems,
 }) => {
@@ -106,7 +107,7 @@ const CustomsSideBarList = ({
                   : ColorStyles.backgroundColor,
             }}
             onPress={() => {
-              setSelectedScreen(item.screen);
+              store.dispatch(setSelectedScreen(item.screen));
               toggleSidebar();
             }}
           >

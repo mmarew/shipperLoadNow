@@ -7,9 +7,15 @@ import TripHistory from '../JourneyHistory/JourneyHistory';
 import SettingsScreen from '../Settings/SettingsScreen';
 import Reload from '../../Components/Reload/Reload';
 import ColorStyles from '../../GlobalStyles/Color.styles';
+import { setSelectedScreen } from '../../Redux/slices/PassengerSlice';
+import { useSelector } from 'react-redux';
 export default function CustomScreenManager({ savedProfileImage }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [selectedScreen, setSelectedScreen] = useState('Home');
+  // const [selectedScreen, setSelectedScreen] = useState('Home');
+  const selectedScreen = useSelector(
+    state => state.passengerSlices.selectedScreen,
+  );
+
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
@@ -47,7 +53,7 @@ export default function CustomScreenManager({ savedProfileImage }) {
         sidebarItems={sidebarItems}
         selectedScreen={selectedScreen}
         savedProfileImage={savedProfileImage}
-        setSelectedScreen={setSelectedScreen}
+        // setSelectedScreen={setSelectedScreen}
         // navigation={navigation}
         toggleSidebar={toggleSidebar}
         sidebarOpen={sidebarOpen}

@@ -39,6 +39,7 @@ const initialState = {
   goBackTo: undefined,
   registrablePassenger: undefined,
   fare: undefined,
+  selectedScreen: 'Home',
 };
 
 // 🔁 Reusable single-property updater
@@ -90,7 +91,7 @@ const reducers = {
   addDecision: createSimpleSetter('decision'),
   addPassengerStatus: createSimpleSetter('passengerStatus'),
   addDriver: createSimpleSetter('driver'),
-
+  setSelectedScreen: createSimpleSetter('selectedScreen'),
   removeDriver: state => {
     state.driver = null;
   },
@@ -144,6 +145,7 @@ export const {
   updateConnectionStatus,
   updateJourneyRoutePoints,
   setRegion,
+  setSelectedScreen,
 } = webSocketSlice.actions;
 
 export default webSocketSlice.reducer;
