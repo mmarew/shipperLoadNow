@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
 
@@ -7,6 +7,7 @@ import ColorStyles from '../../GlobalStyles/Color.styles';
 import store from '../../Redux/Store/Store';
 import { setSelectedScreen } from '../../Redux/slices/PassengerSlice';
 import verifyPassengerStatus from '../../utils/VerifyPassengerStatus/VerifyPassengerStatus';
+import { ActivityIndicator } from 'react-native-paper';
 
 const PaymentSummary = () => {
   const passengerSlices = useSelector(state => state.passengerSlices);
@@ -15,7 +16,7 @@ const PaymentSummary = () => {
   const decision = passengerSlices?.decision;
   const tax = 0;
   const fare = decision?.shippingCostByDriver;
-
+  const [isLoading, setIsLoading] = useState(false);
   if (!fare)
     return (
       <View style={styles.container}>
@@ -24,6 +25,7 @@ const PaymentSummary = () => {
         </Text>
       </View>
     );
+  if (isLoading) return <ActivityIndicator size="large" color="#6200ee" />;
 
   return (
     <View style={styles.container}>
@@ -58,9 +60,10 @@ const PaymentSummary = () => {
       {/* Cancel Request Button */}
       <TouchableOpacity
         onPress={async () => {
+          setIsLoading(true);
           await verifyPassengerStatus();
           store.dispatch(setSelectedScreen('Home'));
-          // HandleResponses({passenger: null, driver: null, status: null});
+          setIsLoading(false);
         }}
         style={styles.doneButton}
       >

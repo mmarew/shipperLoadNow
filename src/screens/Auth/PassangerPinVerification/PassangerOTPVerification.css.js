@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: 50,
     height: 50,
-    borderWidth: 1,
+    borderWidth: 3,
     borderColor: ColorStyles.borderColor,
     textAlign: 'center',
     fontSize: 20,
@@ -31,6 +31,8 @@ const styles = StyleSheet.create({
     color: ColorStyles.textColor,
     padding: 0,
     margin: 0,
+    fontWeight: 'bold',
+    borderRadius: 25,
   },
   resendText: {
     fontSize: 14,

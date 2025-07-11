@@ -5,6 +5,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   StatusBar,
+  TextInput,
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import SmsRetriever from 'react-native-sms-retriever';
@@ -25,7 +26,6 @@ import RNRestart from 'react-native-restart';
 import ColorStyles, { barStyles } from '../../../GlobalStyles/Color.styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { TextInput } from 'react-native-paper';
 const PassangerOTPVerification = ({ navigation }) => {
   const dispatch = useDispatch();
   const newPassenger = useSelector(
@@ -211,8 +211,8 @@ const PassangerOTPVerification = ({ navigation }) => {
           </Text>
 
           {/* OTP Input Boxes */}
-
-          <View style={styles.otpContainer}>
+          {/* using react native paper */}
+          {/* <View style={styles.otpContainer}>
             {otp.map((value, index) => (
               <TextInput
                 key={index}
@@ -226,6 +226,8 @@ const PassangerOTPVerification = ({ navigation }) => {
                   color: otp[index]
                     ? ColorStyles.whiteColor
                     : ColorStyles.textColor,
+                  textAlign: 'center',
+                  paddingHorizontal: 0,
                 }}
                 style={[
                   styles.otpInput,
@@ -235,10 +237,60 @@ const PassangerOTPVerification = ({ navigation }) => {
                   },
                 ]}
                 outlineStyle={[
+                  {
+                    padding: 0, // Remove padding from outline
+                    margin: 0,
+                  },
                   GlobalStyles.inputsOutlineStyle,
                   otpFocus[index] ? { borderColor: ColorStyles.focused } : {},
                 ]}
                 activeOutlineColor={ColorStyles.focused}
+                onFocus={() => {
+                  const updatedFocus = new Array(6).fill(false);
+                  updatedFocus[index] = true;
+                  setOtpFocus(updatedFocus);
+                }}
+                onBlur={() => {
+                  const updatedFocus = [...otpFocus];
+                  updatedFocus[index] = false;
+                  setOtpFocus(updatedFocus);
+                }}
+                onChangeText={val => handleOtpChange(val, index)}
+                onKeyPress={({ nativeEvent }) => {
+                  if (
+                    nativeEvent.key === 'Backspace' ||
+                    nativeEvent.key === 'Delete'
+                  ) {
+                    const newOtp = [...otp];
+                    newOtp[index] = '';
+                    setOtp(newOtp);
+
+                    if (index > 0 && !value) {
+                      inputRefs.current[index - 1].focus();
+                    }
+                  }
+                }}
+              />
+            ))}
+          </View> */}
+          <View style={styles.otpContainer}>
+            {otp.map((value, index) => (
+              <TextInput
+                key={index}
+                value={value}
+                maxLength={1}
+                keyboardType="number-pad"
+                ref={ref => (inputRefs.current[index] = ref)}
+                style={[
+                  styles.otpInput,
+                  otp[index] !== '' && {
+                    backgroundColor: ColorStyles.brandColor,
+                    color: ColorStyles.whiteColor,
+                  },
+                  otpFocus[index] && {
+                    borderColor: ColorStyles.focused,
+                  },
+                ]}
                 onFocus={() => {
                   const updatedFocus = new Array(6).fill(false);
                   updatedFocus[index] = true;
