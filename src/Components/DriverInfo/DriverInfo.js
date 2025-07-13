@@ -8,17 +8,16 @@ import { setModalVisible } from '../../Redux/slices/PassengerSlice';
 import getDistanceAndETA from '../../utils/GetDistanceAndETA/getDistanceAndETA';
 import DiverCard from './DiverCard';
 import ColorStyles from '../../GlobalStyles/Color.styles';
-const DriverInfo = ({ navigation }) => {
+const DriverInfo = ({}) => {
   const passengerSlices = useSelector(state => state.passengerSlices);
   const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
-  console.log('@DriverInfo listofJourneyStatus', listofJourneyStatus);
   const passengerStatus = passengerSlices?.passengerStatus;
   const passenger = passengerSlices?.passenger;
   const driverInfo = passengerSlices?.driver?.[0];
   const journeyRoutePoints = passengerSlices?.journeyRoutePoints;
   let lastRoutePoint = journeyRoutePoints?.[journeyRoutePoints?.length - 1];
-  console.log('@DriverInfo lastRoutePoint', lastRoutePoint);
 
+  console.log('@DriverInfo journeyRoutePoints', journeyRoutePoints);
   const driver = driverInfo?.driver;
   const vehicleOfDriver = driverInfo?.vehicleOfDriver;
   const driverCoords = {
@@ -30,8 +29,8 @@ const DriverInfo = ({ navigation }) => {
         : null,
     },
     passengerOriginCoords = {
-      latitude: passenger?.originLatitude,
-      longitude: passenger?.originLongitude,
+      latitude: Number(passenger?.originLatitude),
+      longitude: Number(passenger?.originLongitude),
     },
     passengerDestinationCoords = {
       latitude: Number(passenger?.destinationLatitude),
@@ -52,7 +51,10 @@ const DriverInfo = ({ navigation }) => {
     // return;
     const fetchDestanceAndTime = async () => {
       const data = await getDistanceAndETA({
-        destinationCoords: passengerDestinationCoords,
+        destinationCoords:
+          passengerStatus <= listofJourneyStatus.acceptedByPassenger
+            ? passengerOriginCoords
+            : passengerDestinationCoords,
         standingCoords: driverCoords,
       });
       console.log('@fetchDestanceAndTime data', data);

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
   ActivityIndicator,
+  RefreshControl,
   ScrollView,
   Text,
   TouchableOpacity,
@@ -138,6 +139,9 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
       }, 100000);
   }, [, passengerStatus]);
   const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
+  const [refreshing, setRefreshing] = useState(false);
+  const onRefresh = () => setRefreshing(true);
+  if (refreshing) return <Reload waitConfirmation={false} />;
 
   if (isLoading)
     return (
@@ -162,58 +166,66 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
           </View>
         )}
         {passengerStatus && <PassangerMap navigation={navigation} />}
-
-        {passengerStatus === null ||
-        passengerStatus === listofJourneyStatus.waiting ||
-        passengerStatus === listofJourneyStatus.requested ? (
-          <View
-            style={[styles.container, { paddingTop: passengerStatus ? 30 : 0 }]}
-          >
-            <Text style={GlobalStyles.title}>
-              {findScreenDescription(passengerStatus)}
-            </Text>
-            {(passengerStatus === listofJourneyStatus.waiting ||
-              passengerStatus === listofJourneyStatus.requested) && (
-              <View style={{ margin: 10 }}>
-                <ProgressBar indeterminate color={'blue'} />
+        <ScrollView
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+        >
+          {passengerStatus === null ||
+          passengerStatus === listofJourneyStatus.waiting ||
+          passengerStatus === listofJourneyStatus.requested ? (
+            <View
+              style={[
+                styles.container,
+                { paddingTop: passengerStatus ? 30 : 0 },
+              ]}
+            >
+              <Text style={GlobalStyles.title}>
+                {findScreenDescription(passengerStatus)}
+              </Text>
+              {(passengerStatus === listofJourneyStatus.waiting ||
+                passengerStatus === listofJourneyStatus.requested) && (
+                <View style={{ margin: 10 }}>
+                  <ProgressBar indeterminate color={'blue'} />
+                </View>
+              )}
+              <EachVehicles
+                setShowComponent={setShowComponent}
+                originLocation={originLocation}
+                destination={destination}
+                navigation={navigation}
+                item={selectedVehicle}
+                selectedVehicle={selectedVehicle}
+                setSelectedVehicle={setSelectedVehicle}
+              />
+              <PickupAndDestinationDisplayer
+                showComponent={'Pick up and destination'}
+                setShowComponent={setShowComponent}
+                disableInnerTouchables={false}
+                navigation={navigation}
+                navigateTo={'Pick up and destination'}
+                listOfJourneyPoints={[{ origin: originLocation, destination }]}
+              />
+              <View style={styles.shippableItemContainer}>
+                <ShowShippableItems />
               </View>
-            )}
-            <EachVehicles
-              setShowComponent={setShowComponent}
-              originLocation={originLocation}
-              destination={destination}
-              navigation={navigation}
-              item={selectedVehicle}
-              selectedVehicle={selectedVehicle}
-              setSelectedVehicle={setSelectedVehicle}
-            />
-            <PickupAndDestinationDisplayer
-              showComponent={'Pick up and destination'}
-              setShowComponent={setShowComponent}
-              disableInnerTouchables={false}
-              navigation={navigation}
-              navigateTo={'Pick up and destination'}
-              listOfJourneyPoints={[{ origin: originLocation, destination }]}
-            />
-            <View style={styles.shippableItemContainer}>
-              <ShowShippableItems />
+              <CancelRequest
+                navigation={navigation}
+                setShowComponent={setShowComponent}
+              />
+              {!passengerStatus && (
+                <TouchableOpacity
+                  onPress={createNewPassengerRequest}
+                  style={{ ...GlobalStyles.button, marginBottom: 50 }}
+                >
+                  <Text style={GlobalStyles.buttonText}>confirm selection</Text>
+                </TouchableOpacity>
+              )}
             </View>
-            <CancelRequest
-              navigation={navigation}
-              setShowComponent={setShowComponent}
-            />
-            {!passengerStatus && (
-              <TouchableOpacity
-                onPress={createNewPassengerRequest}
-                style={{ ...GlobalStyles.button, marginBottom: 50 }}
-              >
-                <Text style={GlobalStyles.buttonText}>confirm selection</Text>
-              </TouchableOpacity>
-            )}
-          </View>
-        ) : (
-          <ButtonNavigateToScreens />
-        )}
+          ) : (
+            <ButtonNavigateToScreens />
+          )}
+        </ScrollView>
       </View>
     </ScrollView>
   );

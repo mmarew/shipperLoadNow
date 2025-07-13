@@ -281,7 +281,6 @@ const HomeScreen = ({ navigation }) => {
             backgroundColor: ColorStyles.backgroundColor,
           }}
         >
-          {/* <HeaderBar navigation={navigation} /> */}
           <StatusBar
             barStyle={barStyles}
             backgroundColor={ColorStyles.backgroundColor}
@@ -352,9 +351,6 @@ const HomeScreen = ({ navigation }) => {
           extraScrollHeight={150}
           enableOnAndroid={true}
           style={GlobalStyles.container}
-          refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-          }
         >
           <StatusBar
             barStyle={barStyles}
