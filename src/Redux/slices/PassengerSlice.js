@@ -4,6 +4,8 @@ import { defaultRegion } from '../../Components/Constants/constant.utils';
 const name = 'webSocket';
 
 const initialState = {
+  // it holds the current location of driver
+  currentLocationOfDriver: undefined,
   region: defaultRegion,
   listofJourneyStatus: undefined,
   shippableItem: {
@@ -92,6 +94,7 @@ const reducers = {
   addPassengerStatus: createSimpleSetter('passengerStatus'),
   addDriver: createSimpleSetter('driver'),
   setSelectedScreen: createSimpleSetter('selectedScreen'),
+  updateCurrentLocationOfDriver: createSimpleSetter('currentLocationOfDriver'),
   removeDriver: state => {
     state.driver = null;
   },
@@ -116,6 +119,7 @@ const reducers = {
 const webSocketSlice = createSlice({ name, initialState, reducers });
 
 export const {
+  updateCurrentLocationOfDriver,
   updateListofJourneyStatus,
   updateShipableItem,
   addPassengersToken,

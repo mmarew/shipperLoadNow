@@ -582,11 +582,13 @@ import verifyPassengerStatus from '../utils/VerifyPassengerStatus/VerifyPassenge
 // Redux
 import store from '../Redux/Store/Store';
 import {
+  addDriver,
   addListOfVehiclesType,
   addPassengerStatus,
   addPassengersToken,
   addSelectedVechelesType,
   updateConnectionStatus,
+  updateCurrentLocationOfDriver,
   updateListofJourneyStatus,
 } from '../Redux/slices/PassengerSlice';
 
@@ -712,12 +714,19 @@ const AppNavigator = () => {
       listenToEvent('messages', newMessage => {
         if (isJSON(newMessage)) {
           const parsedMessage = JSON.parse(newMessage);
-
+          console.log('@listenToEvent parsedMessage', parsedMessage);
           if (
             parsedMessage?.data ===
             'Socket connection established for user passenger'
           ) {
             verifyPassengerStatus(passengersToken);
+          } else if (
+            parsedMessage?.messageType?.message === 'update drivers location'
+          ) {
+            console.log('@parsedMessage?.driver', parsedMessage?.driver);
+            store.dispatch(
+              updateCurrentLocationOfDriver(parsedMessage?.driver),
+            );
           } else {
             HandleResponses(parsedMessage);
           }

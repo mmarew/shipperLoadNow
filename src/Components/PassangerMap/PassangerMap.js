@@ -19,6 +19,8 @@ import {
   updateJourneyRoutePoints,
 } from '../../Redux/slices/PassengerSlice';
 import store from '../../Redux/Store/Store';
+import ColorStyles from '../../GlobalStyles/Color.styles';
+import API_URLS from '../../Configs/URLConfigs';
 
 const PassangerMap = ({ mapHeight }) => {
   const passengerSlices = useSelector(state => state?.passengerSlices);
@@ -32,8 +34,9 @@ const PassangerMap = ({ mapHeight }) => {
     journey,
     journeyRoutePoints,
     region,
+    currentLocationOfDriver,
   } = passengerSlices;
-  console.log('@journeyRoutePoints', journeyRoutePoints);
+  console.log('@currentLocationOfDriver', currentLocationOfDriver);
 
   const [isMapReady, setIsMapReady] = useState(false);
   const driverInfo = driver?.[0]?.driver;
@@ -57,8 +60,12 @@ const PassangerMap = ({ mapHeight }) => {
   const [lastJourneyRoutePoints, setLastJourneyRoutePoints] = useState(null);
   const getJourneyRoutePoints = async () => {
     try {
-      const url = `/api/journeyRoutePoints/journeyUniqueId/${journeyUniqueId}`;
-      const result = await requestUsingGetMethode({ url });
+      const GET_JOURNEY_ROUTE_POINTS =
+        API_URLS?.GET_JOURNEY_ROUTE_POINTS + journeyUniqueId;
+      // const url = `/api/journeyRoutePoints/journeyUniqueId/${journeyUniqueId}`;
+      const result = await requestUsingGetMethode({
+        url: GET_JOURNEY_ROUTE_POINTS,
+      });
       const data = result?.data;
       store.dispatch(updateJourneyRoutePoints(data));
       const lastData = data[data?.length - 1];
@@ -135,12 +142,18 @@ const PassangerMap = ({ mapHeight }) => {
     ) {
       fetchRoute(
         origin,
-        // currentLocation,
-        driverLocationData,
+        // use currentLocationOfDriver if driver is sending this data ealse use driverLocationData which is origin of driver
+        currentLocationOfDriver?.currentLocation || driverLocationData,
         setDriverAndPassengerLocationRouteCoords,
       );
     }
-  }, [origin, currentLocation, destination, passengerStatus]);
+  }, [
+    origin,
+    currentLocation,
+    destination,
+    passengerStatus,
+    currentLocationOfDriver?.currentLocation,
+  ]);
 
   useEffect(() => {
     //If there is a passengerStatus and journey started use lastJourneyRoutePoints which is current location of driver
@@ -162,8 +175,6 @@ const PassangerMap = ({ mapHeight }) => {
 
     //If there is no passengerStatus use currentLocation as center of map
     else if (
-      // (!passengerStatus ||
-      //   passengerStatus < listofJourneyStatus?.journeyStarted) &&
       !passengerStatus &&
       currentLocation?.latitude &&
       currentLocation?.longitude
@@ -195,18 +206,7 @@ const PassangerMap = ({ mapHeight }) => {
     console.log('@origin', origin);
   }, [origin]);
   const safeMapHeight = Math.max(height * (mapHeight || 0.5), 300);
-  console.log('@safeMapHeight', safeMapHeight);
-  console.log(
-    '@passengerStatus',
-    passengerStatus,
-    '@driverAndPassengerLocationRouteCoords',
-    driverAndPassengerLocationRouteCoords,
-  );
-  console.log(
-    '@currentLocation,driverLocationData,',
-    currentLocation,
-    driverLocationData,
-  );
+
   return (
     <View style={{ flex: 1 }}>
       <MapView
@@ -241,8 +241,8 @@ const PassangerMap = ({ mapHeight }) => {
         {driverLocationData?.latitude && driverLocationData?.longitude && (
           <Marker
             coordinate={{
-              latitude: driverLocationData.latitude,
-              longitude: driverLocationData.longitude,
+              latitude: driverLocationData?.latitude,
+              longitude: driverLocationData?.longitude,
             }}
             title="Driver Location"
           />
@@ -266,7 +266,7 @@ const PassangerMap = ({ mapHeight }) => {
           driverAndPassengerLocationRouteCoords?.length > 0 && (
             <RenderOSMDirections
               routeCoords={driverAndPassengerLocationRouteCoords}
-              color="yellow"
+              color={'blue'}
             />
           )}
 
