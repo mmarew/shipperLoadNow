@@ -1,10 +1,9 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import styles from './RecentSearches.styles';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { getRecentCompletedJourney } from '../PickUpAndDestination/recentData';
 import ColorStyles from '../../GlobalStyles/Color.styles';
-import { showSuccessToast } from '../../utils/ToastDisplayer/toastDisplayer';
+import IconAwesome from '../Common/CustomFontAwesome/IconAwesome';
 const RecentSearches = ({ onRecentSelect }) => {
   const [recentData, setRecentData] = useState([]);
   const fetchRecentData = async () => {
@@ -54,12 +53,17 @@ const RecentSearches = ({ onRecentSelect }) => {
             onRecentSelect(item);
           }}
         >
-          <Ionicons
+          <IconAwesome
+            name={'map-marker'}
+            color={ColorStyles.textColor}
+            size={20}
+          />
+          {/* <Ionicons
             name="location-sharp"
             size={20}
             color={ColorStyles.brandColor}
             style={styles.iconLeft}
-          />
+          /> */}
           <Text style={styles.recentSearchText}>{item.name}</Text>
         </TouchableOpacity>
       ))}

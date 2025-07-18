@@ -22,7 +22,7 @@ import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import RecentSearches from '../RecentSearches/RecentSearches';
 import BackArrow from '../BackArrow/BackArrow';
 import ColorStyles from '../../GlobalStyles/Color.styles';
-
+import IconAwesome from '../Common/CustomFontAwesome/IconAwesome';
 const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
   const dispatch = useDispatch();
   const passengerSlices = useSelector(state => state.passengerSlices);
@@ -119,11 +119,16 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
                       <View style={styles.locationCard}>
                         <Text style={styles.label}>From</Text>
                         <View style={styles.cardInputRow}>
-                          <Ionicons
+                          {/* <Ionicons
                             name="location-sharp"
                             size={20}
                             color="#3498db"
                             style={styles.iconLeft}
+                          /> */}
+                          <IconAwesome
+                            name={'map-marker'}
+                            color={ColorStyles.textColor}
+                            size={20}
                           />
                         </View>
                       </View>
@@ -133,10 +138,10 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
                           style={styles.clearIcon}
                           onPress={handleClearOrigin}
                         >
-                          <Ionicons
-                            name="close-circle"
+                          <IconAwesome
+                            name={'times-circle'}
+                            color={ColorStyles.textColor}
                             size={20}
-                            color="#999"
                           />
                         </TouchableOpacity>
                       )}
@@ -157,11 +162,10 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
                       >
                         <Text style={styles.label}>To</Text>
                         <View style={styles.cardInputRow}>
-                          <Ionicons
-                            name="location-sharp"
+                          <IconAwesome
+                            name={'map-marker'}
+                            color={ColorStyles.textColor}
                             size={20}
-                            color="#3498db"
-                            style={styles.iconLeft}
                           />
                         </View>
                       </View>
@@ -171,10 +175,10 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
                           onPress={handleClearDestination}
                           style={{ ...styles.clearIcon, top: 160 }}
                         >
-                          <Ionicons
-                            name="close-circle"
+                          <IconAwesome
+                            name={'times-circle'}
+                            color={ColorStyles.textColor}
                             size={20}
-                            color="#999"
                           />
                         </TouchableOpacity>
                       )}
