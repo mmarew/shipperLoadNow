@@ -19,7 +19,6 @@ import {
   updateJourneyRoutePoints,
 } from '../../Redux/slices/PassengerSlice';
 import store from '../../Redux/Store/Store';
-import ColorStyles from '../../GlobalStyles/Color.styles';
 import API_URLS from '../../Configs/URLConfigs';
 
 const PassangerMap = ({ mapHeight }) => {

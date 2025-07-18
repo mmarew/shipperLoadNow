@@ -25,7 +25,7 @@ import styles from './PassangerOTPVerification.css';
 import RNRestart from 'react-native-restart';
 import ColorStyles, { barStyles } from '../../../GlobalStyles/Color.styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 const PassangerOTPVerification = ({ navigation }) => {
   const dispatch = useDispatch();
   const newPassenger = useSelector(
@@ -190,11 +190,12 @@ const PassangerOTPVerification = ({ navigation }) => {
               navigation.navigate('Register');
             }}
           >
-            <Ionicons
-              name="arrow-back-outline"
+            <FontAwesome
+              name="arrow-left"
               size={24}
               color={ColorStyles.whiteColor}
             />
+
             <Text style={{ color: ColorStyles.whiteColor }}>
               {'Back to Register '}
             </Text>

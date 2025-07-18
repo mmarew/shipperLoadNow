@@ -4,8 +4,8 @@ import ColorStyles from '../../GlobalStyles/Color.styles';
 const styles = StyleSheet.create({
   headerContainer: {
     position: 'absolute',
-    top: 90, // Adjust as needed for your layout
-    left: 20,
+    top: '5%', // Adjust as needed for your layout
+    left: '2%',
     zIndex: 10,
     borderRadius: 22,
   },

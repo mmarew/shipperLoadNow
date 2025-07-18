@@ -8,10 +8,10 @@ const TopView = ({ title, description }) => {
   return (
     <View style={styles.topSection}>
       <View style={styles.Elipse24}>
-        <Elipse24 height={height * 0.5} />
+        <Elipse24 height={height * 0.48} />
       </View>
       <View style={styles.Elipse25}>
-        <Elipse25 height={height * 0.5} />
+        <Elipse25 height={height * 0.48} />
       </View>
       <View style={styles.textsWrapper}>
         <Text style={styles.registerTitle}>{title}</Text>

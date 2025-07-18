@@ -22,6 +22,7 @@ import Reload from '../../Components/Reload/Reload';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { triggerShake } from '../../utils/Animations/ShakeAnim';
 import ErrorText from '../../Components/ErrorText/ErrorText';
+import CustomCheckbox from '../../Components/Common/Checkbox/CustomCheckbox';
 
 const RegisterPassenger = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -221,12 +222,17 @@ const RegisterPassenger = ({ navigation }) => {
 
           {/* Terms Checkbox */}
           <View style={GlobalStyles.checkboxContainer}>
-            <Checkbox
+            {/* <Checkbox
               color={ColorStyles.focused}
               status={termsAccepted ? 'checked' : 'unchecked'}
               onPress={() => setTermsAccepted(!termsAccepted)}
               value={termsAccepted}
               style={GlobalStyles.checkboxBox}
+            /> */}
+            <CustomCheckbox
+              checked={termsAccepted}
+              onToggle={() => setTermsAccepted(!termsAccepted)}
+              // label="I agree to the terms"
             />
             <Text style={styles.termsText}>
               By tapping Sign Up, you have read and agree to the {''}
