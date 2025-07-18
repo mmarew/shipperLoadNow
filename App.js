@@ -11,14 +11,14 @@ enableScreens();
 import 'react-native-get-random-values';
 const App = () => {
   return (
-    // <ErrorBoundary>
-    <Provider store={store}>
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <AppNavigator />
-        <Toast />
-      </GestureHandlerRootView>
-    </Provider>
-    // </ErrorBoundary>
+    <ErrorBoundary>
+      <Provider store={store}>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <AppNavigator />
+          <Toast />
+        </GestureHandlerRootView>
+      </Provider>
+    </ErrorBoundary>
   );
 };
 

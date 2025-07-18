@@ -22,7 +22,7 @@ import Reload from '../../Components/Reload/Reload';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { triggerShake } from '../../utils/Animations/ShakeAnim';
 import ErrorText from '../../Components/ErrorText/ErrorText';
-import CustomCheckbox from '../../Components/Common/Checkbox/CustomCheckbox';
+import IconAwesome from '../../Components/Common/CustomFontAwesome/IconAwesome';
 
 const RegisterPassenger = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -222,18 +222,25 @@ const RegisterPassenger = ({ navigation }) => {
 
           {/* Terms Checkbox */}
           <View style={GlobalStyles.checkboxContainer}>
-            {/* <Checkbox
-              color={ColorStyles.focused}
-              status={termsAccepted ? 'checked' : 'unchecked'}
+            <TouchableOpacity
+              style={{
+                borderWidth: 2,
+                borderColor: termsAccepted
+                  ? ColorStyles.focused
+                  : ColorStyles.borderColor,
+              }}
               onPress={() => setTermsAccepted(!termsAccepted)}
-              value={termsAccepted}
-              style={GlobalStyles.checkboxBox}
-            /> */}
-            <CustomCheckbox
-              checked={termsAccepted}
-              onToggle={() => setTermsAccepted(!termsAccepted)}
-              // label="I agree to the terms"
-            />
+            >
+              <IconAwesome
+                color={
+                  termsAccepted ? ColorStyles.focused : ColorStyles.whiteColor
+                }
+                size={20}
+                name={termsAccepted ? 'check-square' : 'square'}
+                checked={termsAccepted}
+                // label="I agree to the terms"
+              />
+            </TouchableOpacity>
             <Text style={styles.termsText}>
               By tapping Sign Up, you have read and agree to the {''}
               <Text

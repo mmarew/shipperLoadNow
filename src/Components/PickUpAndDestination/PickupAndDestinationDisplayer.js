@@ -1,8 +1,9 @@
 import { TouchableOpacity, View } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './PickupAndDestinationDisplayer.style';
 import { Text } from 'react-native-paper';
 import ColorStyles from '../../GlobalStyles/Color.styles';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import IconAwesome from '../Common/CustomFontAwesome/IconAwesome';
 
 const PickupAndDestinationDisplayer = ({
   setShowComponent,
@@ -42,11 +43,13 @@ const PickupAndDestinationDisplayer = ({
                     ...styles.pickUp,
                   }}
                 >
-                  <Ionicons
-                    name="radio-button-on-outline"
+                  {/* <FontAwesome
+                    name="dot-circle" // or "circle"
                     size={10}
                     color="dodgerblue"
-                  />
+                  /> */}
+                  <IconAwesome name="circle" size={10} color="dodgerblue" />
+
                   <View>
                     <Text style={{ color: ColorStyles.textColor }}>From</Text>
                     <Text style={styles.textPickupAndDestination}>
@@ -66,11 +69,13 @@ const PickupAndDestinationDisplayer = ({
                       ...styles.destination,
                     }}
                   >
-                    <Ionicons
-                      name="radio-button-on-outline"
+                    <IconAwesome name="circle" size={10} color="dodgerblue" />
+
+                    {/* <FontAwesome
+                      name="dot-circle" // or "circle"
                       size={10}
                       color="dodgerblue"
-                    />
+                    /> */}
 
                     <View>
                       <Text style={{ color: ColorStyles.textColor }}>To </Text>
@@ -94,8 +99,8 @@ const PickupAndDestinationDisplayer = ({
                   <View
                     style={{ ...styles.pickAndDestination, ...styles.pickUp }}
                   >
-                    <Ionicons
-                      name="radio-button-on-outline"
+                    <FontAwesome
+                      name="dot-circle" // or "circle"
                       size={10}
                       color="dodgerblue"
                     />
@@ -121,8 +126,8 @@ const PickupAndDestinationDisplayer = ({
                       ...styles.destination,
                     }}
                   >
-                    <Ionicons
-                      name="radio-button-on-outline"
+                    <FontAwesome
+                      name="dot-circle" // or "circle"
                       size={10}
                       color="dodgerblue"
                     />

@@ -56,6 +56,7 @@ const GlobalStyles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 10,
     paddingRight: 15,
+    gap: 10,
   },
   checkboxBox: {
     width: 20,

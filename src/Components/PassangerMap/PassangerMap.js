@@ -20,6 +20,7 @@ import {
 } from '../../Redux/slices/PassengerSlice';
 import store from '../../Redux/Store/Store';
 import API_URLS from '../../Configs/URLConfigs';
+import { Text } from 'react-native-paper';
 
 const PassangerMap = ({ mapHeight }) => {
   const passengerSlices = useSelector(state => state?.passengerSlices);
@@ -204,40 +205,55 @@ const PassangerMap = ({ mapHeight }) => {
   useEffect(() => {
     console.log('@origin', origin);
   }, [origin]);
+  console.log(
+    '@driverLocationData',
+    !isNaN(driverLocationData.latitude),
+    '@passengerStatus',
+    passengerStatus,
+  );
   const safeMapHeight = Math.max(height * (mapHeight || 0.5), 300);
+  const isValidCoordinate = point => {
+    return (
+      point &&
+      typeof point.latitude === 'number' &&
+      typeof point.longitude === 'number' &&
+      !isNaN(point.latitude) &&
+      !isNaN(point.longitude)
+    );
+  };
 
   return (
     <View style={{ flex: 1 }}>
       <MapView
-        mapType={mapType}
-        // customMapStyle={customMapStyle}
         style={[
           styles.map,
           {
-            height: safeMapHeight, // Math.max(height * (mapHeight || 0.5), 300), // height * (mapHeight || 0.5),
-            marginBottom: -30,
             height: safeMapHeight,
           },
         ]}
+        mapType={mapType}
+        // customMapStyle={customMapStyle}
+
         region={region}
         showsUserLocation
         followsUserLocation
         onMapReady={() => setIsMapReady(true)}
       >
         {/* Origin Marker */}
-        {origin?.latitude && origin?.longitude && (
-          <Marker
-            coordinate={{
-              latitude: origin.latitude,
-              longitude: origin.longitude,
-            }}
-            title="Starting Point"
-            description={origin.description}
-          />
-        )}
-
-        {/* Current Location Marker */}
-        {driverLocationData?.latitude && driverLocationData?.longitude && (
+        {origin?.latitude &&
+          origin?.longitude &&
+          !isNaN(origin.latitude) &&
+          !isNaN(origin.longitude) && (
+            <Marker
+              coordinate={{
+                latitude: origin.latitude,
+                longitude: origin.longitude,
+              }}
+              title="Starting Point"
+              description={origin?.description || ''}
+            />
+          )}
+        {isValidCoordinate(driverLocationData) && (
           <Marker
             coordinate={{
               latitude: driverLocationData?.latitude,
@@ -246,20 +262,9 @@ const PassangerMap = ({ mapHeight }) => {
             title="Driver Location"
           />
         )}
-
-        {/* Destination Marker */}
-        {destination?.latitude && destination?.longitude && (
-          <Marker
-            coordinate={{
-              latitude: destination.latitude,
-              longitude: destination.longitude,
-            }}
-            title="Destination"
-            // description={destination.description}
-          />
-        )}
         {/* driverAndPassengerLocationRouteCoords */}
-        {passengerStatus <= listofJourneyStatus?.acceptedByPassenger &&
+        {passengerStatus &&
+          passengerStatus <= listofJourneyStatus?.acceptedByPassenger &&
           isMapReady &&
           // driverAndPassengerLocationRouteCoords.length > 0 &&
           driverAndPassengerLocationRouteCoords?.length > 0 && (
@@ -268,7 +273,6 @@ const PassangerMap = ({ mapHeight }) => {
               color={'blue'}
             />
           )}
-
         {/* Render Completed Journey (blue) */}
         {passengerStatus >= listofJourneyStatus?.journeyStarted &&
           isMapReady &&
@@ -276,7 +280,6 @@ const PassangerMap = ({ mapHeight }) => {
           routeCoordinates?.length > 0 && (
             <RenderOSMDirections routeCoords={routeCoordinates} color="blue" />
           )}
-
         {/* Render Remaining Journey (red) */}
         {passengerStatus >= listofJourneyStatus?.journeyStarted &&
           isMapReady &&
@@ -287,7 +290,6 @@ const PassangerMap = ({ mapHeight }) => {
             />
           )}
       </MapView>
-
       {!isMapReady && (
         <ActivityIndicator
           style={styles.loadingIndicator}

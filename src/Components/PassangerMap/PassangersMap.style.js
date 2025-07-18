@@ -1,6 +1,6 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
-const {height} = Dimensions.get('window');
+const { height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
@@ -11,8 +11,9 @@ const styles = StyleSheet.create({
   map: {
     height: 400,
     backgroundColor: 'black',
+    marginBottom: -30,
   },
-  nonMap: {height: height * 0.2},
+  nonMap: { height: height * 0.2 },
   buttonContainer: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -57,35 +58,35 @@ const styles = StyleSheet.create({
 export const customMapStyle = [
   {
     elementType: 'geometry',
-    stylers: [{color: '#1a2233'}], // deep blue-black
+    stylers: [{ color: '#1a2233' }], // deep blue-black
   },
   {
     elementType: 'labels.text.fill',
-    stylers: [{color: '#8ecae6'}], // light blue for text
+    stylers: [{ color: '#8ecae6' }], // light blue for text
   },
   {
     elementType: 'labels.text.stroke',
-    stylers: [{color: '#1a2233'}],
+    stylers: [{ color: '#1a2233' }],
   },
   {
     featureType: 'water',
     elementType: 'geometry',
-    stylers: [{color: '#222b44'}], // blue-black for water
+    stylers: [{ color: '#222b44' }], // blue-black for water
   },
   {
     featureType: 'road',
     elementType: 'geometry',
-    stylers: [{color: '#223355'}], // blue-black for roads
+    stylers: [{ color: '#223355' }], // blue-black for roads
   },
   {
     featureType: 'landscape',
     elementType: 'geometry',
-    stylers: [{color: '#1a2233'}],
+    stylers: [{ color: '#1a2233' }],
   },
   {
     featureType: 'poi',
     elementType: 'geometry',
-    stylers: [{color: '#1a2233'}],
+    stylers: [{ color: '#1a2233' }],
   },
 ];
 

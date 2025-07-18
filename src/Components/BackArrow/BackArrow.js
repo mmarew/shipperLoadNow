@@ -2,9 +2,8 @@ BackArrow;
 import { View, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
 import styles from './BackArrow.style';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import ColorStyles from '../../GlobalStyles/Color.styles';
-
+import IconAwesome from '../Common/CustomFontAwesome/IconAwesome';
 const BackArrow = ({ description, setShowComponent, showComponent }) => {
   return (
     <View>
@@ -15,11 +14,12 @@ const BackArrow = ({ description, setShowComponent, showComponent }) => {
             setShowComponent(showComponent);
         }}
       >
-        <Ionicons
-          name="arrow-back-outline"
-          size={24}
+        <IconAwesome
+          name={'arrow-left'}
           color={ColorStyles.textColor}
+          size={20}
         />
+
         <Text style={styles.headerTitle}>{description}</Text>
       </TouchableOpacity>
     </View>
