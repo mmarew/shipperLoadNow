@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   cardInputRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingLeft: 20,
   },
   iconLeft: {
     marginLeft: 10,

@@ -9,7 +9,6 @@ import {
   FlatList,
   Platform,
 } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addDestinationLocation,
@@ -93,7 +92,12 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
       );
     }
   };
-
+  console.log(
+    '@originInput====',
+    originInput,
+    ' \n&& destinationInput====',
+    destinationInput,
+  );
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -119,12 +123,6 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
                       <View style={styles.locationCard}>
                         <Text style={styles.label}>From</Text>
                         <View style={styles.cardInputRow}>
-                          {/* <Ionicons
-                            name="location-sharp"
-                            size={20}
-                            color="#3498db"
-                            style={styles.iconLeft}
-                          /> */}
                           <IconAwesome
                             name={'map-marker'}
                             color={ColorStyles.textColor}
@@ -224,9 +222,10 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
             <View
               style={{
                 position: 'absolute',
-                bottom: 5,
+                bottom: Platform.OS === 'ios' ? 75 : 10,
                 left: 20,
                 right: 20,
+                // zIndex: 109090,
               }}
             >
               <TouchableOpacity

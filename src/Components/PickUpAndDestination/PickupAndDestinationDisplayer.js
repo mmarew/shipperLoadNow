@@ -2,7 +2,6 @@ import { TouchableOpacity, View } from 'react-native';
 import styles from './PickupAndDestinationDisplayer.style';
 import { Text } from 'react-native-paper';
 import ColorStyles from '../../GlobalStyles/Color.styles';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import IconAwesome from '../Common/CustomFontAwesome/IconAwesome';
 
 const PickupAndDestinationDisplayer = ({
@@ -43,11 +42,6 @@ const PickupAndDestinationDisplayer = ({
                     ...styles.pickUp,
                   }}
                 >
-                  {/* <FontAwesome
-                    name="dot-circle" // or "circle"
-                    size={10}
-                    color="dodgerblue"
-                  /> */}
                   <IconAwesome name="circle" size={10} color="dodgerblue" />
 
                   <View>
@@ -99,12 +93,7 @@ const PickupAndDestinationDisplayer = ({
                   <View
                     style={{ ...styles.pickAndDestination, ...styles.pickUp }}
                   >
-                    <FontAwesome
-                      name="dot-circle" // or "circle"
-                      size={10}
-                      color="dodgerblue"
-                    />
-
+                    <IconAwesome name="circle" size={10} color="dodgerblue" />
                     <View>
                       <Text style={{ color: ColorStyles.textColor }}>From</Text>
                       <Text style={styles.textPickupAndDestination}>
@@ -126,11 +115,7 @@ const PickupAndDestinationDisplayer = ({
                       ...styles.destination,
                     }}
                   >
-                    <FontAwesome
-                      name="dot-circle" // or "circle"
-                      size={10}
-                      color="dodgerblue"
-                    />
+                    <IconAwesome name="circle" size={10} color="dodgerblue" />
 
                     <View>
                       <Text style={{ color: ColorStyles.textColor }}>To </Text>
