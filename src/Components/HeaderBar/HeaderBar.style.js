@@ -4,7 +4,7 @@ import ColorStyles from '../../GlobalStyles/Color.styles';
 const styles = StyleSheet.create({
   headerContainer: {
     position: 'absolute',
-    top: Platform.OS === 'ios' ? '8%' : '2%', // Adjust as needed for your layout
+    top: Platform.OS === 'ios' ? '8%' : '6%', // Adjust as needed for your layout
     left: '2%',
     zIndex: 10,
     borderRadius: 22,

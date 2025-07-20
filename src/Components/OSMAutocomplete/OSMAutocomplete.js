@@ -19,6 +19,7 @@ import ColorStyles from '../../GlobalStyles/Color.styles';
 import { debounce } from 'lodash';
 
 const OSMAutocomplete = ({
+  refProps,
   onSelect,
   placeholder = 'Search',
   value,
@@ -197,6 +198,7 @@ const OSMAutocomplete = ({
   return (
     <View style={{ flex: 1 }}>
       <Autocomplete
+        ref={refProps}
         onFocus={() => {
           setFocusOnInput(true);
           onFocus();
@@ -210,6 +212,7 @@ const OSMAutocomplete = ({
         listStyle={styles.listStyle}
         inputContainerStyle={[
           borderStyles,
+
           styles.inputContainerStyle,
           focusOnInput && { backgroundColor: ColorStyles.autocompleteFocused },
         ]}

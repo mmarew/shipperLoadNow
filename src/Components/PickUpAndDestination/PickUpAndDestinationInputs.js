@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+  useRef,
+} from 'react';
 import {
   View,
   Text,
@@ -23,6 +29,8 @@ import ColorStyles from '../../GlobalStyles/Color.styles';
 import IconAwesome from '../Common/CustomFontAwesome/IconAwesome';
 
 const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
+  const originInputRef = useRef(null);
+  const destinationInputRef = useRef(null);
   const dispatch = useDispatch();
   const { originLocation, destination, passengerStatus } = useSelector(
     state => state.passengerSlices,
@@ -96,66 +104,79 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
     setShowComponent('Shipping Detailes');
   }, [setShowComponent]);
 
+  const focusInput = useCallback(type => {
+    if (type === 'origin') {
+      originInputRef.current?.focus();
+      setActiveInput('origin');
+    } else {
+      destinationInputRef.current?.focus();
+      setActiveInput('destination');
+    }
+  }, []);
+
   const renderInputField = useCallback(
     type => {
       const isOrigin = type === 'origin';
       const inputValue = isOrigin ? originInput : destinationInput;
-      const topPosition = isOrigin ? 20 : 100;
-      const clearIconTop = isOrigin ? 20 : 100;
-      const zIndex = isOrigin ? 9010 : 900;
-
+      const topPosition = isOrigin ? 40 : 110;
+      const clearIconTop = isOrigin ? 20 : 40;
+      const zIndex = isOrigin ? 11 : 9;
+      const lablesTop = isOrigin ? 20 : 40;
       return (
-        <View>
+        <TouchableWithoutFeedback onPress={() => focusInput(type)}>
           <View style={[styles.locationCard, { top: topPosition, zIndex }]}>
-            <Text style={styles.label}>{isOrigin ? 'From' : 'To'}</Text>
-            <View style={styles.cardInputRow}>
-              <IconAwesome
-                name="map-marker"
-                color={ColorStyles.brandColor}
-                size={20}
+            <View style={{ zIndex: 9, top: lablesTop }}>
+              <Text style={styles.label}>{isOrigin ? 'From' : 'To'}</Text>
+              <View style={styles.cardInputRow}>
+                <IconAwesome
+                  name="map-marker"
+                  color={ColorStyles.brandColor}
+                  size={20}
+                />
+              </View>
+            </View>
+
+            {inputValue !== '' && (
+              <TouchableOpacity
+                onPress={handleClearLocation(type)}
+                style={[styles.clearIcon, { top: clearIconTop }]}
+              >
+                <IconAwesome
+                  name="times-circle"
+                  color={ColorStyles.brandColor}
+                  size={20}
+                />
+              </TouchableOpacity>
+            )}
+
+            <View
+              style={
+                isOrigin
+                  ? styles.pickupInputContainer
+                  : styles.destinationInputContainer
+              }
+            >
+              <OSMAutocomplete
+                refProps={isOrigin ? originInputRef : destinationInputRef}
+                onSelect={handleLocationSelect(type)}
+                placeholder={`Enter ${
+                  isOrigin ? 'pickup' : 'destination'
+                } location`}
+                value={inputValue}
+                setValue={isOrigin ? setOriginInput : setDestinationInput}
+                onFocus={() => setActiveInput(type)}
+                borderStyles={
+                  !isOrigin
+                    ? {
+                        borderBottomEndRadius: 20,
+                        borderBottomStartRadius: 10,
+                      }
+                    : undefined
+                }
               />
             </View>
           </View>
-
-          {inputValue !== '' && (
-            <TouchableOpacity
-              onPress={handleClearLocation(type)}
-              style={[styles.clearIcon, { top: clearIconTop }]}
-            >
-              <IconAwesome
-                name="times-circle"
-                color={ColorStyles.brandColor}
-                size={20}
-              />
-            </TouchableOpacity>
-          )}
-
-          <View
-            style={
-              isOrigin
-                ? styles.pickupInputContainer
-                : styles.destinationInputContainer
-            }
-          >
-            <OSMAutocomplete
-              onSelect={handleLocationSelect(type)}
-              placeholder={`Enter ${
-                isOrigin ? 'pickup' : 'destination'
-              } location`}
-              value={inputValue}
-              setValue={isOrigin ? setOriginInput : setDestinationInput}
-              onFocus={() => setActiveInput(type)}
-              borderStyles={
-                !isOrigin
-                  ? {
-                      borderBottomEndRadius: 20,
-                      borderBottomStartRadius: 10,
-                    }
-                  : undefined
-              }
-            />
-          </View>
-        </View>
+        </TouchableWithoutFeedback>
       );
     },
     [originInput, destinationInput, handleLocationSelect, handleClearLocation],

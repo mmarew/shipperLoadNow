@@ -9,12 +9,12 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     width: '100%',
-    backgroundColor: 'red',
+    backgroundColor: ColorStyles.whiteBGColor,
     maxHeight: 300,
   },
   item: {
     padding: 10,
-    borderBottomColor: '#ccc',
+    borderBottomColor: ColorStyles.borderColor,
     borderBottomWidth: 1,
   },
   listStyle: { border: 'none' },
@@ -34,6 +34,8 @@ const styles = StyleSheet.create({
   inputStyle: {
     backgroundColor: ColorStyles.inputBackgroundColor,
     color: ColorStyles.textColor,
+    padding: 0,
+    margin: 0,
   },
   errorText: {
     color: ColorStyles.errorColor,

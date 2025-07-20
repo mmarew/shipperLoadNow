@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
   // INPUT CARD WRAPPER
   locationCard: {
     position: 'absolute',
+    width: '100%',
   },
   cardInputRow: {
     flexDirection: 'row',
@@ -69,14 +70,14 @@ const styles = StyleSheet.create({
   pickupInputContainer: {
     position: 'absolute',
     top: 0,
-    zIndex: 900,
+    zIndex: 8,
     backgroundColor: ColorStyles.backgroundColor,
     width: '100%',
   },
   destinationInputContainer: {
-    zIndex: 8,
+    zIndex: 7,
     position: 'absolute',
-    top: 80,
+    top: 20,
     width: '100%',
   },
 });
