@@ -86,7 +86,7 @@ const GlobalStyles = StyleSheet.create({
   },
 
   title: {
-    fontFamily: 'Manrope',
+    fontFamily: fontFamily.manropeRegular,
     fontStyle: 'normal',
     color: ColorStyles.textColor,
     fontWeight: 'bold',

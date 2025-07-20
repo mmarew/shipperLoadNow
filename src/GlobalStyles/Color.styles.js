@@ -4,7 +4,7 @@ const lightTimeColors = {
     whiteColor: '#FFFFFF',
     whiteBGColor: '#fff',
     autocompleteFocused: '#F0F9FF',
-    focused: '#F8A67A',
+    focused: '#075985', //'#F8A67A',
 
     brandColor: '#075985',
 

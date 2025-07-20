@@ -13,7 +13,7 @@ import TopView from '../Auth/TopView/TopView';
 import errorHandler from '../../utils/errorHandler/errorHandler';
 import { requestUsingPostMethod } from '../../utils/handleRequestToServer/handleRequestToServer';
 import { setRegistrablePassenger } from '../../Redux/slices/PassengerSlice';
-import { Checkbox, Text, TextInput } from 'react-native-paper';
+import { Text, TextInput } from 'react-native-paper';
 import styles from './Style';
 import { handlePhoneChange } from '../../utils/Formatter/Formatter';
 import ColorStyles, { barStyles } from '../../GlobalStyles/Color.styles';
@@ -253,8 +253,6 @@ const RegisterPassenger = ({ navigation }) => {
           </View>
           {errors.termsAccepted && (
             <ErrorText error={errors.termsAccepted} shakeAnim={shakeAnim} />
-
-            // <Text style={GlobalStyles.errorText}>{errors.termsAccepted}</Text>
           )}
 
           {/* Register Button */}

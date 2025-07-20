@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import ColorStyles from '../../GlobalStyles/Color.styles';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
+import fontFamily from '../../GlobalStyles/FontFamily';
 
 const styles = StyleSheet.create({
   bottomSection: {
@@ -36,6 +37,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: ColorStyles.informationColor,
     lineHeight: 23,
+    fontFamily: fontFamily.manropeRegular,
   },
   termsLink: {
     color: ColorStyles.brandColor,
