@@ -1,8 +1,8 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { convertToYMDHMSFormat } from '../../utils/TimeDateHandler/TimeDateHandler';
 import styles from './ShowShippableItems.style';
+import { formatShortDate } from '../../utils/Formatter/Formatter';
 
 const ShowShippableItems = () => {
   const passengerSlices = useSelector(state => state.passengerSlices);
@@ -43,7 +43,7 @@ const ShowShippableItems = () => {
       <View style={styles.row}>
         <Text style={styles.label}>Shipping Date : </Text>
         <Text style={styles.value}>
-          {convertToYMDHMSFormat(
+          {formatShortDate(
             passenger?.shippingDate || shippableItem?.shippingDate,
           )}
         </Text>
@@ -51,7 +51,7 @@ const ShowShippableItems = () => {
       <View style={styles.row}>
         <Text style={styles.label}>Delivery Date : </Text>
         <Text style={styles.value}>
-          {convertToYMDHMSFormat(
+          {formatShortDate(
             passenger?.deliveryDate || shippableItem?.deliveryDate,
           )}
         </Text>

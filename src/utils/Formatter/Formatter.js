@@ -77,4 +77,39 @@ function trimText({ text, size, addEllipsis = true }) {
   return trimmed;
 }
 
-export { handlePhoneChange, isJSON, createDateFormatter, trimText };
+function formatShortDate(data) {
+  const date = new Date(data);
+  // Array of month abbreviations.
+  console.log('@formatShortDate date', date);
+
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+
+  // Get the individual parts of the date.
+  const day = date.getDate();
+  const monthIndex = date.getMonth(); // getMonth() is zero-based (0-11)
+  const year = date.getFullYear();
+
+  // Assemble the parts into the final string.
+  return `${months[monthIndex]} ${day} ${year}`;
+}
+
+export {
+  handlePhoneChange,
+  isJSON,
+  createDateFormatter,
+  trimText,
+  formatShortDate,
+};
