@@ -1,38 +1,16 @@
 import { StyleSheet } from 'react-native';
-import { height } from '../Constants/constant.utils';
 import ColorStyles from '../../GlobalStyles/Color.styles';
 import fontFamily from '../../GlobalStyles/FontFamily';
 
 const styles = StyleSheet.create({
-  // listContainerStyle: {
-  //   borderWidth: 10,
-  //   borderColor: 'transparent',
-
-  //   maxHeight: height - 300,
-  //   zIndex: 100,
-  //   backgroundColor: 'white',
-  //   minHeight: 'fit-content',
-  //   paddingTop: 10,
-  //   borderWidth: 0,
-  //   backgroundColor: 'transparent',
-  //   paddingHorizontal: 10,
-  //   position: 'absolute',
-  //   top: 90,
-
-  //   width: '100%',
-  //   overflow: 'scroll',
-  // },
-
   listContainerStyle: {
     position: 'absolute',
     top: 90,
     left: 0,
     right: 0,
     width: '100%',
-    backgroundColor: 'white',
+    backgroundColor: 'red',
     maxHeight: 300,
-    zIndex: Platform.OS === 'ios' ? 9999 : 100,
-    elevation: Platform.OS === 'android' ? 10 : 0, // for Android
   },
   item: {
     padding: 10,

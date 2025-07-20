@@ -21,10 +21,6 @@ const styles = StyleSheet.create({
   // INPUT CARD WRAPPER
   locationCard: {
     position: 'absolute',
-
-    zIndex: 901,
-
-    top: 69,
   },
   cardInputRow: {
     flexDirection: 'row',
@@ -63,12 +59,25 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 15,
     top: 80,
-    zIndex: 10,
+    zIndex: 1000,
   },
 
   // LIST CONTAINER (FOR FlatList)
   listContainer: {
     paddingBottom: 80,
+  },
+  pickupInputContainer: {
+    position: 'absolute',
+    top: 0,
+    zIndex: 900,
+    backgroundColor: ColorStyles.backgroundColor,
+    width: '100%',
+  },
+  destinationInputContainer: {
+    zIndex: 8,
+    position: 'absolute',
+    top: 80,
+    width: '100%',
   },
 });
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import {
   View,
   Text,
@@ -16,16 +16,17 @@ import {
 } from '../../Redux/slices/PassengerSlice';
 import styles from './Styles';
 import OSMAutocomplete from '../OSMAutocomplete/OSMAutocomplete';
-import ButtonNavigateToScreens from '../Buttons/ButtonNavigateToScreens/ButtonNavigateToScreens';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import RecentSearches from '../RecentSearches/RecentSearches';
 import BackArrow from '../BackArrow/BackArrow';
 import ColorStyles from '../../GlobalStyles/Color.styles';
 import IconAwesome from '../Common/CustomFontAwesome/IconAwesome';
+
 const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
   const dispatch = useDispatch();
-  const passengerSlices = useSelector(state => state.passengerSlices);
-  const { originLocation, destination, passengerStatus } = passengerSlices;
+  const { originLocation, destination, passengerStatus } = useSelector(
+    state => state.passengerSlices,
+  );
   const [activeInput, setActiveInput] = useState(null);
 
   const [originInput, setOriginInput] = useState(
@@ -40,64 +41,174 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
     setDestinationInput(destination?.description || '');
   }, [originLocation, destination]);
 
-  const handleOriginSelect = location => {
-    setOriginInput(location.name);
-    dispatch(
-      addOriginLocation({
-        latitude: location.latitude,
-        longitude: location.longitude,
-        description: location.name,
-      }),
-    );
-  };
+  const handleLocationSelect = useCallback(
+    type => location => {
+      const action =
+        type === 'origin' ? addOriginLocation : addDestinationLocation;
+      const setInput = type === 'origin' ? setOriginInput : setDestinationInput;
 
-  const handleDestinationSelect = location => {
-    setDestinationInput(location.name);
-    dispatch(
-      addDestinationLocation({
-        latitude: location.latitude,
-        longitude: location.longitude,
-        description: location.name,
-      }),
-    );
-  };
-
-  const handleClearOrigin = () => {
-    setOriginInput('');
-    dispatch(addOriginLocation(null));
-  };
-
-  const handleClearDestination = () => {
-    setDestinationInput('');
-    dispatch(addDestinationLocation(null));
-  };
-  const handleRecentSelect = location => {
-    if (activeInput === 'origin') {
-      setOriginInput(location.name);
+      setInput(location.name);
       dispatch(
-        addOriginLocation({
-          latitude: Number(location.latitude),
-          longitude: Number(location.longitude),
+        action({
+          latitude: location.latitude,
+          longitude: location.longitude,
           description: location.name,
         }),
       );
-    } else if (activeInput === 'destination') {
-      setDestinationInput(location.name);
-      dispatch(
-        addDestinationLocation({
-          latitude: Number(location.latitude),
-          longitude: Number(location.longitude),
-          description: location.name,
-        }),
-      );
-    }
-  };
-  console.log(
-    '@originInput====',
-    originInput,
-    ' \n&& destinationInput====',
-    destinationInput,
+    },
+    [dispatch],
   );
+
+  const handleClearLocation = useCallback(
+    type => () => {
+      const action =
+        type === 'origin' ? addOriginLocation : addDestinationLocation;
+      const setInput = type === 'origin' ? setOriginInput : setDestinationInput;
+
+      setInput('');
+      dispatch(action(null));
+    },
+    [dispatch],
+  );
+
+  const handleRecentSelect = useCallback(
+    location => {
+      if (!activeInput) return;
+
+      const action =
+        activeInput === 'origin' ? addOriginLocation : addDestinationLocation;
+      const setInput =
+        activeInput === 'origin' ? setOriginInput : setDestinationInput;
+
+      setInput(location.name);
+      dispatch(
+        action({
+          latitude: Number(location.latitude),
+          longitude: Number(location.longitude),
+          description: location.name,
+        }),
+      );
+    },
+    [activeInput, dispatch],
+  );
+
+  const handleNextPress = useCallback(() => {
+    setShowComponent('Shipping Detailes');
+  }, [setShowComponent]);
+
+  const renderInputField = useCallback(
+    type => {
+      const isOrigin = type === 'origin';
+      const inputValue = isOrigin ? originInput : destinationInput;
+      const topPosition = isOrigin ? 20 : 100;
+      const clearIconTop = isOrigin ? 20 : 100;
+      const zIndex = isOrigin ? 9010 : 900;
+
+      return (
+        <View>
+          <View style={[styles.locationCard, { top: topPosition, zIndex }]}>
+            <Text style={styles.label}>{isOrigin ? 'From' : 'To'}</Text>
+            <View style={styles.cardInputRow}>
+              <IconAwesome
+                name="map-marker"
+                color={ColorStyles.brandColor}
+                size={20}
+              />
+            </View>
+          </View>
+
+          {inputValue !== '' && (
+            <TouchableOpacity
+              onPress={handleClearLocation(type)}
+              style={[styles.clearIcon, { top: clearIconTop }]}
+            >
+              <IconAwesome
+                name="times-circle"
+                color={ColorStyles.brandColor}
+                size={20}
+              />
+            </TouchableOpacity>
+          )}
+
+          <View
+            style={
+              isOrigin
+                ? styles.pickupInputContainer
+                : styles.destinationInputContainer
+            }
+          >
+            <OSMAutocomplete
+              onSelect={handleLocationSelect(type)}
+              placeholder={`Enter ${
+                isOrigin ? 'pickup' : 'destination'
+              } location`}
+              value={inputValue}
+              setValue={isOrigin ? setOriginInput : setDestinationInput}
+              onFocus={() => setActiveInput(type)}
+              borderStyles={
+                !isOrigin
+                  ? {
+                      borderBottomEndRadius: 20,
+                      borderBottomStartRadius: 10,
+                    }
+                  : undefined
+              }
+            />
+          </View>
+        </View>
+      );
+    },
+    [originInput, destinationInput, handleLocationSelect, handleClearLocation],
+  );
+
+  const renderContent = useMemo(() => {
+    // if (passengerStatus !== null) {
+    //   return <ButtonNavigateToScreens />;
+    // }
+
+    return (
+      <View style={styles.container}>
+        <View style={{ flex: 1, height: 220 }}>
+          <BackArrow
+            setShowComponent={setShowComponent}
+            navigateTo="Home"
+            description="Set Pickup"
+          />
+          {renderInputField('origin')}
+          {renderInputField('destination')}
+        </View>
+        <RecentSearches onRecentSelect={handleRecentSelect} />
+      </View>
+    );
+  }, [passengerStatus, renderInputField, handleRecentSelect, setShowComponent]);
+
+  const nextButton = useMemo(() => {
+    if (!originInput || !destinationInput) return null;
+
+    return (
+      <View
+        style={{
+          position: 'absolute',
+          bottom: Platform.OS === 'ios' ? 75 : 10,
+          left: 20,
+          right: 20,
+        }}
+      >
+        <TouchableOpacity
+          onPress={handleNextPress}
+          style={{
+            ...GlobalStyles.button,
+            height: 50,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Text style={GlobalStyles.buttonText}>Next</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }, [originInput, destinationInput, handleNextPress]);
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -105,160 +216,17 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={{ flex: 1 }}>
-          {/* Scrollable Content */}
           <FlatList
-            data={[{ key: 'content' }]} // Dummy data
-            renderItem={() => (
-              <View style={{ flex: 1 }}>
-                {passengerStatus === null ? (
-                  <View style={styles.container}>
-                    <View style={{ flex: 1, height: 220 }}>
-                      {/* Header */}
-                      <BackArrow
-                        setShowComponent={setShowComponent}
-                        navigateTo={'Home'}
-                        description={'Set Pickup'}
-                      />
-                      {/* ORIGIN INPUT */}
-                      <View style={styles.locationCard}>
-                        <Text style={styles.label}>From</Text>
-                        <View style={styles.cardInputRow}>
-                          <IconAwesome
-                            name={'map-marker'}
-                            color={ColorStyles.textColor}
-                            size={20}
-                          />
-                        </View>
-                      </View>
-
-                      {originInput !== '' && (
-                        <TouchableOpacity
-                          style={[styles.clearIcon, { zIndex: 999 }]}
-                          onPress={handleClearOrigin}
-                        >
-                          <IconAwesome
-                            name={'times-circle'}
-                            color={ColorStyles.textColor}
-                            size={20}
-                          />
-                        </TouchableOpacity>
-                      )}
-
-                      <View
-                        style={[
-                          styles.autocompleteWrapper,
-                          {
-                            position: 'absolute',
-                            top: 48,
-                            zIndex: 900,
-                            backgroundColor: ColorStyles.backgroundColor,
-                            width: '100%',
-                          },
-                        ]}
-                      >
-                        <OSMAutocomplete
-                          onSelect={handleOriginSelect}
-                          placeholder="Enter pickup location"
-                          value={originInput}
-                          setValue={setOriginInput}
-                          onFocus={() => setActiveInput('origin')} // ✅ Set active input
-                        />
-                      </View>
-
-                      {/* DESTINATION INPUT */}
-                      <View
-                        style={{ ...styles.locationCard, top: 160, zIndex: 9 }}
-                      >
-                        <Text style={styles.label}>To</Text>
-                        <View style={styles.cardInputRow}>
-                          <IconAwesome
-                            name={'map-marker'}
-                            color={ColorStyles.textColor}
-                            size={20}
-                          />
-                        </View>
-                      </View>
-
-                      {destinationInput !== '' && (
-                        <TouchableOpacity
-                          onPress={handleClearDestination}
-                          style={{ ...styles.clearIcon, top: 160 }}
-                        >
-                          <IconAwesome
-                            name={'times-circle'}
-                            color={ColorStyles.textColor}
-                            size={20}
-                          />
-                        </TouchableOpacity>
-                      )}
-
-                      <View
-                        style={{
-                          ...styles.autocompleteWrapper,
-                          zIndex: 8,
-                          position: 'absolute',
-                          top: 140,
-                          width: '100%',
-                        }}
-                      >
-                        <OSMAutocomplete
-                          onSelect={handleDestinationSelect}
-                          placeholder="Enter destination"
-                          value={destinationInput}
-                          setValue={setDestinationInput}
-                          onFocus={() => setActiveInput('destination')} // ✅ Set active input
-                          borderStyles={{
-                            borderBottomEndRadius: 20,
-                            borderBottomStartRadius: 10,
-                          }}
-                        />
-                      </View>
-                    </View>
-
-                    {/* RECENT SEARCHES */}
-
-                    <RecentSearches onRecentSelect={handleRecentSelect} />
-                  </View>
-                ) : (
-                  <ButtonNavigateToScreens />
-                )}
-              </View>
-            )}
-            contentContainerStyle={{ paddingBottom: 140 }} // Space for button
+            data={[{ key: 'content' }]}
+            renderItem={() => <View style={{ flex: 1 }}>{renderContent}</View>}
+            contentContainerStyle={{ paddingBottom: 140 }}
             keyboardShouldPersistTaps="handled"
           />
-
-          {/* Fixed Bottom Button */}
-          {originInput && destinationInput && (
-            <View
-              style={{
-                position: 'absolute',
-                bottom: Platform.OS === 'ios' ? 75 : 10,
-                left: 20,
-                right: 20,
-                // zIndex: 109090,
-              }}
-            >
-              <TouchableOpacity
-                onPress={() => {
-                  setShowComponent('Shipping Detailes');
-                  console.log('@click on button');
-                }}
-                style={{
-                  ...GlobalStyles.button,
-                  height: 50,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-              >
-                <Text style={{ ...GlobalStyles.buttonText }}>Next</Text>
-              </TouchableOpacity>
-            </View>
-          )}
+          {nextButton}
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
 };
 
-export default PickUpAndDestinationInputs;
+export default React.memo(PickUpAndDestinationInputs);
