@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   locationCard: {
     position: 'absolute',
 
-    zIndex: 10,
+    zIndex: 901,
 
     top: 69,
   },

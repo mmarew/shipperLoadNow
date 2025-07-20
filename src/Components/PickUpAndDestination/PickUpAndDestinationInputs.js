@@ -133,7 +133,7 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
 
                       {originInput !== '' && (
                         <TouchableOpacity
-                          style={styles.clearIcon}
+                          style={[styles.clearIcon, { zIndex: 999 }]}
                           onPress={handleClearOrigin}
                         >
                           <IconAwesome
@@ -144,7 +144,18 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
                         </TouchableOpacity>
                       )}
 
-                      <View style={styles.autocompleteWrapper}>
+                      <View
+                        style={[
+                          styles.autocompleteWrapper,
+                          {
+                            position: 'absolute',
+                            top: 48,
+                            zIndex: 900,
+                            backgroundColor: ColorStyles.backgroundColor,
+                            width: '100%',
+                          },
+                        ]}
+                      >
                         <OSMAutocomplete
                           onSelect={handleOriginSelect}
                           placeholder="Enter pickup location"
