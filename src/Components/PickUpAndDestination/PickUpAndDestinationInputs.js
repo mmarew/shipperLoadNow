@@ -119,13 +119,13 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
       const isOrigin = type === 'origin';
       const inputValue = isOrigin ? originInput : destinationInput;
 
-      const clearIconTop = isOrigin ? 20 : 30;
+      const clearIconTop = isOrigin ? 25 : 30;
 
       return (
         <View
           style={[
             styles.locationCard,
-            { ...customStyles, height: 100 },
+            { ...customStyles, height: 80 },
             GlobalStyles.reset,
           ]}
         >
@@ -154,12 +154,12 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
               }}
             >
               <IconAwesome
-                name="map-marker"
+                name="circle"
                 color={ColorStyles.brandColor}
-                size={20}
+                size={10}
               />
             </View>
-            <View style={{ paddingLeft: 40, paddingVertical: 20 }}>
+            <View style={{ paddingLeft: 40, paddingVertical: 15 }}>
               <Text style={styles.label}>{isOrigin ? 'From' : 'To'}</Text>
               <OSMAutocomplete
                 refProps={isOrigin ? originInputRef : destinationInputRef}
@@ -169,7 +169,7 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
                 } location`}
                 value={inputValue}
                 setValue={isOrigin ? setOriginInput : setDestinationInput}
-                onFocus={() => setActiveInput(type)}
+                onFocus={value => setActiveInput(value ? type : null)}
               />
             </View>
           </View>
@@ -191,13 +191,15 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
           <View
             style={{
               backgroundColor: ColorStyles.whiteBGColor,
-              borderRadius: 30,
+              borderRadius: 10,
+              ...GlobalStyles.reset,
             }}
           >
             {renderInputField('origin', {
               borderBottomWidth: 1,
+
               borderColor: ColorStyles.borderColor,
-              // backgroundColor: 'red',
+              ...GlobalStyles.reset,
               zIndex: 11,
               backgroundColor:
                 activeInput === 'origin'
@@ -206,9 +208,10 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
             })}
 
             {renderInputField('destination', {
-              marginTop: -22,
-              marginBottom: 0,
+              ...GlobalStyles.reset,
               zIndex: 10,
+              marginTop: -20,
+              marginBottom: -1,
               backgroundColor:
                 activeInput === 'destination'
                   ? ColorStyles.autocompleteFocused

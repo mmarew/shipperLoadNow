@@ -200,9 +200,12 @@ const OSMAutocomplete = ({
         ref={refProps}
         onFocus={() => {
           setFocusOnInput(true);
-          onFocus();
+          onFocus(true);
         }}
-        onBlur={() => setFocusOnInput(false)}
+        onBlur={() => {
+          setFocusOnInput(false);
+          onFocus(false);
+        }}
         data={displayResults}
         value={value}
         onChangeText={handleChangeTexts}
