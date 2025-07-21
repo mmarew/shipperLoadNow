@@ -115,47 +115,52 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
   }, []);
 
   const renderInputField = useCallback(
-    type => {
+    (type, customStyles) => {
       const isOrigin = type === 'origin';
       const inputValue = isOrigin ? originInput : destinationInput;
-      const topPosition = isOrigin ? 40 : 110;
-      const clearIconTop = isOrigin ? 20 : 40;
-      const zIndex = isOrigin ? 11 : 9;
-      const lablesTop = isOrigin ? 20 : 40;
+
+      const clearIconTop = isOrigin ? 20 : 30;
+
       return (
-        <TouchableWithoutFeedback onPress={() => focusInput(type)}>
-          <View style={[styles.locationCard, { top: topPosition, zIndex }]}>
-            <View style={{ zIndex: 9, top: lablesTop }}>
-              <Text style={styles.label}>{isOrigin ? 'From' : 'To'}</Text>
-              <View style={styles.cardInputRow}>
-                <IconAwesome
-                  name="map-marker"
-                  color={ColorStyles.brandColor}
-                  size={20}
-                />
-              </View>
-            </View>
-
-            {inputValue !== '' && (
-              <TouchableOpacity
-                onPress={handleClearLocation(type)}
-                style={[styles.clearIcon, { top: clearIconTop }]}
-              >
-                <IconAwesome
-                  name="times-circle"
-                  color={ColorStyles.brandColor}
-                  size={20}
-                />
-              </TouchableOpacity>
-            )}
-
-            <View
-              style={
-                isOrigin
-                  ? styles.pickupInputContainer
-                  : styles.destinationInputContainer
-              }
+        <View
+          style={[
+            styles.locationCard,
+            { ...customStyles, height: 100 },
+            GlobalStyles.reset,
+          ]}
+        >
+          {inputValue !== '' && (
+            <TouchableOpacity
+              onPress={handleClearLocation(type)}
+              style={[styles.clearIcon, { top: clearIconTop }]}
             >
+              <IconAwesome
+                name="times-circle"
+                color={ColorStyles.brandColor}
+                size={20}
+              />
+            </TouchableOpacity>
+          )}
+          <View
+            style={{
+              position: 'relative',
+            }}
+          >
+            <View
+              style={{
+                position: 'absolute',
+                top: 43,
+                left: 20,
+              }}
+            >
+              <IconAwesome
+                name="map-marker"
+                color={ColorStyles.brandColor}
+                size={20}
+              />
+            </View>
+            <View style={{ paddingLeft: 40, paddingVertical: 20 }}>
+              <Text style={styles.label}>{isOrigin ? 'From' : 'To'}</Text>
               <OSMAutocomplete
                 refProps={isOrigin ? originInputRef : destinationInputRef}
                 onSelect={handleLocationSelect(type)}
@@ -165,38 +170,51 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
                 value={inputValue}
                 setValue={isOrigin ? setOriginInput : setDestinationInput}
                 onFocus={() => setActiveInput(type)}
-                borderStyles={
-                  !isOrigin
-                    ? {
-                        borderBottomEndRadius: 20,
-                        borderBottomStartRadius: 10,
-                      }
-                    : undefined
-                }
               />
             </View>
           </View>
-        </TouchableWithoutFeedback>
+        </View>
       );
     },
     [originInput, destinationInput, handleLocationSelect, handleClearLocation],
   );
 
   const renderContent = useMemo(() => {
-    // if (passengerStatus !== null) {
-    //   return <ButtonNavigateToScreens />;
-    // }
-
     return (
       <View style={styles.container}>
-        <View style={{ flex: 1, height: 220 }}>
+        <View style={{ flex: 1, height: 250 }}>
           <BackArrow
             setShowComponent={setShowComponent}
             navigateTo="Home"
             description="Set Pickup"
           />
-          {renderInputField('origin')}
-          {renderInputField('destination')}
+          <View
+            style={{
+              backgroundColor: ColorStyles.whiteBGColor,
+              borderRadius: 30,
+            }}
+          >
+            {renderInputField('origin', {
+              borderBottomWidth: 1,
+              borderColor: ColorStyles.borderColor,
+              // backgroundColor: 'red',
+              zIndex: 11,
+              backgroundColor:
+                activeInput === 'origin'
+                  ? ColorStyles.autocompleteFocused
+                  : 'transparent',
+            })}
+
+            {renderInputField('destination', {
+              marginTop: -22,
+              marginBottom: 0,
+              zIndex: 10,
+              backgroundColor:
+                activeInput === 'destination'
+                  ? ColorStyles.autocompleteFocused
+                  : 'transparent',
+            })}
+          </View>
         </View>
         <RecentSearches onRecentSelect={handleRecentSelect} />
       </View>

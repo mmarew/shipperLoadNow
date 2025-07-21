@@ -15,13 +15,12 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginBottom: 5,
     color: ColorStyles.textColor,
-    marginLeft: 45,
   },
 
   // INPUT CARD WRAPPER
   locationCard: {
-    position: 'absolute',
-    width: '100%',
+    position: 'relative',
+    marginBottom: 20,
   },
   cardInputRow: {
     flexDirection: 'row',

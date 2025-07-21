@@ -9,6 +9,10 @@ const GlobalStyles = StyleSheet.create({
     paddingBottom: 90,
     flex: 1,
   },
+  reset: {
+    margin: 0,
+    padding: 0,
+  },
   // Input fields styling
   input: {
     height: 50,

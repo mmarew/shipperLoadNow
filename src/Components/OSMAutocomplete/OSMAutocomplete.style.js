@@ -5,7 +5,7 @@ import fontFamily from '../../GlobalStyles/FontFamily';
 const styles = StyleSheet.create({
   listContainerStyle: {
     position: 'absolute',
-    top: 90,
+    top: 60,
     left: 0,
     right: 0,
     width: '100%',
@@ -17,25 +17,17 @@ const styles = StyleSheet.create({
     borderBottomColor: ColorStyles.borderColor,
     borderBottomWidth: 1,
   },
-  listStyle: { border: 'none' },
   inputContainerStyle: {
-    borderTopWidth: 0,
-    borderLeftWidth: 0,
-    borderRightWidth: 0,
+    borderWidth: 0,
 
     borderRadius: 0,
 
-    paddingLeft: 40,
-    paddingTop: 40,
-    paddingBottom: 10,
     backgroundColor: ColorStyles.inputBackgroundColor,
     width: '100%',
   },
   inputStyle: {
     backgroundColor: ColorStyles.inputBackgroundColor,
     color: ColorStyles.textColor,
-    padding: 0,
-    margin: 0,
   },
   errorText: {
     color: ColorStyles.errorColor,
@@ -43,7 +35,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     position: 'absolute',
     zIndex: 100,
-    top: 70,
+    top: 40,
     left: 40,
   },
   loadingIndicator: {

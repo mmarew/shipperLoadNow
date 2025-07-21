@@ -26,7 +26,6 @@ const OSMAutocomplete = ({
   setValue,
   showCurrentLocationOption = true,
   onFocus,
-  borderStyles = { borderTopEndRadius: 20, borderTopStartRadius: 20 },
 }) => {
   const [results, setResults] = useState([]);
   const [loadingState, setLoadingState] = useState({
@@ -211,8 +210,6 @@ const OSMAutocomplete = ({
         listContainerStyle={styles.listContainerStyle}
         listStyle={styles.listStyle}
         inputContainerStyle={[
-          borderStyles,
-
           styles.inputContainerStyle,
           focusOnInput && { backgroundColor: ColorStyles.autocompleteFocused },
         ]}
