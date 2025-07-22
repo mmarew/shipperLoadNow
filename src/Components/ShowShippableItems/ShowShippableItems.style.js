@@ -6,8 +6,10 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
     gap: 10,
-    paddingVertical: 10,
+    paddingVertical: 30,
     marginTop: 15,
+    backgroundColor: ColorStyles.whiteBGColor,
+    borderRadius: 20,
   },
   row: {
     flexDirection: 'row',
@@ -16,10 +18,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: ColorStyles.textColor,
     fontFamily: fontFamily.manropeRegular,
+    fontStyle: 'normal',
+    fontWeight: 'bold',
   },
   value: {
     color: ColorStyles.textColor,
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: fontFamily.manropeRegular,
   },
 });

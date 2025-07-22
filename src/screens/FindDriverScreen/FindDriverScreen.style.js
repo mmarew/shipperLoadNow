@@ -13,10 +13,9 @@ const styles = StyleSheet.create({
   shippableItemContainer: {
     backgroundColor: ColorStyles.whiteBGColor,
     marginTop: 5,
-    borderRadius: 10,
+    borderRadius: 20,
     padding: 10,
-    borderWidth: 1,
-    borderColor: ColorStyles.borderColor,
+
     paddingTop: 0,
   },
 });

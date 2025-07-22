@@ -4,7 +4,7 @@ import PickupAndDestinationDisplayer from '../../Components/PickUpAndDestination
 import PassangerMap from '../../Components/PassangerMap/PassangerMap';
 import DriverInfo from '../../Components/DriverInfo/DriverInfo';
 import { useSelector } from 'react-redux';
-import styles from './IncomingDriver.style';
+import styles from './Journey.style';
 import { Text } from 'react-native-paper';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import ShowShippableItems from '../../Components/ShowShippableItems/ShowShippableItems';
@@ -24,10 +24,11 @@ const Journey = ({ navigation, setShowComponent }) => {
         <PassangerMap mapHeight={0.7} navigation={navigation} />
         <View
           style={{
-            paddingHorizontal: 20,
-            backgroundColor: ColorStyles.whiteBGColor,
+            padding: 20,
+            backgroundColor: ColorStyles.backgroundColor,
             borderRadius: 20,
             gap: 10,
+            paddingTop: 40,
           }}
         >
           {(passengerStatus == listofJourneyStatus?.acceptedByDriver ||
@@ -36,14 +37,14 @@ const Journey = ({ navigation, setShowComponent }) => {
             <>
               <DriverInfo navigation={navigation} />
               <View
-                style={{ borderWidth: 1, borderColor: ColorStyles.borderColor }}
+              // style={{ borderWidth: 1, borderColor: ColorStyles.borderColor }}
               >
                 <ShowShippableItems />
               </View>
             </>
           )}
           <View
-            style={{ borderWidth: 1, borderColor: ColorStyles.borderColor }}
+          // style={{ borderWidth: 1, borderColor: ColorStyles.borderColor }}
           >
             <PickupAndDestinationDisplayer
               navigateTo="Pick up and destination"

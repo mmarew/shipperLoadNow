@@ -1,26 +1,51 @@
+import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
-import styles from './PickupAndDestinationDisplayer.style';
 import { Text } from 'react-native-paper';
+import styles from './PickupAndDestinationDisplayer.style';
 import ColorStyles from '../../GlobalStyles/Color.styles';
 import IconAwesome from '../Common/CustomFontAwesome/IconAwesome';
 
 const PickupAndDestinationDisplayer = ({
   setShowComponent,
   showComponent,
-
   listOfJourneyPoints = [],
-  disableInnerTouchables = false, // Add this prop
+  disableInnerTouchables = false,
 }) => {
   const navigateToChoosePlaces = ({ focus }) => {
     if (!showComponent) return;
     if (typeof setShowComponent === 'function') setShowComponent(showComponent);
   };
+
+  const renderPoint = ({ type, label, description, onPress }) => {
+    const content = (
+      <View
+        style={{
+          ...styles.pickAndDestination,
+          ...(type === 'origin' ? styles.pickUp : styles.destination),
+        }}
+      >
+        <IconAwesome name="circle" size={10} color="dodgerblue" />
+        <View>
+          <Text style={styles.textPickupAndDestinationLabels}>{label}</Text>
+          <Text style={styles.textPickupAndDestination}>
+            {description || `Set ${label.toLowerCase()}`}
+          </Text>
+        </View>
+      </View>
+    );
+
+    return disableInnerTouchables ? (
+      <View>{content}</View>
+    ) : (
+      <TouchableOpacity onPress={onPress}>{content}</TouchableOpacity>
+    );
+  };
+
   return (
-    <View style={{ ...styles.container }}>
-      {/* Radio Buttons */}
+    <View style={styles.container}>
       {listOfJourneyPoints.map((points, index) => {
         const { origin, destination } = points;
-        // console.log('@points', points);
+
         return (
           <View key={index}>
             {origin?.shippingDate && (
@@ -34,107 +59,29 @@ const PickupAndDestinationDisplayer = ({
                 {formatDate(origin.shippingDate)}
               </Text>
             )}
-            {disableInnerTouchables ? (
-              <>
-                <View
-                  style={{
-                    ...styles.pickAndDestination,
-                    ...styles.pickUp,
-                  }}
-                >
-                  <IconAwesome name="circle" size={10} color="dodgerblue" />
 
-                  <View>
-                    <Text style={{ color: ColorStyles.textColor }}>From</Text>
-                    <Text style={styles.textPickupAndDestination}>
-                      {origin?.description ? origin?.description : 'Set Pickup'}
-                    </Text>
-                  </View>
-                </View>
+            {renderPoint({
+              type: 'origin',
+              label: 'From',
+              description: origin?.description,
+              onPress: () =>
+                navigateToChoosePlaces({ focus: 'focus on pick up' }),
+            })}
 
-                <View
-                  onPress={() =>
-                    navigateToChoosePlaces({ focus: 'focus on destination' })
-                  }
-                >
-                  <View
-                    style={{
-                      ...styles.pickAndDestination,
-                      ...styles.destination,
-                    }}
-                  >
-                    <IconAwesome name="circle" size={10} color="dodgerblue" />
-
-                    {/* <FontAwesome
-                      name="dot-circle" // or "circle"
-                      size={10}
-                      color="dodgerblue"
-                    /> */}
-
-                    <View>
-                      <Text style={{ color: ColorStyles.textColor }}>To </Text>
-                      <Text style={styles.textPickupAndDestination}>
-                        {destination?.description
-                          ? destination?.description
-                          : 'Set destination'}
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </>
-            ) : (
-              <>
-                <TouchableOpacity
-                  onPress={() =>
-                    navigateToChoosePlaces({ focus: 'focus on pick up' })
-                  }
-                >
-                  {/* Pick and Destination */}
-                  <View
-                    style={{ ...styles.pickAndDestination, ...styles.pickUp }}
-                  >
-                    <IconAwesome name="circle" size={10} color="dodgerblue" />
-                    <View>
-                      <Text style={{ color: ColorStyles.textColor }}>From</Text>
-                      <Text style={styles.textPickupAndDestination}>
-                        {origin?.description
-                          ? origin?.description
-                          : 'Set Pickup'}
-                      </Text>
-                    </View>
-                  </View>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() =>
-                    navigateToChoosePlaces({ focus: 'focus on destination' })
-                  }
-                >
-                  <View
-                    style={{
-                      ...styles.pickAndDestination,
-                      ...styles.destination,
-                    }}
-                  >
-                    <IconAwesome name="circle" size={10} color="dodgerblue" />
-
-                    <View>
-                      <Text style={{ color: ColorStyles.textColor }}>To </Text>
-                      <Text style={styles.textPickupAndDestination}>
-                        {destination?.description
-                          ? destination?.description
-                          : 'Set destination'}
-                      </Text>
-                    </View>
-                  </View>
-                </TouchableOpacity>
-              </>
-            )}
+            {renderPoint({
+              type: 'destination',
+              label: 'To',
+              description: destination?.description,
+              onPress: () =>
+                navigateToChoosePlaces({ focus: 'focus on destination' }),
+            })}
           </View>
         );
       })}
     </View>
   );
 };
+
 const formatDate = dateString => {
   const date = new Date(dateString);
   return date.toLocaleDateString('en-US', {

@@ -7,7 +7,7 @@ const lightTimeColors = {
     focused: '#075985', //'#F8A67A',
 
     brandColor: '#075985',
-
+    inputLablesColor: '#52525B',
     errorColor: '#FF3B30',
     lablesColor: '#27272A',
     borderColor: '#D4D4D8',
@@ -20,6 +20,7 @@ const lightTimeColors = {
     inputBackgroundColor: '#fff',
   },
   darkTimeColors = {
+    inputLablesColor: '#fff',
     autocompleteFocused: '#0F0600',
 
     inputBackgroundColor: '#3D3D3D',

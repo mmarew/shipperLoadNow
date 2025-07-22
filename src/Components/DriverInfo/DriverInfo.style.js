@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   timeDisplayer: {
     fontStyle: 'normal',
     fontWeight: '400',
-    fontSize: 12,
+    fontSize: 14,
     lineHeight: 18,
     color: ColorStyles.textColor,
     fontFamily: fontFamily.manropeRegular,
@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   vehicleInfoText: {
-    // marginVertical: 10,
     color: ColorStyles.textColor,
     fontFamily: fontFamily.manropeRegular,
     fontSize: 16,
@@ -44,7 +43,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderBottomWidth: 1,
     borderColor: ColorStyles.borderColor,
-    paddingBottom: 20,
   },
 
   cardContainer: {
@@ -90,8 +88,9 @@ const styles = StyleSheet.create({
   },
   driverInfoContainer: {
     width: '100%',
-    paddingTop: 10,
+    padding: 10,
     backgroundColor: ColorStyles.whiteBGColor,
+    borderRadius: 20,
   },
 });
 export default styles;

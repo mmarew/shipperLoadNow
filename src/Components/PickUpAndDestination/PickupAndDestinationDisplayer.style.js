@@ -30,5 +30,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: ColorStyles.textColor,
   },
+  textPickupAndDestinationLabels: {
+    fontSize: 12,
+    fontWeight: '500',
+    // marginBottom: 5,
+    color: ColorStyles.inputLablesColor,
+  },
 });
 export default styles;

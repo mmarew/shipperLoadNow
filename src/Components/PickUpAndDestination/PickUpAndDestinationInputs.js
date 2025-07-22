@@ -212,6 +212,7 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
               zIndex: 10,
               marginTop: -20,
               marginBottom: -1,
+              borderBottomRightRadius: 25,
               backgroundColor:
                 activeInput === 'destination'
                   ? ColorStyles.autocompleteFocused
