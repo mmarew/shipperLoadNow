@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
   View,
-  Text,
   TouchableOpacity,
   ScrollView,
   StatusBar,
@@ -9,7 +8,6 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ProfileScreen from '../ProfileScreen/ProfileScreen';
-import styles from './Settings.css';
 import TripHistory from '../../Components/TripHistory/TripHistory';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch } from 'react-redux';
@@ -18,9 +16,16 @@ import {
   addPassengersToken,
 } from '../../Redux/slices/PassengerSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import ColorStyles, { barStyles } from '../../GlobalStyles/Color.styles';
+import createStyles from './Settings.css';
+import getAppsColorStyles, {
+  getAppsBarStyles,
+} from '../../GlobalStyles/AppsColorStyles';
+import { Text } from 'react-native-paper';
 
 const SettingsScreen = () => {
+  const barStyles = getAppsBarStyles();
+  const styles = createStyles();
+  const ColorStyles = getAppsColorStyles();
   const [visibleDetail, setVisibleDetail] = useState(null);
 
   const dispatch = useDispatch();
@@ -113,20 +118,24 @@ const SettingsScreen = () => {
   );
 };
 
-const SettingsItem = ({ title, icon, navigateTo, setVisibleDetail }) => (
-  <TouchableOpacity
-    onPress={() => {
-      setVisibleDetail(navigateTo);
-      console.log('pressed');
-    }}
-    style={styles.settingsItem}
-  >
-    <View style={styles.settingsItemLeft}>
-      <Icon name={icon} size={20} color="gray" />
-      <Text style={styles.settingsItemText}>{title}</Text>
-    </View>
-    <Icon name="chevron-forward-outline" size={20} color="gray" />
-  </TouchableOpacity>
-);
+const SettingsItem = ({ title, icon, navigateTo, setVisibleDetail }) => {
+  const styles = createStyles();
+
+  return (
+    <TouchableOpacity
+      onPress={() => {
+        setVisibleDetail(navigateTo);
+        console.log('pressed');
+      }}
+      style={styles.settingsItem}
+    >
+      <View style={styles.settingsItemLeft}>
+        <Icon name={icon} size={20} color="gray" />
+        <Text style={styles.settingsItemText}>{title}</Text>
+      </View>
+      <Icon name="chevron-forward-outline" size={20} color="gray" />
+    </TouchableOpacity>
+  );
+};
 
 export default SettingsScreen;

@@ -18,17 +18,20 @@ import { Text, TextInput } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
 import { launchImageLibrary } from 'react-native-image-picker';
-import styles from './ProfileScreen.css';
+import createStyle from './ProfileScreen.css';
 import API_URL_AXIOS from '../../services/AxiosServices';
 import { requestUsingGetMethode } from '../../utils/handleRequestToServer/handleRequestToServer';
 import errorHandler from '../../utils/errorHandler/errorHandler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import decodeJWT from '../../utils/JWTDecoder/JWTDecoder';
-import ColorStyles from '../../GlobalStyles/Color.styles';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import GlobalStyles from '../../GlobalStyles/GlobalStyles';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
+import getAppsGlobalStyles from '../../GlobalStyles/AppsGlobalStyles';
 
 const ProfileScreen = ({ setVisibleDetail }) => {
+  const styles = createStyle();
+  const GlobalStyles = getAppsGlobalStyles();
+  const ColorStyles = getAppsColorStyles();
   const [userDetails, setUserDetails] = useState({
     fullName: null,
     email: null,
