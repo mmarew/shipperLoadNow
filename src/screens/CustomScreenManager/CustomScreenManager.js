@@ -1,4 +1,4 @@
-import React, { useState, StatusBar } from 'react';
+import React, { useState } from 'react';
 import HomeScreen from '../Home/HomeScreen';
 import HeaderBar from '../../Components/HeaderBar/HeaderBar';
 import { CustomsSideBarList } from '../../Components/CustomSidebar/CustomSidebar';
@@ -6,10 +6,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import TripHistory from '../JourneyHistory/JourneyHistory';
 import SettingsScreen from '../Settings/SettingsScreen';
 import Reload from '../../Components/Reload/Reload';
-import ColorStyles from '../../GlobalStyles/Color.styles';
-import { setSelectedScreen } from '../../Redux/slices/PassengerSlice';
 import { useSelector } from 'react-redux';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
 export default function CustomScreenManager({ savedProfileImage }) {
+  const ColorStyles = getAppsColorStyles();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   // const [selectedScreen, setSelectedScreen] = useState('Home');
   const selectedScreen = useSelector(

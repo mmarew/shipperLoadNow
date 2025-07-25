@@ -4,13 +4,16 @@ import { Text, TextInput } from 'react-native-paper';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useDispatch, useSelector } from 'react-redux';
 
-import styles from './ShippingDetailes.style';
-import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import { updateShipableItem } from '../../Redux/slices/PassengerSlice';
 import BackArrow from '../../Components/BackArrow/BackArrow';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import ColorStyles from '../../GlobalStyles/Color.styles';
+import createColorStyles from './ShippingDetailes.style';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
+import getAppsGlobalStyles from '../../GlobalStyles/AppsGlobalStyles';
 export default function ShippingDetailes({ navigation, setShowComponent }) {
+  const GlobalStyles = getAppsGlobalStyles();
+  const ColorStyles = getAppsColorStyles();
+  const styles = createColorStyles();
   const dispatch = useDispatch();
   const { shippableItem } = useSelector(state => state.passengerSlices);
   const [showDatePicker, setShowDatePicker] = useState({
@@ -48,6 +51,7 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
   }, [shippableItem]);
 
   const handleShowDatePickers = target => {
+    console.log('@handleShowDatePickers target', target);
     setShowDatePicker(prev => ({
       ...prev,
       [`${target}Date`]: true,

@@ -1,8 +1,9 @@
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import styles from './ShowShippableItems.style';
 import { formatShortDate } from '../../utils/Formatter/Formatter';
+import createColorStyles from './ShowShippableItems.style';
+import { Text } from 'react-native-paper';
 
 const ShowShippableItems = () => {
   const passengerSlices = useSelector(state => state.passengerSlices);
@@ -11,7 +12,7 @@ const ShowShippableItems = () => {
   const decision = passengerSlices?.decision?.[0];
   const journeyStatusId = passenger?.journeyStatusId;
   const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
-
+  const styles = createColorStyles();
   return (
     <View style={{ ...styles.container }}>
       <View style={styles.row}>

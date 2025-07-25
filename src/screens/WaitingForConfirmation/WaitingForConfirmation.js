@@ -2,16 +2,19 @@ import { TouchableOpacity, View } from 'react-native';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ActivityIndicator, Text } from 'react-native-paper';
-import styles from './WaitingForConfirmation.style';
 import { ScrollView } from 'react-native-gesture-handler';
-import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import DiverCard from '../../Components/DriverInfo/DiverCard';
 import { requestUsingPutMethod } from '../../utils/handleRequestToServer/handleRequestToServer';
 import API_URLS from '../../Configs/URLConfigs';
 import HandleResponses from '../../utils/handleServerResponses/HandleResponses';
-import ColorStyles from '../../GlobalStyles/Color.styles';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
+import getAppsGlobalStyles from '../../GlobalStyles/AppsGlobalStyles';
+import createStyles from './WaitingForConfirmation.style';
 
 const WaitingForConfirmation = () => {
+  const styles = createStyles();
+  const GlobalStyles = getAppsGlobalStyles();
+  const ColorStyles = getAppsColorStyles();
   const passengerSlices = useSelector(state => state?.passengerSlices);
   const [isLoading, setIsLoading] = useState(false);
   const drivers = passengerSlices?.driver,

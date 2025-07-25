@@ -258,7 +258,11 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{ flex: 1, top: 90, backgroundColor: ColorStyles.backgroundColor }}
+      style={{
+        flex: 1,
+        top: 90,
+        backgroundColor: 'red', // ColorStyles.backgroundColor
+      }}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={{ flex: 1 }}>

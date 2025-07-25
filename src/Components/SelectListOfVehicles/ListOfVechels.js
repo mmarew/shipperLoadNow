@@ -8,7 +8,9 @@ import { addSelectedVechelesType } from '../../Redux/slices/PassengerSlice';
 import EachVehicles from './EachVehicles';
 import ButtonNavigateToScreens from '../Buttons/ButtonNavigateToScreens/ButtonNavigateToScreens';
 import BackArrow from '../BackArrow/BackArrow';
+import getAppsGlobalStyles from '../../GlobalStyles/AppsGlobalStyles';
 function SelectListOfVechels({ navigation, setShowComponent }) {
+  const GlobalStyles = getAppsGlobalStyles();
   const [selectedVehicle, setSelectedVehicle] = useState(null);
   const passengerSlices = useSelector(state => state?.passengerSlices);
   const passengerStatus = passengerSlices?.passengerStatus;

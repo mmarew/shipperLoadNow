@@ -10,7 +10,6 @@ import PickupAndDestinationDisplayer from '../../Components/PickUpAndDestination
 import PassangerMap from '../../Components/PassangerMap/PassangerMap';
 import EachVehicles from '../../Components/SelectListOfVehicles/EachVehicles';
 import { useDispatch, useSelector } from 'react-redux';
-import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import errorHandler from '../../utils/errorHandler/errorHandler';
 import HandleResponses from '../../utils/handleServerResponses/HandleResponses';
 import {
@@ -25,7 +24,9 @@ import CancelRequest from '../../Components/CancelRequest/CancelRequest';
 import { ProgressBar, Text } from 'react-native-paper';
 import ShowShippableItems from '../../Components/ShowShippableItems/ShowShippableItems';
 import BackArrow from '../../Components/BackArrow/BackArrow';
-import styles from './FindDriverScreen.style';
+// import styles from './FindDriverScreen.style';
+import getAppsGlobalStyles from '../../GlobalStyles/AppsGlobalStyles';
+import createStyles from './FindDriverScreen.style';
 /**
  * FindDriverScreen component handles the process of finding a driver for a passenger.
  * It manages the state and interactions related to the driver's search and request process.
@@ -54,6 +55,8 @@ import styles from './FindDriverScreen.style';
  * - Renders the passenger map, vehicle selection, pickup and destination displayer, and find driver modal.
  */
 const FindDriverScreen = ({ navigation, setShowComponent }) => {
+  const styles = createStyles();
+  const GlobalStyles = getAppsGlobalStyles();
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const passengerSlices = useSelector(state => state?.passengerSlices);

@@ -33,7 +33,6 @@ import verifyPassengerStatus from '../utils/VerifyPassengerStatus/VerifyPassenge
 // Redux
 import store from '../Redux/Store/Store';
 import {
-  addDriver,
   addListOfVehiclesType,
   addPassengerStatus,
   addPassengersToken,
@@ -44,13 +43,15 @@ import {
 } from '../Redux/slices/PassengerSlice';
 
 // Styles
-import { styles, navigationStyles } from './AppNavigator.css';
+import { createStyles, navigationStyles } from './AppNavigator.css';
 import CustomScreenManager from '../screens/CustomScreenManager/CustomScreenManager';
-import ColorStyles from '../GlobalStyles/Color.styles';
+import getAppsColorStyles from '../GlobalStyles/AppsColorStyles';
 
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
+  const ColorStyles = getAppsColorStyles();
+  const styles = createStyles();
   const dispatch = useDispatch();
   const passengerSlices = useSelector(state => state?.passengerSlices);
   const passengersToken = passengerSlices?.passengersToken;

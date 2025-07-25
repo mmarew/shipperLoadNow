@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Text, View, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles.js';
 import { useSelector } from 'react-redux';
-import styles from './CancelRequest.styles.js';
-const CancelRequest = ({ navigation, setShowComponent }) => {
+import createStyles from './CancelRequest.styles.js';
+const CancelRequest = ({ setShowComponent }) => {
+  const styles = createStyles();
+
   const passengerSlices = useSelector(state => state?.passengerSlices);
   const passengerStatus = passengerSlices?.passengerStatus;
   const numberOfRequests = useRef(0);

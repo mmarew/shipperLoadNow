@@ -27,7 +27,7 @@ const createStyles = () => {
       width: '100%',
     },
     inputStyle: {
-      backgroundColor: ColorStyles.inputBackgroundColor,
+      backgroundColor: ColorStyles.whiteBGColor,
       color: ColorStyles.textColor,
     },
     errorText: {

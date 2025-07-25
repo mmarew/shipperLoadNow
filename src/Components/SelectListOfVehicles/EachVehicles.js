@@ -7,6 +7,7 @@ import { SvgUri } from 'react-native-svg';
 import styles from './EachVehicles.css';
 import { showErrorToast } from '../../utils/ToastDisplayer/toastDisplayer';
 import { findScreenDescription } from '../../utils/ScreenManager/ScreenList';
+import createStyles from './EachVehicles.css';
 const EachVehicles = ({
   setShowComponent,
   originLocation,
@@ -15,6 +16,7 @@ const EachVehicles = ({
   selectedVehicle,
   setSelectedVehicle,
 }) => {
+  const styles = createStyles();
   const [estimatedMoney, setEstimatedMoney] = useState(0);
   useEffect(() => {
     const getMoneyData = async () => {
