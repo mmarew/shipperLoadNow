@@ -172,7 +172,9 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
               />
             </TouchableOpacity>
             {errors.shippingDate && (
-              <Text style={{ color: 'red' }}>{errors.shippingDate}</Text>
+              <Text style={{ color: ColorStyles.errorColor }}>
+                {errors.shippingDate}
+              </Text>
             )}
 
             {/* Destination Date */}
@@ -217,7 +219,9 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
               />
             </TouchableOpacity>
             {errors.deliveryDate && (
-              <Text style={{ color: 'red' }}>{errors.deliveryDate}</Text>
+              <Text style={{ color: ColorStyles.errorColor }}>
+                {errors.deliveryDate}
+              </Text>
             )}
 
             {/* DateTime Pickers */}
@@ -304,7 +308,9 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
               // label="Item Name *"
             />
             {errors.itemName && (
-              <Text style={{ color: 'red' }}>{errors?.itemName}</Text>
+              <Text style={{ color: ColorStyles.errorColor }}>
+                {errors?.itemName}
+              </Text>
             )}
             {/* qty */}
             <TextInput
@@ -356,7 +362,9 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
               // label="Quantity in Quintal *"
             />
             {errors.quantity && (
-              <Text style={{ color: 'red' }}>{errors.quantity}</Text>
+              <Text style={{ color: ColorStyles.errorColor }}>
+                {errors.quantity}
+              </Text>
             )}
             {/* Shipping Cost */}
             <TextInput
@@ -400,7 +408,9 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
               keyboardType="numeric"
             />
             {errors.shippingCost && (
-              <Text style={{ color: 'red' }}>{errors.shippingCost}</Text>
+              <Text style={{ color: ColorStyles.errorColor }}>
+                {errors.shippingCost}
+              </Text>
             )}
 
             {/* Submit Button */}

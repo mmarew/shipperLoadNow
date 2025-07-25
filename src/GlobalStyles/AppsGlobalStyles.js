@@ -79,7 +79,7 @@ const getAppsGlobalStyles = () => {
 
     // Error Text styling
     errorText: {
-      color: 'red',
+      color: ColorStyles.errorColor,
       fontSize: 14,
       marginTop: 5,
     },

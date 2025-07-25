@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -11,21 +11,21 @@ import {
 import CheckBox from '@react-native-community/checkbox'; // Import CheckBox component
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import styles from './Styles';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import errorHandler from '../../utils/errorHandler/errorHandler';
 import HandleResponses from '../../utils/handleServerResponses/HandleResponses';
-import {requestUsingPutMethod} from '../../utils/handleRequestToServer/handleRequestToServer';
+import { requestUsingPutMethod } from '../../utils/handleRequestToServer/handleRequestToServer';
 import {
   addDestinationLocation,
   addOriginLocation,
   addPassengerStatus,
   setModalVisible,
 } from '../../Redux/slices/PassengerSlice';
-import {showErrorToast} from '../../utils/ToastDisplayer/toastDisplayer';
+import { showErrorToast } from '../../utils/ToastDisplayer/toastDisplayer';
 import getUniQueIds from '../../utils/getUniqueIds/getUniQueIds';
 import ButtonNavigateToScreens from '../../Components/Buttons/ButtonNavigateToScreens/ButtonNavigateToScreens';
 
-const CancelRequestModal = ({navigation}) => {
+const CancelRequestModal = ({ navigation }) => {
   const [selectedReason, setSelectedReason] = useState(null);
   const [isChecked, setIsChecked] = useState({}); // State for managing checkboxes
   const passengerSlices = useSelector(state => state?.passengerSlices);
@@ -113,11 +113,12 @@ const CancelRequestModal = ({navigation}) => {
                   selectedReason?.cancilationReasonType ===
                     reason?.cancilationReasonType &&
                     styles.selectedReasonContainer,
-                ]}>
+                ]}
+              >
                 <CheckBox
                   value={isChecked[reason.cancellationReason] || false} // Use the checkbox state
                   onValueChange={() => handleReasonSelect(reason)}
-                  tintColors={{true: '#075985', false: '#8b8b8b'}}
+                  tintColors={{ true: '#075985', false: '#8b8b8b' }}
                 />
                 <Text style={styles.reasonText}>
                   {reason?.cancellationReason}
@@ -131,33 +132,43 @@ const CancelRequestModal = ({navigation}) => {
                   display: 'flex',
                   flexDirection: 'row',
                   gap: 10,
-                }}>
+                }}
+              >
                 <TouchableOpacity
-                  style={{...GlobalStyles.button}}
-                  onPress={handleStopCancilation}>
+                  style={{ ...GlobalStyles.button }}
+                  onPress={handleStopCancilation}
+                >
                   <Text
                     style={{
                       ...GlobalStyles.buttonText,
-                    }}>
+                    }}
+                  >
                     Stop
                   </Text>
                 </TouchableOpacity>
                 {selectedReason ? (
                   <TouchableOpacity
-                    style={{...GlobalStyles.button, backgroundColor: 'red'}}
-                    onPress={handleCancelPress}>
-                    <Text style={{...GlobalStyles.buttonText}}>Confirm</Text>
+                    style={{
+                      ...GlobalStyles.button,
+                      backgroundColor: ColorStyles.errorColor,
+                    }}
+                    onPress={handleCancelPress}
+                  >
+                    <Text style={{ ...GlobalStyles.buttonText }}>Confirm</Text>
                   </TouchableOpacity>
                 ) : (
                   <TouchableOpacity
                     onPress={() =>
-                      showErrorToast({text2: 'Cancelation reason is required'})
+                      showErrorToast({
+                        text2: 'Cancelation reason is required',
+                      })
                     }
                     style={{
                       ...GlobalStyles.button,
                       backgroundColor: '#626f72',
-                    }}>
-                    <Text style={{...GlobalStyles.buttonText}}>Confirm</Text>
+                    }}
+                  >
+                    <Text style={{ ...GlobalStyles.buttonText }}>Confirm</Text>
                   </TouchableOpacity>
                 )}
               </View>

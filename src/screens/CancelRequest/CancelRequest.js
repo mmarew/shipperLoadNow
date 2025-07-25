@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import CheckBox from '@react-native-community/checkbox'; // Import CheckBox component
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
-import styles from './Styles';
 import { useDispatch, useSelector } from 'react-redux';
 import errorHandler from '../../utils/errorHandler/errorHandler';
 import HandleResponses from '../../utils/handleServerResponses/HandleResponses';
@@ -24,8 +23,12 @@ import {
 import { showErrorToast } from '../../utils/ToastDisplayer/toastDisplayer';
 import getUniQueIds from '../../utils/getUniqueIds/getUniQueIds';
 import ButtonNavigateToScreens from '../../Components/Buttons/ButtonNavigateToScreens/ButtonNavigateToScreens';
+import createStyles from './Styles';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
 
 const CancelRequestModal = ({ navigation, setShowComponent }) => {
+  const styles = createStyles();
+  const ColorStyles = getAppsColorStyles();
   const [selectedReason, setSelectedReason] = useState(null);
   const [isChecked, setIsChecked] = useState({}); // State for managing checkboxes
   const passengerSlices = useSelector(state => state?.passengerSlices);
@@ -150,7 +153,10 @@ const CancelRequestModal = ({ navigation, setShowComponent }) => {
                   </TouchableOpacity>
                   {selectedReason ? (
                     <TouchableOpacity
-                      style={{ ...GlobalStyles.button, backgroundColor: 'red' }}
+                      style={{
+                        ...GlobalStyles.button,
+                        backgroundColor: ColorStyles.errorColor,
+                      }}
                       onPress={handleCancelPress}
                     >
                       <Text style={{ ...GlobalStyles.buttonText }}>

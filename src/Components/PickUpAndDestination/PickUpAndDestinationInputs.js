@@ -261,7 +261,7 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
       style={{
         flex: 1,
         top: 90,
-        backgroundColor: 'red', // ColorStyles.backgroundColor
+        backgroundColor: ColorStyles.backgroundColor,
       }}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
