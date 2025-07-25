@@ -42,6 +42,7 @@ const createColorStyles = () => {
       left: 10,
       backgroundColor: ColorStyles.whiteBGColor,
       position: 'absolute',
+      paddingLeft: 5,
     },
     inputText: {
       top: 10,
