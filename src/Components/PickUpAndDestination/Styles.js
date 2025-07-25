@@ -8,22 +8,6 @@ const styles = StyleSheet.create({
     padding: 20,
     position: 'relative',
   },
-  /* From */
-
-  // position: absolute;
-  // width: 29px;
-  // height: 16px;
-  // left: 45px;
-  // top: 13px;
-
-  // font-family: 'Manrope';
-  // font-style: normal;
-  // font-weight: 500;
-  // font-size: 12px;
-  // line-height: 16px;
-
-  // /* zinc/600 */
-  // color: #52525B;
 
   // LABEL
   label: {

@@ -3,7 +3,6 @@ import {
   ActivityIndicator,
   RefreshControl,
   ScrollView,
-  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -23,10 +22,9 @@ import getUniQueIds from '../../utils/getUniqueIds/getUniQueIds';
 import { findScreenDescription } from '../../utils/ScreenManager/ScreenList';
 import ButtonNavigateToScreens from '../../Components/Buttons/ButtonNavigateToScreens/ButtonNavigateToScreens';
 import CancelRequest from '../../Components/CancelRequest/CancelRequest';
-import { ProgressBar } from 'react-native-paper';
+import { ProgressBar, Text } from 'react-native-paper';
 import ShowShippableItems from '../../Components/ShowShippableItems/ShowShippableItems';
 import BackArrow from '../../Components/BackArrow/BackArrow';
-import ColorStyles from '../../GlobalStyles/Color.styles';
 import styles from './FindDriverScreen.style';
 /**
  * FindDriverScreen component handles the process of finding a driver for a passenger.
