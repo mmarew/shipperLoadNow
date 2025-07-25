@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
-  Text,
   View,
   ActivityIndicator,
   TouchableOpacity,
@@ -10,7 +9,6 @@ import {
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import SmsRetriever from 'react-native-sms-retriever';
 import { Alert } from 'react-native';
-import GlobalStyles from '../../../GlobalStyles/GlobalStyles';
 import { useDispatch, useSelector } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { showSuccessToast } from '../../../utils/ToastDisplayer/toastDisplayer';
@@ -21,12 +19,20 @@ import {
   requestUsingPostMethod,
 } from '../../../utils/handleRequestToServer/handleRequestToServer';
 import { addPassengersToken } from '../../../Redux/slices/PassengerSlice';
-import styles from './PassangerOTPVerification.css';
 import RNRestart from 'react-native-restart';
-import ColorStyles, { barStyles } from '../../../GlobalStyles/Color.styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import getAppsGlobalStyles from '../../../GlobalStyles/AppsGlobalStyles';
+import getAppsColorStyles, {
+  getAppsBarStyles,
+} from '../../../GlobalStyles/AppsColorStyles';
+import createStyles from './PassangerOTPVerification.css';
+import { Text } from 'react-native-paper';
 const PassangerOTPVerification = ({ navigation }) => {
+  const styles = createStyles();
+  const GlobalStyles = getAppsGlobalStyles();
+  const ColorStyles = getAppsColorStyles();
+  const barStyles = getAppsBarStyles();
   const dispatch = useDispatch();
   const newPassenger = useSelector(
     state => state.passengerSlices.registrablePassenger,
@@ -168,7 +174,9 @@ const PassangerOTPVerification = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={{ backgroundColor: ColorStyles.backgroundColor }}>
+    <SafeAreaView
+      style={{ backgroundColor: ColorStyles.backgroundColor, flex: 1 }}
+    >
       <StatusBar
         barStyle={barStyles}
         backgroundColor={ColorStyles.backgroundColor}

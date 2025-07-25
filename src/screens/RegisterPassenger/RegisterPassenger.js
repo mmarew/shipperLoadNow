@@ -8,7 +8,6 @@ import {
   RefreshControl,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
-import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import TopView from '../Auth/TopView/TopView';
 import errorHandler from '../../utils/errorHandler/errorHandler';
 import { requestUsingPostMethod } from '../../utils/handleRequestToServer/handleRequestToServer';
@@ -16,15 +15,21 @@ import { setRegistrablePassenger } from '../../Redux/slices/PassengerSlice';
 import { Text, TextInput } from 'react-native-paper';
 import styles from './Style';
 import { handlePhoneChange } from '../../utils/Formatter/Formatter';
-import ColorStyles, { barStyles } from '../../GlobalStyles/Color.styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Reload from '../../Components/Reload/Reload';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { triggerShake } from '../../utils/Animations/ShakeAnim';
 import ErrorText from '../../Components/ErrorText/ErrorText';
 import IconAwesome from '../../Components/Common/CustomFontAwesome/IconAwesome';
+import getAppsColorStyles, {
+  getAppsBarStyles,
+} from '../../GlobalStyles/AppsColorStyles';
+import getAppsGlobalStyles from '../../GlobalStyles/AppsGlobalStyles';
 
 const RegisterPassenger = ({ navigation }) => {
+  const GlobalStyles = getAppsGlobalStyles();
+  const ColorStyles = getAppsColorStyles();
+  const barStyles = getAppsBarStyles();
   const dispatch = useDispatch();
   const shakeAnim = useRef(new Animated.Value(0)).current;
 
@@ -154,7 +159,9 @@ const RegisterPassenger = ({ navigation }) => {
                 <Text
                   style={[
                     GlobalStyles.inputLable,
-                    inputsFocus.codeFocus ? { color: ColorStyles.focused } : {},
+                    inputsFocus.codeFocus
+                      ? { color: ColorStyles.textColor }
+                      : {},
                   ]}
                 >
                   code
@@ -189,15 +196,16 @@ const RegisterPassenger = ({ navigation }) => {
                   ? { borderColor: ColorStyles.focused }
                   : {},
               ]}
-              activeOutlineColor={ColorStyles.focused}
+              activeOutlineColor={ColorStyles.brandColor}
               style={{ ...styles.textInputStyle, flex: 0.99 }}
               mode="outlined"
               label={
                 <Text
                   style={[
                     GlobalStyles.inputLable,
+
                     inputsFocus.phoneFocus
-                      ? { color: ColorStyles.focused }
+                      ? { color: ColorStyles.textColor }
                       : {},
                   ]}
                 >

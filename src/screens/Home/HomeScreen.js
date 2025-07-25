@@ -23,8 +23,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import ColorStyles, { barStyles } from '../../GlobalStyles/Color.styles';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Reload from '../../Components/Reload/Reload';
-import styles from './HomeScreen.style';
+import createStyles from './HomeScreen.style';
+// import styles from './HomeScreen.style';
 const HomeScreen = ({ navigation }) => {
+  const styles = createStyles();
   const passengerSlices = useSelector(state => state?.passengerSlices);
   const passengerStatus = passengerSlices?.passengerStatus;
   const { destination, originLocation } = passengerSlices;

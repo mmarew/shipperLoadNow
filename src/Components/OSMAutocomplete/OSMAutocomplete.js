@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import {
   View,
-  Text,
   TouchableOpacity,
   ActivityIndicator,
   Keyboard,
 } from 'react-native';
 import Autocomplete from 'react-native-autocomplete-input';
-import styles from './OSMAutocomplete.style';
+// import styles from './OSMAutocomplete.style';
 import Geolocation from 'react-native-geolocation-service';
 import {
   NOMINATIM_REVERSE_URL,
@@ -15,8 +14,11 @@ import {
 } from '../Constants/constant.url';
 import errorHandler from '../../utils/errorHandler/errorHandler';
 import axios from 'axios';
-import ColorStyles from '../../GlobalStyles/Color.styles';
+// import ColorStyles from '../../GlobalStyles/Color.styles';
 import { debounce } from 'lodash';
+import createStyles from './OSMAutocomplete.style';
+import { Text } from 'react-native-paper';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
 
 const OSMAutocomplete = ({
   refProps,
@@ -27,6 +29,8 @@ const OSMAutocomplete = ({
   showCurrentLocationOption = true,
   onFocus,
 }) => {
+  const ColorStyles = getAppsColorStyles();
+  const styles = createStyles();
   const [results, setResults] = useState([]);
   const [loadingState, setLoadingState] = useState({
     search: false,

@@ -4,6 +4,7 @@ import { defaultRegion } from '../../Components/Constants/constant.utils';
 const name = 'webSocket';
 
 const initialState = {
+  isDarkMode: undefined,
   // it holds the current location of driver
   currentLocationOfDriver: undefined,
   region: defaultRegion,
@@ -71,6 +72,7 @@ const reducers = {
     'isWSConnected',
     'isHTTPConnected',
   ]),
+  updateIsDarkMode: createSimpleSetter('isDarkMode'),
   setRegion: createSimpleSetter('region'),
   updateListofJourneyStatus: createSimpleSetter('listofJourneyStatus'),
   addPassengersToken: createSimpleSetter('passengersToken'),
@@ -119,6 +121,7 @@ const reducers = {
 const webSocketSlice = createSlice({ name, initialState, reducers });
 
 export const {
+  updateIsDarkMode,
   updateCurrentLocationOfDriver,
   updateListofJourneyStatus,
   updateShipableItem,

@@ -1,10 +1,13 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import styles from './RecentSearches.styles';
 import { getRecentCompletedJourney } from '../PickUpAndDestination/recentData';
 import ColorStyles from '../../GlobalStyles/Color.styles';
 import IconAwesome from '../Common/CustomFontAwesome/IconAwesome';
+import createStyles from './RecentSearches.styles';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
 const RecentSearches = ({ onRecentSelect }) => {
+  const styles = createStyles();
+  const ColorStyles = getAppsColorStyles();
   const [recentData, setRecentData] = useState([]);
   const fetchRecentData = async () => {
     const fetchedRecentData = await getRecentCompletedJourney();

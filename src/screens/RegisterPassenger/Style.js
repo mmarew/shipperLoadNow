@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native';
-import ColorStyles from '../../GlobalStyles/Color.styles';
+// import ColorStyles from '../../GlobalStyles/Color.styles';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import fontFamily from '../../GlobalStyles/FontFamily';
-
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
+const ColorStyles = getAppsColorStyles();
 const styles = StyleSheet.create({
   bottomSection: {
     paddingHorizontal: 20,

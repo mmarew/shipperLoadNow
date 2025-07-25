@@ -20,15 +20,18 @@ import {
   addDestinationLocation,
   addOriginLocation,
 } from '../../Redux/slices/PassengerSlice';
-import styles from './Styles';
 import OSMAutocomplete from '../OSMAutocomplete/OSMAutocomplete';
-import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import RecentSearches from '../RecentSearches/RecentSearches';
 import BackArrow from '../BackArrow/BackArrow';
-import ColorStyles from '../../GlobalStyles/Color.styles';
 import IconAwesome from '../Common/CustomFontAwesome/IconAwesome';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
+import getAppsGlobalStyles from '../../GlobalStyles/AppsGlobalStyles';
+import createStyles from './Styles';
 
 const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
+  const GlobalStyles = getAppsGlobalStyles();
+  const styles = createStyles();
+  const ColorStyles = getAppsColorStyles();
   const originInputRef = useRef(null);
   const destinationInputRef = useRef(null);
   const dispatch = useDispatch();

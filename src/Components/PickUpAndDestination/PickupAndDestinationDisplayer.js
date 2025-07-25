@@ -1,9 +1,9 @@
 import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { Text } from 'react-native-paper';
-import styles from './PickupAndDestinationDisplayer.style';
-import ColorStyles from '../../GlobalStyles/Color.styles';
 import IconAwesome from '../Common/CustomFontAwesome/IconAwesome';
+import createStyles from './PickupAndDestinationDisplayer.style';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
 
 const PickupAndDestinationDisplayer = ({
   setShowComponent,
@@ -11,6 +11,8 @@ const PickupAndDestinationDisplayer = ({
   listOfJourneyPoints = [],
   disableInnerTouchables = false,
 }) => {
+  const ColorStyles = getAppsColorStyles();
+  const styles = createStyles();
   const navigateToChoosePlaces = ({ focus }) => {
     if (!showComponent) return;
     if (typeof setShowComponent === 'function') setShowComponent(showComponent);
