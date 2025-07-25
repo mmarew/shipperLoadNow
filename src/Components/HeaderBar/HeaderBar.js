@@ -1,12 +1,16 @@
 import { TouchableOpacity, View } from 'react-native';
-import styles from './HeaderBar.style';
+import createStyles from './HeaderBar.style';
 
 const HeaderBar = ({ toggleSidebar }) => {
+  const styles = createStyles();
   return (
     <View style={styles.headerContainer}>
       <TouchableOpacity
         style={styles.headerButton}
-        onPress={toggleSidebar}
+        onPress={() => {
+          console.log('@toggleSidebar');
+          toggleSidebar();
+        }}
         activeOpacity={0.7}
         accessibilityLabel="Open drawer menu"
         accessibilityRole="button"

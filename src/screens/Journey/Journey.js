@@ -38,16 +38,12 @@ const Journey = ({ navigation, setShowComponent }) => {
             passengerStatus == listofJourneyStatus?.journeyStarted) && (
             <>
               <DriverInfo navigation={navigation} />
-              <View
-              // style={{ borderWidth: 1, borderColor: ColorStyles.borderColor }}
-              >
+              <View>
                 <ShowShippableItems />
               </View>
             </>
           )}
-          <View
-          // style={{ borderWidth: 1, borderColor: ColorStyles.borderColor }}
-          >
+          <View>
             <PickupAndDestinationDisplayer
               navigateTo="Pick up and destination"
               navigation={navigation}

@@ -1,12 +1,17 @@
+// CustomScreenManager.style
 import { StyleSheet } from 'react-native';
-import ColorStyles from '../../GlobalStyles/Color.styles';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
+const createStyles = () => {
+  const ColorStyles = getAppsColorStyles();
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      height: '100%',
+      position: 'relative',
+      backgroundColor: ColorStyles.backgroundColor,
+    },
+  });
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    height: '100%',
-    position: 'relative',
-    backgroundColor: ColorStyles.backgroundColor,
-  },
-});
-export default styles;
+  return styles;
+};
+export default createStyles;

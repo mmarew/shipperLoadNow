@@ -3,7 +3,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import {
   View,
   TouchableOpacity,
-  Text,
   Animated,
   Image,
   StyleSheet,
@@ -12,15 +11,15 @@ import API_URL_AXIOS from '../../services/AxiosServices';
 import { useSelector } from 'react-redux';
 import decodeJWT from '../../utils/JWTDecoder/JWTDecoder';
 import { trimText } from '../../utils/Formatter/Formatter';
-import styles from './CustomSidebar.style';
-import ColorStyles from '../../GlobalStyles/Color.styles';
 import { setSelectedScreen } from '../../Redux/slices/PassengerSlice';
 import store from '../../Redux/Store/Store';
 import createStyles from './CustomSidebar.style';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
+import { Text } from 'react-native-paper';
 
 const CustomSidebar = ({ isOpen, onClose, children }) => {
   const translateX = useRef(new Animated.Value(-500)).current;
-
+  const styles = createStyles();
   useEffect(() => {
     Animated.timing(translateX, {
       toValue: isOpen ? 0 : -500,
@@ -52,6 +51,8 @@ const CustomsSideBarList = ({
   selectedScreen,
   sidebarItems,
 }) => {
+  const ColorStyles = getAppsColorStyles();
+
   const styles = createStyles();
   const passengersToken = useSelector(
     state => state?.passengerSlices?.passengersToken,

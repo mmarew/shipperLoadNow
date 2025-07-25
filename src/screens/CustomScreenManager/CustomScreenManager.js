@@ -8,8 +8,11 @@ import SettingsScreen from '../Settings/SettingsScreen';
 import Reload from '../../Components/Reload/Reload';
 import { useSelector } from 'react-redux';
 import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
+import styles from './CustomScreenManager.style';
+import createStyles from './CustomScreenManager.style';
 export default function CustomScreenManager({ savedProfileImage }) {
   const ColorStyles = getAppsColorStyles();
+  const styles = createStyles();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   // const [selectedScreen, setSelectedScreen] = useState('Home');
   const selectedScreen = useSelector(
@@ -25,16 +28,10 @@ export default function CustomScreenManager({ savedProfileImage }) {
     { label: 'Settings', screen: 'Settings' },
     { label: 'Reload', screen: 'Reload' },
   ];
+  console.log('@sidebarOpen', sidebarOpen);
   return (
     <>
-      <SafeAreaView
-        style={{
-          flex: 1,
-          height: '100%',
-          position: 'relative',
-          backgroundColor: ColorStyles.backgroundColor,
-        }}
-      >
+      <SafeAreaView style={styles.container}>
         <HeaderBar toggleSidebar={toggleSidebar} />
         {selectedScreen == 'Home' ? (
           <HomeScreen />
