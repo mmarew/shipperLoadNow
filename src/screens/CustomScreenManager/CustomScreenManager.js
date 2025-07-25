@@ -7,11 +7,8 @@ import TripHistory from '../JourneyHistory/JourneyHistory';
 import SettingsScreen from '../Settings/SettingsScreen';
 import Reload from '../../Components/Reload/Reload';
 import { useSelector } from 'react-redux';
-import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
-import styles from './CustomScreenManager.style';
 import createStyles from './CustomScreenManager.style';
 export default function CustomScreenManager({ savedProfileImage }) {
-  const ColorStyles = getAppsColorStyles();
   const styles = createStyles();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   // const [selectedScreen, setSelectedScreen] = useState('Home');

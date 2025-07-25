@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { View, TouchableOpacity, ScrollView } from 'react-native';
-import { Text, TextInput } from 'react-native-paper';
+import { View, TouchableOpacity, ScrollView, Pressable } from 'react-native';
+import { Button, Text, TextInput } from 'react-native-paper';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,7 +10,10 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import createColorStyles from './ShippingDetailes.style';
 import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
 import getAppsGlobalStyles from '../../GlobalStyles/AppsGlobalStyles';
+import { useTheme } from 'react-native-paper';
+
 export default function ShippingDetailes({ navigation, setShowComponent }) {
+  const theme = useTheme(); // For paper-like colors
   const GlobalStyles = getAppsGlobalStyles();
   const ColorStyles = getAppsColorStyles();
   const styles = createColorStyles();
@@ -130,99 +133,23 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
             />
           </View>
           <View style={styles.formWrapper}>
-            {/* Shipping Date */}
-            <TouchableOpacity onPress={() => handleShowDatePickers('shipping')}>
-              <TextInput
-                outlineStyle={[
-                  GlobalStyles.inputsOutlineStyle,
-                  inputsFocus.shippingDate
-                    ? { borderColor: ColorStyles.focused }
-                    : {},
+            <Pressable onPress={() => handleShowDatePickers('shipping')}>
+              <View
+                style={[
+                  styles.fakeInput,
+                  inputsFocus.shippingDate && {
+                    borderColor: ColorStyles.focused,
+                  },
                 ]}
-                activeOutlineColor={ColorStyles.brandColor}
-                label={
-                  <Text
-                    style={[
-                      GlobalStyles.inputLable,
-                      inputsFocus.shippingDate
-                        ? { color: ColorStyles.focused }
-                        : {},
-                    ]}
-                  >
-                    Shipping Date
-                  </Text>
-                }
-                onBlur={() =>
-                  setInputsFocus(prev => ({ ...prev, shippingDate: false }))
-                }
-                onFocus={() =>
-                  setInputsFocus(prev => ({ ...prev, shippingDate: true }))
-                }
-                contentStyle={GlobalStyles.inputContentstyle}
-                mode="outlined"
-                style={styles.inputStyles}
-                // label="Select Shipping Date *"
-                value={
-                  shippableItem?.shippingDate
+              >
+                <Text style={styles.label}>Shipping Date *</Text>
+                <Text style={styles.inputText}>
+                  {shippableItem?.shippingDate
                     ? new Date(shippableItem.shippingDate).toDateString()
-                    : ''
-                }
-                showSoftInputOnFocus={false}
-                editable={false}
-              />
-            </TouchableOpacity>
-            {errors.shippingDate && (
-              <Text style={{ color: ColorStyles.errorColor }}>
-                {errors.shippingDate}
-              </Text>
-            )}
-
-            {/* Destination Date */}
-            <TouchableOpacity onPress={() => handleShowDatePickers('delivery')}>
-              <TextInput
-                outlineStyle={[
-                  GlobalStyles.inputsOutlineStyle,
-                  inputsFocus.deliveryDate
-                    ? { borderColor: ColorStyles.focused }
-                    : {},
-                ]}
-                activeOutlineColor={ColorStyles.brandColor}
-                label={
-                  <Text
-                    style={[
-                      GlobalStyles.inputLable,
-                      inputsFocus.deliveryDate
-                        ? { color: ColorStyles.focused }
-                        : {},
-                    ]}
-                  >
-                    Delivery Date
-                  </Text>
-                }
-                onBlur={() =>
-                  setInputsFocus(prev => ({ ...prev, deliveryDate: false }))
-                }
-                onFocus={() =>
-                  setInputsFocus(prev => ({ ...prev, deliveryDate: true }))
-                }
-                contentStyle={GlobalStyles.inputContentstyle}
-                mode="outlined"
-                style={styles.inputStyles}
-                // label="Select Delivery Date *"
-                value={
-                  shippableItem?.deliveryDate
-                    ? new Date(shippableItem.deliveryDate).toDateString()
-                    : ''
-                }
-                showSoftInputOnFocus={false}
-                editable={false}
-              />
-            </TouchableOpacity>
-            {errors.deliveryDate && (
-              <Text style={{ color: ColorStyles.errorColor }}>
-                {errors.deliveryDate}
-              </Text>
-            )}
+                    : 'Select Date'}
+                </Text>
+              </View>
+            </Pressable>
 
             {/* DateTime Pickers */}
             {showDatePicker.shippingDate && (
@@ -233,7 +160,7 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
                     ? new Date(shippableItem.shippingDate)
                     : new Date() // Default to current date
                 }
-                display="default"
+                display="inline"
                 onChange={(event, date) => {
                   if (date) {
                     dispatch(
@@ -247,6 +174,47 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
                 }}
               />
             )}
+
+            {errors.shippingDate && (
+              <Text style={{ color: ColorStyles.errorColor }}>
+                {errors.shippingDate}
+              </Text>
+            )}
+
+            {/* Destination Date */}
+            {/* import { Pressable, View, Text, StyleSheet } from 'react-native'; */}
+
+            <Pressable onPress={() => handleShowDatePickers('delivery')}>
+              <View
+                style={[
+                  styles.fakeInput,
+                  inputsFocus.deliveryDate && {
+                    borderColor: ColorStyles.focused,
+                  },
+                ]}
+              >
+                <Text
+                  style={[
+                    styles.label,
+                    inputsFocus.deliveryDate && { color: ColorStyles.focused },
+                  ]}
+                >
+                  Delivery Date *
+                </Text>
+                <Text style={styles.inputText}>
+                  {shippableItem?.deliveryDate
+                    ? new Date(shippableItem.deliveryDate).toDateString()
+                    : 'Select Date'}
+                </Text>
+              </View>
+            </Pressable>
+
+            {errors.deliveryDate && (
+              <Text style={{ color: ColorStyles.errorColor }}>
+                {errors.deliveryDate}
+              </Text>
+            )}
+
             {showDatePicker.deliveryDate && (
               <DateTimePicker
                 mode="date"
@@ -255,7 +223,7 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
                     ? new Date(shippableItem.deliveryDate)
                     : new Date()
                 }
-                display="default"
+                display="inline"
                 onChange={(e, date) => {
                   console.log('@onChange date', date?.toISOString());
                   setShowDatePicker({

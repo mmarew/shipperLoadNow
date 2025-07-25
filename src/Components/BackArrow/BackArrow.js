@@ -2,9 +2,13 @@ BackArrow;
 import { View, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
 import styles from './BackArrow.style';
-import ColorStyles from '../../GlobalStyles/Color.styles';
+// import ColorStyles from '../../GlobalStyles/Color.styles';
 import IconAwesome from '../Common/CustomFontAwesome/IconAwesome';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
+import createStyles from './BackArrow.style';
 const BackArrow = ({ description, setShowComponent, showComponent }) => {
+  const ColorStyles = getAppsColorStyles();
+  const styles = createStyles();
   return (
     <View>
       <TouchableOpacity
