@@ -1,14 +1,14 @@
 import { View, Text, Linking, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
-import styles from './DriverInfo.style';
 import API_URL_AXIOS from '../../services/AxiosServices';
 import Ionicons from 'react-native-vector-icons/Ionicons'; // For the call icon
 import { createDateFormatter } from '../../utils/Formatter/Formatter';
 import ColorStyles from '../../GlobalStyles/Color.styles';
+import createColorStyles from './DriverInfo.style';
 
 const DiverCard = ({ driverInfo }) => {
-  //   const passengerSlices = useSelector(state => state.passengerSlices);
-  //   const driverInfo = passengerSlices?.driver;
+  const styles = createColorStyles();
+
   const driver = driverInfo?.driver;
   const createdAt = driver?.createdAt;
   const handleCall = () => {

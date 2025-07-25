@@ -16,6 +16,7 @@ import styles from './CustomSidebar.style';
 import ColorStyles from '../../GlobalStyles/Color.styles';
 import { setSelectedScreen } from '../../Redux/slices/PassengerSlice';
 import store from '../../Redux/Store/Store';
+import createStyles from './CustomSidebar.style';
 
 const CustomSidebar = ({ isOpen, onClose, children }) => {
   const translateX = useRef(new Animated.Value(-500)).current;
@@ -51,6 +52,7 @@ const CustomsSideBarList = ({
   selectedScreen,
   sidebarItems,
 }) => {
+  const styles = createStyles();
   const passengersToken = useSelector(
     state => state?.passengerSlices?.passengersToken,
   );

@@ -4,12 +4,14 @@ import PickupAndDestinationDisplayer from '../../Components/PickUpAndDestination
 import PassangerMap from '../../Components/PassangerMap/PassangerMap';
 import DriverInfo from '../../Components/DriverInfo/DriverInfo';
 import { useSelector } from 'react-redux';
-import styles from './Journey.style';
 import { Text } from 'react-native-paper';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import ShowShippableItems from '../../Components/ShowShippableItems/ShowShippableItems';
-import ColorStyles from '../../GlobalStyles/Color.styles';
+import createStyles from './Journey.style';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
 const Journey = ({ navigation, setShowComponent }) => {
+  const ColorStyles = getAppsColorStyles();
+  const styles = createStyles();
   const passengerSlices = useSelector(state => state?.passengerSlices);
   const { destination, originLocation } = passengerSlices;
   const passengerStatus = passengerSlices?.passengerStatus;

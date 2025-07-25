@@ -20,12 +20,16 @@ import WaitingForConfirmation from '../WaitingForConfirmation/WaitingForConfirma
 import Journey from '../Journey/Journey';
 import StrightLine from '../../assets/icons/StrightLine.svg';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import ColorStyles, { barStyles } from '../../GlobalStyles/Color.styles';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Reload from '../../Components/Reload/Reload';
 import createStyles from './HomeScreen.style';
+import getAppsColorStyles, {
+  getAppsBarStyles,
+} from '../../GlobalStyles/AppsColorStyles';
 // import styles from './HomeScreen.style';
 const HomeScreen = ({ navigation }) => {
+  const ColorStyles = getAppsColorStyles();
+  const barStyles = getAppsBarStyles();
   const styles = createStyles();
   const passengerSlices = useSelector(state => state?.passengerSlices);
   const passengerStatus = passengerSlices?.passengerStatus;
@@ -157,7 +161,9 @@ const HomeScreen = ({ navigation }) => {
     );
   } else if (passengerStatus == listofJourneyStatus?.acceptedByDriver) {
     return (
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView
+        style={{ flex: 1, backgroundColor: ColorStyles.backgroundColor }}
+      >
         {/* <HeaderBar navigation={navigation} /> */}
         <StatusBar
           barStyle={barStyles}

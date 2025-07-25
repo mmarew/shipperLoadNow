@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Linking, Text, TouchableOpacity, View } from 'react-native';
-import styles from './DriverInfo.style';
+import { Linking, ouchableOpacity, View } from 'react-native';
 import { useSelector } from 'react-redux';
-import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import store from '../../Redux/Store/Store';
 import { setModalVisible } from '../../Redux/slices/PassengerSlice';
 import getDistanceAndETA from '../../utils/GetDistanceAndETA/getDistanceAndETA';
 import DiverCard from './DiverCard';
-import ColorStyles from '../../GlobalStyles/Color.styles';
+import getAppsGlobalStyles from '../../GlobalStyles/AppsGlobalStyles';
+import createStyles from './DriverInfo.style';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
+import { Text } from 'react-native-paper';
 const DriverInfo = ({}) => {
+  const ColorStyles = getAppsColorStyles();
+  const GlobalStyles = getAppsGlobalStyles();
+  const styles = createStyles();
   const passengerSlices = useSelector(state => state.passengerSlices);
   const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
   const passengerStatus = passengerSlices?.passengerStatus;

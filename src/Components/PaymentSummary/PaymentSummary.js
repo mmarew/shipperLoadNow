@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
 
-import styles from './PaymentSummary.style';
-import ColorStyles from '../../GlobalStyles/Color.styles';
 import store from '../../Redux/Store/Store';
 import { setSelectedScreen } from '../../Redux/slices/PassengerSlice';
 import verifyPassengerStatus from '../../utils/VerifyPassengerStatus/VerifyPassengerStatus';
-import { ActivityIndicator } from 'react-native-paper';
+import { ActivityIndicator, Text } from 'react-native-paper';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
+import createStyles from './PaymentSummary.style';
 
 const PaymentSummary = () => {
+  const styles = createStyles();
+  const ColorStyles = getAppsColorStyles();
   const passengerSlices = useSelector(state => state.passengerSlices);
   const driver = passengerSlices?.driver;
   const vehicleOfDriver = driver?.vehicle;

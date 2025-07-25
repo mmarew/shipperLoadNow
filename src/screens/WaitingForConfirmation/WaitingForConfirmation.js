@@ -2,7 +2,6 @@ import { TouchableOpacity, View } from 'react-native';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ActivityIndicator, Text } from 'react-native-paper';
-import { ScrollView } from 'react-native-gesture-handler';
 import DiverCard from '../../Components/DriverInfo/DiverCard';
 import { requestUsingPutMethod } from '../../utils/handleRequestToServer/handleRequestToServer';
 import API_URLS from '../../Configs/URLConfigs';
@@ -50,64 +49,62 @@ const WaitingForConfirmation = () => {
     }
   };
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        {drivers?.map((driver, index) => {
-          const eachDriver = driver.driver;
-          if (eachDriver?.driverRequestId) {
-            const driverDecision = findDecisionOfDriver(
-              eachDriver?.driverRequestId,
-            );
-            const shippingCostByDriver = driverDecision?.shippingCostByDriver;
-            return (
-              <View
-                key={index}
-                style={{
-                  backgroundColor: ColorStyles.whiteBGColor,
-                  paddingHorizontal: 10,
-                  borderRadius: 20,
-                }}
-              >
-                <DiverCard driverInfo={driver} />
-                {shippingCostByDriver && (
-                  <Text style={styles.shipingCost}>
-                    Driver cost :
-                    {new Intl.NumberFormat('en-ET', {
-                      style: 'currency',
-                      currency: 'ETB',
-                    }).format(shippingCostByDriver)}
-                  </Text>
-                )}
-                {isLoading ? (
-                  <ActivityIndicator />
-                ) : (
-                  <View
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      gap: 10,
-                      padding: 20,
-                    }}
+    <View style={styles.container}>
+      {drivers?.map((driver, index) => {
+        const eachDriver = driver.driver;
+        if (eachDriver?.driverRequestId) {
+          const driverDecision = findDecisionOfDriver(
+            eachDriver?.driverRequestId,
+          );
+          const shippingCostByDriver = driverDecision?.shippingCostByDriver;
+          return (
+            <View
+              key={index}
+              style={{
+                backgroundColor: ColorStyles.whiteBGColor,
+                paddingHorizontal: 10,
+                borderRadius: 20,
+              }}
+            >
+              <DiverCard driverInfo={driver} />
+              {shippingCostByDriver && (
+                <Text style={styles.shipingCost}>
+                  Driver cost :
+                  {new Intl.NumberFormat('en-ET', {
+                    style: 'currency',
+                    currency: 'ETB',
+                  }).format(shippingCostByDriver)}
+                </Text>
+              )}
+              {isLoading ? (
+                <ActivityIndicator />
+              ) : (
+                <View
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    gap: 10,
+                    padding: 20,
+                  }}
+                >
+                  <TouchableOpacity
+                    onPress={() =>
+                      acceptDriverRequest({
+                        driverInfo: driver,
+                        driverDecision,
+                      })
+                    }
+                    style={{ ...GlobalStyles.button }}
                   >
-                    <TouchableOpacity
-                      onPress={() =>
-                        acceptDriverRequest({
-                          driverInfo: driver,
-                          driverDecision,
-                        })
-                      }
-                      style={{ ...GlobalStyles.button }}
-                    >
-                      <Text style={{ ...GlobalStyles.buttonText }}>Accept</Text>
-                    </TouchableOpacity>
-                  </View>
-                )}
-              </View>
-            );
-          }
-        })}
-      </View>
-    </ScrollView>
+                    <Text style={{ ...GlobalStyles.buttonText }}>Accept</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+            </View>
+          );
+        }
+      })}
+    </View>
   );
 };
 
