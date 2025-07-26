@@ -23,13 +23,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Reload from '../../Components/Reload/Reload';
 import createStyles from './HomeScreen.style';
-import getAppsColorStyles, {
-  getAppsBarStyles,
-} from '../../GlobalStyles/AppsColorStyles';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
 // import styles from './HomeScreen.style';
 const HomeScreen = ({ navigation }) => {
   const ColorStyles = getAppsColorStyles();
-  const barStyles = getAppsBarStyles();
   const styles = createStyles();
   const passengerSlices = useSelector(state => state?.passengerSlices);
   const passengerStatus = passengerSlices?.passengerStatus;
@@ -52,10 +49,7 @@ const HomeScreen = ({ navigation }) => {
       return (
         <SafeAreaView style={{ flex: 1 }}>
           {/* <HeaderBar navigation={navigation} /> */}
-          <StatusBar
-            barStyle={barStyles}
-            backgroundColor={ColorStyles.backgroundColor}
-          />
+
           <SelectListOfVechels
             navigation={navigation}
             setShowComponent={setShowComponent}
@@ -77,11 +71,6 @@ const HomeScreen = ({ navigation }) => {
             backgroundColor: ColorStyles.backgroundColor,
           }}
         >
-          <StatusBar
-            barStyle={barStyles}
-            backgroundColor={ColorStyles.backgroundColor}
-          />
-
           <PassangerMap navigation={navigation} mapHeight={0.8} />
           <ScrollView
             style={{ position: 'absolute', bottom: 0, width: '100%' }}
@@ -130,10 +119,7 @@ const HomeScreen = ({ navigation }) => {
       return (
         <SafeAreaView style={{ flex: 1 }}>
           {/* <HeaderBar navigation={navigation} /> */}
-          <StatusBar
-            barStyle={barStyles}
-            backgroundColor={ColorStyles.backgroundColor}
-          />
+
           <CancelRequestModal
             setShowComponent={setShowComponent}
             navigation={navigation}
@@ -148,10 +134,6 @@ const HomeScreen = ({ navigation }) => {
           enableOnAndroid={true}
           style={GlobalStyles.container}
         >
-          <StatusBar
-            barStyle={barStyles}
-            backgroundColor={ColorStyles.backgroundColor}
-          />
           <FindDriverScreen
             setShowComponent={setShowComponent}
             navigation={navigation}
@@ -165,10 +147,7 @@ const HomeScreen = ({ navigation }) => {
         style={{ flex: 1, backgroundColor: ColorStyles.backgroundColor }}
       >
         {/* <HeaderBar navigation={navigation} /> */}
-        <StatusBar
-          barStyle={barStyles}
-          backgroundColor={ColorStyles.backgroundColor}
-        />
+
         <KeyboardAwareScrollView
           extraScrollHeight={150}
           enableOnAndroid={true}
@@ -189,10 +168,7 @@ const HomeScreen = ({ navigation }) => {
       return (
         <SafeAreaView style={{ flex: 1 }}>
           {/* <HeaderBar navigation={navigation} /> */}
-          <StatusBar
-            barStyle={barStyles}
-            backgroundColor={ColorStyles.backgroundColor}
-          />
+
           <CancelRequestModal
             setShowComponent={setShowComponent}
             navigation={navigation}
@@ -213,11 +189,6 @@ const HomeScreen = ({ navigation }) => {
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
         >
-          <StatusBar
-            barStyle={barStyles}
-            backgroundColor={ColorStyles.backgroundColor}
-          />
-
           <Journey
             setShowComponent={setShowComponent}
             navigation={navigation}

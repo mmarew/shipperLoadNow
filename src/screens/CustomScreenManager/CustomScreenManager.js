@@ -8,6 +8,10 @@ import SettingsScreen from '../Settings/SettingsScreen';
 import Reload from '../../Components/Reload/Reload';
 import { useSelector } from 'react-redux';
 import createStyles from './CustomScreenManager.style';
+import { StatusBar } from 'react-native';
+import getAppsColorStyles, {
+  getAppsBarStyles,
+} from '../../GlobalStyles/AppsColorStyles';
 export default function CustomScreenManager({ savedProfileImage }) {
   const styles = createStyles();
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -26,9 +30,15 @@ export default function CustomScreenManager({ savedProfileImage }) {
     { label: 'Reload', screen: 'Reload' },
   ];
   console.log('@sidebarOpen', sidebarOpen);
+  const barStyle = getAppsBarStyles();
   return (
     <>
       <SafeAreaView style={styles.container}>
+        <StatusBar
+          networkActivityIndicatorVisible
+          barStyle={barStyle}
+          backgroundColor={barStyle == 'light-content' ? 'black' : 'white'}
+        />
         <HeaderBar toggleSidebar={toggleSidebar} />
         {selectedScreen == 'Home' ? (
           <HomeScreen />
