@@ -13,10 +13,12 @@ const createStyles = () => {
     },
     bottomContainer: {
       padding: 20,
+
       borderTopLeftRadius: 25,
       borderTopRightRadius: 25,
       // paddingBottom: 40,
       backgroundColor: ColorStyles.backgroundColor,
+      height: 280,
     },
 
     infoContainer: {
@@ -30,10 +32,10 @@ const createStyles = () => {
       marginTop: 50,
     },
     strightLineWrapper: {
-      flex: 1,
+      // flex: 1,
       alignItems: 'center',
-      paddingBottom: 20,
-      paddingTop: 10,
+      // paddingBottom: 20,
+      paddingTop: 20,
     },
   });
   return styles;

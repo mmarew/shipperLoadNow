@@ -73,7 +73,13 @@ const HomeScreen = ({ navigation }) => {
         >
           <PassangerMap navigation={navigation} mapHeight={0.8} />
           <ScrollView
-            style={{ position: 'absolute', bottom: 0, width: '100%' }}
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              width: '100%',
+              // paddingTop: 70,
+              backgroundColor: 'transparent',
+            }}
             refreshControl={
               <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
             }
