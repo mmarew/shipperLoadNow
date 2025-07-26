@@ -155,8 +155,17 @@ import store from '../../Redux/Store/Store';
 import { updateIsDarkMode } from '../../Redux/slices/PassengerSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from 'react-redux';
+import ProfileScreen from '../ProfileScreen/ProfileScreen';
+import BackArrow from '../../Components/BackArrow/BackArrow';
+import TripHistory from '../../Components/TripHistory/TripHistory';
+import JourneyCompleted from '../JourneyHistory/JourneyHistory';
+import ShipperHelpCenter from '../../Components/ShipperHelpCenter/ShipperHelpCenter';
+import PrivacyPolicyScreen from '../../Components/PrivacyPolicyScreen/PrivacyPolicyScreen';
+import InviteFriendsScreen from '../../Components/InviteFriendsScreen/InviteFriendsScreen';
 
 const SettingsScreen = () => {
+  const [visibleDetail, setVisibleDetail] = useState(null);
+  console.log('@visibleDetail', visibleDetail);
   const [darkMode, setDarkMode] = useState(true);
   const [pushNotification, setPushNotification] = useState(true);
   const ColorStyles = getAppsColorStyles();
@@ -192,70 +201,116 @@ const SettingsScreen = () => {
     <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
       <Text style={styles.title}>Settings</Text>
 
-      {/* Account Section */}
-      <View style={styles.card}>
-        <Text style={styles.sectionTitle}>Account</Text>
-        <SectionItem icon="user" label="My Profile" />
-        <SectionItem icon="history" label="Trip History" />
-        <SectionItem icon="map-marker-alt" label="Favorite Locations" />
-      </View>
-
-      {/* Theme Section */}
-      <View style={styles.card}>
-        <Text style={styles.sectionTitle}>Theme</Text>
-        <View style={styles.item}>
-          <View style={styles.iconLabel}>
-            <Icon name="moon" size={20} color={ColorStyles.darkGray} />
-            <Text style={styles.label}>Dark Mode</Text>
+      {!visibleDetail ? (
+        <>
+          {/* Account Section */}
+          <View style={styles.card}>
+            <Text style={styles.sectionTitle}>Account</Text>
+            <SectionItem
+              onPress={() => setVisibleDetail('profile')}
+              icon="user"
+              label="My Profile"
+            />
+            <SectionItem
+              onPress={() => setVisibleDetail('Trip History')}
+              icon="history"
+              label="Trip History"
+            />
+            {/* <SectionItem icon="map-marker-alt" label="Favorite Locations" /> */}
           </View>
-          <Switch
-            value={isDarkMode === 'true' ? true : false}
-            onValueChange={() => {
-              handleDarkModeToggle(darkMode);
-            }}
-            thumbColor={
-              darkMode ? ColorStyles.brandColor : ColorStyles.whiteColor
-            }
-            trackColor={{
-              false: ColorStyles.whiteBGColor,
-              true: ColorStyles.mediumSkyBlue,
-            }}
-          />
-        </View>
-        <View style={styles.item}>
-          <View style={styles.iconLabel}>
-            <Icon name="bell" size={20} color={ColorStyles.darkGray} />
-            <Text style={styles.label}>Push Notification</Text>
+
+          {/* Theme Section */}
+          <View style={styles.card}>
+            <Text style={styles.sectionTitle}>Theme</Text>
+            <View style={styles.item}>
+              <View style={styles.iconLabel}>
+                <Icon name="sun-o" size={20} color={ColorStyles.darkGray} />
+                <Text style={styles.label}>Dark Mode</Text>
+              </View>
+              <Switch
+                value={isDarkMode === 'true' ? true : false}
+                onValueChange={() => {
+                  handleDarkModeToggle(darkMode);
+                }}
+                thumbColor={
+                  darkMode ? ColorStyles.brandColor : ColorStyles.whiteColor
+                }
+                trackColor={{
+                  false: ColorStyles.whiteBGColor,
+                  true: ColorStyles.mediumSkyBlue,
+                }}
+              />
+            </View>
+            <View style={styles.item}>
+              <View style={styles.iconLabel}>
+                <Icon name="bell" size={20} color={ColorStyles.darkGray} />
+                <Text style={styles.label}>Push Notification</Text>
+              </View>
+              <Switch
+                value={pushNotification}
+                onValueChange={() => setPushNotification(!pushNotification)}
+                thumbColor={ColorStyles.brandColor}
+                trackColor={{
+                  false: ColorStyles.whiteBGColor,
+                  true: ColorStyles.mediumSkyBlue,
+                }}
+              />
+            </View>
           </View>
-          <Switch
-            value={pushNotification}
-            onValueChange={() => setPushNotification(!pushNotification)}
-            thumbColor={ColorStyles.brandColor}
-            trackColor={{
-              false: ColorStyles.whiteBGColor,
-              true: ColorStyles.mediumSkyBlue,
-            }}
+
+          {/* Other Section */}
+          <View style={styles.card}>
+            <Text style={styles.sectionTitle}>Other</Text>
+            <SectionItem
+              onPress={() => setVisibleDetail('Help Center')}
+              icon="life-ring"
+              label="Help Center"
+            />
+            <SectionItem
+              onPress={() => {
+                setVisibleDetail('Privacy Policy');
+              }}
+              icon="lock"
+              label="Privacy Policy"
+            />
+            <SectionItem
+              onPress={() => setVisibleDetail('Invite Friends')}
+              icon="share-alt"
+              label="Invite Friends"
+            />
+          </View>
+
+          {/* Buttons */}
+          <TouchableOpacity style={styles.logoutButton}>
+            <Text style={styles.logoutText}>Logout</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.deleteButton}>
+            <Text style={styles.deleteText}>Delete Account</Text>
+          </TouchableOpacity>
+        </>
+      ) : (
+        <>
+          <BackArrow
+            setShowComponent={setVisibleDetail}
+            showComponent={null}
+            description={'Back'}
           />
-        </View>
-      </View>
-
-      {/* Other Section */}
-      <View style={styles.card}>
-        <Text style={styles.sectionTitle}>Other</Text>
-        <SectionItem icon="life-ring" label="Help Center" />
-        <SectionItem icon="shield-alt" label="Privacy Policy" />
-        <SectionItem icon="share-alt" label="Invite Friends" />
-      </View>
-
-      {/* Buttons */}
-      <TouchableOpacity style={styles.logoutButton}>
-        <Text style={styles.logoutText}>Logout</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.deleteButton}>
-        <Text style={styles.deleteText}>Delete Account</Text>
-      </TouchableOpacity>
-
+          {visibleDetail == 'profile' ? (
+            <ProfileScreen />
+          ) : visibleDetail == 'Trip History' ? (
+            <JourneyCompleted setVisibleDetail={setVisibleDetail} />
+          ) : visibleDetail == 'Help Center' ? (
+            <ShipperHelpCenter />
+          ) : visibleDetail == 'Privacy Policy' ? (
+            <PrivacyPolicyScreen />
+          ) : visibleDetail == 'Invite Friends' ? (
+            <InviteFriendsScreen />
+          ) : (
+            <Text>wrong views</Text>
+          )}
+        </>
+      )}
       <Text style={styles.footer}>
         X Shipment tracking 2024 all rights reserved
       </Text>
