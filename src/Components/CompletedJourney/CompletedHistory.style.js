@@ -20,10 +20,14 @@ const createStyles = () => {
       marginRight: 20,
     },
     checkboxContainer: {
+      width: 40,
+      height: 40,
       backgroundColor: ColorStyles.whiteColor,
       borderRadius: 4,
       padding: 0,
       alignSelf: 'flex-start',
+      borderWidth: 4,
+      borderColor: ColorStyles.borderColor,
     },
     checkboxLabel: {
       color: ColorStyles.textColor,
