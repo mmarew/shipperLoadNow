@@ -147,12 +147,17 @@ import {
   TouchableOpacity,
   Switch,
   ScrollView,
+  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
 import fontFamily from '../../GlobalStyles/FontFamily';
 import store from '../../Redux/Store/Store';
-import { updateIsDarkMode } from '../../Redux/slices/PassengerSlice';
+import {
+  addPassengerStatus,
+  addPassengersToken,
+  updateIsDarkMode,
+} from '../../Redux/slices/PassengerSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from 'react-redux';
 import ProfileScreen from '../ProfileScreen/ProfileScreen';
@@ -171,6 +176,49 @@ const SettingsScreen = () => {
   const ColorStyles = getAppsColorStyles();
   const styles = createStyles();
   const dispatch = useDispatch();
+
+  const clearAsyncStorage = async () => {
+    try {
+      await AsyncStorage.removeItem('passengersToken');
+      dispatch(addPassengersToken(null));
+      // You might also want to reset other related state
+      dispatch(addPassengerStatus(undefined));
+
+      // Optional: Clear all storage if needed
+      // await AsyncStorage.clear();
+
+      // Navigate to the initial screen after clearing
+    } catch (error) {
+      console.error('Failed to clear AsyncStorage:', error);
+      // Handle error appropriately
+    }
+  };
+
+  const handleLogout = () => {
+    Alert.alert(
+      'Logout',
+      'Are you sure you want to logout?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'Logout',
+          style: 'destructive',
+          onPress: async () => {
+            try {
+              clearAsyncStorage(); // Optionally navigate to login or splash screen
+              // navigation.replace('Login');
+            } catch (e) {
+              // handle error if needed
+            }
+          },
+        },
+      ],
+      { cancelable: true },
+    );
+  };
 
   const passengerSlices = useSelector(state => state?.passengerSlices);
   console.log('@passengerSlices', passengerSlices);
@@ -281,7 +329,7 @@ const SettingsScreen = () => {
           </View>
 
           {/* Buttons */}
-          <TouchableOpacity style={styles.logoutButton}>
+          <TouchableOpacity onPress={handleLogout} style={styles.logoutButton}>
             <Text style={styles.logoutText}>Logout</Text>
           </TouchableOpacity>
 
