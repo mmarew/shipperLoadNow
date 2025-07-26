@@ -6,7 +6,7 @@ const lightTimeColors = {
     whiteBGColor: '#fff',
     autocompleteFocused: '#F0F9FF',
     focused: '#075985', //'#F8A67A',
-
+    darkGray: '#2E2E2E80',
     brandColor: '#075985',
     inputLablesColor: '#52525B',
     errorColor: '#FF3B30',
@@ -14,6 +14,7 @@ const lightTimeColors = {
     borderColor: '#D4D4D8',
     textColor: '#27272A',
     lightSkyBlue: '#E0F2FE',
+    mediumSkyBlue: '#E0F2FE',
     shadowColor: '#000',
     veryLightGray: '#f0f0f0',
     mediumGray: '#71717A',
@@ -21,8 +22,10 @@ const lightTimeColors = {
     inputBackgroundColor: '#fff',
   },
   darkTimeColors = {
+    mediumSkyBlue: '#E0F2FE',
     inputLablesColor: '#fff',
     autocompleteFocused: '#0F0600',
+    darkGray: '#D1D1D180',
 
     inputBackgroundColor: '#3D3D3D',
     backgroundColor: '#262626',
@@ -48,8 +51,8 @@ const checkIfAppIsDarkMode = () => {
   const isDarkMode = state?.passengerSlices?.isDarkMode;
   const colorScheme = Appearance.getColorScheme();
 
-  return true;
-  //   return isDarkMode || colorScheme === 'dark';
+  // return true;
+  return isDarkMode === 'true' || colorScheme === 'dark';
 };
 
 // export const barStyles =

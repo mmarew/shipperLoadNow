@@ -39,6 +39,7 @@ import {
   addSelectedVechelesType,
   updateConnectionStatus,
   updateCurrentLocationOfDriver,
+  updateIsDarkMode,
   updateListofJourneyStatus,
 } from '../Redux/slices/PassengerSlice';
 
@@ -102,6 +103,21 @@ const AppNavigator = () => {
       setIsLoading(false);
     }
   };
+
+  const getCurrentDarkMode = async () => {
+    const previousDarkMode = await AsyncStorage.getItem('isDarkMode');
+    console.log('@handleDarkModeToggle previousDarkMode', previousDarkMode);
+    let newDarkMode = 'true';
+    if (previousDarkMode === 'false') {
+      newDarkMode = 'false';
+    }
+    dispatch(updateIsDarkMode(newDarkMode));
+
+    return newDarkMode;
+  };
+  useEffect(() => {
+    getCurrentDarkMode();
+  }, []);
 
   const testToken = async () => {
     const token = await AsyncStorage.getItem('passengersToken');
