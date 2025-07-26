@@ -423,6 +423,8 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
   const ColorStyles = getAppsColorStyles();
   const styles = createColorStyles();
   const dispatch = useDispatch();
+
+  const [allFieldsAreFullFieled, setAllFieldsAreFullFieled] = useState(false);
   const { shippableItem } = useSelector(state => state.passengerSlices);
 
   const [showDatePicker, setShowDatePicker] = useState({
@@ -466,45 +468,46 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
 
   const validateInputs = () => {
     let valid = true;
-    const name = shippableItem?.shippableItemName?.trim();
-    const qty = shippableItem?.shippableItemQtyInQuintal;
-    const cost = shippableItem?.shippingCost;
-    const shipDate = shippableItem?.shippingDate
+    const shippableItemName = shippableItem?.shippableItemName?.trim();
+    const shippableItemQtyInQuintal = shippableItem?.shippableItemQtyInQuintal;
+    const shippingCost = shippableItem?.shippingCost;
+    const shippingDate = shippableItem?.shippingDate
       ? new Date(shippableItem.shippingDate)
       : null;
-    const destDate = shippableItem?.deliveryDate
+    const deliveryDate = shippableItem?.deliveryDate
       ? new Date(shippableItem.deliveryDate)
       : null;
 
     const newErrors = {
-      itemName: '',
-      quantity: '',
+      shippableItemName: '',
+
+      shippableItemQtyInQuintal: '',
       shippingCost: '',
       shippingDate: '',
       deliveryDate: '',
     };
 
-    if (!shipDate || isNaN(shipDate)) {
+    if (!shippingDate || isNaN(shippingDate)) {
       newErrors.shippingDate = 'Shipping date is required.';
       valid = false;
     }
 
-    if (!destDate || isNaN(destDate)) {
+    if (!deliveryDate || isNaN(deliveryDate)) {
       newErrors.deliveryDate = 'Destination date is required.';
       valid = false;
     }
 
-    if (!name) {
-      newErrors.itemName = 'Item name is required.';
+    if (!shippableItemName) {
+      newErrors.shippableItemName = 'Item name is required.';
       valid = false;
     }
 
-    if (!qty || isNaN(qty)) {
-      newErrors.quantity = 'Valid quantity is required.';
+    if (!shippableItemQtyInQuintal || isNaN(shippableItemQtyInQuintal)) {
+      newErrors.shippableItemQtyInQuintal = 'Valid quantity is required.';
       valid = false;
     }
 
-    if (cost === '' || isNaN(cost)) {
+    if (shippingCost === '' || isNaN(shippingCost)) {
       newErrors.shippingCost = 'Shipping cost is required.';
       valid = false;
     }
@@ -520,7 +523,10 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
       setErrors(prev => ({ ...prev, [`${type}Date`]: '' }));
     }
   };
-
+  const handleValidationAndGoToNext = () => {
+    const valid = validateInputs();
+    if (valid) setShowComponent('List Of Vehicles');
+  };
   return (
     <KeyboardAwareScrollView
       extraScrollHeight={150}
@@ -571,22 +577,6 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
                 </Pressable>
 
                 {showDatePicker[`${type}Date`] && (
-                  // <DateTimePicker
-                  //   themeVariant="light"
-                  //   textColor={ColorStyles.textColor}
-                  //   style={{
-                  //     backgroundColor: ColorStyles.whiteBGColor,
-                  //     // color: ColorStyles.textColor,
-                  //   }}
-                  //   mode="date"
-                  //   value={
-                  //     shippableItem?.[`${type}Date`]
-                  //       ? new Date(shippableItem[`${type}Date`])
-                  //       : new Date()
-                  //   }
-                  //   display="inline"
-                  //   onChange={(event, date) => handleDateChange(type, date)}
-                  // />
                   <DateTimePicker
                     themeVariant={colorScheme} // 'light' or 'dark'
                     textColor={ColorStyles.textColor} // iOS only
@@ -616,8 +606,12 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
             ))}
 
             {[
-              { key: 'itemName', label: 'Items Name *' },
-              { key: 'quantity', label: 'Quantity', keyboardType: 'numeric' },
+              { key: 'shippableItemName', label: 'Items Name *' },
+              {
+                key: 'shippableItemQtyInQuintal',
+                label: 'Quantity',
+                keyboardType: 'numeric',
+              },
               {
                 key: 'shippingCost',
                 label: 'Shipping Cost',
@@ -670,20 +664,12 @@ export default function ShippingDetailes({ navigation, setShowComponent }) {
               </React.Fragment>
             ))}
 
-            {shippableItem?.shippableItemName &&
-              shippableItem?.shippableItemQtyInQuintal &&
-              shippableItem?.shippingCost &&
-              shippableItem?.shippingDate &&
-              shippableItem?.deliveryDate && (
-                <TouchableOpacity
-                  onPress={() => setShowComponent('List Of Vehicles')}
-                  style={GlobalStyles.button}
-                >
-                  <Text style={GlobalStyles.buttonText}>
-                    Select Vehicle Types
-                  </Text>
-                </TouchableOpacity>
-              )}
+            <TouchableOpacity
+              onPress={handleValidationAndGoToNext}
+              style={GlobalStyles.button}
+            >
+              <Text style={GlobalStyles.buttonText}>Select Vehicle Types</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
