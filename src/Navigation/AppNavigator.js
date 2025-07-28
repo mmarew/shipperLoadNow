@@ -108,7 +108,8 @@ const AppNavigator = () => {
     const previousDarkMode = await AsyncStorage.getItem('isDarkMode');
     console.log('@handleDarkModeToggle previousDarkMode', previousDarkMode);
     let newDarkMode = 'true';
-    if (previousDarkMode === 'false') {
+    console.log('@previousDarkMode', previousDarkMode);
+    if (previousDarkMode === 'false' || !previousDarkMode) {
       newDarkMode = 'false';
     }
     dispatch(updateIsDarkMode(newDarkMode));

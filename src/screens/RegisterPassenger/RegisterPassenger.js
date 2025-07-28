@@ -13,7 +13,6 @@ import errorHandler from '../../utils/errorHandler/errorHandler';
 import { requestUsingPostMethod } from '../../utils/handleRequestToServer/handleRequestToServer';
 import { setRegistrablePassenger } from '../../Redux/slices/PassengerSlice';
 import { Text, TextInput } from 'react-native-paper';
-import styles from './Style';
 import { handlePhoneChange } from '../../utils/Formatter/Formatter';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Reload from '../../Components/Reload/Reload';
@@ -25,8 +24,10 @@ import getAppsColorStyles, {
   getAppsBarStyles,
 } from '../../GlobalStyles/AppsColorStyles';
 import getAppsGlobalStyles from '../../GlobalStyles/AppsGlobalStyles';
+import createStyles from './Style';
 
 const RegisterPassenger = ({ navigation }) => {
+  const styles = createStyles();
   const GlobalStyles = getAppsGlobalStyles();
   const ColorStyles = getAppsColorStyles();
   const barStyles = getAppsBarStyles();
@@ -145,8 +146,14 @@ const RegisterPassenger = ({ navigation }) => {
           description="Enter your phone number to activate the app"
         />
 
-        <View style={styles.bottomSection}>
-          <View style={{ display: 'flex', flexDirection: 'row', gap: 10 }}>
+        <View style={[styles.bottomSection]}>
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              gap: 10,
+            }}
+          >
             <TextInput
               outlineStyle={[
                 GlobalStyles.inputsOutlineStyle,
