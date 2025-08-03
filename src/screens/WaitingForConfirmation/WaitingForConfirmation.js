@@ -64,17 +64,24 @@ const WaitingForConfirmation = () => {
                 backgroundColor: ColorStyles.whiteBGColor,
                 paddingHorizontal: 10,
                 borderRadius: 20,
+                marginBottom: 10,
               }}
             >
               <DiverCard driverInfo={driver} />
+              <Text style={styles.shipingCost}>
+                Located @ {driver?.driver?.originPlace}
+              </Text>
               {shippingCostByDriver && (
-                <Text style={styles.shipingCost}>
-                  Driver cost :
-                  {new Intl.NumberFormat('en-ET', {
-                    style: 'currency',
-                    currency: 'ETB',
-                  }).format(shippingCostByDriver)}
-                </Text>
+                <>
+                  <Text style={styles.shipingCost}>
+                    Driver cost :
+                    {new Intl.NumberFormat('en-ET', {
+                      style: 'currency',
+                      currency: 'ETB',
+                    }).format(shippingCostByDriver)}
+                  </Text>
+                  {console.log('driver?.driver?', driver?.driver)}
+                </>
               )}
               {isLoading ? (
                 <ActivityIndicator />

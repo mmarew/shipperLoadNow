@@ -14,6 +14,7 @@ import {
 } from '../../Redux/slices/PassengerSlice';
 import store from '../../Redux/Store/Store';
 import errorHandler from '../errorHandler/errorHandler';
+import verifyPassengerStatus from '../VerifyPassengerStatus/VerifyPassengerStatus';
 
 const setPassengersLocation = passenger => {
   const destinationLatitude = passenger?.destinationLatitude,
@@ -111,6 +112,9 @@ const HandleResponses = response => {
       store.dispatch(addJourney(journey));
       store.dispatch(addDestinationLocation(null));
       store.dispatch(setSelectedScreen('Trip History'));
+    } else if (journeyStatusId == listofJourneyStatus?.cancelledByDriver) {
+      // if one driver may cancel it other one may accept it
+      return verifyPassengerStatus();
     }
     // console.log('passenger', passenger);
     store.dispatch(addPassengerStatus(journeyStatusId));
