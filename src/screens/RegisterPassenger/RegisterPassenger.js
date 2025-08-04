@@ -239,7 +239,7 @@ const RegisterPassenger = ({ navigation }) => {
           <View style={GlobalStyles.checkboxContainer}>
             <TouchableOpacity
               style={{
-                borderWidth: 2,
+                // borderWidth: 2,
                 borderColor: termsAccepted
                   ? ColorStyles.focused
                   : ColorStyles.borderColor,

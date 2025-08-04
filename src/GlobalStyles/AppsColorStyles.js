@@ -57,7 +57,7 @@ const checkIfAppIsDarkMode = () => {
 
 // export const barStyles =
 export const getAppsBarStyles = () => {
-  checkIfAppIsDarkMode() ? 'light-content' : 'dark-content';
+  return checkIfAppIsDarkMode() ? 'light-content' : 'dark-content';
 };
 const getAppsColorStyles = () => {
   const colorStyles = checkIfAppIsDarkMode() ? darkTimeColors : lightTimeColors;

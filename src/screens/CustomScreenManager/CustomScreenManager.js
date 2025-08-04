@@ -31,6 +31,7 @@ export default function CustomScreenManager({ savedProfileImage }) {
   ];
   console.log('@sidebarOpen', sidebarOpen);
   const barStyle = getAppsBarStyles();
+  console.log('@barStyle', barStyle);
   return (
     <>
       <SafeAreaView style={styles.container}>

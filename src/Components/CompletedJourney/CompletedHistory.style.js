@@ -24,11 +24,8 @@ const createStyles = () => {
       height: 40,
       padding: 0,
       margin: 0,
-      backgroundColor: ColorStyles.whiteColor,
       borderRadius: 4,
       alignSelf: 'flex-start',
-      borderWidth: 4,
-      borderColor: ColorStyles.borderColor,
     },
     checkboxLabel: {
       color: ColorStyles.textColor,

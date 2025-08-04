@@ -376,7 +376,11 @@ const ProfileScreen = ({ setVisibleDetail }) => {
               contentStyle={GlobalStyles.inputContentstyle}
               mode="outlined"
               style={styles.input}
-              value={userDetails?.email}
+              value={
+                userDetails?.email?.startsWith('fakeEmail_')
+                  ? ''
+                  : userDetails?.email
+              }
               onChangeText={value =>
                 setUserDetails(prev => ({
                   ...prev,
