@@ -238,28 +238,36 @@ const RegisterPassenger = ({ navigation }) => {
           {/* Terms Checkbox */}
           <View style={GlobalStyles.checkboxContainer}>
             <TouchableOpacity
-              style={{
-                // borderWidth: 2,
-                borderColor: termsAccepted
-                  ? ColorStyles.focused
-                  : ColorStyles.borderColor,
-              }}
+              style={{ display: 'flex', flexDirection: 'row', gap: 10 }}
               onPress={() => setTermsAccepted(!termsAccepted)}
             >
-              <IconAwesome
-                color={
-                  termsAccepted ? ColorStyles.focused : ColorStyles.whiteColor
-                }
-                size={20}
-                name={termsAccepted ? 'check-square' : 'square'}
-                checked={termsAccepted}
-                // label="I agree to the terms"
-              />
+              <View
+                style={{
+                  width: 30,
+                  height: 30,
+                  borderWidth: 2,
+                  borderColor: termsAccepted
+                    ? ColorStyles.backgroundColor
+                    : ColorStyles.borderColor,
+                  borderRadius: 6, // optional
+                  backgroundColor: termsAccepted
+                    ? ColorStyles.backgroundColor
+                    : ColorStyles.whiteBGColor,
+                }}
+              >
+                <IconAwesome
+                  color={
+                    termsAccepted ? ColorStyles.focused : ColorStyles.whiteColor
+                  }
+                  size={30}
+                  name={termsAccepted ? 'check-square' : 'square'}
+                />
+              </View>
             </TouchableOpacity>
             <Text style={styles.termsText}>
               By tapping Sign Up, you have read and agree to the {''}
               <Text
-                onPress={() => navigation.navigate(' Terms And Services')}
+                onPress={() => navigation.navigate('Terms And Services')}
                 style={GlobalStyles.textLink}
               >
                 Terms and Services
