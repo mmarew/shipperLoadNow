@@ -1,0 +1,118 @@
+import { TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { ActivityIndicator, Text } from 'react-native-paper';
+import DiverCard from '../../Components/DriverInfo/DiverCard';
+import { requestUsingPutMethod } from '../../utils/handleRequestToServer/handleRequestToServer';
+import API_URLS from '../../Configs/URLConfigs';
+import HandleResponses from '../../utils/handleServerResponses/HandleResponses';
+import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
+import getAppsGlobalStyles from '../../GlobalStyles/AppsGlobalStyles';
+import createStyles from './WaitingForConfirmation.style';
+
+const WaitingForConfirmation = () => {
+  const styles = createStyles();
+  const GlobalStyles = getAppsGlobalStyles();
+  const ColorStyles = getAppsColorStyles();
+  const passengerSlices = useSelector(state => state?.passengerSlices);
+  const [isLoading, setIsLoading] = useState(false);
+  const drivers = passengerSlices?.driver,
+    passenger = passengerSlices?.passenger,
+    decisions = passengerSlices?.decision;
+  console.log('@WaitingForConfirmation drivers', drivers);
+  const findDecisionOfDriver = driverRequestId => {
+    return decisions?.find(
+      decision => decision?.driverRequestId == driverRequestId,
+    );
+  };
+  const acceptDriverRequest = async ({ driverInfo, driverDecision }) => {
+    try {
+      const driverRequestUniqueId = driverInfo?.driver?.driverRequestUniqueId;
+      const journeyDecisionUniqueId = driverDecision?.journeyDecisionUniqueId;
+      const passengerRequestUniqueId = passenger?.passengerRequestUniqueId;
+      const data = {
+        driverRequestUniqueId,
+        journeyDecisionUniqueId,
+        passengerRequestUniqueId,
+      };
+      setIsLoading(true);
+      const result = await requestUsingPutMethod({
+        url: API_URLS.ACCEPT_PASSENGERS_REQUEST,
+        data,
+      });
+      setIsLoading(false);
+      console.log('@acceptDriverRequest result', result);
+      HandleResponses(result);
+    } catch (error) {
+      console.log('@acceptDriverRequest error', error);
+      setIsLoading(false);
+    }
+  };
+  return (
+    <View style={styles.container}>
+      {drivers?.map((driver, index) => {
+        const eachDriver = driver.driver;
+        if (eachDriver?.driverRequestId) {
+          const driverDecision = findDecisionOfDriver(
+            eachDriver?.driverRequestId,
+          );
+          const shippingCostByDriver = driverDecision?.shippingCostByDriver;
+          return (
+            <View
+              key={index}
+              style={{
+                backgroundColor: ColorStyles.whiteBGColor,
+                paddingHorizontal: 10,
+                borderRadius: 20,
+                marginBottom: 10,
+              }}
+            >
+              <DiverCard driverInfo={driver} />
+              <Text style={styles.shipingCost}>
+                Located @ {driver?.driver?.originPlace}
+              </Text>
+              {shippingCostByDriver && (
+                <>
+                  <Text style={styles.shipingCost}>
+                    Driver cost :
+                    {new Intl.NumberFormat('en-ET', {
+                      style: 'currency',
+                      currency: 'ETB',
+                    }).format(shippingCostByDriver)}
+                  </Text>
+                  {console.log('driver?.driver?', driver?.driver)}
+                </>
+              )}
+              {isLoading ? (
+                <ActivityIndicator />
+              ) : (
+                <View
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    gap: 10,
+                    padding: 20,
+                  }}
+                >
+                  <TouchableOpacity
+                    onPress={() =>
+                      acceptDriverRequest({
+                        driverInfo: driver,
+                        driverDecision,
+                      })
+                    }
+                    style={{ ...GlobalStyles.button }}
+                  >
+                    <Text style={{ ...GlobalStyles.buttonText }}>Accept</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+            </View>
+          );
+        }
+      })}
+    </View>
+  );
+};
+
+export default WaitingForConfirmation;
