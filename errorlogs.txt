@@ -1,0 +1,828 @@
+06-24 11:20:23.520 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.520 21037 21076 E Finsky  : [85] AU2: RequiredBatteryLevel is missing.
+06-24 11:20:23.520 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.521 21037 21076 E Finsky  : [85] AU2: RequiredBatteryLevel is missing.
+06-24 11:20:23.521 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.522 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.522 21037 21076 E Finsky  : [85] AU2: RequiredBatteryLevel is missing.
+06-24 11:20:23.523 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.523 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.523 21037 21076 E Finsky  : [85] AU2: RequiredBatteryLevel is missing.
+06-24 11:20:23.523 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.523 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.523 21037 21076 E Finsky  : [85] AU2: RequiredBatteryLevel is missing.
+06-24 11:20:23.523 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.523 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.523 21037 21076 E Finsky  : [85] AU2: RequiredBatteryLevel is missing.
+06-24 11:20:23.523 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.523 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.523 21037 21076 E Finsky  : [85] AU2: RequiredBatteryLevel is missing.
+06-24 11:20:23.524 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.524 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.524 21037 21076 E Finsky  : [85] AU2: RequiredBatteryLevel is missing.
+06-24 11:20:23.525 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.525 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.525 21037 21076 E Finsky  : [85] AU2: RequiredBatteryLevel is missing.
+06-24 11:20:23.525 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.525 21037 21076 E Finsky  : [85] AU2: RequiredBatteryLevel is missing.
+06-24 11:20:23.526 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.526 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.526 21037 21076 E Finsky  : [85] AU2: RequiredBatteryLevel is missing.
+06-24 11:20:23.526 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.526 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.526 21037 21076 E Finsky  : [85] AU2: RequiredBatteryLevel is missing.
+06-24 11:20:23.526 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.527 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.527 21037 21076 E Finsky  : [85] AU2: RequiredBatteryLevel is missing.
+06-24 11:20:23.527 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.527 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.527 21037 21076 E Finsky  : [85] AU2: RequiredBatteryLevel is missing.
+06-24 11:20:23.527 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.527 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:23.527 21037 21076 E Finsky  : [85] AU2: RequiredBatteryLevel is missing.
+06-24 11:20:23.528 21037 21076 E Finsky  : [85] AU2: RequiredVehicleState is missing.
+06-24 11:20:24.237   568   924 E system_server: No package ID 7f found for resource ID 0x7f08048b.
+06-24 11:20:24.237   568   924 E system_server: No package ID 7f found for resource ID 0x7f140ab9.
+06-24 11:20:24.241  1130  1130 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+06-24 11:20:24.242   568  1075 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+06-24 11:20:24.243  1130  1130 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+06-24 11:20:24.255   568  1075 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+06-24 11:20:24.257   568  1075 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+06-24 11:20:27.235 21037 21075 E Finsky  : [84] [Counters] attempted to use a non-positive increment for: 3703
+06-24 11:20:31.840 21417 21417 E d.configupdater: Not starting debugger since process cannot load the jdwp agent.
+06-24 11:21:30.007 21037 21075 E Finsky  : [84] [Counters] attempted to use a non-positive increment for: 4752
+06-24 11:21:30.023 21037 21075 E Finsky  : [84] [Counters] attempted to use a non-positive increment for: 4753
+06-24 11:21:30.531 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.musicfx
+06-24 11:21:30.532 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_6
+06-24 11:21:30.532 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.location.fused
+06-24 11:21:30.532 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.stk
+06-24 11:21:30.532 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.internal.display.cutout.emulation.tall
+06-24 11:21:30.532 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.cts.priv.ctsshim
+06-24 11:21:30.532 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.overlay.googleconfig
+06-24 11:21:30.532 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.backupconfirm
+06-24 11:21:30.533 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.hardware.neuralnetworks
+06-24 11:21:30.533 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.partnersetup
+06-24 11:21:30.533 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_8_pro
+06-24 11:21:30.533 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.sdksandbox
+06-24 11:21:30.533 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.google.android.cellbroadcastreceiver
+06-24 11:21:30.533 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.vending
+06-24 11:21:30.533 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.bookmarkprovider
+06-24 11:21:30.533 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.google.android.connectivity.resources
+06-24 11:21:30.533 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.phone
+06-24 11:21:30.533 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.providers.telephony.auto_generated_characteristics_rro
+06-24 11:21:30.533 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.keychain
+06-24 11:21:30.533 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.localtransport
+06-24 11:21:30.533 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_3
+06-24 11:21:30.533 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.health.connect.backuprestore
+06-24 11:21:30.533 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.healthconnect.controller
+06-24 11:21:30.533 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_3a_xl
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.ext.shared
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_9_pro_xl
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.DeviceAsWebcam
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_fold
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_4_xl
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.widevine.nonupdatable
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.internal.systemui.navbar.twobutton
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.feedback
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.systemui.accessibility.accessibilitymenu
+06-24 11:21:30.534 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.google.android.uwb.resources
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.shipperloadnow
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.bluetoothmidiservice
+06-24 11:21:30.534 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item android.auto_generated_rro_product__
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.phone.auto_generated_rro_product__
+06-24 11:21:30.534 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.hotspot2.osulogin
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.managedprovisioning
+06-24 11:21:30.534 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.providers.contacts
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.soundpicker
+06-24 11:21:30.534 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_fold
+06-24 11:21:30.534 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.providers.telephony
+06-24 11:21:30.534 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.apps.wallpaper.nexus
+06-24 11:21:30.534 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.externalstorage
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_9
+06-24 11:21:30.534 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_6_pro
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.settings.auto_generated_rro_product__
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.imsserviceentitlement
+06-24 11:21:30.534 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.apex.cts.shim
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.settings.intelligence
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_4
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.internal.display.cutout.emulation.hole
+06-24 11:21:30.534 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.providers.blockednumber
+06-24 11:21:30.535 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.internal.systemui.navbar.gestural
+06-24 11:21:30.535 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.google.android.safetycenter.resources
+06-24 11:21:30.535 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.providers.calendar
+06-24 11:21:30.536 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.pacprocessor
+06-24 11:21:30.536 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.apps.customization.pixel
+06-24 11:21:30.536 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_8
+06-24 11:21:30.536 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.google.android.networkstack.tethering.emulator
+06-24 11:21:30.536 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.overlay.largescreenconfig
+06-24 11:21:30.536 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.mms.service
+06-24 11:21:30.537 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.wallpaper
+06-24 11:21:30.537 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.emulator.multidisplay
+06-24 11:21:30.537 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.carrierconfig
+06-24 11:21:30.537 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.providers.contactkeys
+06-24 11:21:30.537 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.bips.auto_generated_rro_product__
+06-24 11:21:30.537 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.bluetooth
+06-24 11:21:30.537 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.google.android.configupdater
+06-24 11:21:30.537 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.internal.ranchu.commonoverlay
+06-24 11:21:30.537 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.providers.contacts.auto_generated_rro_product__
+06-24 11:21:30.537 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.hardware.cas
+06-24 11:21:30.537 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.wallpaperbackup
+06-24 11:21:30.537 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.nfcservices
+06-24 11:21:30.537 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.providers.downloads
+06-24 11:21:30.537 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.traceur
+06-24 11:21:30.537 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_7_pro
+06-24 11:21:30.537 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.ons
+06-24 11:21:30.537 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.internal.display.cutout.emulation.corner
+06-24 11:21:30.537 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.overlay.largescreensettingsprovider
+06-24 11:21:30.537 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_4a
+06-24 11:21:30.537 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_4_xl
+06-24 11:21:30.537 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.printservice.recommendation
+06-24 11:21:30.537 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.appsearch.apk
+06-24 11:21:30.537 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_3a
+06-24 11:21:30.538 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.virt
+06-24 11:21:30.538 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.ondevicepersonalization.services
+06-24 11:21:30.538 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.simappdialog
+06-24 11:21:30.538 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.devicediagnostics
+06-24 11:21:30.538 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.companiondevicemanager
+06-24 11:21:30.538 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_5
+06-24 11:21:30.538 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_7_pro
+06-24 11:21:30.538 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.role.notes.enabled
+06-24 11:21:30.538 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.driverloadnow
+06-24 11:21:30.538 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.emergency
+06-24 11:21:30.538 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.google.android.marvin.talkbackoverlay
+06-24 11:21:30.539 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.intentresolver
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.internal.display.cutout.emulation.waterfall
+06-24 11:21:30.539 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.managedprovisioning.auto_generated_rro_product__
+06-24 11:21:30.539 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_7a
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.providers.settings
+06-24 11:21:30.539 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.systemui.auto_generated_rro_vendor__
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_8
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.overlay.googlewebview
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.internal.systemui.navbar.transparent
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.bips
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.providers.media
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.virtualmachine.res
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.apps.nexuslauncher
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.packageinstaller
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.providers.settings.auto_generated_rro_product__
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.carrierdefaultapp
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.calllogbackup
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.markup
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.emulator.radio.config
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item android.auto_generated_characteristics_rro
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.devicelockcontroller
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_7
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.cameraextensions
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.printspooler
+06-24 11:21:30.539 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.proxyhandler
+06-24 11:21:30.540 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.google.android.rkpdapp
+06-24 11:21:30.540 21037 21064 E Finsky  : [73] ItemStore: getItems RPC failed for item com.android.dynsystem
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.devicediagnostics.auto_generated_rro_product__
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.internal.display.cutout.emulation.double
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.storagemanager
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_9
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.server.deviceconfig.resources
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_9_pro
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_9_pro_fold
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.camera2
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.mtp
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_9_pro_xl
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.internal.display.cutout.emulation.emu01
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.providers.telephony.auto_generated_rro_product__
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.carrierconfig.auto_generated_rro_product__
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.profiling
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.carrierconfig.auto_generated_rro_vendor__
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.traceur.auto_generated_rro_product__
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.gsf
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_3_xl
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.htmlviewer
+06-24 11:21:30.540 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.settings
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.certinstaller
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.dreams.basic
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.internal.systemui.navbar.threebutton
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.providers.media.module
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_5
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.overlay.permissioncontroller
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.connectivity.resources.goldfish.overlay
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.odad
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.devicelock
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.theme.font.notoserifsource
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_9_pro_fold
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.overlay.pixelconfigcommon
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.onetimeinitializer
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.cellbroadcastservice
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_4
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.companiondevicemanager.auto_generated_characteristics_rro
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.adservices.api
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.phone.auto_generated_characteristics_rro
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.soundpicker
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.phone.auto_generated_rro_vendor__
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_6a
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.server.telecom.auto_generated_rro_product__
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.runtime
+06-24 11:21:30.541 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.bluetooth
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_8a
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.providers.partnerbookmarks
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_3a
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.systemui.auto_generated_rro_product__
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_3_xl
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.hardware.authsecret
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.simappdialog.auto_generated_rro_product__
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_3a_xl
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.cts.ctsshim
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item android
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item android.auto_generated_rro_vendor__
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_9_pro
+06-24 11:21:30.542 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.android.cellbroadcastreceiver
+06-24 11:21:30.542 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.android.systemui.plugin.globalactions.wallet
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.googlesdksetup
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.wallpapercropper
+06-24 11:21:30.542 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.google.android.wifi.dialog
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_8a
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_8_pro
+06-24 11:21:30.542 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.android.hardware.rebootescrow
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.providers.downloads.ui
+06-24 11:21:30.542 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.android.wallpaper.livepicker
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.systemui
+06-24 11:21:30.542 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_6_pro
+06-24 11:21:30.543 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.android.shell
+06-24 11:21:30.543 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_4a
+06-24 11:21:30.543 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.google.android.federatedcompute
+06-24 11:21:30.543 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_6
+06-24 11:21:30.543 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.android.sharedstoragebackup
+06-24 11:21:30.543 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.systemui.accessibility.accessibilitymenu.auto_generated_rro_product__
+06-24 11:21:30.543 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.android.se
+06-24 11:21:30.543 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.wifi.resources
+06-24 11:21:30.543 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.android.inputdevices
+06-24 11:21:30.543 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.storagemanager.auto_generated_rro_product__
+06-24 11:21:30.543 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.avatarpicker
+06-24 11:21:30.543 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_2_xl
+06-24 11:21:30.543 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.android.providers.userdictionary
+06-24 11:21:30.543 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_7a
+06-24 11:21:30.543 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.tag
+06-24 11:21:30.543 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_3
+06-24 11:21:30.543 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.server.telecom
+06-24 11:21:30.543 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.i18n
+06-24 11:21:30.543 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.android.internal.emulation.pixel_7
+06-24 11:21:30.543 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.credentialmanager
+06-24 11:21:30.543 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.android.nfc
+06-24 11:21:30.543 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.android.egg
+06-24 11:21:30.543 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.google.android.networkstack.tethering
+06-24 11:21:30.543 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.google.android.telephony.satellite
+06-24 11:21:30.543 21037 21075 E Finsky  : [84] ItemStore: getItems RPC failed for item com.android.systemui.emulation.pixel_6a
+06-24 11:21:30.544 21037 21069 E Finsky  : [78] ItemStore: getItems RPC failed for item com.android.vpndialogs
+06-24 11:26:05.662   568  1984 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+06-24 11:26:05.679   568   584 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+06-24 11:28:35.623 20908 20934 E MDD     : GddFileGroupPopulator: GDD Sync failed for corpus: GDD_AGSA_APA_TCLIB_PERSON_NAME, configuration: GddAgsaApaTclibPersonName
+06-24 11:28:35.623 20908 20934 E MDD     : com.google.android.libraries.mdi.download.aj: refresh failed [GDD_FAIL_IN_SYNC_RUNNER_PUBLIC]
+06-24 11:28:35.623 20908 20934 E MDD     :      at com.google.android.libraries.mdi.download.ah.a(PG:28)
+06-24 11:28:35.623 20908 20934 E MDD     :      at com.google.android.libraries.mdi.download.h.b.y.apply(PG:32)
+06-24 11:28:35.623 20908 20934 E MDD     :      at com.google.apps.tiktok.tracing.fe.apply(PG:13)
+06-24 11:28:35.623 20908 20934 E MDD     :      at com.google.common.util.concurrent.a.e(PG:3)
+06-24 11:28:35.623 20908 20934 E MDD     :      at com.google.common.util.concurrent.c.run(PG:130)
+06-24 11:28:35.623 20908 20934 E MDD     :      at com.google.android.libraries.k.x.run(PG:3)
+06-24 11:28:35.623 20908 20934 E MDD     :      at com.google.common.n.c.c.run(PG:50)
+06-24 11:28:35.623 20908 20934 E MDD     :      at com.google.android.libraries.k.e.run(PG:8)
+06-24 11:28:35.623 20908 20934 E MDD     :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:28:35.623 20908 20934 E MDD     :      at com.google.android.libraries.k.d.b.run(PG:74)
+06-24 11:28:35.623 20908 20934 E MDD     : Caused by: com.google.android.libraries.geller.h.bl: Geller batch sync rpc call failed
+06-24 11:28:35.623 20908 20934 E MDD     :      at com.google.android.libraries.geller.h.bk.b(PG:30)
+06-24 11:28:35.623 20908 20934 E MDD     :      at com.google.android.libraries.geller.h.bc.apply(PG:53)
+06-24 11:28:35.623 20908 20934 E MDD     :      at com.google.apps.tiktok.tracing.fi.apply(PG:13)
+06-24 11:28:35.623 20908 20934 E MDD     :      at com.google.common.util.concurrent.b.e(PG:3)
+06-24 11:28:35.623 20908 20934 E MDD     :      ... 6 more
+06-24 11:28:35.623 20908 20934 E MDD     : Caused by: io.grpc.fl: DEADLINE_EXCEEDED: CallOptions deadline exceeded after 59.656678792s. Name resolution delay 0.342302000 seconds. [closed=[], open=[[buffered_nanos=636387021596, waiting_for_connection]]]
+06-24 11:28:35.623 20908 20934 E MDD     :      at io.grpc.i.m.a(PG:42)
+06-24 11:28:35.623 20908 20934 E MDD     :      at io.grpc.e.bv.run(PG:9)
+06-24 11:28:35.623 20908 20934 E MDD     :      at io.grpc.e.bx.e(PG:14)
+06-24 11:28:35.623 20908 20934 E MDD     :      at io.grpc.e.bx.a(PG:6)
+06-24 11:28:35.623 20908 20934 E MDD     :      at io.grpc.e.am.a(PG:32)
+06-24 11:28:35.623 20908 20934 E MDD     :      at io.grpc.e.bh.run(PG:7)
+06-24 11:28:35.623 20908 20934 E MDD     :      at io.grpc.e.lb.run(PG:17)
+06-24 11:28:35.623 20908 20934 E MDD     :      at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+06-24 11:28:35.623 20908 20934 E MDD     :      at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+06-24 11:28:35.623 20908 20934 E MDD     :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:28:35.628 20908 20934 E A       : (REDACTED) %s
+06-24 11:28:35.628 20908 20934 E A       : com.google.android.libraries.mdi.download.aj: refresh failed [GDD_FAIL_IN_SYNC_RUNNER_PUBLIC]
+06-24 11:28:35.628 20908 20934 E A       :      at com.google.android.libraries.mdi.download.ah.a(PG:28)
+06-24 11:28:35.628 20908 20934 E A       :      at com.google.android.libraries.mdi.download.h.b.y.apply(PG:32)
+06-24 11:28:35.628 20908 20934 E A       :      at com.google.apps.tiktok.tracing.fe.apply(PG:13)
+06-24 11:28:35.628 20908 20934 E A       :      at com.google.common.util.concurrent.a.e(PG:3)
+06-24 11:28:35.628 20908 20934 E A       :      at com.google.common.util.concurrent.c.run(PG:130)
+06-24 11:28:35.628 20908 20934 E A       :      at com.google.android.libraries.k.x.run(PG:3)
+06-24 11:28:35.628 20908 20934 E A       :      at com.google.common.n.c.c.run(PG:50)
+06-24 11:28:35.628 20908 20934 E A       :      at com.google.android.libraries.k.e.run(PG:8)
+06-24 11:28:35.628 20908 20934 E A       :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:28:35.628 20908 20934 E A       :      at com.google.android.libraries.k.d.b.run(PG:74)
+06-24 11:28:35.628 20908 20934 E A       : Caused by: com.google.android.libraries.geller.h.bl: Geller batch sync rpc call failed
+06-24 11:28:35.628 20908 20934 E A       :      at com.google.android.libraries.geller.h.bk.b(PG:30)
+06-24 11:28:35.628 20908 20934 E A       :      at com.google.android.libraries.geller.h.bc.apply(PG:53)
+06-24 11:28:35.628 20908 20934 E A       :      at com.google.apps.tiktok.tracing.fi.apply(PG:13)
+06-24 11:28:35.628 20908 20934 E A       :      at com.google.common.util.concurrent.b.e(PG:3)
+06-24 11:28:35.628 20908 20934 E A       :      ... 6 more
+06-24 11:28:35.628 20908 20934 E A       : Caused by: io.grpc.fl: DEADLINE_EXCEEDED: CallOptions deadline exceeded after 59.656678792s. Name resolution delay 0.342302000 seconds. [closed=[], open=[[buffered_nanos=636387021596, waiting_for_connection]]]
+06-24 11:28:35.628 20908 20934 E A       :      at io.grpc.i.m.a(PG:42)
+06-24 11:28:35.628 20908 20934 E A       :      at io.grpc.e.bv.run(PG:9)
+06-24 11:28:35.628 20908 20934 E A       :      at io.grpc.e.bx.e(PG:14)
+06-24 11:28:35.628 20908 20934 E A       :      at io.grpc.e.bx.a(PG:6)
+06-24 11:28:35.628 20908 20934 E A       :      at io.grpc.e.am.a(PG:32)
+06-24 11:28:35.628 20908 20934 E A       :      at io.grpc.e.bh.run(PG:7)
+06-24 11:28:35.628 20908 20934 E A       :      at io.grpc.e.lb.run(PG:17)
+06-24 11:28:35.628 20908 20934 E A       :      at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+06-24 11:28:35.628 20908 20934 E A       :      at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+06-24 11:28:35.628 20908 20934 E A       :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:28:35.634 20908 20929 E SingleDataFileGroupPop: Failed to add file group 
+06-24 11:28:35.635 20908 20929 E PhFileGroupPop: Failed to add file group 
+06-24 11:28:35.635 20908 20929 E PhFileGroupPop: Failed to add file group 
+06-24 11:28:35.636 20908 20929 E PhFileGroupPop: Failed to add file group 
+06-24 11:28:35.636 20908 20929 E PhFileGroupPop: Failed to add file group 
+06-24 11:28:35.636 20908 20929 E PhFileGroupPop: Failed to add file group 
+06-24 11:28:35.637 20908 20929 E PhFileGroupPop: Failed to add file group 
+06-24 11:28:35.637 20908 20929 E PhFileGroupPop: Failed to add file group 
+06-24 11:28:35.637 20908 20929 E PhFileGroupPop: Failed to add file group 
+06-24 11:28:35.643 20908 20929 E PhFileGroupPop: Failed to add file group 
+06-24 11:28:35.651 20908 20929 E SingleDataFileGroupPop: Failed to add file group 
+06-24 11:28:35.664 20908 20932 E PhFileGroupPop: Failed to add file group 
+06-24 11:28:35.697 20908 20931 E A       : (REDACTED) %s
+06-24 11:28:35.697 20908 20931 E A       : com.google.android.libraries.mdi.download.aj: Nothing to download for file group: nga_sot_configs
+06-24 11:28:35.697 20908 20931 E A       :      at com.google.android.libraries.mdi.download.ah.a(PG:28)
+06-24 11:28:35.697 20908 20931 E A       :      at com.google.android.libraries.mdi.download.fm.apply(PG:51)
+06-24 11:28:35.697 20908 20931 E A       :      at com.google.apps.tiktok.tracing.fe.apply(PG:13)
+06-24 11:28:35.697 20908 20931 E A       :      at com.google.common.util.concurrent.h.e(PG:3)
+06-24 11:28:35.697 20908 20931 E A       :      at com.google.common.util.concurrent.j.run(PG:42)
+06-24 11:28:35.697 20908 20931 E A       :      at com.google.common.util.concurrent.dm.run(PG:76)
+06-24 11:28:35.697 20908 20931 E A       :      at com.google.android.libraries.k.x.run(PG:3)
+06-24 11:28:35.697 20908 20931 E A       :      at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+06-24 11:28:35.697 20908 20931 E A       :      at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+06-24 11:28:35.697 20908 20931 E A       :      at com.google.android.libraries.k.b.run(PG:6)
+06-24 11:28:35.697 20908 20931 E A       :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:28:35.697 20908 20931 E A       :      at com.google.android.libraries.k.d.b.run(PG:74)
+06-24 11:37:25.691   568   872 E WifiStaIfaceAidlImpl: stopRssiMonitoring failed with service-specific exception: android.os.ServiceSpecificException:  (code 5)
+06-24 11:37:25.692   568   872 E WifiStaIfaceAidlImpl: setRoamingState failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+06-24 11:37:25.708   568   872 E WifiScoringParams: Invalid frequency(-1), using 5G as default rssi array
+06-24 11:37:25.714   568   584 E WifiService: Attempt to retrieve passpoint with invalid scanResult List
+06-24 11:37:25.717   568   872 E WifiStaIfaceAidlImpl: setDtimMultiplier failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket: Error occurred, shutting down websocket connection: Websocket exception
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket: java.net.SocketException: Software caused connection abort
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at java.net.SocketInputStream.socketRead0(Native Method)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at java.net.SocketInputStream.socketRead(SocketInputStream.java:118)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at java.net.SocketInputStream.read(SocketInputStream.java:173)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at java.net.SocketInputStream.read(SocketInputStream.java:143)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at okio.InputStreamSource.read(JvmOkio.kt:91)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at okio.AsyncTimeout$source$1.read(AsyncTimeout.kt:129)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at okio.RealBufferedSource.request(RealBufferedSource.kt:206)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at okio.RealBufferedSource.require(RealBufferedSource.kt:199)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at okio.RealBufferedSource.readByte(RealBufferedSource.kt:209)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at okhttp3.internal.ws.WebSocketReader.readHeader(WebSocketReader.kt:119)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at okhttp3.internal.ws.WebSocketReader.processNextFrame(WebSocketReader.kt:102)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at okhttp3.internal.ws.RealWebSocket.loopReader(RealWebSocket.kt:293)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at okhttp3.internal.ws.RealWebSocket$connect$1.onResponse(RealWebSocket.kt:195)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+06-24 11:37:25.749 19081 19108 E unknown:ReconnectingWebSocket:         at java.lang.Thread.run(Thread.java:1012)
+06-24 11:37:25.763   568   872 E WifiChipAidlImpl: getUsableChannels failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+06-24 11:37:26.294 21719 21719 E gs.intelligence: Not starting debugger since process cannot load the jdwp agent.
+06-24 11:37:26.421  6717 21724 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
+06-24 11:37:29.644   568   872 E WifiStaIfaceAidlImpl: setDtimMultiplier failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+06-24 11:37:29.644   359   423 E Netd    : no such netId 105
+06-24 11:37:29.654   359   423 E Netd    : no such netId 105
+06-24 11:37:29.655   568   879 E ConnectivityService: Exception in addRoute for non-gateway: android.os.ServiceSpecificException: Machine is not on the network (code 64)
+06-24 11:37:29.655   359   423 E Netd    : no such netId 105
+06-24 11:37:29.655   568   879 E ConnectivityService: Exception in addRoute for gateway: android.os.ServiceSpecificException: Machine is not on the network (code 64)
+06-24 11:37:29.664   568   872 E WifiStaIfaceAidlImpl: setRoamingMode failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+06-24 11:37:29.664   568   872 E WifiRoamingModeManager: Failed to set roaming mode due to unknown error.
+06-24 11:37:29.666   568  1059 E WifiService: Attempt to retrieve passpoint with invalid scanResult List
+06-24 11:37:29.691   359   408 E NetlinkEvent: NetlinkEvent::FindParam(): Parameter 'INTERFACE' not found
+06-24 11:37:29.691   359   408 E NetlinkEvent: NetlinkEvent::FindParam(): Parameter 'STATE' not found
+06-24 11:37:29.691   359   408 E NetlinkEvent: NetlinkEvent::FindParam(): Parameter 'TIME_NS' not found
+06-24 11:37:29.691   359   408 E NetlinkEvent: NetlinkEvent::FindParam(): Parameter 'UID' not found
+06-24 11:37:29.691   568   872 E WifiStaIfaceAidlImpl: stopRssiMonitoring failed with service-specific exception: android.os.ServiceSpecificException:  (code 5)
+06-24 11:37:29.697   568   872 E WifiChipAidlImpl: getUsableChannels failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+06-24 11:37:30.411   568   872 E WifiStaIfaceAidlImpl: setDtimMultiplier failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+06-24 11:37:30.412   359   359 E netd    : Error adding route ::/0 -> fe80::2 wlan0 to table 1016: File exists
+06-24 11:37:30.869  6717 21750 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket: Error occurred, shutting down websocket connection: Websocket exception
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket: java.net.SocketException: Software caused connection abort
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at java.net.SocketInputStream.socketRead0(Native Method)
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at java.net.SocketInputStream.socketRead(SocketInputStream.java:118)
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at java.net.SocketInputStream.read(SocketInputStream.java:173)
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at java.net.SocketInputStream.read(SocketInputStream.java:143)
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at okio.InputStreamSource.read(JvmOkio.kt:91)
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at okio.AsyncTimeout$source$1.read(AsyncTimeout.kt:129)
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at okio.RealBufferedSource.request(RealBufferedSource.kt:206)
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at okio.RealBufferedSource.require(RealBufferedSource.kt:199)
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at okio.RealBufferedSource.readByte(RealBufferedSource.kt:209)
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at okhttp3.internal.ws.WebSocketReader.readHeader(WebSocketReader.kt:119)
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at okhttp3.internal.ws.WebSocketReader.processNextFrame(WebSocketReader.kt:102)
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at okhttp3.internal.ws.RealWebSocket.loopReader(RealWebSocket.kt:293)
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at okhttp3.internal.ws.RealWebSocket$connect$1.onResponse(RealWebSocket.kt:195)
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+06-24 11:38:00.231 19081 19108 E unknown:ReconnectingWebSocket:         at java.lang.Thread.run(Thread.java:1012)
+06-24 11:48:46.910 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:46.922 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930366, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.922 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930370, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.923 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930374, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.924 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930378, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.924 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930382, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.925 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930386, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.925 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930390, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.927 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930399, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.929 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930408, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.929 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930412, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.930 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930416, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.930 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930420, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.930 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930424, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.935 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930449, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.936 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930454, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.937 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930458, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.937 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930462, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.938 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930466, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.938 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930470, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.938 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930474, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.939 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930478, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.939 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930482, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.939 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930486, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.939 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930490, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.939 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930494, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.942 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930509, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.942 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930513, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.943 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930517, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.943 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930521, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.944 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930525, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.944 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930529, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.949 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930575, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.950 21888 21888 E IPCThreadState: Binder transaction failure. id: 3930579, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:46.951 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:46.958 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:46.959 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:46.962 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:46.969 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:46.971 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:46.972 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:46.975 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:46.976 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:46.982 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:46.989 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.004 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.005 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.015 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.023 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.041 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.048 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.058 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.061 21888 21888 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.075 21888 21888 E IPCThreadState: Binder transaction failure. id: 3931686, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.097 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.107 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931794, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.107 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931798, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.107 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931802, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.107 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931806, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.108 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931810, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.108 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931814, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.108 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931818, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.109 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931827, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.109 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931836, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.109 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931840, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.109 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931844, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.110 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931848, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.110 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931852, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.113 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931876, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.113 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931880, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.113 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931884, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.114 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931888, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.114 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931892, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.114 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931896, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.114 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931900, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.114 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931904, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.115 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931908, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.115 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931912, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.115 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931916, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.116 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931920, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.118 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931936, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.118 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931940, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.119 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931945, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.120 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931949, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.120 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931953, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.121 21890 21890 E IPCThreadState: Binder transaction failure. id: 3931957, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.125 21890 21890 E IPCThreadState: Binder transaction failure. id: 3932003, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.126 21890 21890 E IPCThreadState: Binder transaction failure. id: 3932007, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:47.126 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.134 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.136 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.138 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.145 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.147 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.147 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.150 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.151 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.156 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.161 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.173 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.174 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.184 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.190 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.207 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.214 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.225 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.228 21890 21890 E Parcel  : Reading a NULL string not supported here.
+06-24 11:48:47.242 21890 21890 E IPCThreadState: Binder transaction failure. id: 3933112, BR_*: 29201, error: -1 (Operation not permitted)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry: No service published for: persistent_data_block
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: persistent_data_block
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at android.app.SystemServiceRegistry$81.createService(SystemServiceRegistry.java:1071)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at android.app.SystemServiceRegistry$81.createService(SystemServiceRegistry.java:1068)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at android.app.SystemServiceRegistry$StaticServiceFetcher.getService(SystemServiceRegistry.java:2293)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at android.content.Context.getSystemService(Context.java:4503)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at com.android.server.pm.PackageInstallerSession.markAsSealed(PackageInstallerSession.java:2394)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at com.android.server.pm.PackageInstallerSession.commit(PackageInstallerSession.java:2143)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at android.content.pm.PackageInstaller$Session.commit(PackageInstaller.java:1977)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at com.android.server.pm.PackageManagerShellCommand.doCommitSession(PackageManagerShellCommand.java:4298)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at com.android.server.pm.PackageManagerShellCommand.doRunInstall(PackageManagerShellCommand.java:1634)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at com.android.server.pm.PackageManagerShellCommand.runInstall(PackageManagerShellCommand.java:1561)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:245)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at android.os.ShellCommand.exec(ShellCommand.java:38)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6561)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at android.os.Binder.shellCommand(Binder.java:1230)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at android.os.Binder.onTransact(Binder.java:1043)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4620)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6545)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at android.os.Binder.execTransactInternal(Binder.java:1505)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry:         at android.os.Binder.execTransact(Binder.java:1444)
+06-24 11:48:48.715   568  3380 E SystemServiceRegistry: Manager wrapper not available: persistent_data_block
+06-24 11:48:49.045   568  2789 E AppOps  : Operation not started: uid=10208 pkg=com.shipperloadnow(null) op=MONITOR_LOCATION
+06-24 11:48:49.216   568   885 E AppOps  : attributionTag VCN not declared in manifest of android
+06-24 11:48:49.219   568   885 E AppOps  : attributionTag VCN not declared in manifest of android
+06-24 11:48:49.249  1130  1130 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+06-24 11:48:49.276   568   885 E AppOps  : attributionTag VCN not declared in manifest of android
+06-24 11:48:49.323  1130  1130 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+06-24 11:48:49.410 21920 21920 E ndroid.keychain: Not starting debugger since process cannot load the jdwp agent.
+06-24 11:48:49.429 20908 20936 E MDD     : GddFileGroupPopulator: GDD Sync failed for corpus: GDD_APA_RIOD, configuration: GddAgsaApaRiod
+06-24 11:48:49.429 20908 20936 E MDD     : com.google.android.libraries.mdi.download.aj: refresh failed [GDD_FAIL_IN_SYNC_RUNNER_PUBLIC]
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.android.libraries.mdi.download.ah.a(PG:28)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.android.libraries.mdi.download.h.b.y.apply(PG:32)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.apps.tiktok.tracing.fe.apply(PG:13)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.common.util.concurrent.a.e(PG:3)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.common.util.concurrent.c.run(PG:130)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.android.libraries.k.x.run(PG:3)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.common.n.c.c.run(PG:50)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.android.libraries.k.e.run(PG:8)
+06-24 11:48:49.429 20908 20936 E MDD     :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.android.libraries.k.d.b.run(PG:74)
+06-24 11:48:49.429 20908 20936 E MDD     : Caused by: com.google.android.libraries.geller.h.bl: Geller batch sync rpc call failed
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.android.libraries.geller.h.bk.b(PG:30)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.android.libraries.geller.h.bc.apply(PG:53)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.apps.tiktok.tracing.fi.apply(PG:13)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.common.util.concurrent.b.e(PG:3)
+06-24 11:48:49.429 20908 20936 E MDD     :      ... 6 more
+06-24 11:48:49.429 20908 20936 E MDD     : Caused by: io.grpc.fl: DEADLINE_EXCEEDED: CallOptions deadline exceeded after 59.656577291s. Name resolution delay 0.341458833 seconds. [closed=[], open=[[buffered_nanos=1212051989869, waiting_for_connection]]]
+06-24 11:48:49.429 20908 20936 E MDD     :      at io.grpc.i.m.a(PG:42)
+06-24 11:48:49.429 20908 20936 E MDD     :      at io.grpc.e.bv.run(PG:9)
+06-24 11:48:49.429 20908 20936 E MDD     :      at io.grpc.e.bx.e(PG:14)
+06-24 11:48:49.429 20908 20936 E MDD     :      at io.grpc.e.bx.a(PG:6)
+06-24 11:48:49.429 20908 20936 E MDD     :      at io.grpc.e.am.a(PG:32)
+06-24 11:48:49.429 20908 20936 E MDD     :      at io.grpc.e.bh.run(PG:7)
+06-24 11:48:49.429 20908 20936 E MDD     :      at io.grpc.e.lb.run(PG:17)
+06-24 11:48:49.429 20908 20936 E MDD     :      at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+06-24 11:48:49.429 20908 20936 E MDD     :      at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+06-24 11:48:49.429 20908 20936 E MDD     :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:48:49.429 20908 20936 E MDD     : GddFileGroupPopulator: GDD Sync failed for corpus: GDD_APA_SMART_ACTION_MODELS, configuration: GddAgsaApaSmartActionModels
+06-24 11:48:49.429 20908 20936 E MDD     : com.google.android.libraries.mdi.download.aj: refresh failed [GDD_FAIL_IN_SYNC_RUNNER_PUBLIC]
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.android.libraries.mdi.download.ah.a(PG:28)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.android.libraries.mdi.download.h.b.y.apply(PG:32)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.apps.tiktok.tracing.fe.apply(PG:13)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.common.util.concurrent.a.e(PG:3)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.common.util.concurrent.c.run(PG:130)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.android.libraries.k.x.run(PG:3)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.common.n.c.c.run(PG:50)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.android.libraries.k.e.run(PG:8)
+06-24 11:48:49.429 20908 20936 E MDD     :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.android.libraries.k.d.b.run(PG:74)
+06-24 11:48:49.429 20908 20936 E MDD     : Caused by: com.google.android.libraries.geller.h.bl: Geller batch sync rpc call failed
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.android.libraries.geller.h.bk.b(PG:30)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.android.libraries.geller.h.bc.apply(PG:53)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.apps.tiktok.tracing.fi.apply(PG:13)
+06-24 11:48:49.429 20908 20936 E MDD     :      at com.google.common.util.concurrent.b.e(PG:3)
+06-24 11:48:49.429 20908 20936 E MDD     :      ... 6 more
+06-24 11:48:49.429 20908 20936 E MDD     : Caused by: io.grpc.fl: DEADLINE_EXCEEDED: CallOptions deadline exceeded after 59.656394249s. Name resolution delay 0.343240376 seconds. [closed=[], open=[[buffered_nanos=1212067274536, waiting_for_connection]]]
+06-24 11:48:49.429 20908 20936 E MDD     :      at io.grpc.i.m.a(PG:42)
+06-24 11:48:49.429 20908 20936 E MDD     :      at io.grpc.e.bv.run(PG:9)
+06-24 11:48:49.429 20908 20936 E MDD     :      at io.grpc.e.bx.e(PG:14)
+06-24 11:48:49.429 20908 20936 E MDD     :      at io.grpc.e.bx.a(PG:6)
+06-24 11:48:49.429 20908 20936 E MDD     :      at io.grpc.e.am.a(PG:32)
+06-24 11:48:49.429 20908 20936 E MDD     :      at io.grpc.e.bh.run(PG:7)
+06-24 11:48:49.429 20908 20936 E MDD     :      at io.grpc.e.lb.run(PG:17)
+06-24 11:48:49.429 20908 20936 E MDD     :      at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+06-24 11:48:49.429 20908 20936 E MDD     :      at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+06-24 11:48:49.429 20908 20936 E MDD     :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:48:49.466  1130  1130 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+06-24 11:48:49.478  1130  1130 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+06-24 11:48:49.498   568  1969 E IPCThreadState: Binder transaction failure. id: 3935557, BR_*: 29189, error: -22 (Invalid argument)
+06-24 11:48:49.552  1130  1130 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+06-24 11:48:49.553  1130  1130 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+06-24 11:48:49.571   406   406 E BpTransactionCompletedListener: Failed to transact (-32)
+06-24 11:48:49.728 21037 21069 E Finsky  : [78] [Counters] attempted to use a non-positive increment for: 4752
+06-24 11:48:49.729 21037 21069 E Finsky  : [78] [Counters] attempted to use a non-positive increment for: 4753
+06-24 11:48:49.751 21947 21947 E .apps.wellbeing: Not starting debugger since process cannot load the jdwp agent.
+06-24 11:48:49.817 20908 20929 E MDD     : GddFileGroupPopulator: GDD Sync failed for corpus: GDD_AGSA_APA_TEXT_CLASSIFIER, configuration: GddAgsaApaTextClassifier
+06-24 11:48:49.817 20908 20929 E MDD     : com.google.android.libraries.mdi.download.aj: refresh failed [GDD_FAIL_IN_SYNC_RUNNER_PUBLIC]
+06-24 11:48:49.817 20908 20929 E MDD     :      at com.google.android.libraries.mdi.download.ah.a(PG:28)
+06-24 11:48:49.817 20908 20929 E MDD     :      at com.google.android.libraries.mdi.download.h.b.y.apply(PG:32)
+06-24 11:48:49.817 20908 20929 E MDD     :      at com.google.apps.tiktok.tracing.fe.apply(PG:13)
+06-24 11:48:49.817 20908 20929 E MDD     :      at com.google.common.util.concurrent.a.e(PG:3)
+06-24 11:48:49.817 20908 20929 E MDD     :      at com.google.common.util.concurrent.c.run(PG:130)
+06-24 11:48:49.817 20908 20929 E MDD     :      at com.google.android.libraries.k.x.run(PG:3)
+06-24 11:48:49.817 20908 20929 E MDD     :      at com.google.common.n.c.c.run(PG:50)
+06-24 11:48:49.817 20908 20929 E MDD     :      at com.google.android.libraries.k.e.run(PG:8)
+06-24 11:48:49.817 20908 20929 E MDD     :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:48:49.817 20908 20929 E MDD     :      at com.google.android.libraries.k.d.b.run(PG:74)
+06-24 11:48:49.817 20908 20929 E MDD     : Caused by: com.google.android.libraries.geller.h.bl: Geller batch sync rpc call failed
+06-24 11:48:49.817 20908 20929 E MDD     :      at com.google.android.libraries.geller.h.bk.b(PG:30)
+06-24 11:48:49.817 20908 20929 E MDD     :      at com.google.android.libraries.geller.h.bc.apply(PG:53)
+06-24 11:48:49.817 20908 20929 E MDD     :      at com.google.apps.tiktok.tracing.fi.apply(PG:13)
+06-24 11:48:49.817 20908 20929 E MDD     :      at com.google.common.util.concurrent.b.e(PG:3)
+06-24 11:48:49.817 20908 20929 E MDD     :      ... 6 more
+06-24 11:48:49.817 20908 20929 E MDD     : Caused by: io.grpc.fl: DEADLINE_EXCEEDED: CallOptions deadline exceeded after 59.742954959s. Name resolution delay 0.255183125 seconds. [closed=[], open=[[buffered_nanos=1212269822287, waiting_for_connection]]]
+06-24 11:48:49.817 20908 20929 E MDD     :      at io.grpc.i.m.a(PG:42)
+06-24 11:48:49.817 20908 20929 E MDD     :      at io.grpc.e.bv.run(PG:9)
+06-24 11:48:49.817 20908 20929 E MDD     :      at io.grpc.e.bx.e(PG:14)
+06-24 11:48:49.817 20908 20929 E MDD     :      at io.grpc.e.bx.a(PG:6)
+06-24 11:48:49.817 20908 20929 E MDD     :      at io.grpc.e.am.a(PG:32)
+06-24 11:48:49.817 20908 20929 E MDD     :      at io.grpc.e.bh.run(PG:7)
+06-24 11:48:49.817 20908 20929 E MDD     :      at io.grpc.e.lb.run(PG:17)
+06-24 11:48:49.817 20908 20929 E MDD     :      at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+06-24 11:48:49.817 20908 20929 E MDD     :      at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+06-24 11:48:49.817 20908 20929 E MDD     :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:48:49.818 20908 20929 E MDD     : GddFileGroupPopulator: GDD Sync failed for corpus: GDD_APA_TELEPORT, configuration: GddApaTeleport
+06-24 11:48:49.818 20908 20929 E MDD     : com.google.android.libraries.mdi.download.aj: refresh failed [GDD_FAIL_IN_SYNC_RUNNER_PUBLIC]
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.android.libraries.mdi.download.ah.a(PG:28)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.android.libraries.mdi.download.h.b.y.apply(PG:32)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.apps.tiktok.tracing.fe.apply(PG:13)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.common.util.concurrent.a.e(PG:3)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.common.util.concurrent.c.run(PG:130)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.android.libraries.k.x.run(PG:3)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.common.n.c.c.run(PG:50)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.android.libraries.k.e.run(PG:8)
+06-24 11:48:49.818 20908 20929 E MDD     :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.android.libraries.k.d.b.run(PG:74)
+06-24 11:48:49.818 20908 20929 E MDD     : Caused by: com.google.android.libraries.geller.h.bl: Geller batch sync rpc call failed
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.android.libraries.geller.h.bk.b(PG:30)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.android.libraries.geller.h.bc.apply(PG:53)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.apps.tiktok.tracing.fi.apply(PG:13)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.common.util.concurrent.b.e(PG:3)
+06-24 11:48:49.818 20908 20929 E MDD     :      ... 6 more
+06-24 11:48:49.818 20908 20929 E MDD     : Caused by: io.grpc.fl: DEADLINE_EXCEEDED: CallOptions deadline exceeded after 59.740139167s. Name resolution delay 0.258403750 seconds. [closed=[], open=[[buffered_nanos=1212269378703, waiting_for_connection]]]
+06-24 11:48:49.818 20908 20929 E MDD     :      at io.grpc.i.m.a(PG:42)
+06-24 11:48:49.818 20908 20929 E MDD     :      at io.grpc.e.bv.run(PG:9)
+06-24 11:48:49.818 20908 20929 E MDD     :      at io.grpc.e.bx.e(PG:14)
+06-24 11:48:49.818 20908 20929 E MDD     :      at io.grpc.e.bx.a(PG:6)
+06-24 11:48:49.818 20908 20929 E MDD     :      at io.grpc.e.am.a(PG:32)
+06-24 11:48:49.818 20908 20929 E MDD     :      at io.grpc.e.bh.run(PG:7)
+06-24 11:48:49.818 20908 20929 E MDD     :      at io.grpc.e.lb.run(PG:17)
+06-24 11:48:49.818 20908 20929 E MDD     :      at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+06-24 11:48:49.818 20908 20929 E MDD     :      at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+06-24 11:48:49.818 20908 20929 E MDD     :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:48:49.818 20908 20929 E MDD     : GddFileGroupPopulator: GDD Sync failed for corpus: GDD_AGSA_APA_CONTACT, configuration: GddAgsaApaContact
+06-24 11:48:49.818 20908 20929 E MDD     : com.google.android.libraries.mdi.download.aj: refresh failed [GDD_FAIL_IN_SYNC_RUNNER_PUBLIC]
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.android.libraries.mdi.download.ah.a(PG:28)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.android.libraries.mdi.download.h.b.y.apply(PG:32)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.apps.tiktok.tracing.fe.apply(PG:13)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.common.util.concurrent.a.e(PG:3)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.common.util.concurrent.c.run(PG:130)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.android.libraries.k.x.run(PG:3)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.common.n.c.c.run(PG:50)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.android.libraries.k.e.run(PG:8)
+06-24 11:48:49.818 20908 20929 E MDD     :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.android.libraries.k.d.b.run(PG:74)
+06-24 11:48:49.818 20908 20929 E MDD     : Caused by: com.google.android.libraries.geller.h.bl: Geller batch sync rpc call failed
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.android.libraries.geller.h.bk.b(PG:30)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.android.libraries.geller.h.bc.apply(PG:53)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.apps.tiktok.tracing.fi.apply(PG:13)
+06-24 11:48:49.818 20908 20929 E MDD     :      at com.google.common.util.concurrent.b.e(PG:3)
+06-24 11:48:49.818 20908 20929 E MDD     :      ... 6 more
+06-24 11:48:49.818 20908 20929 E MDD     : Caused by: io.grpc.fl: DEADLINE_EXCEEDED: CallOptions deadline exceeded after 59.740936250s. Name resolution delay 0.256138875 seconds. [closed=[], open=[[buffered_nanos=1212269781286, waiting_for_connection]]]
+06-24 11:48:49.818 20908 20929 E MDD     :      at io.grpc.i.m.a(PG:42)
+06-24 11:48:49.818 20908 20929 E MDD     :      at io.grpc.e.bv.run(PG:9)
+06-24 11:48:49.818 20908 20929 E MDD     :      at io.grpc.e.bx.e(PG:14)
+06-24 11:48:49.818 20908 20929 E MDD     :      at io.grpc.e.bx.a(PG:6)
+06-24 11:48:49.818 20908 20929 E MDD     :      at io.grpc.e.am.a(PG:32)
+06-24 11:48:49.818 20908 20929 E MDD     :      at io.grpc.e.bh.run(PG:7)
+06-24 11:48:49.818 20908 20929 E MDD     :      at io.grpc.e.lb.run(PG:17)
+06-24 11:48:49.818 20908 20929 E MDD     :      at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+06-24 11:48:49.818 20908 20929 E MDD     :      at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+06-24 11:48:49.818 20908 20929 E MDD     :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:48:49.818 20908 20929 E m       : Got more than one input Future failure. Logging failures after the first
+06-24 11:48:49.818 20908 20929 E m       : com.google.android.libraries.mdi.download.aj: refresh failed [GDD_FAIL_IN_SYNC_RUNNER_PUBLIC]
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.android.libraries.mdi.download.ah.a(PG:28)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.android.libraries.mdi.download.h.b.y.apply(PG:32)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.apps.tiktok.tracing.fe.apply(PG:13)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.common.util.concurrent.a.e(PG:3)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.common.util.concurrent.c.run(PG:130)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.android.libraries.k.x.run(PG:3)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.common.n.c.c.run(PG:50)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.android.libraries.k.e.run(PG:8)
+06-24 11:48:49.818 20908 20929 E m       :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.android.libraries.k.d.b.run(PG:74)
+06-24 11:48:49.818 20908 20929 E m       : Caused by: com.google.android.libraries.geller.h.bl: Geller batch sync rpc call failed
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.android.libraries.geller.h.bk.b(PG:30)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.android.libraries.geller.h.bc.apply(PG:53)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.apps.tiktok.tracing.fi.apply(PG:13)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.common.util.concurrent.b.e(PG:3)
+06-24 11:48:49.818 20908 20929 E m       :      ... 6 more
+06-24 11:48:49.818 20908 20929 E m       : Caused by: io.grpc.fl: DEADLINE_EXCEEDED: CallOptions deadline exceeded after 59.740139167s. Name resolution delay 0.258403750 seconds. [closed=[], open=[[buffered_nanos=1212269378703, waiting_for_connection]]]
+06-24 11:48:49.818 20908 20929 E m       :      at io.grpc.i.m.a(PG:42)
+06-24 11:48:49.818 20908 20929 E m       :      at io.grpc.e.bv.run(PG:9)
+06-24 11:48:49.818 20908 20929 E m       :      at io.grpc.e.bx.e(PG:14)
+06-24 11:48:49.818 20908 20929 E m       :      at io.grpc.e.bx.a(PG:6)
+06-24 11:48:49.818 20908 20929 E m       :      at io.grpc.e.am.a(PG:32)
+06-24 11:48:49.818 20908 20929 E m       :      at io.grpc.e.bh.run(PG:7)
+06-24 11:48:49.818 20908 20929 E m       :      at io.grpc.e.lb.run(PG:17)
+06-24 11:48:49.818 20908 20929 E m       :      at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+06-24 11:48:49.818 20908 20929 E m       :      at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+06-24 11:48:49.818 20908 20929 E m       :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:48:49.818 20908 20929 E m       : Got more than one input Future failure. Logging failures after the first
+06-24 11:48:49.818 20908 20929 E m       : com.google.android.libraries.mdi.download.aj: refresh failed [GDD_FAIL_IN_SYNC_RUNNER_PUBLIC]
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.android.libraries.mdi.download.ah.a(PG:28)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.android.libraries.mdi.download.h.b.y.apply(PG:32)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.apps.tiktok.tracing.fe.apply(PG:13)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.common.util.concurrent.a.e(PG:3)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.common.util.concurrent.c.run(PG:130)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.android.libraries.k.x.run(PG:3)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.common.n.c.c.run(PG:50)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.android.libraries.k.e.run(PG:8)
+06-24 11:48:49.818 20908 20929 E m       :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.android.libraries.k.d.b.run(PG:74)
+06-24 11:48:49.818 20908 20929 E m       : Caused by: com.google.android.libraries.geller.h.bl: Geller batch sync rpc call failed
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.android.libraries.geller.h.bk.b(PG:30)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.android.libraries.geller.h.bc.apply(PG:53)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.apps.tiktok.tracing.fi.apply(PG:13)
+06-24 11:48:49.818 20908 20929 E m       :      at com.google.common.util.concurrent.b.e(PG:3)
+06-24 11:48:49.818 20908 20929 E m       :      ... 6 more
+06-24 11:48:49.818 20908 20929 E m       : Caused by: io.grpc.fl: DEADLINE_EXCEEDED: CallOptions deadline exceeded after 59.740936250s. Name resolution delay 0.256138875 seconds. [closed=[], open=[[buffered_nanos=1212269781286, waiting_for_connection]]]
+06-24 11:48:49.818 20908 20929 E m       :      at io.grpc.i.m.a(PG:42)
+06-24 11:48:49.818 20908 20929 E m       :      at io.grpc.e.bv.run(PG:9)
+06-24 11:48:49.818 20908 20929 E m       :      at io.grpc.e.bx.e(PG:14)
+06-24 11:48:49.818 20908 20929 E m       :      at io.grpc.e.bx.a(PG:6)
+06-24 11:48:49.818 20908 20929 E m       :      at io.grpc.e.am.a(PG:32)
+06-24 11:48:49.818 20908 20929 E m       :      at io.grpc.e.bh.run(PG:7)
+06-24 11:48:49.818 20908 20929 E m       :      at io.grpc.e.lb.run(PG:17)
+06-24 11:48:49.818 20908 20929 E m       :      at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+06-24 11:48:49.818 20908 20929 E m       :      at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+06-24 11:48:49.818 20908 20929 E m       :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:48:49.840 21037 21076 E Finsky  : [85] [Counters] attempted to use a non-positive increment for: 4752
+06-24 11:48:49.840 21037 21076 E Finsky  : [85] [Counters] attempted to use a non-positive increment for: 4753
+06-24 11:48:50.384 20908 20949 E A       : (REDACTED) %s
+06-24 11:48:50.384 20908 20949 E A       : java.lang.Exception: Not all data is present after download
+06-24 11:48:50.384 20908 20949 E A       :      at com.google.android.apps.gsa.staticplugins.nga.u.dv.a(PG:108)
+06-24 11:48:50.384 20908 20949 E A       :      at com.google.android.libraries.gsa.h.a.i.apply(PG:9)
+06-24 11:48:50.384 20908 20949 E A       :      at com.google.common.util.concurrent.h.e(PG:3)
+06-24 11:48:50.384 20908 20949 E A       :      at com.google.common.util.concurrent.j.run(PG:42)
+06-24 11:48:50.384 20908 20949 E A       :      at com.google.android.libraries.k.x.run(PG:3)
+06-24 11:48:50.384 20908 20949 E A       :      at com.google.common.n.c.c.run(PG:50)
+06-24 11:48:50.384 20908 20949 E A       :      at com.google.android.libraries.k.e.run(PG:8)
+06-24 11:48:50.384 20908 20949 E A       :      at java.lang.Thread.run(Thread.java:1012)
+06-24 11:48:50.384 20908 20949 E A       :      at com.google.android.libraries.k.d.b.run(PG:74)
+06-24 11:48:50.672 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.shipperloadnow
+06-24 11:48:50.672 21037 21076 E Finsky  : [85] ItemStore: getItems RPC failed for item com.shipperloadnow
+06-24 11:48:50.945 22035 22035 E unknown:ReactNative: Unable to display loading message because react activity isn't active, message: Loading from 10.0.2.2:8081…
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost: Unhandled SoftException
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost: com.facebook.react.bridge.ReactNoCrashSoftException: raiseSoftException(onWindowFocusChange(hasFocus = "true")): Tried to access onWindowFocusChange while context is not ready
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at com.facebook.react.runtime.ReactHostImpl.raiseSoftException(ReactHostImpl.java:1038)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at com.facebook.react.runtime.ReactHostImpl.raiseSoftException(ReactHostImpl.java:1031)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at com.facebook.react.runtime.ReactHostImpl.onWindowFocusChange(ReactHostImpl.java:790)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at com.facebook.react.ReactDelegate.onWindowFocusChanged(ReactDelegate.java:199)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at com.facebook.react.ReactActivityDelegate.onWindowFocusChanged(ReactActivityDelegate.java:216)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at com.facebook.react.ReactActivity.onWindowFocusChanged(ReactActivity.java:158)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at androidx.appcompat.view.WindowCallbackWrapper.onWindowFocusChanged(WindowCallbackWrapper.java:124)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at com.android.internal.policy.DecorView.onWindowFocusChanged(DecorView.java:1772)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at android.view.View.dispatchWindowFocusChanged(View.java:16743)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at android.view.ViewGroup.dispatchWindowFocusChanged(ViewGroup.java:1505)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at android.view.ViewRootImpl.dispatchFocusEvent(ViewRootImpl.java:4697)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at android.view.ViewRootImpl.handleWindowFocusChanged(ViewRootImpl.java:4601)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at android.view.ViewRootImpl.-$$Nest$mhandleWindowFocusChanged(Unknown Source:0)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at android.view.ViewRootImpl$ViewRootHandler.handleMessageImpl(ViewRootImpl.java:6773)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at android.view.ViewRootImpl$ViewRootHandler.handleMessage(ViewRootImpl.java:6683)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at android.os.Handler.dispatchMessage(Handler.java:107)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at android.os.Looper.loopOnce(Looper.java:232)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at android.os.Looper.loop(Looper.java:317)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at android.app.ActivityThread.main(ActivityThread.java:8705)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at java.lang.reflect.Method.invoke(Native Method)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+06-24 11:48:51.010 22035 22035 E unknown:ReactHost:     at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+06-24 11:48:52.736 22035 22082 E chromium: [0624/114852.736688:ERROR:variations_seed_loader.cc(37)] Seed missing signature.
+06-24 11:48:52.763 22086 22086 E webview_service: Not starting debugger since process cannot load the jdwp agent.
+06-24 11:48:53.539   568  3046 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+06-24 11:49:20.377  6717  6837 E native  : E0000 00:00:1750754960.377829    6837 user_feature_processor.h:75] Processing proto failed: The keyboard layout are not set.
+06-24 11:49:20.377  6717  6837 E native  : E0000 00:00:1750754960.377984    6837 user_feature_processor.h:75] Processing proto failed: The keyboard layout are not set.
+06-24 11:49:20.389 22035 22035 E ImeBackDispatcher: Ime callback not found. Ignoring unregisterReceivedCallback. callbackId: 84955189
+06-24 11:49:26.334  6717  6837 E native  : E0000 00:00:1750754966.334563    6837 user_feature_processor.h:75] Processing proto failed: The keyboard layout are not set.
+06-24 11:49:26.334  6717  6837 E native  : E0000 00:00:1750754966.334848    6837 user_feature_processor.h:75] Processing proto failed: The keyboard layout are not set.
+06-24 11:49:33.305 22035 22035 E ImeBackDispatcher: Ime callback not found. Ignoring unregisterReceivedCallback. callbackId: 84955189
+06-24 11:49:38.239   359   422 E netd    : control message was truncated when receiving file descriptors
+06-24 11:49:38.245 22035 22076 E ReactNativeJS: 'Error fetching distance and ETA:', 'Network Error'
+06-24 11:51:47.948 20600 20632 E bluetooth: system/gd/os/linux_generic/files.cc:223 FileCreatedTime: unable to read '/data/misc/bluetooth/logs/btsnooz_hci.log' file metadata, error: No such file or directory
