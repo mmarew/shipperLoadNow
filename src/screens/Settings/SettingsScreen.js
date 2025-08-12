@@ -241,7 +241,7 @@ const createStyles = () => {
       fontWeight: '600',
       fontFamily: fontFamily.manropeRegular,
 
-      color: ColorStyles.lablesColor,
+      color: ColorStyles.labelsColor,
       textAlign: 'center',
       marginBottom: 20,
     },
@@ -253,7 +253,7 @@ const createStyles = () => {
     },
     sectionTitle: {
       fontFamily: fontFamily.manropeRegular,
-      color: ColorStyles.lablesColor,
+      color: ColorStyles.labelsColor,
       fontSize: 16,
       fontWeight: '600',
       marginBottom: 10,

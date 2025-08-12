@@ -16,7 +16,7 @@ const createStyles = () => {
       fontSize: 12,
       fontWeight: '500',
       // marginBottom: 5,
-      color: ColorStyles.inputLablesColor,
+      color: ColorStyles.inputLabelsColor,
     },
 
     // INPUT CARD WRAPPER

@@ -57,7 +57,7 @@ const createStyles = () => {
     },
     label: {
       fontSize: 14,
-      color: ColorStyles.lablesColor,
+      color: ColorStyles.labelsColor,
       marginBottom: 5,
     },
     input: {

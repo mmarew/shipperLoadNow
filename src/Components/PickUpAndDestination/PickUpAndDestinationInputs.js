@@ -128,7 +128,7 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
         <View
           style={[
             styles.locationCard,
-            { ...customStyles, height: 80 },
+            { ...customStyles, height: 80, borderBottomWidth: 2 },
             GlobalStyles.reset,
           ]}
         >
@@ -152,8 +152,8 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
             <View
               style={{
                 position: 'absolute',
-                top: 43,
-                left: 20,
+                top: 33,
+                left: 15,
               }}
             >
               <IconAwesome
@@ -201,7 +201,10 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
             {renderInputField('origin', {
               borderBottomWidth: 1,
 
-              borderColor: ColorStyles.borderColor,
+              borderColor:
+                activeInput === 'origin'
+                  ? ColorStyles.brandColor
+                  : ColorStyles.borderColor,
               ...GlobalStyles.reset,
               zIndex: 11,
               backgroundColor:
@@ -216,6 +219,11 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
               marginTop: -20,
               marginBottom: -1,
               borderBottomRightRadius: 25,
+
+              borderColor:
+                activeInput === 'destination'
+                  ? ColorStyles.brandColor
+                  : 'transparent',
               backgroundColor:
                 activeInput === 'destination'
                   ? ColorStyles.autocompleteFocused

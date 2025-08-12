@@ -37,7 +37,7 @@ const createColorStyles = () => {
     },
     label: {
       fontSize: 12,
-      color: ColorStyles.lablesColor,
+      color: ColorStyles.labelsColor,
       top: -9,
       left: 10,
       backgroundColor: ColorStyles.whiteBGColor,

@@ -31,7 +31,7 @@ const getAppsGlobalStyles = () => {
     label: {
       fontSize: 16,
       fontWeight: '600',
-      color: ColorStyles.lablesColor,
+      color: ColorStyles.labelsColor,
       marginBottom: 5,
     },
     focusedInputLabel: {

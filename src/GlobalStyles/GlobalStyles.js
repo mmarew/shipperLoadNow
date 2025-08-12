@@ -29,7 +29,7 @@ const GlobalStyles = StyleSheet.create({
   label: {
     fontSize: 16,
     fontWeight: '600',
-    color: ColorStyles.lablesColor,
+    color: ColorStyles.labelsColor,
     marginBottom: 5,
   },
   focusedInputLabel: {
@@ -114,7 +114,7 @@ const GlobalStyles = StyleSheet.create({
     fontSize: 16,
   },
   inputLable: {
-    color: ColorStyles.lablesColor,
+    color: ColorStyles.labelsColor,
     fontFamily: fontFamily.manropeRegular,
     fontSize: 16,
   },

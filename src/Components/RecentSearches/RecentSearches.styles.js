@@ -4,19 +4,18 @@ const createStyles = () => {
   const ColorStyles = getAppsColorStyles();
   const styles = StyleSheet.create({
     recentSearchesContainer: {
-      marginTop: 30,
+      marginTop: -10,
     },
 
     recentSearchesTitle: {
-      fontSize: 16,
-      fontWeight: '600',
+      fontSize: 12,
+      fontWeight: '500',
       marginBottom: 10,
-      color: ColorStyles.textColor,
+      color: ColorStyles.inputLabelsColor,
     },
 
     recentSearchItem: {
       flexDirection: 'row',
-      /* Frame 12230 */
       alignItems: 'center',
       gap: 5,
       paddingLeft: 13,

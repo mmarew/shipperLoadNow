@@ -48,28 +48,37 @@ const RecentSearches = ({ onRecentSelect }) => {
   return (
     <View style={styles.recentSearchesContainer}>
       <Text style={styles.recentSearchesTitle}>Recent Searches</Text>
-      {recentData.map((item, index) => (
-        <TouchableOpacity
-          key={index}
-          style={styles.recentSearchItem}
-          onPress={() => {
-            onRecentSelect(item);
-          }}
-        >
-          <IconAwesome
-            name={'map-marker'}
-            color={ColorStyles.textColor}
-            size={20}
-          />
-          {/* <Ionicons
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: ColorStyles.whiteBGColor,
+          borderRadius: 20,
+          paddingVertical: 10,
+        }}
+      >
+        {recentData.map((item, index) => (
+          <TouchableOpacity
+            key={index}
+            style={styles.recentSearchItem}
+            onPress={() => {
+              onRecentSelect(item);
+            }}
+          >
+            <IconAwesome
+              name={'map-marker'}
+              color={ColorStyles.brandColor}
+              size={20}
+            />
+            {/* <Ionicons
             name="location-sharp"
             size={20}
             color={ColorStyles.brandColor}
             style={styles.iconLeft}
           /> */}
-          <Text style={styles.recentSearchText}>{item.name}</Text>
-        </TouchableOpacity>
-      ))}
+            <Text style={styles.recentSearchText}>{item.name}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
     </View>
   );
 };

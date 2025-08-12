@@ -7,9 +7,9 @@ const lightTimeColors = {
     focused: '#075985', //'#F8A67A',
 
     brandColor: '#075985',
-    inputLablesColor: '#52525B',
+    inputLabelsColor: '#52525B',
     errorColor: '#FF3B30',
-    lablesColor: '#27272A',
+    labelsColor: '#27272A',
     borderColor: '#D4D4D8',
     textColor: '#27272A',
     lightSkyBlue: '#E0F2FE',
@@ -20,7 +20,7 @@ const lightTimeColors = {
     inputBackgroundColor: '#fff',
   },
   darkTimeColors = {
-    inputLablesColor: '#fff',
+    inputLabelsColor: '#fff',
     autocompleteFocused: '#0F0600',
 
     inputBackgroundColor: '#3D3D3D',
@@ -31,7 +31,7 @@ const lightTimeColors = {
     brandColor: '#075985',
     whiteColor: '#FFFFFF',
     errorColor: '#FF3B30',
-    lablesColor: '#f9f9f9',
+    labelsColor: '#f9f9f9',
     borderColor: '#D4D4D8',
     textColor: '#f9f9f9',
     lightSkyBlue: '#8CBED6',
