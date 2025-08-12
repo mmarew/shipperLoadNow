@@ -1,7 +1,7 @@
 // import { ScrollView, TouchableOpacity, View } from 'react-native';
 // import DateTimePicker from '@react-native-community/datetimepicker';
 
-// import { requestUsingGetMethode } from '../../utils/handleRequestToServer/handleRequestToServer';
+// import { requestUsingGetMethod } from '../../utils/handleRequestToServer/handleRequestToServer';
 // import { useEffect, useState } from 'react';
 // import PickupAndDestinationDisplayer from '../PickUpAndDestination/PickupAndDestinationDisplayer';
 // import {
@@ -37,7 +37,7 @@
 //           : `/api/user/getCompletedJourney/self/1/startingFromDate/${convertToYMDHMSFormat(
 //               dateRange.fromDate,
 //             )}/upToDate/${convertToYMDHMSFormat(dateRange.toDate)}`;
-//       const result = await requestUsingGetMethode({
+//       const result = await requestUsingGetMethod({
 //         params: '',
 //         url,
 //       });
@@ -245,7 +245,7 @@ import {
   TextInput,
 } from 'react-native-paper';
 
-import { requestUsingGetMethode } from '../../utils/handleRequestToServer/handleRequestToServer';
+import { requestUsingGetMethod } from '../../utils/handleRequestToServer/handleRequestToServer';
 import { convertToYMDHMSFormat } from '../../utils/TimeDateHandler/TimeDateHandler';
 
 import PickupAndDestinationDisplayer from '../PickUpAndDestination/PickupAndDestinationDisplayer';
@@ -278,7 +278,7 @@ const CompletedHistory = () => {
           : `/api/user/getCompletedJourney/self/1/startingFromDate/${convertToYMDHMSFormat(
               dateRange.fromDate,
             )}/upToDate/${convertToYMDHMSFormat(dateRange.toDate)}`;
-      const result = await requestUsingGetMethode({ params: '', url });
+      const result = await requestUsingGetMethod({ params: '', url });
       setlistOfJourney(result?.data);
     } catch (error) {
       console.log('@getCompletedJourney error', error);

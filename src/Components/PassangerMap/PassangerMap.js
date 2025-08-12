@@ -13,7 +13,7 @@ import {
   mapType,
 } from '../Constants/constant.utils';
 import { osrmUrl } from '../Constants/constant.url';
-import { requestUsingGetMethode } from '../../utils/handleRequestToServer/handleRequestToServer';
+import { requestUsingGetMethod } from '../../utils/handleRequestToServer/handleRequestToServer';
 import {
   setRegion,
   updateJourneyRoutePoints,
@@ -63,7 +63,7 @@ const PassangerMap = ({ mapHeight }) => {
       const GET_JOURNEY_ROUTE_POINTS =
         API_URLS?.GET_JOURNEY_ROUTE_POINTS + journeyUniqueId;
       // const url = `/api/journeyRoutePoints/journeyUniqueId/${journeyUniqueId}`;
-      const result = await requestUsingGetMethode({
+      const result = await requestUsingGetMethod({
         url: GET_JOURNEY_ROUTE_POINTS,
       });
       const data = result?.data;

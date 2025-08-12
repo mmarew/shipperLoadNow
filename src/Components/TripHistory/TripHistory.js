@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import PickupAndDestinationDisplayer from '../PickUpAndDestination/PickupAndDestinationDisplayer';
-import {requestUsingGetMethode} from '../../utils/handleRequestToServer/handleRequestToServer';
+import { requestUsingGetMethod } from '../../utils/handleRequestToServer/handleRequestToServer';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const TripHistory = ({setVisibleDetail}) => {
+const TripHistory = ({ setVisibleDetail }) => {
   // api / user / getCompletedJourney;
   const [listOfJourneyPoints, setListOfJourneyPoints] = useState([]);
   const getCompletedJourney = async () => {
-    const response = await requestUsingGetMethode({
+    const response = await requestUsingGetMethod({
       url: '/api/user/getCompletedJourney',
     });
     // console.log('@getCompletedJourney response', response.data);
@@ -25,7 +25,7 @@ const TripHistory = ({setVisibleDetail}) => {
           longitude: item.destinationLongitude,
           description: item.destinationPlace,
         };
-      data.push({origin, destination});
+      data.push({ origin, destination });
     });
     setListOfJourneyPoints(data);
   };
@@ -33,7 +33,7 @@ const TripHistory = ({setVisibleDetail}) => {
     getCompletedJourney();
   }, []);
   return (
-    <View style={{padding: 10}}>
+    <View style={{ padding: 10 }}>
       {/* back arrow to go back */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => setVisibleDetail(null)}>

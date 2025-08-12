@@ -20,7 +20,7 @@ import axios from 'axios';
 import { launchImageLibrary } from 'react-native-image-picker';
 import createStyle from './ProfileScreen.css';
 import API_URL_AXIOS from '../../services/AxiosServices';
-import { requestUsingGetMethode } from '../../utils/handleRequestToServer/handleRequestToServer';
+import { requestUsingGetMethod } from '../../utils/handleRequestToServer/handleRequestToServer';
 import errorHandler from '../../utils/errorHandler/errorHandler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import decodeJWT from '../../utils/JWTDecoder/JWTDecoder';
@@ -71,7 +71,7 @@ const ProfileScreen = ({ setVisibleDetail }) => {
     try {
       setIsLoading(false);
       // setIsLoading(true);
-      const response = await requestUsingGetMethode({
+      const response = await requestUsingGetMethod({
         url: '/api/admin/attachedDocumentsByUser/self',
       });
       const profilePhoto = response?.data?.find(
@@ -88,7 +88,7 @@ const ProfileScreen = ({ setVisibleDetail }) => {
   // Fetch passenger document requirements
   const fetchDocumentRequirements = useCallback(async () => {
     try {
-      const response = await requestUsingGetMethode({
+      const response = await requestUsingGetMethod({
         url: '/api/user/getMappingByRoleUniqueId/self',
       });
       console.log('@fetchDocumentRequirements response', response);

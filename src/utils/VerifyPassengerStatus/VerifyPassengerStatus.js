@@ -1,8 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {addListOfCancilationReasons} from '../../Redux/slices/PassengerSlice';
+import { addListOfCancilationReasons } from '../../Redux/slices/PassengerSlice';
 import store from '../../Redux/Store/Store';
 import errorHandler from '../errorHandler/errorHandler';
-import {requestUsingGetMethode} from '../handleRequestToServer/handleRequestToServer';
+import { requestUsingGetMethod } from '../handleRequestToServer/handleRequestToServer';
 import API_URLS from '../../Configs/URLConfigs';
 import HandleResponses from '../handleServerResponses/HandleResponses';
 
@@ -12,11 +12,11 @@ const verifyPassengerStatus = async () => {
 
     if (!token || token == 'null') return;
 
-    const userStatusData = await requestUsingGetMethode({
+    const userStatusData = await requestUsingGetMethod({
       url: API_URLS?.VERIFY_PASSENGER_STATUS,
     });
     HandleResponses(userStatusData);
-    const getCancilationReasons = await requestUsingGetMethode({
+    const getCancilationReasons = await requestUsingGetMethod({
       url: API_URLS?.GET_CANCELLATION_REASONS,
     });
     const listOfCancilationReasons = getCancilationReasons?.data;

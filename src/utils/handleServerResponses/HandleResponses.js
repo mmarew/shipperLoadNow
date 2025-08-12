@@ -8,7 +8,7 @@ import {
   addOriginLocation,
   addPassenger,
   addPassengerStatus,
-  addSelectedVechelesType,
+  addSelectedVehiclesType,
   setFare,
   setSelectedScreen,
 } from '../../Redux/slices/PassengerSlice';
@@ -78,7 +78,7 @@ const HandleResponses = response => {
       // if (listOfVehiclesType)
       //   store.dispatch(addListOfVehiclesType(listOfVehiclesType));
       if (selectedVehicleType)
-        store.dispatch(addSelectedVechelesType(selectedVehicleType?.[0]));
+        store.dispatch(addSelectedVehiclesType(selectedVehicleType?.[0]));
 
       store.dispatch(addDecision(decisions));
     } else if (journeyStatusId == listofJourneyStatus?.acceptedByDriver) {

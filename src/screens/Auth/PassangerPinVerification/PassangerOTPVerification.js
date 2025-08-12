@@ -15,7 +15,7 @@ import { showSuccessToast } from '../../../utils/ToastDisplayer/toastDisplayer';
 import TopView from '../TopView/TopView';
 import errorHandler from '../../../utils/errorHandler/errorHandler';
 import {
-  requestUsingGetMethode,
+  requestUsingGetMethod,
   requestUsingPostMethod,
 } from '../../../utils/handleRequestToServer/handleRequestToServer';
 import { addPassengersToken } from '../../../Redux/slices/PassengerSlice';
@@ -79,7 +79,7 @@ const PassangerOTPVerification = ({ navigation }) => {
 
     setIsLoading(true);
     try {
-      const response = await requestUsingGetMethode({
+      const response = await requestUsingGetMethod({
         url: '/api/user/verifyUserByOTP',
         params: {
           phoneNumber: phoneNumber,

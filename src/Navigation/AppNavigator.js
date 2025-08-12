@@ -17,7 +17,7 @@ import CheckLocationServices from '../Components/CheckLocationServices/CheckLoca
 
 // Utils & Services
 import { setTopLevelNavigator } from '../services/navigationService';
-import { requestUsingGetMethode } from '../utils/handleRequestToServer/handleRequestToServer';
+import { requestUsingGetMethod } from '../utils/handleRequestToServer/handleRequestToServer';
 import errorHandler from '../utils/errorHandler/errorHandler';
 import HandleResponses from '../utils/handleServerResponses/HandleResponses';
 import findScreenByPassengerStatus from '../utils/ScreenManager/ScreenList';
@@ -36,11 +36,11 @@ import {
   addListOfVehiclesType,
   addPassengerStatus,
   addPassengersToken,
-  addSelectedVechelesType,
+  addSelectedVehiclesType,
   updateConnectionStatus,
   updateCurrentLocationOfDriver,
   updateIsDarkMode,
-  updateListofJourneyStatus,
+  updateListOfJourneyStatus,
 } from '../Redux/slices/PassengerSlice';
 
 // Styles
@@ -63,13 +63,13 @@ const AppNavigator = () => {
   const [initialRoute, setInitialRoute] = useState(undefined);
   const [savedProfileImage, setSavedProfileImage] = useState(null);
 
-  const getListofJourneyStatus = async () => {
+  const getListOfJourneyStatus = async () => {
     try {
       const url = API_URLS.GET_LIST_OF_JOURNEY_STATUS;
-      const resuts = await requestUsingGetMethode({ url });
-      dispatch(updateListofJourneyStatus(resuts.data));
+      const results = await requestUsingGetMethod({ url });
+      dispatch(updateListOfJourneyStatus(results.data));
     } catch (error) {
-      console.log('@getListofStatus error', error);
+      console.log('@getListOfJourneyStatus error', error);
     }
   };
 
@@ -80,10 +80,10 @@ const AppNavigator = () => {
   const testConnections = async (retryCount = 0) => {
     try {
       console.log('@testing Connections..... Attempt:', retryCount + 1);
-      const httpConnection = await requestUsingGetMethode({ url: '' });
+      const httpConnection = await requestUsingGetMethod({ url: '' });
 
       if (httpConnection?.message === 'Server is running') {
-        await getListofJourneyStatus();
+        await getListOfJourneyStatus();
         dispatch(updateConnectionStatus({ isHTTPConnected: true }));
         await testToken();
       } else {
@@ -143,7 +143,7 @@ const AppNavigator = () => {
           userStatusData?.status,
         );
         setInitialRoute(initialScreen);
-        await getVehicleTypes(token);
+        await getVehicleTypes();
       } else {
         await AsyncStorage.clear();
         dispatch(addPassengersToken(null));
@@ -157,7 +157,7 @@ const AppNavigator = () => {
   const fetchProfileImage = useCallback(async () => {
     try {
       setIsLoading(false);
-      const response = await requestUsingGetMethode({
+      const response = await requestUsingGetMethod({
         url: '/api/admin/attachedDocumentsByUser/self',
       });
       const profilePhoto = response?.data?.find(
@@ -216,10 +216,10 @@ const AppNavigator = () => {
 
   const getVehicleTypes = async () => {
     try {
-      const vecheleTypeAndTarrif = await requestUsingGetMethode({
+      const vehicleTypeAndTariff = await requestUsingGetMethod({
         url: API_URLS.GET_VEHICLE_TYPES,
       });
-      store.dispatch(addListOfVehiclesType(vecheleTypeAndTarrif.data));
+      store.dispatch(addListOfVehiclesType(vehicleTypeAndTariff.data));
     } catch (error) {
       errorHandler(error);
     }
@@ -230,12 +230,12 @@ const AppNavigator = () => {
   const connectionToBackEnd = passengerSlices?.connectionToBackEnd;
 
   useEffect(() => {
-    const selecteVehicleTypeUniqueId = passenger?.vehicleTypeUniqueId;
-    if (selecteVehicleTypeUniqueId) {
+    const selectedVehicleTypeUniqueId = passenger?.vehicleTypeUniqueId;
+    if (selectedVehicleTypeUniqueId) {
       const selectedVehicles = listOfVehiclesType?.find(
-        vehicle => vehicle?.vehicleTypeUniqueId == selecteVehicleTypeUniqueId,
+        vehicle => vehicle?.vehicleTypeUniqueId == selectedVehicleTypeUniqueId,
       );
-      store.dispatch(addSelectedVechelesType(selectedVehicles));
+      store.dispatch(addSelectedVehiclesType(selectedVehicles));
     }
   }, [passenger, listOfVehiclesType]);
 
@@ -365,7 +365,6 @@ const AppNavigator = () => {
 
   return (
     <View style={styles.container}>
-      {/* <Text> it is here in app</Text>; */}
       <NavigationContainer
         ref={navigatorRef => setTopLevelNavigator(navigatorRef)}
         theme={{
