@@ -6,7 +6,6 @@ import {
   Keyboard,
 } from 'react-native';
 import Autocomplete from 'react-native-autocomplete-input';
-// import styles from './OSMAutocomplete.style';
 import Geolocation from 'react-native-geolocation-service';
 import {
   NOMINATIM_REVERSE_URL,
@@ -14,11 +13,11 @@ import {
 } from '../Constants/constant.url';
 import errorHandler from '../../utils/errorHandler/errorHandler';
 import axios from 'axios';
-// import ColorStyles from '../../GlobalStyles/Color.styles';
 import { debounce } from 'lodash';
 import createStyles from './OSMAutocomplete.style';
 import { Text } from 'react-native-paper';
 import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
+import PropTypes from 'prop-types';
 
 const OSMAutocomplete = ({
   refProps,
@@ -97,6 +96,8 @@ const OSMAutocomplete = ({
           full: { latitude, longitude, address: reverseResponse.data },
         });
       } catch (reverseError) {
+        handleError(reverseError, 'Current Location');
+
         setValue('Current Location');
         onSelect({
           name: 'Current Location',
@@ -197,6 +198,13 @@ const OSMAutocomplete = ({
       debouncedSearch.cancel();
     };
   }, [debouncedSearch]);
+  const getCurrentLocationContent = (item, loadingState) => {
+    if (loadingState.currentLocation) {
+      return <ActivityIndicator size="small" color={ColorStyles.brandColor} />;
+    } else {
+      return <Text style={{ fontWeight: 'bold' }}>{item?.name}</Text>;
+    }
+  };
 
   return (
     <View style={{ flex: 1 }}>
@@ -241,14 +249,7 @@ const OSMAutocomplete = ({
               disabled={loadingState.currentLocation && item.isCurrentLocation}
             >
               {item.isCurrentLocation ? (
-                loadingState.currentLocation ? (
-                  <ActivityIndicator
-                    size="small"
-                    color={ColorStyles.brandColor}
-                  />
-                ) : (
-                  <Text style={{ fontWeight: 'bold' }}>{item?.name}</Text>
-                )
+                getCurrentLocationContent(item, loadingState)
               ) : (
                 <Text>{item?.name}</Text>
               )}
@@ -268,6 +269,16 @@ const OSMAutocomplete = ({
       )}
     </View>
   );
+};
+
+OSMAutocomplete.propTypes = {
+  refProps: PropTypes.object,
+  onSelect: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  setValue: PropTypes.func.isRequired,
+  showCurrentLocationOption: PropTypes.bool,
+  onFocus: PropTypes.func,
 };
 
 export default OSMAutocomplete;
