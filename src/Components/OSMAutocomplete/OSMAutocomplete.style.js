@@ -36,7 +36,7 @@ const createStyles = () => {
       fontSize: 12,
       position: 'absolute',
       zIndex: 100,
-      top: 40,
+      top: 25,
       left: 40,
     },
     loadingIndicator: {
