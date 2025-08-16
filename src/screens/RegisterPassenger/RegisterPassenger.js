@@ -243,6 +243,7 @@ const RegisterPassenger = ({ navigation }) => {
             >
               <View
                 style={{
+                  position: 'relative',
                   width: 30,
                   height: 30,
                   borderWidth: 2,
@@ -250,18 +251,21 @@ const RegisterPassenger = ({ navigation }) => {
                     ? ColorStyles.backgroundColor
                     : ColorStyles.borderColor,
                   borderRadius: 6, // optional
-                  backgroundColor: termsAccepted
-                    ? ColorStyles.backgroundColor
-                    : ColorStyles.whiteBGColor,
+                  backgroundColor: ColorStyles.whiteColor,
                 }}
               >
-                <IconAwesome
-                  color={
-                    termsAccepted ? ColorStyles.focused : ColorStyles.whiteColor
-                  }
-                  size={30}
-                  name={termsAccepted ? 'check-square' : 'square'}
-                />
+                <View style={{ position: 'absolute', top: -3, left: 0 }}>
+                  <IconAwesome
+                    style={{ alignSelf: 'center', marginTop: -12 }}
+                    color={
+                      termsAccepted
+                        ? ColorStyles.focused
+                        : ColorStyles.whiteColor
+                    }
+                    size={32}
+                    name={termsAccepted ? 'check-square' : 'square'}
+                  />
+                </View>
               </View>
             </TouchableOpacity>
             <Text style={styles.termsText}>

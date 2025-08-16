@@ -357,7 +357,11 @@ const AppNavigator = () => {
       <Stack.Screen
         name="Terms And Services"
         component={TermsAndServicesScreen}
-        options={{ title: 'Terms and Conditions' }}
+        options={{
+          title: 'Terms and Conditions',
+
+          headerTintColor: ColorStyles.textColor,
+        }}
       />
     </>
   );

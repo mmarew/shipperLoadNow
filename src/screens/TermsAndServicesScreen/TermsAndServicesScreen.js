@@ -1,7 +1,9 @@
 import React from 'react';
-import {ScrollView, Text, View, TouchableOpacity} from 'react-native';
+import { ScrollView, Text, View, TouchableOpacity } from 'react-native';
 import styles from './TermsAndServicesScreen.style';
-const TermsAndServicesScreen = ({navigation}) => {
+import createStyles from './TermsAndServicesScreen.style';
+const TermsAndServicesScreen = ({ navigation }) => {
+  const styles = createStyles();
   const handleAgree = () => {
     // Alert.alert('Agreement', 'You have agreed to the Terms and Services.');
     navigation.goBack(); // Navigate back or proceed as needed

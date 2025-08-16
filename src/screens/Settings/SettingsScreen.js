@@ -135,13 +135,13 @@ const SettingsScreen = () => {
               <Switch
                 value={isDarkMode === 'true' ? true : false}
                 onValueChange={() => {
-                  handleDarkModeToggle(darkMode);
+                  handleDarkModeToggle();
                 }}
                 thumbColor={
                   darkMode ? ColorStyles.brandColor : ColorStyles.whiteColor
                 }
                 trackColor={{
-                  false: ColorStyles.whiteBGColor,
+                  false: ColorStyles.mediumGray,
                   true: ColorStyles.mediumSkyBlue,
                 }}
               />
