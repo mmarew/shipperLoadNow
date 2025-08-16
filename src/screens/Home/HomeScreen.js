@@ -32,7 +32,7 @@ const HomeScreen = ({ navigation }) => {
   const passengerStatus = passengerSlices?.passengerStatus;
   const { destination, originLocation } = passengerSlices;
   const [showComponent, setShowComponent] = useState();
-  const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
+  const listOfJourneyStatus = passengerSlices?.listOfJourneyStatus;
   console.log('@HomeScreen passengerStatus', passengerStatus);
   const [refreshing, setRefreshing] = useState(false);
   const onRefresh = () => setRefreshing(true);
@@ -118,8 +118,8 @@ const HomeScreen = ({ navigation }) => {
       );
     }
   } else if (
-    passengerStatus == listofJourneyStatus?.waiting ||
-    passengerStatus == listofJourneyStatus?.requested
+    passengerStatus == listOfJourneyStatus?.waiting ||
+    passengerStatus == listOfJourneyStatus?.requested
   ) {
     if (showComponent == 'cancel request') {
       return (
@@ -147,7 +147,7 @@ const HomeScreen = ({ navigation }) => {
         </KeyboardAwareScrollView>
       </SafeAreaView>
     );
-  } else if (passengerStatus == listofJourneyStatus?.acceptedByDriver) {
+  } else if (passengerStatus == listOfJourneyStatus?.acceptedByDriver) {
     return (
       <SafeAreaView
         style={{ flex: 1, backgroundColor: ColorStyles.backgroundColor }}
@@ -167,8 +167,8 @@ const HomeScreen = ({ navigation }) => {
       </SafeAreaView>
     );
   } else if (
-    passengerStatus == listofJourneyStatus?.acceptedByPassenger ||
-    passengerStatus == listofJourneyStatus?.journeyStarted
+    passengerStatus == listOfJourneyStatus?.acceptedByPassenger ||
+    passengerStatus == listOfJourneyStatus?.journeyStarted
   ) {
     if (showComponent == 'cancel request') {
       return (

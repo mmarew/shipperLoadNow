@@ -11,7 +11,7 @@ const ShowShippableItems = () => {
   const shippableItem = passengerSlices?.shippableItem;
   const decision = passengerSlices?.decision?.[0];
   const journeyStatusId = passenger?.journeyStatusId;
-  const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
+  const listOfJourneyStatus = passengerSlices?.listOfJourneyStatus;
   const styles = createColorStyles();
   return (
     <View style={{ ...styles.container }}>
@@ -34,7 +34,7 @@ const ShowShippableItems = () => {
           {
             !journeyStatusId //journeyStatusId is null or undefined in case of waiting in this case set passengers given shipping cost which is found in shippableItem
               ? shippableItem?.shippingCost
-              : journeyStatusId < listofJourneyStatus?.acceptedByDriver // here journeyStatusId is 1 or 2  and shippingCost is found in passenger
+              : journeyStatusId < listOfJourneyStatus?.acceptedByDriver // here journeyStatusId is 1 or 2  and shippingCost is found in passenger
               ? passenger?.shippingCost
               : decision?.shippingCostByDriver //her driver accepted request and seted it own price
           }

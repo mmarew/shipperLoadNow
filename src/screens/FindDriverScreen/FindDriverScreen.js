@@ -98,7 +98,7 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
     }
     const data = { vehicle: { vehicleTypeUniqueId }, ...uniqueIds };
 
-    if (passengerStatus != listofJourneyStatus.requested) return;
+    if (passengerStatus != listOfJourneyStatus.requested) return;
 
     try {
       // Construct the API endpoint and token
@@ -139,7 +139,7 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
         handleNoAnswerFromDriver();
       }, 100000);
   }, [, passengerStatus]);
-  const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
+  const listOfJourneyStatus = passengerSlices?.listOfJourneyStatus;
   const [refreshing, setRefreshing] = useState(false);
   const onRefresh = () => setRefreshing(true);
   if (refreshing) return <Reload waitConfirmation={false} />;
@@ -173,8 +173,8 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
           }
         >
           {passengerStatus === null ||
-          passengerStatus === listofJourneyStatus.waiting ||
-          passengerStatus === listofJourneyStatus.requested ? (
+          passengerStatus === listOfJourneyStatus.waiting ||
+          passengerStatus === listOfJourneyStatus.requested ? (
             <View
               style={[
                 styles.container,
@@ -184,8 +184,8 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
               <Text style={GlobalStyles.title}>
                 {findScreenDescription(passengerStatus)}
               </Text>
-              {(passengerStatus === listofJourneyStatus.waiting ||
-                passengerStatus === listofJourneyStatus.requested) && (
+              {(passengerStatus === listOfJourneyStatus.waiting ||
+                passengerStatus === listOfJourneyStatus.requested) && (
                 <View style={{ margin: 10 }}>
                   <ProgressBar indeterminate color={'blue'} />
                 </View>

@@ -14,7 +14,7 @@ const DriverInfo = ({}) => {
   const GlobalStyles = getAppsGlobalStyles();
   const styles = createStyles();
   const passengerSlices = useSelector(state => state.passengerSlices);
-  const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
+  const listOfJourneyStatus = passengerSlices?.listOfJourneyStatus;
   const passengerStatus = passengerSlices?.passengerStatus;
   const passenger = passengerSlices?.passenger;
   const driverInfo = passengerSlices?.driver?.[0];
@@ -56,7 +56,7 @@ const DriverInfo = ({}) => {
     const fetchDestanceAndTime = async () => {
       const data = await getDistanceAndETA({
         destinationCoords:
-          passengerStatus <= listofJourneyStatus.acceptedByPassenger
+          passengerStatus <= listOfJourneyStatus.acceptedByPassenger
             ? passengerOriginCoords
             : passengerDestinationCoords,
         standingCoords: driverCoords,
@@ -94,7 +94,7 @@ const DriverInfo = ({}) => {
       ) : (
         <>
           <View style={styles.journeyInfoWrapper}>
-            {passengerStatus == listofJourneyStatus.acceptedByPassenger ? (
+            {passengerStatus == listOfJourneyStatus.acceptedByPassenger ? (
               <>
                 <Text style={styles.headingText}>
                   Driver is heading to your location....
@@ -122,7 +122,7 @@ const DriverInfo = ({}) => {
           </View>
           {/* Driver card */}
           <DiverCard driverInfo={driverInfo} />
-          {passengerStatus == listofJourneyStatus.acceptedByDriver && (
+          {passengerStatus == listOfJourneyStatus.acceptedByDriver && (
             <TouchableOpacity
               style={{
                 ...GlobalStyles.button,

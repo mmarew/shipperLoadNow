@@ -14,10 +14,10 @@ const JourneyCompleted = ({ navigation }) => {
   const barStyles = getAppsBarStyles();
   const passengerSlices = useSelector(state => state.passengerSlices);
   const passengerStatus = passengerSlices?.passengerStatus;
-  const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
-  console.log('@listofJourneyStatus', listofJourneyStatus?.journeyCompleted);
+  const listOfJourneyStatus = passengerSlices?.listOfJourneyStatus;
+  console.log('@listOfJourneyStatus', listOfJourneyStatus?.journeyCompleted);
   const [activeTab, setActiveTab] = useState(
-    passengerStatus == listofJourneyStatus?.journeyCompleted
+    passengerStatus == listOfJourneyStatus?.journeyCompleted
       ? 'Current'
       : 'History',
   );

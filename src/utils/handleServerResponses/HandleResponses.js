@@ -42,7 +42,7 @@ const setPassengersLocation = passenger => {
 const HandleResponses = response => {
   const states = store.getState();
   const passengerSlices = states?.passengerSlices;
-  const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
+  const listOfJourneyStatus = passengerSlices?.listOfJourneyStatus;
 
   if (!response) return;
   try {
@@ -60,13 +60,13 @@ const HandleResponses = response => {
     if (listOfVehiclesType?.length > 0) {
       store.dispatch(addListOfVehiclesType(listOfVehiclesType));
     }
-    // if (journeyStatusId >= listofJourneyStatus.journeyCompleted) {
+    // if (journeyStatusId >= listOfJourneyStatus.journeyCompleted) {
     //   journeyStatusId = null;
     // }
     console.log('@HandleResponses journeyStatusId', journeyStatusId);
     if (
-      journeyStatusId == listofJourneyStatus?.waiting ||
-      journeyStatusId == listofJourneyStatus?.requested
+      journeyStatusId == listOfJourneyStatus?.waiting ||
+      journeyStatusId == listOfJourneyStatus?.requested
     ) {
       if (passenger) {
         store.dispatch(addPassenger(passenger));
@@ -81,19 +81,19 @@ const HandleResponses = response => {
         store.dispatch(addSelectedVechelesType(selectedVehicleType?.[0]));
 
       store.dispatch(addDecision(decisions));
-    } else if (journeyStatusId == listofJourneyStatus?.acceptedByDriver) {
+    } else if (journeyStatusId == listOfJourneyStatus?.acceptedByDriver) {
       store.dispatch(addPassenger(passenger));
       setPassengersLocation(passenger);
 
       store.dispatch(addDriver(driver));
       store.dispatch(addDecision(decisions));
-    } else if (journeyStatusId == listofJourneyStatus?.acceptedByPassenger) {
+    } else if (journeyStatusId == listOfJourneyStatus?.acceptedByPassenger) {
       store.dispatch(addPassenger(passenger));
       setPassengersLocation(passenger);
       store.dispatch(addDriver(driver));
       store.dispatch(addDecision(decisions));
       // store.dispatch(addJourney(journey));
-    } else if (journeyStatusId == listofJourneyStatus?.journeyStarted) {
+    } else if (journeyStatusId == listOfJourneyStatus?.journeyStarted) {
       setPassengersLocation(passenger);
       // journeyStatusId = 6 is a cancel request by passenger
       store.dispatch(addPassenger(passenger));
@@ -104,7 +104,7 @@ const HandleResponses = response => {
       // store.dispatch(addDestinationLocation(null));
 
       // journeyStatusId = 5 is journey completed
-    } else if (journeyStatusId == listofJourneyStatus?.journeyCompleted) {
+    } else if (journeyStatusId == listOfJourneyStatus?.journeyCompleted) {
       store.dispatch(setFare(fare));
       // journeyStatusId = 6 journey completed
       store.dispatch(addOriginLocation(null));
@@ -112,7 +112,7 @@ const HandleResponses = response => {
       store.dispatch(addJourney(journey));
       store.dispatch(addDestinationLocation(null));
       store.dispatch(setSelectedScreen('Trip History'));
-    } else if (journeyStatusId == listofJourneyStatus?.cancelledByDriver) {
+    } else if (journeyStatusId == listOfJourneyStatus?.cancelledByDriver) {
       // if one driver may cancel it other one may accept it
       return verifyPassengerStatus();
     }

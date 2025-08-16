@@ -15,7 +15,7 @@ const Journey = ({ navigation, setShowComponent }) => {
   const passengerSlices = useSelector(state => state?.passengerSlices);
   const { destination, originLocation } = passengerSlices;
   const passengerStatus = passengerSlices?.passengerStatus;
-  const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
+  const listOfJourneyStatus = passengerSlices?.listOfJourneyStatus;
   const handleCancelRequest = async () => {
     setShowComponent('cancel request');
     // navigation.navigate('cancel request');
@@ -33,9 +33,9 @@ const Journey = ({ navigation, setShowComponent }) => {
             paddingTop: 40,
           }}
         >
-          {(passengerStatus == listofJourneyStatus?.acceptedByDriver ||
-            passengerStatus == listofJourneyStatus?.acceptedByPassenger ||
-            passengerStatus == listofJourneyStatus?.journeyStarted) && (
+          {(passengerStatus == listOfJourneyStatus?.acceptedByDriver ||
+            passengerStatus == listOfJourneyStatus?.acceptedByPassenger ||
+            passengerStatus == listOfJourneyStatus?.journeyStarted) && (
             <>
               <DriverInfo navigation={navigation} />
               <View>
@@ -51,7 +51,7 @@ const Journey = ({ navigation, setShowComponent }) => {
             />
           </View>
 
-          {passengerStatus <= listofJourneyStatus?.acceptedByPassenger && (
+          {passengerStatus <= listOfJourneyStatus?.acceptedByPassenger && (
             <TouchableOpacity
               onPress={handleCancelRequest}
               style={{

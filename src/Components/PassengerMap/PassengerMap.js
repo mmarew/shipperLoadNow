@@ -23,7 +23,7 @@ import API_URLS from '../../Configs/URLConfigs';
 
 const PassengerMap = ({ mapHeight }) => {
   const passengerSlices = useSelector(state => state?.passengerSlices);
-  const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
+  const listOfJourneyStatus = passengerSlices?.listOfJourneyStatus;
   const {
     originLocation: origin,
     destination,
@@ -125,7 +125,7 @@ const PassengerMap = ({ mapHeight }) => {
   // Fetch both routes when status is active
   useEffect(() => {
     if (
-      passengerStatus == listofJourneyStatus?.journeyStarted //5
+      passengerStatus == listOfJourneyStatus?.journeyStarted //5
     ) {
       if (origin && currentLocation)
         fetchRoute(origin, currentLocation, setCompletedRouteCoords); // blu Line
@@ -137,7 +137,7 @@ const PassengerMap = ({ mapHeight }) => {
         ); // red Line
     }
     if (
-      passengerStatus <= listofJourneyStatus?.acceptedByPassenger //4
+      passengerStatus <= listOfJourneyStatus?.acceptedByPassenger //4
     ) {
       fetchRoute(
         origin,
@@ -158,7 +158,7 @@ const PassengerMap = ({ mapHeight }) => {
     //If there is a passengerStatus and journey started use lastJourneyRoutePoints which is current location of driver
     if (
       passengerStatus &&
-      passengerStatus >= listofJourneyStatus?.journeyStarted &&
+      passengerStatus >= listOfJourneyStatus?.journeyStarted &&
       lastJourneyRoutePoints?.latitude &&
       lastJourneyRoutePoints?.longitude
     ) {
@@ -188,7 +188,7 @@ const PassengerMap = ({ mapHeight }) => {
       );
     } else if (
       passengerStatus &&
-      passengerStatus < listofJourneyStatus?.journeyStarted
+      passengerStatus < listOfJourneyStatus?.journeyStarted
     ) {
       store.dispatch(
         setRegion({
@@ -263,7 +263,7 @@ const PassengerMap = ({ mapHeight }) => {
         )}
         {/* driverAndPassengerLocationRouteCoords */}
         {passengerStatus &&
-          passengerStatus <= listofJourneyStatus?.acceptedByPassenger &&
+          passengerStatus <= listOfJourneyStatus?.acceptedByPassenger &&
           isMapReady &&
           // driverAndPassengerLocationRouteCoords.length > 0 &&
           driverAndPassengerLocationRouteCoords?.length > 0 && (
@@ -273,14 +273,14 @@ const PassengerMap = ({ mapHeight }) => {
             />
           )}
         {/* Render Completed Journey (blue) */}
-        {passengerStatus >= listofJourneyStatus?.journeyStarted &&
+        {passengerStatus >= listOfJourneyStatus?.journeyStarted &&
           isMapReady &&
           completedRouteCoords?.length > 0 &&
           routeCoordinates?.length > 0 && (
             <RenderOSMDirections routeCoords={routeCoordinates} color="blue" />
           )}
         {/* Render Remaining Journey (red) */}
-        {passengerStatus >= listofJourneyStatus?.journeyStarted &&
+        {passengerStatus >= listOfJourneyStatus?.journeyStarted &&
           isMapReady &&
           remainingRouteCoords?.length > 0 && (
             <RenderOSMDirections

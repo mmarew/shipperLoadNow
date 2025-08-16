@@ -1,8 +1,8 @@
-import {navigate} from '../../services/navigationService';
+import { navigate } from '../../services/navigationService';
 import store from '../../Redux/Store/Store';
 const getScreenLists = () => {
   const state = store.getState();
-  const listofJourneyStatus = state?.passengerSlices?.listofJourneyStatus;
+  const listOfJourneyStatus = state?.passengerSlices?.listOfJourneyStatus;
   const screenLists = [
     {
       passengerStatus: undefined,
@@ -17,37 +17,37 @@ const getScreenLists = () => {
       // description: `You have not created request yet. `,
     },
     {
-      passengerStatus: listofJourneyStatus?.waiting,
+      passengerStatus: listOfJourneyStatus?.waiting,
       // screen: 'Find Driver',
       screen: 'Home',
       description: `Looking for driver ... `,
     },
     {
-      passengerStatus: listofJourneyStatus?.requested,
+      passengerStatus: listOfJourneyStatus?.requested,
       // screen: 'Find Driver',
       screen: 'Home',
       description: `Waitting for driver responce `,
     },
     {
-      passengerStatus: listofJourneyStatus?.acceptedByDriver,
+      passengerStatus: listOfJourneyStatus?.acceptedByDriver,
       screen: 'Waiting for your Confirmation',
       screen: 'Home',
       description: `Driver accepted your call and waiting for your confirmation`,
     },
     {
-      passengerStatus: listofJourneyStatus?.acceptedByPassenger,
+      passengerStatus: listOfJourneyStatus?.acceptedByPassenger,
       // screen: 'Journey',
 
       screen: 'Home',
       description: `Driver is commig to you`,
     },
     {
-      passengerStatus: listofJourneyStatus?.journeyStarted,
+      passengerStatus: listOfJourneyStatus?.journeyStarted,
       screen: 'Journey',
       description: `Going to destination`,
     },
     {
-      passengerStatus: listofJourneyStatus?.journeyCompleted,
+      passengerStatus: listOfJourneyStatus?.journeyCompleted,
       screen: 'Journey Completed',
       description: `Journey is completed`,
     },
@@ -65,7 +65,7 @@ const findScreenDescription = passengerStatus => {
     screen => screen?.passengerStatus === passengerStatus,
   )?.description;
 };
-export const navigateToScreen = ({passengerStatus, screen}) => {
+export const navigateToScreen = ({ passengerStatus, screen }) => {
   if (screen) return navigate(screen);
   // no need of screen selection
   if (passengerStatus === undefined) return;
@@ -74,4 +74,4 @@ export const navigateToScreen = ({passengerStatus, screen}) => {
   navigate(screenByStatus);
 };
 export default findScreenByPassengerStatus;
-export {findScreenDescription, findScreenByPassengerStatus};
+export { findScreenDescription, findScreenByPassengerStatus };

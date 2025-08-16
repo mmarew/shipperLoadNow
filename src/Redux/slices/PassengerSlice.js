@@ -8,7 +8,7 @@ const initialState = {
   // it holds the current location of driver
   currentLocationOfDriver: undefined,
   region: defaultRegion,
-  listofJourneyStatus: undefined,
+  listOfJourneyStatus: undefined,
   shippableItem: {
     shippableItemName: undefined,
     shippableItemQtyInQuintal: undefined,
@@ -75,7 +75,7 @@ const reducers = {
   ]),
   updateIsDarkMode: createSimpleSetter('isDarkMode'),
   setRegion: createSimpleSetter('region'),
-  updateListofJourneyStatus: createSimpleSetter('listofJourneyStatus'),
+  updatelistOfJourneyStatus: createSimpleSetter('listOfJourneyStatus'),
   addPassengersToken: createSimpleSetter('passengersToken'),
   updateJourneyRoutePoints: createSimpleSetter('journeyRoutePoints'),
   setFare: createSimpleSetter('fare'),
@@ -124,7 +124,7 @@ const webSocketSlice = createSlice({ name, initialState, reducers });
 export const {
   updateIsDarkMode,
   updateCurrentLocationOfDriver,
-  updateListofJourneyStatus,
+  updatelistOfJourneyStatus,
   updateShipableItem,
   addPassengersToken,
   setRegistrablePassenger,

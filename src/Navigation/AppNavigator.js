@@ -40,7 +40,7 @@ import {
   updateConnectionStatus,
   updateCurrentLocationOfDriver,
   updateIsDarkMode,
-  updateListofJourneyStatus,
+  updatelistOfJourneyStatus,
 } from '../Redux/slices/PassengerSlice';
 
 // Styles
@@ -63,11 +63,11 @@ const AppNavigator = () => {
   const [initialRoute, setInitialRoute] = useState(undefined);
   const [savedProfileImage, setSavedProfileImage] = useState(null);
 
-  const getListofJourneyStatus = async () => {
+  const getlistOfJourneyStatus = async () => {
     try {
       const url = API_URLS.GET_LIST_OF_JOURNEY_STATUS;
       const resuts = await requestUsingGetMethod({ url });
-      dispatch(updateListofJourneyStatus(resuts.data));
+      dispatch(updatelistOfJourneyStatus(resuts.data));
     } catch (error) {
       console.log('@getListofStatus error', error);
     }
@@ -83,7 +83,7 @@ const AppNavigator = () => {
       const httpConnection = await requestUsingGetMethod({ url: '' });
 
       if (httpConnection?.message === 'Server is running') {
-        await getListofJourneyStatus();
+        await getlistOfJourneyStatus();
         dispatch(updateConnectionStatus({ isHTTPConnected: true }));
         await testToken();
       } else {

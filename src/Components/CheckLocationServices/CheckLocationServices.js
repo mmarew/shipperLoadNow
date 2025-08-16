@@ -22,7 +22,7 @@ const CheckLocationServices = () => {
   const originLocation = passengerSlices?.originLocation;
   const isLoading = passengerSlices?.isLoading;
   const passengerStatus = passengerSlices?.passengerStatus;
-  const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
+  const listOfJourneyStatus = passengerSlices?.listOfJourneyStatus;
 
   const [locationEnabled, setLocationEnabled] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -96,7 +96,7 @@ const CheckLocationServices = () => {
     if (
       !originLocation &&
       (!passengerStatus ||
-        passengerStatus < listofJourneyStatus?.journeyStarted)
+        passengerStatus < listOfJourneyStatus?.journeyStarted)
     ) {
       dispatch(addOriginLocation({ latitude, longitude, description }));
     }

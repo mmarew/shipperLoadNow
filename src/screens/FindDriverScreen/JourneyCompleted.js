@@ -21,11 +21,11 @@
 // const JourneyCompleted = () => {
 //   const passengerSlices = useSelector(state => state.passengerSlices);
 //   const passengerStatus = passengerSlices?.passengerStatus;
-//   const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
-//   console.log('@JourneyCompleted listofJourneyStatus', listofJourneyStatus);
+//   const listOfJourneyStatus = passengerSlices?.listOfJourneyStatus;
+//   console.log('@JourneyCompleted listOfJourneyStatus', listOfJourneyStatus);
 //   return (
 //     <View style={{flex: 1, backgroundColor: 'red'}}>
-//       {passengerStatus === listofJourneyStatus?.journeyCompleted ? (
+//       {passengerStatus === listOfJourneyStatus?.journeyCompleted ? (
 //         <PaymentSummary />
 //       ) : (
 //         // <NavigationContainer>
