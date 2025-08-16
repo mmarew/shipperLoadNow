@@ -40,7 +40,7 @@ import {
   updateConnectionStatus,
   updateCurrentLocationOfDriver,
   updateIsDarkMode,
-  updateListOfJourneyStatus,
+  updatelistOfJourneyStatus,
 } from '../Redux/slices/PassengerSlice';
 
 // Styles
@@ -67,7 +67,7 @@ const AppNavigator = () => {
     try {
       const url = API_URLS.GET_LIST_OF_JOURNEY_STATUS;
       const resuts = await requestUsingGetMethod({ url });
-      dispatch(updateListOfJourneyStatus(resuts.data));
+      dispatch(updatelistOfJourneyStatus(resuts.data));
     } catch (error) {
       console.log('@getListofStatus error', error);
     }

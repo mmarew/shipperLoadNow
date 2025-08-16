@@ -4,6 +4,7 @@ import { Text, TextInput } from 'react-native-paper';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useDispatch, useSelector } from 'react-redux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { v4 as uuidv4 } from 'uuid';
 
 import { updateShippableItem } from '../../Redux/slices/PassengerSlice';
 import BackArrow from '../../Components/BackArrow/BackArrow';
@@ -11,6 +12,7 @@ import createColorStyles from './ShippingDetails.style';
 import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
 import getAppsGlobalStyles from '../../GlobalStyles/AppsGlobalStyles';
 import { useColorScheme } from 'react-native';
+import store from '../../Redux/Store/Store';
 
 export default function ShippingDetails({ navigation, setShowComponent }) {
   const colorScheme = useColorScheme(); // 'light' or 'dark'
@@ -125,6 +127,13 @@ export default function ShippingDetails({ navigation, setShowComponent }) {
     const valid = validateInputs();
     if (valid) setShowComponent('List Of Vehicles');
   };
+
+  useEffect(() => {
+    const passengerRequestBatchId = uuidv4();
+    console.log('@passengerRequestBatchId', passengerRequestBatchId);
+    store.dispatch(updateShippableItem({ passengerRequestBatchId }));
+  }, []);
+
   return (
     <KeyboardAwareScrollView
       extraScrollHeight={150}

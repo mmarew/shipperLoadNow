@@ -15,7 +15,8 @@ const initialState = {
     shippingDate: undefined,
     deliveryDate: undefined,
     shippingCost: undefined,
-    numberOfVehicles: undefined, // New field added
+    numberOfVehicles: undefined,
+    passengerRequestBatchId: undefined,
   },
   passengersToken: undefined,
   connectionToBackEnd: {
@@ -67,7 +68,8 @@ const reducers = {
     'shippingDate',
     'deliveryDate',
     'shippingCost',
-    'numberOfVehicles', // New field added
+    'numberOfVehicles',
+    'passengerRequestBatchId',
   ]),
 
   updateConnectionStatus: createPartialUpdater('connectionToBackEnd', [
@@ -76,7 +78,7 @@ const reducers = {
   ]),
   updateIsDarkMode: createSimpleSetter('isDarkMode'),
   setRegion: createSimpleSetter('region'),
-  updateListOfJourneyStatus: createSimpleSetter('listOfJourneyStatus'),
+  updatelistOfJourneyStatus: createSimpleSetter('listOfJourneyStatus'),
   addPassengersToken: createSimpleSetter('passengersToken'),
   updateJourneyRoutePoints: createSimpleSetter('journeyRoutePoints'),
   setFare: createSimpleSetter('fare'),
@@ -127,7 +129,7 @@ const webSocketSlice = createSlice({ name, initialState, reducers });
 export const {
   updateIsDarkMode,
   updateCurrentLocationOfDriver,
-  updateListOfJourneyStatus,
+  updatelistOfJourneyStatus,
   updateShippableItem,
   addPassengersToken,
   setRegistrablePassenger,
