@@ -36,11 +36,11 @@ import {
   addListOfVehiclesType,
   addPassengerStatus,
   addPassengersToken,
-  addSelectedVechelesType,
+  addSelectedVehiclesType,
   updateConnectionStatus,
   updateCurrentLocationOfDriver,
   updateIsDarkMode,
-  updatelistOfJourneyStatus,
+  updateListOfJourneyStatus,
 } from '../Redux/slices/PassengerSlice';
 
 // Styles
@@ -67,7 +67,7 @@ const AppNavigator = () => {
     try {
       const url = API_URLS.GET_LIST_OF_JOURNEY_STATUS;
       const resuts = await requestUsingGetMethod({ url });
-      dispatch(updatelistOfJourneyStatus(resuts.data));
+      dispatch(updateListOfJourneyStatus(resuts.data));
     } catch (error) {
       console.log('@getListofStatus error', error);
     }
@@ -235,7 +235,7 @@ const AppNavigator = () => {
       const selectedVehicles = listOfVehiclesType?.find(
         vehicle => vehicle?.vehicleTypeUniqueId == selecteVehicleTypeUniqueId,
       );
-      store.dispatch(addSelectedVechelesType(selectedVehicles));
+      store.dispatch(addSelectedVehiclesType(selectedVehicles));
     }
   }, [passenger, listOfVehiclesType]);
 

@@ -29,7 +29,7 @@ const CancelRequestModal = ({ navigation }) => {
   const [selectedReason, setSelectedReason] = useState(null);
   const [isChecked, setIsChecked] = useState({}); // State for managing checkboxes
   const passengerSlices = useSelector(state => state?.passengerSlices);
-  let listOfCancilationReasons = passengerSlices?.listOfCancilationReasons;
+  let listOfCancellationReasons = passengerSlices?.listOfCancellationReasons;
   const dispatch = useDispatch();
   const passengerStatus = passengerSlices?.passengerStatus;
   console.log('@CancelRequestModal passengerStatus', passengerStatus);
@@ -77,7 +77,7 @@ const CancelRequestModal = ({ navigation }) => {
     }
   };
 
-  const handleStopCancilation = () => {
+  const handleStopCancellation = () => {
     dispatch(setModalVisible(true));
     navigation.navigate('Find Driver');
   };
@@ -103,15 +103,15 @@ const CancelRequestModal = ({ navigation }) => {
               Why you need to cancel your request?
             </Text>
             {/* <PickupAndDestinationDisplayer /> */}
-            {listOfCancilationReasons?.map((reason, index) => (
+            {listOfCancellationReasons?.map((reason, index) => (
               <Pressable
                 key={index}
                 onPress={() => handleReasonSelect(reason)}
                 style={[
                   styles.reasonContainer,
                   styles.reasonButton,
-                  selectedReason?.cancilationReasonType ===
-                    reason?.cancilationReasonType &&
+                  selectedReason?.CancellationReasonType ===
+                    reason?.CancellationReasonType &&
                     styles.selectedReasonContainer,
                 ]}
               >
@@ -136,7 +136,7 @@ const CancelRequestModal = ({ navigation }) => {
               >
                 <TouchableOpacity
                   style={{ ...GlobalStyles.button }}
-                  onPress={handleStopCancilation}
+                  onPress={handleStopCancellation}
                 >
                   <Text
                     style={{

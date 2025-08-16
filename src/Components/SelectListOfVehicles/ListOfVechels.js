@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import store from '../../Redux/Store/Store';
-import { addSelectedVechelesType } from '../../Redux/slices/PassengerSlice';
+import { addSelectedVehiclesType } from '../../Redux/slices/PassengerSlice';
 import EachVehicles from './EachVehicles';
 import ButtonNavigateToScreens from '../Buttons/ButtonNavigateToScreens/ButtonNavigateToScreens';
 import BackArrow from '../BackArrow/BackArrow';
@@ -19,7 +19,7 @@ function SelectListOfVechels({ navigation, setShowComponent }) {
 
   // update selectedVehicle in redux
   useEffect(() => {
-    store.dispatch(addSelectedVechelesType(selectedVehicle));
+    store.dispatch(addSelectedVehiclesType(selectedVehicle));
   }, [selectedVehicle]);
   const listOfVehiclesType = passengerSlices?.listOfVehiclesType;
   console.log('@listOfVehiclesType', listOfVehiclesType);

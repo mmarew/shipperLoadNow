@@ -12,17 +12,17 @@ const CancelRequest = ({ setShowComponent }) => {
   const cancelCurrentRequest = () => {
     setShowComponent('cancel request');
   };
-  const [cancilationMessage, setCancilationMessage] = useState(null);
+  const [CancellationMessage, setCancellationMessage] = useState(null);
   useEffect(() => {
     if (passengerStatus == 1) {
-      setCancilationMessage(
+      setCancellationMessage(
         numberOfRequests.current == 0
           ? 'Looking for a driver .... '
           : 'Looking for other driver ...... ',
       );
     } else if (passengerStatus == 2) {
       numberOfRequests.current++;
-      setCancilationMessage('Requested for a driver and waiting its response');
+      setCancellationMessage('Requested for a driver and waiting its response');
     }
   }, [passengerStatus]);
   // if no passenger status no need of progress bar
@@ -30,7 +30,7 @@ const CancelRequest = ({ setShowComponent }) => {
 
   return (
     <View style={styles.container}>
-      {/* <Text>{cancilationMessage}</Text> */}
+      {/* <Text>{CancellationMessage}</Text> */}
       {/* <ActivityIndicator color={'#075985'} size={'large'} /> */}
 
       <TouchableOpacity

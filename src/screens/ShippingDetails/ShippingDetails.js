@@ -5,7 +5,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { useDispatch, useSelector } from 'react-redux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import { updateShipableItem } from '../../Redux/slices/PassengerSlice';
+import { updateShippableItem } from '../../Redux/slices/PassengerSlice';
 import BackArrow from '../../Components/BackArrow/BackArrow';
 import createColorStyles from './ShippingDetails.style';
 import getAppsColorStyles from '../../GlobalStyles/AppsColorStyles';
@@ -21,7 +21,7 @@ export default function ShippingDetails({ navigation, setShowComponent }) {
   const dispatch = useDispatch();
 
   const { shippableItem } = useSelector(state => state.passengerSlices);
-
+  console.log('@shippableItem', shippableItem);
   const [showDatePicker, setShowDatePicker] = useState({
     shippingDate: false,
     deliveryDate: false,
@@ -52,7 +52,7 @@ export default function ShippingDetails({ navigation, setShowComponent }) {
     if (!shippableItem?.deliveryDate)
       updates.deliveryDate = new Date().toISOString();
     if (Object.keys(updates).length > 0) {
-      dispatch(updateShipableItem(updates));
+      dispatch(updateShippableItem(updates));
     }
   }, [shippableItem]);
 
@@ -82,6 +82,7 @@ export default function ShippingDetails({ navigation, setShowComponent }) {
       shippingCost: '',
       shippingDate: '',
       deliveryDate: '',
+      numberOfVehicles: '',
     };
 
     if (!shippingDate || isNaN(shippingDate)) {
@@ -115,7 +116,7 @@ export default function ShippingDetails({ navigation, setShowComponent }) {
 
   const handleDateChange = (type, date) => {
     if (date) {
-      dispatch(updateShipableItem({ [`${type}Date`]: date.toISOString() }));
+      dispatch(updateShippableItem({ [`${type}Date`]: date.toISOString() }));
       setShowDatePicker({ shippingDate: false, deliveryDate: false });
       setErrors(prev => ({ ...prev, [`${type}Date`]: '' }));
     }
@@ -253,7 +254,7 @@ export default function ShippingDetails({ navigation, setShowComponent }) {
                   onChangeText={text => {
                     const value = keyboardType ? Number(text) : text.trim();
                     dispatch(
-                      updateShipableItem({ [key]: text === '' ? '' : value }),
+                      updateShippableItem({ [key]: text === '' ? '' : value }),
                     );
                     setErrors(prev => ({ ...prev, [key]: '' }));
                   }}

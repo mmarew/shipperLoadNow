@@ -3,12 +3,12 @@ import {
   addDestinationLocation,
   addDriver,
   addJourney,
-  addListOfCancilationReasons,
+  addListOfCancellationReasons,
   addListOfVehiclesType,
   addOriginLocation,
   addPassenger,
   addPassengerStatus,
-  addSelectedVechelesType,
+  addSelectedVehiclesType,
   setFare,
   setSelectedScreen,
 } from '../../Redux/slices/PassengerSlice';
@@ -52,7 +52,7 @@ const HandleResponses = response => {
       decisions = response?.decisions,
       journey = response?.journey,
       listOfVehiclesType = response?.listOfVehiclesType,
-      listOfCancilationReasons = response?.listOfCancilationReasons,
+      listOfCancellationReasons = response?.listOfCancellationReasons,
       selectedVehicleType = response?.selectedVehicleType;
     let journeyStatusId = response?.status;
     if (journeyStatusId === undefined)
@@ -73,12 +73,12 @@ const HandleResponses = response => {
         setPassengersLocation(passenger);
       }
       if (driver) store.dispatch(addDriver(driver));
-      if (listOfCancilationReasons)
-        store.dispatch(addListOfCancilationReasons(listOfCancilationReasons));
+      if (listOfCancellationReasons)
+        store.dispatch(addListOfCancellationReasons(listOfCancellationReasons));
       // if (listOfVehiclesType)
       //   store.dispatch(addListOfVehiclesType(listOfVehiclesType));
       if (selectedVehicleType)
-        store.dispatch(addSelectedVechelesType(selectedVehicleType?.[0]));
+        store.dispatch(addSelectedVehiclesType(selectedVehicleType?.[0]));
 
       store.dispatch(addDecision(decisions));
     } else if (journeyStatusId == listOfJourneyStatus?.acceptedByDriver) {

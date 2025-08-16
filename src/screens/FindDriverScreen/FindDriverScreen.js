@@ -80,13 +80,13 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
   const passengerStatus = passengerSlices?.passengerStatus;
   const [selectedVehicle, setSelectedVehicle] = useState(null);
   useEffect(() => {
-    setSelectedVehicle(passengerSlices?.selectedVechelesType);
+    setSelectedVehicle(passengerSlices?.selectedVehiclesType);
   }, [passengerSlices]);
   const originLocation = passengerSlices.originLocation,
     destination = passengerSlices.destination;
   const handleNoAnswerFromDriver = async () => {
     const vehicleTypeUniqueId =
-      passengerSlices?.selectedVechelesType?.vehicleTypeUniqueId;
+      passengerSlices?.selectedVehiclesType?.vehicleTypeUniqueId;
     // get driverRequestUniqueId and passengerRequestUniqueId
     const uniqueIds = getUniQueIds(passengerSlices);
 
@@ -112,7 +112,7 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
   const createNewPassengerRequest = async () => {
     try {
       const requestData = {
-        vehicle: passengerSlices?.selectedVechelesType,
+        vehicle: passengerSlices?.selectedVehiclesType,
         destination,
         originLocation,
         ...shippableItem,
