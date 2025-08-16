@@ -40,7 +40,7 @@ import {
   updateConnectionStatus,
   updateCurrentLocationOfDriver,
   updateIsDarkMode,
-  updatelistOfJourneyStatus,
+  updateListOfJourneyStatus,
 } from '../Redux/slices/PassengerSlice';
 
 // Styles
@@ -63,11 +63,11 @@ const AppNavigator = () => {
   const [initialRoute, setInitialRoute] = useState(undefined);
   const [savedProfileImage, setSavedProfileImage] = useState(null);
 
-  const getlistOfJourneyStatus = async () => {
+  const getListOfJourneyStatus = async () => {
     try {
       const url = API_URLS.GET_LIST_OF_JOURNEY_STATUS;
       const resuts = await requestUsingGetMethod({ url });
-      dispatch(updatelistOfJourneyStatus(resuts.data));
+      dispatch(updateListOfJourneyStatus(resuts.data));
     } catch (error) {
       console.log('@getListofStatus error', error);
     }
@@ -83,7 +83,7 @@ const AppNavigator = () => {
       const httpConnection = await requestUsingGetMethod({ url: '' });
 
       if (httpConnection?.message === 'Server is running') {
-        await getlistOfJourneyStatus();
+        await getListOfJourneyStatus();
         dispatch(updateConnectionStatus({ isHTTPConnected: true }));
         await testToken();
       } else {
@@ -143,7 +143,7 @@ const AppNavigator = () => {
           userStatusData?.status,
         );
         setInitialRoute(initialScreen);
-        await getVehicleTypes(token);
+        await getVehicleTypes();
       } else {
         await AsyncStorage.clear();
         dispatch(addPassengersToken(null));
@@ -216,10 +216,10 @@ const AppNavigator = () => {
 
   const getVehicleTypes = async () => {
     try {
-      const vecheleTypeAndTarrif = await requestUsingGetMethod({
+      const vehiclesTypeAndTariff = await requestUsingGetMethod({
         url: API_URLS.GET_VEHICLE_TYPES,
       });
-      store.dispatch(addListOfVehiclesType(vecheleTypeAndTarrif.data));
+      store.dispatch(addListOfVehiclesType(vehiclesTypeAndTariff.data));
     } catch (error) {
       errorHandler(error);
     }
@@ -230,10 +230,10 @@ const AppNavigator = () => {
   const connectionToBackEnd = passengerSlices?.connectionToBackEnd;
 
   useEffect(() => {
-    const selecteVehicleTypeUniqueId = passenger?.vehicleTypeUniqueId;
-    if (selecteVehicleTypeUniqueId) {
+    const selectVehicleTypeUniqueId = passenger?.vehicleTypeUniqueId;
+    if (selectVehicleTypeUniqueId) {
       const selectedVehicles = listOfVehiclesType?.find(
-        vehicle => vehicle?.vehicleTypeUniqueId == selecteVehicleTypeUniqueId,
+        vehicle => vehicle?.vehicleTypeUniqueId == selectVehicleTypeUniqueId,
       );
       store.dispatch(addSelectedVehiclesType(selectedVehicles));
     }

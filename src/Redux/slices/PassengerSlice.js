@@ -78,7 +78,7 @@ const reducers = {
   ]),
   updateIsDarkMode: createSimpleSetter('isDarkMode'),
   setRegion: createSimpleSetter('region'),
-  updatelistOfJourneyStatus: createSimpleSetter('listOfJourneyStatus'),
+  updateListOfJourneyStatus: createSimpleSetter('listOfJourneyStatus'),
   addPassengersToken: createSimpleSetter('passengersToken'),
   updateJourneyRoutePoints: createSimpleSetter('journeyRoutePoints'),
   setFare: createSimpleSetter('fare'),
@@ -129,7 +129,7 @@ const webSocketSlice = createSlice({ name, initialState, reducers });
 export const {
   updateIsDarkMode,
   updateCurrentLocationOfDriver,
-  updatelistOfJourneyStatus,
+  updateListOfJourneyStatus,
   updateShippableItem,
   addPassengersToken,
   setRegistrablePassenger,
