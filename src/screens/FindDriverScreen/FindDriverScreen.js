@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import PickupAndDestinationDisplayer from '../../Components/PickUpAndDestination/PickupAndDestinationDisplayer';
-import PassangerMap from '../../Components/PassangerMap/PassangerMap';
+import PassengerMap from '../../Components/PassengerMap/PassengerMap';
 import EachVehicles from '../../Components/SelectListOfVehicles/EachVehicles';
 import { useDispatch, useSelector } from 'react-redux';
 import errorHandler from '../../utils/errorHandler/errorHandler';
@@ -166,7 +166,7 @@ const FindDriverScreen = ({ navigation, setShowComponent }) => {
             />
           </View>
         )}
-        {passengerStatus && <PassangerMap navigation={navigation} />}
+        {passengerStatus && <PassengerMap navigation={navigation} />}
         <ScrollView
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />

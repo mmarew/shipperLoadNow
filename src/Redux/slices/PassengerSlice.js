@@ -15,6 +15,7 @@ const initialState = {
     shippingDate: undefined,
     deliveryDate: undefined,
     shippingCost: undefined,
+    numberOfVehicles: undefined, // New field added
   },
   passengersToken: undefined,
   connectionToBackEnd: {

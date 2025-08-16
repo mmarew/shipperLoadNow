@@ -4,7 +4,7 @@ import MapView, { Marker } from 'react-native-maps';
 import { useSelector } from 'react-redux';
 import polyline from '@mapbox/polyline';
 
-import styles from './PassangersMap.style';
+import styles from './PassengersMap.style';
 import RenderOSMDirections from '../../screens/FindDriverScreen/RenderOSMDirections';
 import {
   height,
@@ -13,16 +13,15 @@ import {
   mapType,
 } from '../Constants/constant.utils';
 import { osrmUrl } from '../Constants/constant.url';
-import { requestUsingGetMethode } from '../../utils/handleRequestToServer/handleRequestToServer';
+import { requestUsingGetMethod } from '../../utils/handleRequestToServer/handleRequestToServer';
 import {
   setRegion,
   updateJourneyRoutePoints,
 } from '../../Redux/slices/PassengerSlice';
 import store from '../../Redux/Store/Store';
 import API_URLS from '../../Configs/URLConfigs';
-import { Text } from 'react-native-paper';
 
-const PassangerMap = ({ mapHeight }) => {
+const PassengerMap = ({ mapHeight }) => {
   const passengerSlices = useSelector(state => state?.passengerSlices);
   const listofJourneyStatus = passengerSlices?.listofJourneyStatus;
   const {
@@ -63,7 +62,7 @@ const PassangerMap = ({ mapHeight }) => {
       const GET_JOURNEY_ROUTE_POINTS =
         API_URLS?.GET_JOURNEY_ROUTE_POINTS + journeyUniqueId;
       // const url = `/api/journeyRoutePoints/journeyUniqueId/${journeyUniqueId}`;
-      const result = await requestUsingGetMethode({
+      const result = await requestUsingGetMethod({
         url: GET_JOURNEY_ROUTE_POINTS,
       });
       const data = result?.data;
@@ -300,4 +299,4 @@ const PassangerMap = ({ mapHeight }) => {
     </View>
   );
 };
-export default React.memo(PassangerMap);
+export default React.memo(PassengerMap);

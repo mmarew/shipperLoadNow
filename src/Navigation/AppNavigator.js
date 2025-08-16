@@ -8,7 +8,7 @@ import { Text } from 'react-native-paper';
 
 // Screens
 import RegisterPassenger from '../screens/RegisterPassenger/RegisterPassenger';
-import DriversPinVerification from '../screens/Auth/PassangerPinVerification/PassangerOTPVerification';
+import DriversPinVerification from '../screens/Auth/PassengerPinVerification/PassengerOTPVerification';
 import ErrorPage from '../screens/ErrorPage/ErrorPage';
 import TermsAndServicesScreen from '../screens/TermsAndServicesScreen/TermsAndServicesScreen';
 
@@ -17,7 +17,7 @@ import CheckLocationServices from '../Components/CheckLocationServices/CheckLoca
 
 // Utils & Services
 import { setTopLevelNavigator } from '../services/navigationService';
-import { requestUsingGetMethode } from '../utils/handleRequestToServer/handleRequestToServer';
+import { requestUsingGetMethod } from '../utils/handleRequestToServer/handleRequestToServer';
 import errorHandler from '../utils/errorHandler/errorHandler';
 import HandleResponses from '../utils/handleServerResponses/HandleResponses';
 import findScreenByPassengerStatus from '../utils/ScreenManager/ScreenList';
@@ -66,7 +66,7 @@ const AppNavigator = () => {
   const getListofJourneyStatus = async () => {
     try {
       const url = API_URLS.GET_LIST_OF_JOURNEY_STATUS;
-      const resuts = await requestUsingGetMethode({ url });
+      const resuts = await requestUsingGetMethod({ url });
       dispatch(updateListofJourneyStatus(resuts.data));
     } catch (error) {
       console.log('@getListofStatus error', error);
@@ -80,7 +80,7 @@ const AppNavigator = () => {
   const testConnections = async (retryCount = 0) => {
     try {
       console.log('@testing Connections..... Attempt:', retryCount + 1);
-      const httpConnection = await requestUsingGetMethode({ url: '' });
+      const httpConnection = await requestUsingGetMethod({ url: '' });
 
       if (httpConnection?.message === 'Server is running') {
         await getListofJourneyStatus();
@@ -157,7 +157,7 @@ const AppNavigator = () => {
   const fetchProfileImage = useCallback(async () => {
     try {
       setIsLoading(false);
-      const response = await requestUsingGetMethode({
+      const response = await requestUsingGetMethod({
         url: '/api/admin/attachedDocumentsByUser/self',
       });
       const profilePhoto = response?.data?.find(
@@ -216,7 +216,7 @@ const AppNavigator = () => {
 
   const getVehicleTypes = async () => {
     try {
-      const vecheleTypeAndTarrif = await requestUsingGetMethode({
+      const vecheleTypeAndTarrif = await requestUsingGetMethod({
         url: API_URLS.GET_VEHICLE_TYPES,
       });
       store.dispatch(addListOfVehiclesType(vecheleTypeAndTarrif.data));

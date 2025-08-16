@@ -104,7 +104,7 @@ const PickUpAndDestinationInputs = ({ navigation, setShowComponent }) => {
   );
 
   const handleNextPress = useCallback(() => {
-    setShowComponent('Shipping Detailes');
+    setShowComponent('Shipping Details');
   }, [setShowComponent]);
 
   const focusInput = useCallback(type => {

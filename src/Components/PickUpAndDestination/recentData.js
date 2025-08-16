@@ -1,8 +1,8 @@
-import {requestUsingGetMethode} from '../../utils/handleRequestToServer/handleRequestToServer';
+import { requestUsingGetMethod } from '../../utils/handleRequestToServer/handleRequestToServer';
 
 const getRecentCompletedJourney = async () => {
   try {
-    const response = await requestUsingGetMethode({
+    const response = await requestUsingGetMethod({
       url: '/api/recentrequest/getRecentCompletedJourney',
     });
     return response?.data;
@@ -10,4 +10,4 @@ const getRecentCompletedJourney = async () => {
     console.log('@ getRecentCompletedJourney error =========> ', error);
   }
 };
-export {getRecentCompletedJourney};
+export { getRecentCompletedJourney };

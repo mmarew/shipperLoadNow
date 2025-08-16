@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ScrollView, TouchableOpacity } from 'react-native';
 import PickupAndDestinationDisplayer from '../../Components/PickUpAndDestination/PickupAndDestinationDisplayer';
-import PassangerMap from '../../Components/PassangerMap/PassangerMap';
+import PassengerMap from '../../Components/PassengerMap/PassengerMap';
 import DriverInfo from '../../Components/DriverInfo/DriverInfo';
 import { useSelector } from 'react-redux';
 import { Text } from 'react-native-paper';
@@ -23,7 +23,7 @@ const Journey = ({ navigation, setShowComponent }) => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <PassangerMap mapHeight={0.7} navigation={navigation} />
+        <PassengerMap mapHeight={0.7} navigation={navigation} />
         <View
           style={{
             padding: 20,

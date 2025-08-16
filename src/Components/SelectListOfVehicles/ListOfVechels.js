@@ -64,9 +64,9 @@ function SelectListOfVechels({ navigation, setShowComponent }) {
       <View style={{ ...GlobalStyles.container, marginTop: 90 }}>
         <View style={{ padding: 20 }}>
           <BackArrow
-            showComponent={'Shipping Detailes'}
+            showComponent={'Shipping Details'}
             setShowComponent={setShowComponent}
-            navigateTo="Shipping Detailes"
+            navigateTo="Shipping Details"
             description={'Select vehicle types'}
           />
           {listOfVehiclesType?.map((item, index) =>

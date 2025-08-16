@@ -15,7 +15,7 @@ import { showSuccessToast } from '../../../utils/ToastDisplayer/toastDisplayer';
 import TopView from '../TopView/TopView';
 import errorHandler from '../../../utils/errorHandler/errorHandler';
 import {
-  requestUsingGetMethode,
+  requestUsingGetMethod,
   requestUsingPostMethod,
 } from '../../../utils/handleRequestToServer/handleRequestToServer';
 import { addPassengersToken } from '../../../Redux/slices/PassengerSlice';
@@ -26,9 +26,9 @@ import getAppsGlobalStyles from '../../../GlobalStyles/AppsGlobalStyles';
 import getAppsColorStyles, {
   getAppsBarStyles,
 } from '../../../GlobalStyles/AppsColorStyles';
-import createStyles from './PassangerOTPVerification.css';
+import createStyles from './PassengerOTPVerification.css';
 import { Text } from 'react-native-paper';
-const PassangerOTPVerification = ({ navigation }) => {
+const PassengerOTPVerification = ({ navigation }) => {
   const styles = createStyles();
   const GlobalStyles = getAppsGlobalStyles();
   const ColorStyles = getAppsColorStyles();
@@ -79,7 +79,7 @@ const PassangerOTPVerification = ({ navigation }) => {
 
     setIsLoading(true);
     try {
-      const response = await requestUsingGetMethode({
+      const response = await requestUsingGetMethod({
         url: '/api/user/verifyUserByOTP',
         params: {
           phoneNumber: phoneNumber,
@@ -357,4 +357,4 @@ const PassangerOTPVerification = ({ navigation }) => {
   );
 };
 
-export default PassangerOTPVerification;
+export default PassengerOTPVerification;

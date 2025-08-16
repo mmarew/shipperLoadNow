@@ -7,18 +7,18 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import PassangerMap from '../../Components/PassangerMap/PassangerMap';
+import PassengerMap from '../../Components/PassengerMap/PassengerMap';
 import PickupAndDestinationDisplayer from '../../Components/PickUpAndDestination/PickupAndDestinationDisplayer';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import { useSelector } from 'react-redux';
 import PickUpAndDestinationInputs from '../../Components/PickUpAndDestination/PickUpAndDestinationInputs';
-import ShippingDetailes from '../ShippingDetailes/ShippingDetailes';
+import ShippingDetails from '../ShippingDetails/ShippingDetails';
 import SelectListOfVechels from '../../Components/SelectListOfVehicles/ListOfVechels';
 import FindDriverScreen from '../FindDriverScreen/FindDriverScreen';
 import CancelRequestModal from '../../screens/CancelRequest/CancelRequest';
 import WaitingForConfirmation from '../WaitingForConfirmation/WaitingForConfirmation';
 import Journey from '../Journey/Journey';
-import StrightLine from '../../assets/icons/StrightLine.svg';
+import StraightLine from '../../assets/icons/StraightLine.svg';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Reload from '../../Components/Reload/Reload';
@@ -43,8 +43,8 @@ const HomeScreen = ({ navigation }) => {
   if (passengerStatus === null) {
     if (showComponent == 'Pick up and destination') {
       return <PickUpAndDestinationInputs setShowComponent={setShowComponent} />;
-    } else if (showComponent === 'Shipping Detailes') {
-      return <ShippingDetailes setShowComponent={setShowComponent} />;
+    } else if (showComponent === 'Shipping Details') {
+      return <ShippingDetails setShowComponent={setShowComponent} />;
     } else if (showComponent === 'List Of Vehicles') {
       return (
         <SafeAreaView style={{ flex: 1 }}>
@@ -71,7 +71,7 @@ const HomeScreen = ({ navigation }) => {
             backgroundColor: ColorStyles.backgroundColor,
           }}
         >
-          <PassangerMap navigation={navigation} mapHeight={0.8} />
+          <PassengerMap navigation={navigation} mapHeight={0.8} />
           <ScrollView
             style={{
               position: 'absolute',
@@ -87,7 +87,7 @@ const HomeScreen = ({ navigation }) => {
             {/* Bottom Container */}
             <View style={styles.bottomContainer}>
               <View style={styles.strightLineWrapper}>
-                <StrightLine width={100} />
+                <StraightLine width={100} />
               </View>
 
               {passengerStatus == null && (

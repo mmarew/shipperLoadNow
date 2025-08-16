@@ -1,6 +1,6 @@
 // import {View, Text, Button} from 'react-native';
 // import React, {useEffect, useState} from 'react';
-// import PassangerMap from '../../Components/PassangerMap/PassangerMap';
+// import PassengerMap from '../../Components/PassengerMap/PassengerMap';
 // import Styles from './Style';
 // import styles from './Style';
 // import {useSelector} from 'react-redux';
@@ -12,7 +12,7 @@
 //   const isConnected = webSocket?.isConnected;
 //   const driverInfo = webSocket?.driver;
 //   const getToken = async () => {
-//     const passangersToken = await AsyncStorage.getItem('passangersToken');
+//     const PassengersToken = await AsyncStorage.getItem('PassengersToken');
 //   };
 //   useEffect(() => {
 //     getToken();
@@ -34,7 +34,7 @@
 //   return (
 //     <View style={Styles.processWrapper}>
 //       <View style={styles.mapContainer}>
-//         <PassangerMap />
+//         <PassengerMap />
 //       </View>
 //       <View style={styles?.infoContainer}>
 //         {isLoading ? (
